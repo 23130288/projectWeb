@@ -14,6 +14,25 @@
 <body>
 <!-- header -->
 <header>
+    <div class="top-banner">
+        <div class="service-box">
+            <i class="fa fa-truck"></i>
+            <span>Freeship toàn quốc<br><b>ĐƠN TỪ 500K</b></span>
+        </div>
+        <div class="service-box">
+            <i class="fa fa-shield"></i>
+            <span>Hàng hiệu chính hãng<br><b>CAM KẾT 100%</b></span>
+        </div>
+        <div class="service-box">
+            <i class="fa fa-refresh"></i>
+            <span>Đổi trả 30 ngày<br><b>MIỄN PHÍ</b></span>
+        </div>
+        <div class="service-box">
+            <i class="fa fa-wrench"></i>
+            <span>Bảo hành trọn đời<br><b>MIỄN PHÍ</b></span>
+        </div>
+    </div>
+
     <nav>
         <div class="img-nav">
             <img src="img/logo.png" alt="" />
@@ -21,19 +40,30 @@
         <div class="content-nav">
             <ul>
                 <li><a href="#">Trang Chủ</a></li>
-                <li><a href="#">Sản Phẩm</a></li>
+<!--                <li><a href="#">Sản Phẩm</a></li>-->
+                <li class="dropdown">
+                    <a href="#">Sản Phẩm</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Vali</a></li>
+                        <li><a href="#">Balo</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Nổi Bật</a></li>
+                <li><a href="#">Vouncher</a></li>
                 <li><a href="#">Liên Hệ</a></li>
-                <li><a href="#">Giới Thiệu</a></li>
             </ul>
-            <div class="search-container">
-                <form class="search-form">
-                    <input type="text" name="search" placeholder="Tìm kiếm sản phẩm..." />
-                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+            <div class="search-bar">
+                <form>
+                    <div class="search-icon">
+                        <i class="fa fa-search"></i>
+                    </div>
+                    <input type="text" placeholder="Nhập từ khóa..." />
+                    <button type="submit">TÌM KIẾM</button>
                 </form>
             </div>
 
+
         </div>
-        <!-- The Modal -->
         <button id="cart">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
 <!--            Giỏ Hàng-->

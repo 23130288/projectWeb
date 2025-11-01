@@ -10,109 +10,208 @@ li {
 }
 
 /* header */
-nav {
-    padding: 15px;
-    width: 100%;
-    display: flex;
-    background: orange;
-}
 
-nav .content-nav {
-    display: flex;
-    line-height: 3rem;
-    flex-direction: row;
-    justify-content: flex-end;
-    width: 60%;
-}
-
-nav .content-nav ul {
-    display: flex;
-}
-
-nav .content-nav ul li a {
-    text-decoration: none;
-
-    color: white;
-    text-transform: uppercase;
-    padding: 0 15px;
-    font-weight: 800;
-}
-
-nav .content-nav ul li a:hover {
-    color : purple;
-}
-
-.search-container {
-    background-color: #ffa500;
-    padding: 10px;
+.top-banner {
+    background-color: black;
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    right: -200px;
-
+    gap: 40px;
+    padding: 10px 0;
+    font-size: 14px;
+    border-bottom: 2px solid #333;
 }
 
-.search-form {
+
+.service-box {
     display: flex;
     align-items: center;
-    background-color: #fff;
-    border: 2px solid #fff;
-    border-radius: 25px;
-    overflow: hidden;
-    height: 40px;
-    box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
-
+    gap: 10px;
+    text-align: left;
+    font-weight: 500;
+    /*box-shadow: 0 0 0 rgba(255, 255, 255, 0.5);*/
 }
-.search-form:hover {
-    border-width: 2px;
-    border-color: purple;
+/*.service-box:hover {*/
+/*    background-color: purple;*/
+/*}*/
 
+.service-box i {
+    font-size: 22px;
+    color: #f5c518;
 }
 
-.search-form input {
-    border: none;
-    background: #fff;
-    padding: 13px;
-    outline: none;
-    border-radius: 12px;
+
+.service-box span b {
+    color: #f5c518;
+}
+
+
+nav {
+    background-color: #ffa500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 50px;
+    gap: 25px;
+}
+
+/* Logo */
+.img-nav img {
+    width: 80px;
+    height: auto;
+}
+
+/* Menu */
+.content-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    flex: 1;
+}
+
+.content-nav > ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.content-nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0.5);
+}
+
+.content-nav ul li a:hover {
+    background-color: purple;
+}
+
+/* ===== Dropdown Menu ===== */
+.dropdown {
     position: relative;
-    right: -25px;
 }
 
-.search-form button {
-    padding: 5px;
-    border-radius: 12px;
+/* Menu con (ẩn mặc định) */
+.dropdown-menu {
     position: absolute;
-    right: 0;
-    top: -1px;
+    top: 150%;
+    left: -30px;
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 6px;
+    min-width: 160px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.25s ease;
+}
+
+/* Hover vào mục cha thì hiện menu con */
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Các dòng trong menu con */
+.dropdown-menu li {
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid white;
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+/* Liên kết trong menu con */
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 15px;
+    color: black;
+    text-decoration: none;
+    background-color: black;
+    font-weight: 500;
+    transition: all 0.25s ease;
+}
+
+
+.search-bar form {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: white;
+    width: 350px;
+    height: 38px;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+}
+.search-bar form:hover {
+    border-color: purple;
+}
+.search-bar .search-icon {
+    padding: 0 10px;
+    color: #777;
+    font-size: 16px;
+}
+
+.search-bar input {
+    flex: 1;
     border: none;
     outline: none;
-    background: #fff;
-    position: relative;
-    right: 6px;
+    padding: 8px;
+    font-size: 14px;
+}
+
+.search-bar button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 0 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+    height: 100%;
+}
+.search-bar button:hover {
+    background-color: purple;
 }
 
 
 #cart {
-    font-size: 25px;
-    color: black;
-    /*background: #c7b200;*/
-    background: white;
-    border: 1px solid transparent;
+    background-color: white;
+    border:  1px solid transparent;;
     border-radius: 10px;
-    outline: none;
-    margin-left: 1rem;
     padding: 10px;
     cursor: pointer;
+    outline: none;
+    margin-left: 1rem;
     position: relative;
-    right: -400px;
-    height: 50px ;
-    top :5px
+    right: 150px;
 }
 
 #cart:hover {
-    border-width: 2px;
+    border-width: 1px;
     border-color: purple;
 }
+
+#cart i {
+    font-size: 20px;
+    color: black;
+}
+
+
 
