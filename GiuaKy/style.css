@@ -12,6 +12,7 @@ li {
 /* header */
 
 .top-banner {
+    position: relative;
     background-color: black;
     color: #fff;
     display: flex;
@@ -20,7 +21,31 @@ li {
     gap: 40px;
     padding: 10px 0;
     font-size: 14px;
-    border-bottom: 2px solid #333;
+    border-bottom: 2px solid #333
+}
+.brand-name {
+    position: absolute;
+    top: 5px;
+    left: 25px
+
+
+}
+
+.brand-name h1 {
+    font-size: 20px;
+    margin: 0;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+}
+
+.brand-name p {
+    margin: 0;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #fff;
+    opacity: 0.9;
+    transform: translateX(20px);
 }
 
 
@@ -43,7 +68,7 @@ li {
 
 
 .service-box span b {
-    color: #f5c518;
+    color: #ffa500;
 }
 
 
@@ -52,34 +77,42 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 50px;
+    padding: 2px 50px;
     gap: 25px;
 }
 
-/* Logo */
+
 .img-nav img {
     width: 80px;
     height: auto;
 }
 
-/* Menu */
+
 .content-nav {
     display: flex;
     align-items: center;
-    justify-content: center;
+    /*justify-content: center;*/
     gap: 50px;
     flex: 1;
 }
 
-.content-nav > ul {
+.content-nav > ul  {
     list-style: none;
     display: flex;
     gap: 30px;
     margin: 0;
     padding: 0;
 }
+/*.content-nav ul{*/
+/*    display: flex;*/
+/*    list-style: none;*/
+/*    gap: 40px;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    margin-left: 40px;*/
+/*}*/
 
-.content-nav ul li a {
+.content-nav ul li a  {
     text-decoration: none;
     color: white;
     font-weight: bold;
@@ -92,12 +125,12 @@ nav {
     background-color: purple;
 }
 
-/* ===== Dropdown Menu ===== */
+
 .dropdown {
     position: relative;
 }
 
-/* Menu con (ẩn mặc định) */
+
 .dropdown-menu {
     position: absolute;
     top: 150%;
@@ -117,35 +150,41 @@ nav {
     transition: all 0.25s ease;
 }
 
-/* Hover vào mục cha thì hiện menu con */
+
 .dropdown:hover .dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
 
-/* Các dòng trong menu con */
+
 .dropdown-menu li {
     margin: 0;
     padding: 0;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid black;
 }
 
 .dropdown-menu li:last-child {
     border-bottom: none;
 }
 
-/* Liên kết trong menu con */
+
 .dropdown-menu li a {
     display: block;
     padding: 10px 15px;
-    color: black;
+    color: black !important;
     text-decoration: none;
-    background-color: black;
+    background-color: white;
     font-weight: 500;
     transition: all 0.25s ease;
 }
-
+.search-bar{
+    position: absolute;
+    right: 450px;
+    transform: translateY(-2%);
+    display: flex;
+    align-items: center;
+}
 
 .search-bar form {
     display: flex;
@@ -193,14 +232,14 @@ nav {
 
 #cart {
     background-color: white;
-    border:  1px solid transparent;;
+    border:  1px solid transparent;
     border-radius: 10px;
     padding: 10px;
     cursor: pointer;
     outline: none;
     margin-left: 1rem;
     position: relative;
-    right: 150px;
+    right: -40px;
 }
 
 #cart:hover {
@@ -211,6 +250,38 @@ nav {
 #cart i {
     font-size: 20px;
     color: black;
+}
+#login {
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    padding: 10px;
+    border:  1px solid transparent;
+    font-size: 22px;
+    cursor: pointer;
+    position: relative;
+    right :-45px;
+}
+
+#login:hover {
+    border-width:1px ;
+    border-color:purple;
+}
+#menu-toggle {
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    padding: 10px;
+    border:  1px solid transparent;
+    font-size: 22px;
+    cursor: pointer;
+    position: relative;
+    right :-48px;
+}
+
+#menu-toggle:hover {
+    border-width:1px ;
+    border-color:purple;
 }
 
 
