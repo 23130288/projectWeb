@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/confirm.css">
+</head>
+<body>
+<header>
+    this is a header
+</header>
+<main>
+    <div class="container">
+        <h1>Confirming product purchase</h1>
+        <form action="thanksForBuying.html" method="POST">
+            <label for="fullname">Name:</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Enter your name" required>
+
+            <label for="phone">Phone number:</label>
+            <input type="text" id="phone" name="phone" placeholder="Enter your phone" required>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="2" placeholder="Enter your address" required></textarea>
+
+            <label for="note">Notes(optional):</label>
+            <textarea id="note" name="note" rows="4" placeholder="Enter your notes"></textarea>
+
+            <div class="container-button">
+                <button type="submit" class="confirm-btn">Confirm purchase</button>
+            </div>
+        </form>
+    </div>
+</main>
+<footer>
+    this is a footer
+</footer>
+</body>
+</html>
