@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Make body at least fill the viewport */
+
+}
+
+header, footer {
+    padding: 30px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 30px;
+}
+
+footer {
+    margin-top: 30px;
+}
+
+main {
+    flex: 1;
+}
+
+main .container {
+    margin: 0 600px;
+}
+
+main form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+main input {
+    padding: 5px;
+    height: 30px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+main textarea {
+    padding: 5px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+main button {
+    width: 50%;
+    background-color: #1abc9c;
+    color: white;
+    font-weight: bold;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+}
