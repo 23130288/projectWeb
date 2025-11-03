@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/history.css">
+</head>
+<body>
+<header>
+    This is a header
+</header>
+<main>
+    <div class="container" id="container">
+        <div class="tab-nav-menu">
+            <a href="#" class="tab active" data-tab="all">All</a>
+            <a href="#" class="tab" data-tab="delivered">Delivered</a>
+            <a href="#" class="tab" data-tab="shipping">Shipping</a>
+            <a href="#" class="tab" data-tab="cancelled">Canceled</a>
+        </div>
+        <div class="tab-contents">
+            <section class="tab-content all active">
+                <div class="product">Áo thun nam - 250.000đ - Đã giao</div>
+                <div class="product">Quần jean nữ - 320.000đ - Đang giao</div>
+                <div class="product">Giày thể thao - 550.000đ - Đã giao</div>
+            </section>
+            <section class="tab-content delivered">
+                <div class="product">Áo thun nam - 250.000đ</div>
+                <div class="product">Giày thể thao - 550.000đ</div>
+            </section>
+            <section class="tab-content shipping">
+                <div class="product">Quần jean nữ - 320.000đ</div>
+            </section>
+            <section class="tab-content cancelled">
+                Empty
+            </section>
+        </div>
+    </div>
+</main>
+<script src="../js/history.js"></script>
+</body>
+</html>

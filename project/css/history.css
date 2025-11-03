@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+header {
+    padding: 30px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 30px;
+}
+
+main {
+    margin: 0 350px;
+}
+
+main .container .tab-nav-menu {
+    display: flex;
+    margin-top: 20px;
+    border: lightgrey solid 2px;
+}
+
+main .container .tab {
+    flex: 1;
+    text-align: center;
+    color: black;
+    padding: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main .tab-content {
+    display: none;
+    margin-top: 30px;
+    text-align: center;
+}
+
+main .tab-content.active {
+    display: block;
+}
+
+main .tab.active,
+main .tab:hover {
+    border-bottom: #1abc9c solid;
+}
+
+main .tab-content .product {
+    background: lightgrey;
+    border: grey 1px solid;
+    padding: 10px;
+}
