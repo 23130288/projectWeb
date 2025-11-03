@@ -7,6 +7,10 @@
     <title>Title</title>
 </head>
 <body>
+<div class="section_2" id="section_2">
+    <img src="src/logo.png" alt="Logo" class="logo">
+</div>
+
 <div class="section_1" id="section_1">
     <h1>Đăng nhập tài khoản của bạn</h1>
     <form>
@@ -18,17 +22,22 @@
             <label for="password">Mật khẩu:</label>
             <input type="password" id="password" name="password">
         </div>
+        <div class="container" id="container_remember">
+            <div class="remember" id="remember">
+                <input id="check" type="checkbox"> Nhớ mật khẩu
+            </div>
+            <div class="forget" id="forget">
+                <a class="link" id="foget" href="resetPass.html">Quên mật khẩu?</a>
+            </div>
+        </div>
         <div class="container" id="container_log">
             <input class="log" id="log" type="submit" value="Đăng nhập">
         </div>
 
     </form>
-    <p>
-    <div class="container" id="container_more">
-        <a href="#">Quên mật khẩu?</a> |
-        <a href="#">Tạo tài khoản</a>
-    </div>
-    </p>
-</div>
+    <footer class="footer" id="container_more">
+        người dùng mới:&nbsp;
+        <a class="link" href="newAcc.html">Tạo tài khoản</a>
+    </footer>
 </body>
 </html>
