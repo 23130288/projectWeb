@@ -11,24 +11,90 @@
 </header>
 <main>
     <div class="container">
-        <h1>Confirming product purchase</h1>
-        <form action="thanksForBuying.html" method="POST">
-            <label for="fullname">Name:</label>
-            <input type="text" id="fullname" name="fullname" placeholder="Enter your name" required>
-
-            <label for="phone">Phone number:</label>
-            <input type="text" id="phone" name="phone" placeholder="Enter your phone" required>
-
-            <label for="address">Address:</label>
-            <textarea id="address" name="address" rows="2" placeholder="Enter your address" required></textarea>
-
-            <label for="note">Notes(optional):</label>
-            <textarea id="note" name="note" rows="4" placeholder="Enter your notes"></textarea>
-
-            <div class="container-button">
-                <button type="submit" class="confirm-btn">Confirm purchase</button>
+        <div class="product-info">
+            <div class="product-info-header">
+                <div class="product-info-header-content" id="product-info-header-title">Title</div>
+                <div class="product-info-header-content" id="product-info-header-price">Price</div>
+                <div class="product-info-header-content" id="product-info-header-quantity">Quantity</div>
+                <div class="product-info-header-content" id="product-info-header-total">Total</div>
             </div>
-        </form>
+            <div class="product-info-content">
+                <div class="product-info-content-title">
+                    <img src="../images/Niko.png" class="img_Show" alt="">
+                    <label>Name placeholder</label>
+                </div>
+                <div class="product-info-content-more">
+                    <span class="price">345.000 đ</span>
+                </div>
+                <div class="product-info-content-more">
+                    <button class="minus-quantity-button">-</button>
+                    <span class="quantity">1</span>
+                    <button class="plus-quantity-button">+</button>
+                </div>
+                <div class="product-info-content-more">
+                    <span class="total">345.000 đ</span>
+                </div>
+            </div>
+            <div class="product-info-content">
+                <div class="product-info-content-title">
+                    <img src="../images/Niko.png" class="img_Show" alt="">
+                    <label>Name placeholder</label>
+                </div>
+                <div class="product-info-content-more">
+                    <span class="price">345.000 đ</span>
+                </div>
+                <div class="product-info-content-more">
+                    <button id="minus-quantity-button">-</button>
+                    <span class="quantity">1</span>
+                    <button id="plus-quantity-button">+</button>
+                </div>
+                <div class="product-info-content-more">
+                    <span class="total">345.000 đ</span>
+                </div>
+            </div>
+        </div>
+        <div class="user-info">
+            <form id="form-input-info" action="thanksForBuying.html">
+                <div class="form-container">
+
+                    <!-- PHẦN THÔNG TIN NGƯỜI DÙNG -->
+                    <div class="user-info-container">
+                        <h2>User info</h2>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Buyer:</label>
+                                <input type="text" id="name" placeholder="Full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone:</label>
+                                <input type="text" id="phone" placeholder="Phone number" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address:</label>
+                            <input type="text" id="address"
+                                   placeholder="Address..." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="note">Notes:</label>
+                            <textarea id="note" rows="3" placeholder="Optional"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="payment-container">
+                        <h2>PHƯƠNG THỨC THANH TOÁN</h2>
+                        <label><input type="radio" name="payment" required>Bank transfer</label>
+                        <label><input type="radio" name="payment">Visa card</label>
+                        <label><input type="radio" name="payment">Cash</label>
+                    </div>
+
+                    <div class="container-button">
+                        <button type="submit" class="confirm-btn">Buy</button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
     </div>
 </main>
 <footer>

@@ -4,7 +4,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* Make body at least fill the viewport */
-
+    background: lightgrey;
 }
 
 header, footer {
@@ -15,40 +15,136 @@ header, footer {
     font-size: 30px;
 }
 
-footer {
-    margin-top: 30px;
-}
-
 main {
     flex: 1;
 }
 
 main .container {
-    margin: 0 600px;
+    background: white;
+    margin: 0 350px;
 }
 
-main form {
+/* ======================= product info header ======================= */
+/* =================================================================== */
+main .product-info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px;
+    font-weight: bold;
+    border-bottom: 1px solid grey;
+}
+
+main .product-info-header .product-info-header-content {
+    flex: 1;
+    text-align: center;
+}
+
+main .product-info-header #product-info-header-title {
+    flex: 2;
+    text-align: left;
+}
+
+/* ======================= product info content ======================= */
+/* ==================================================================== */
+main .product-info-content img {
+    width: 100px;
+    height: 100px;
+    border-radius: 4px;
+}
+
+main .product-info-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+main .product-info-content .product-info-content-more {
+    text-align: center;
+    padding: 5px;
+    flex: 1;
+}
+
+
+main .product-info-content .product-info-content-title {
+    display: flex;
+    flex: 2;
+    gap: 10px;
+    align-items: center;
+}
+
+
+/* =============================== form =============================== */
+/* ==================================================================== */
+main .user-info {
+    border-top: grey 1px solid;
+    margin: 20px 0 0;
+    padding: 0 50px;
+}
+
+main #form-input-info {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-main input {
-    padding: 5px;
-    height: 30px;
-    width: 100%;
-    border-radius: 8px;
-    border: 1px solid #ccc;
+main #form-input-info .form-group label {
+    font-weight: bold;
+    display: flex;
+    margin-bottom: 5px;
 }
 
-main textarea {
-    padding: 5px;
-    width: 100%;
-    border-radius: 8px;
-    border: 1px solid #ccc;
+main #form-input-info h2 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #1abc9c;
+    text-transform: uppercase;
 }
 
-main button {
+main #form-input-info .form-row {
+    display: flex;
+    gap: 20px;
+}
+
+main #form-input-info .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    flex: 1;
+}
+
+main #form-input-info .form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+main #form-input-info .form-group input,
+main #form-input-info .form-group textarea {
+    padding: 8px 10px;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+}
+
+main #form-input-info .payment-container {
+    padding: 10px;
+    margin-top: 30px;
+    border: lightgrey 1px solid;
+    border-radius: 4px;
+}
+
+.payment-container label {
+    display: block;
+    margin: 8px 0;
+}
+
+.container-button {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+main #form-input-info button {
     width: 50%;
     background-color: #1abc9c;
     color: white;
