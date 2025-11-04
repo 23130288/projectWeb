@@ -46,10 +46,9 @@ body {
 }
 
 .section_1 .container:hover,
-.password-wrapper#EDB310 button:hover {
-    color: ;
+.section_1 .password-wrapper button:hover {
+    color: #EDB310;
 }
-
 
 .section_1 input {
     padding: 10px 0px;
@@ -61,11 +60,11 @@ body {
     text-indent: 10px;
 }
 
-.password-wrapper {
+.section_1 .password-wrapper {
     position: relative;
 }
 
-.password-wrapper button {
+.section_1 .password-wrapper button {
     position: absolute;
     right: 10px;
     margin-top: 3px;
