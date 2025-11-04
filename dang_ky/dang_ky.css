@@ -33,6 +33,7 @@ body {
     display: flex;
     justify-content: center;
     padding: 50px;
+    color: #EDB310;
 }
 
 .section_1 label {
@@ -44,10 +45,11 @@ body {
     margin: 40px 70px;
 }
 
-.section_1 .container:hover {
-    margin: 40px 70px;
-    color: #EDB310;
+.section_1 .container:hover,
+.password-wrapper#EDB310 button:hover {
+    color: ;
 }
+
 
 .section_1 input {
     padding: 10px 0px;
@@ -55,6 +57,23 @@ body {
     border-radius: 5px;
     background: #3D414A;
     border: none;
+    color: white;
+    text-indent: 10px;
+}
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper button {
+    position: absolute;
+    right: 10px;
+    margin-top: 3px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
 }
 
 .section_1 .log {
