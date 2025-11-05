@@ -6,12 +6,13 @@ body {
 header, footer {
     padding: 30px;
     text-align: center;
-    background: #1abc9c;
+    background: #F2C641;
     color: white;
     font-size: 30px;
 }
 
-/* Menu */
+/* ======================= menu ======================= */
+/* ==================================================== */
 .menu {
     background-color: #3b3b4f;
 }
@@ -32,55 +33,153 @@ header, footer {
     font-weight: 500;
 }
 .menu a:hover {
-    color: #fdd835;
+    color: #F2C641;
 }
 
 
-/* main */
+/* ======================= main ======================= */
+/* ==================================================== */
 main {
     margin: 0 350px;
 }
-
-main .container_image img {
-    width: 300px;
-    height: 300px;
-}
-
-main #section_1 .container {
+/* ======================= product section ======================= */
+/* =============================================================== */
+/* Product section layout */
+.section-product {
     display: flex;
-    gap: 50px;
-    margin: 40px 0;
+    gap: 60px;
+    align-items: flex-start;
 }
 
-main #section_2 button {
+.container-images {
+    flex: 1;
+}
+
+.container-images .main-image {
     width: 100%;
-    padding: 15px;
-    font-size: 15px;
+    max-width: 300px;
+    border: 1px solid #ddd;
 }
 
-main #section_3 .container {
+.images-list {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.images-list img {
+    width: 45px;
+    height: 45px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.images-list img:hover {
+    border-color: #000;
+}
+
+/* Product details (right side) */
+.product-details {
+    flex: 1;
+}
+
+.product-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 22px;
+    font-weight: bold;
+    color: #111;
+}
+
+.desc {
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.option {
+    margin-bottom: 20px;
+}
+
+.option label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.color-options, .size-options {
+    display: flex;
+    gap: 10px;
+}
+
+.color-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.color-btn.black { background: green; }
+.color-btn.red { background: red; }
+.color-btn.blue { background: blue; }
+
+.size-options button {
+    padding: 8px 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+}
+
+.size-options button:hover {
+    background: #f2f2f2;
+    border-color: #000;
+}
+
+.container-button button {
+    background-color: #ff5a7c;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.container-button button:hover {
+    background-color: #e14e6e;
+}
+
+
+/* ======================= comment section ======================= */
+/* =============================================================== */
+main .section-comment {
     display: flex;
     flex-direction: column;
 }
-main #section_3 h3 {
+main .section-comment h3 {
     font-size: 22px;
     margin-bottom: 0px;
 }
-main #section_3 .comment-form {
+main .section-comment .comment-form {
     padding: 15px;
-    border-bottom: #1abc9c solid;
+    border-bottom: #F2C641 solid;
 }
-main #section_3 .comment-form textarea {
+main .section-comment .comment-form textarea {
     width: 100%;
     height: 100px;
 }
-main #section_3 .comment-list {
+main .section-comment .comment-list {
     margin: 15px 0 30px;
 }
-main #section_3 .comment {
+main .section-comment .comment {
     background: grey;
     margin: 10px;
-    border: #1abc9c solid;
+    border: #F2C641 solid;
 }
-
-
