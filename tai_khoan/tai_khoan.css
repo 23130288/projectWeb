@@ -40,6 +40,7 @@ body {
     font-size: 20px;
 }
 
+#selection_2 .log,
 #selection_2 .menu .avata .change-btn {
     background: #EDB310;
     border: none;
@@ -55,6 +56,17 @@ body {
 #selection_2 .menu .avata .change-btn:hover {
     background: #ffdb5c;
 }
+
+#selection_2 .log {
+    width: 30%;
+    margin: 0 auto; /* căn giữa ngang */
+}
+
+#selection_2 .log:hover {
+    background: #ffdb5c;
+    cursor: pointer;
+}
+
 
 #selection_2 .menu .menu_item {
     margin-top: 20px;
@@ -75,6 +87,11 @@ body {
     color: white;
 }
 
+#selection_2 .infomation h2 {
+    text-align: center;
+    padding: 25px 0px;
+}
+
 #selection_2 .infomation {
     background: white;
     margin: 70px 250px 70px 20px;
@@ -86,15 +103,10 @@ body {
     color: black;
 }
 
-#selection_2 .infomation .in4_row {
+#selection_2 .infomation .in4_row, .password-wrapper {
     display: flex;
     gap: 10px;
     margin-bottom: 25px;
-}
-
-#selection_2 .infomation #ìn4_header {
-    text-align: center;
-    padding: 25px 0px;
 }
 
 #selection_2 .infomation .in4_label {
@@ -105,7 +117,7 @@ body {
     text-align: right;
 }
 
-#selection_2 .infomation .in4_input {
+#selection_2 .infomation .in4_input, .password-wrapper {
     flex: 1;
     background: #eeee;
     border-radius: 5px;
@@ -124,3 +136,32 @@ body {
     border: none;
     text-indent: 0;
 }
+
+#selection_2 #old_password,
+#selection_2 #password,
+#selection_2 #confirm_password {
+    padding: 10px 0px;
+}
+
+
+#selection_2 .password-wrapper {
+    position: relative;
+    padding: 10px, 0px;
+    margin: none;
+}
+
+#selection_2 .password-wrapper button {
+    position: absolute;
+    right: 10px;
+    margin-top: 3px;
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+#selection_2 .password-wrapper button:hover {
+    color: #EDB310;
+}
+
