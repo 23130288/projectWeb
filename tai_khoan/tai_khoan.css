@@ -19,14 +19,6 @@ body {
     width: 250px;
 }
 
-#selection_2 .infomation {
-    background: white;
-    margin: 70px 250px 70px 20px;
-    height: 600px;
-    width: calc(100% - 250px);
-    border: #EDB310 solid 1px;
-}
-
 #selection_2 .menu .avata {
     padding: 20px;
     text-align: center;
@@ -65,7 +57,7 @@ body {
 }
 
 #selection_2 .menu .menu_item {
-    margin-top: 50px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -81,4 +73,54 @@ body {
 #selection_2 .menu .menu_item .item:focus {
     background: #EDB310;
     color: white;
+}
+
+#selection_2 .infomation {
+    background: white;
+    margin: 70px 250px 70px 20px;
+    height: auto;
+    width: calc(100% - 250px);
+    border: #EDB310 solid 1px;
+    padding: 20px;
+    border-radius: 10px;
+    color: black;
+}
+
+#selection_2 .infomation .in4_row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+#selection_2 .infomation #ìn4_header {
+    text-align: center;
+    padding: 25px 0px;
+}
+
+#selection_2 .infomation .in4_label {
+    width: 200px;
+    padding: 10px;
+    color: #333;
+    font-weight: bold;
+    text-align: right;
+}
+
+#selection_2 .infomation .in4_input {
+    flex: 1;
+    background: #eeee;
+    border-radius: 5px;
+    border: none;
+    color: #333;
+    font-size: 15px;
+    font-weight: bold;
+    text-indent: 10px;
+}
+
+#selection_2 .infomation #gt {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: none;
+    border: none;
+    text-indent: 0;
 }
