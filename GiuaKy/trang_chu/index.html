@@ -16,26 +16,48 @@
             <h1>TRAVEL.COM</h1>
             <p>VALI - BALO</p>
         </div>
-        <div class="service-box">
-            <i class="fa fa-truck"></i>
-            <span>Freeship toàn quốc<br><b>ĐƠN TỪ 500K</b></span>
+        <div class="header-search">
+            <form class="search-bar">
+                <select class="search-select">
+                    <option>TẤT CẢ</option>
+                    <option>VALI</option>
+                    <option>BALO</option>
+                </select>
+                <input type="text" placeholder="Nhập từ khóa..."/>
+                <button class="search-btn">🔍</button>
+            </form>
+
+            </select>
+
+            </div>
+
+        <div class="header-right">
+            <div class="lang-select">
+                <div class="selected">
+                    <img src="https://flagcdn.com/w20/gb.png" alt="EN">
+                    <span>English ▾</span>
+                </div>
+                <div class="options">
+                    <div class="option" data-value="en">
+                        <img src="https://flagcdn.com/w20/gb.png" alt="EN">
+                        <span>English</span>
+                    </div>
+                    <div class="option" data-value="vn">
+                        <img src="https://flagcdn.com/w20/vn.png" alt="VN">
+                        <span>Tiếng Việt</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="service-box">
-            <i class="fa fa-shield"></i>
-            <span>Hàng hiệu chính hãng<br><b>CAM KẾT 100%</b></span>
-        </div>
-        <div class="service-box">
-            <i class="fa fa-refresh"></i>
-            <span>Đổi trả 30 ngày<br><b>MIỄN PHÍ</b></span>
-        </div>
-        <div class="service-box">
-            <i class="fa fa-wrench"></i>
-            <span>Bảo hành trọn đời<br><b>MIỄN PHÍ</b></span>
-        </div>
-        <div class="hotline">
-            <i class="fa fa-phone"></i>
-            <span>Hotline : <b>0909 123 456</b></span>
-        </div>
+
+        <button id="cart">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <!--            Giỏ Hàng-->
+        </button>
+
+        <button id="login">
+            <i class="fa fa-user" aria-hidden="true"></i>
+        </button>
     </div>
 
     <nav>
@@ -43,9 +65,11 @@
             <img src="img/logo.png" alt="" />
         </div>
         <div class="content-nav">
+                    <button id="menu-toggle">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </button>
             <ul>
                 <li><a href="#">Trang Chủ</a></li>
-<!--                <li><a href="#">Sản Phẩm</a></li>-->
                 <li class="dropdown">
                     <a href="#">Sản Phẩm</a>
                     <ul class="dropdown-menu">
@@ -54,37 +78,9 @@
                     </ul>
                 </li>
                 <li><a href="#">Nổi Bật</a></li>
-                <li><a href="#">Voucher</a></li>
-                <li><a href="#">Liên Hệ</a></li>
             </ul>
-            <div class="search-bar">
-                <form>
-                    <div class="search-icon">
-                        <i class="fa fa-search"></i>
-                    </div>
-                    <input type="text" placeholder="Nhập từ khóa..." />
-                    <button type="submit">TÌM KIẾM</button>
-                </form>
-            </div>
-
-
         </div>
-        <button id="notify">
-            <i class="fa fa-bell" aria-hidden="true"></i>
-        </button>
 
-        <button id="cart">
-                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-<!--            Giỏ Hàng-->
-        </button>
-
-        <button id="login">
-            <i class="fa fa-user" aria-hidden="true"></i>
-        </button>
-
-        <button id="menu-toggle">
-            <i class="fa fa-bars" aria-hidden="true"></i>
-        </button>
 
     </nav>
 
