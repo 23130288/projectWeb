@@ -10,7 +10,7 @@ body {
 header, footer {
     padding: 30px;
     text-align: center;
-    background: #1abc9c;
+    background: #F2C641;
     color: white;
     font-size: 30px;
 }
@@ -60,7 +60,8 @@ main .product-info-content {
     padding: 10px;
 }
 
-main .product-info-content .product-info-content-more {
+main .product-info-content .product-info-content-more,
+main .product-info-content .product-info-content-quantity {
     text-align: center;
     padding: 5px;
     flex: 1;
@@ -72,6 +73,43 @@ main .product-info-content .product-info-content-title {
     flex: 2;
     gap: 10px;
     align-items: center;
+}
+
+main .product-info-content .product-info-content-quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.minus-quantity-button,
+.plus-quantity-button,
+.quantity {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+    cursor: pointer;
+    background: white;
+    box-sizing: border-box;
+    border: lightgrey solid 1px;
+    padding: 0;
+    border-radius: 0;
+}
+
+
+.minus-quantity-button:hover,
+.plus-quantity-button:hover {
+    background: lightgrey;
+}
+
+.quantity {
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantity:hover {
+    cursor: default;
 }
 
 
@@ -98,7 +136,7 @@ main #form-input-info .form-group label {
 main #form-input-info h2 {
     font-size: 16px;
     margin-bottom: 15px;
-    color: #1abc9c;
+    color: #F2C641;
     text-transform: uppercase;
 }
 
@@ -146,7 +184,7 @@ main #form-input-info .payment-container {
 
 main #form-input-info button {
     width: 50%;
-    background-color: #1abc9c;
+    background-color: #F2C641;
     color: white;
     font-weight: bold;
     padding: 15px;
