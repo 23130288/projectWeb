@@ -1,4 +1,4 @@
-const quantityContainers = document.querySelectorAll('.product-info-content-quantity');
+const quantityContainers = document.querySelectorAll('.product-item-quantity');
 
 quantityContainers.forEach(container => {
     const minusBtn = container.querySelector('.minus-quantity-button');

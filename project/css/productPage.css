@@ -58,7 +58,7 @@ main {
 .container-images .main-image {
     width: 100%;
     max-width: 300px;
-    border: 1px solid #ddd;
+    border: 1px solid lightgrey;
 }
 
 .images-list {
@@ -70,12 +70,12 @@ main {
 .images-list img {
     width: 45px;
     height: 45px;
-    border: 1px solid #ddd;
+    border: 1px solid lightgrey;
     cursor: pointer;
 }
 
 .images-list img:hover {
-    border-color: #000;
+    border-color: black;
 }
 
 /* Product details (right side) */
@@ -91,11 +91,11 @@ main {
 .price {
     font-size: 22px;
     font-weight: bold;
-    color: #111;
+    color: black;
 }
 
 .desc {
-    color: #555;
+    color: grey;
     margin-bottom: 20px;
     line-height: 1.5;
 }
@@ -119,7 +119,7 @@ main {
 .color-btn {
     width: 30px;
     height: 30px;
-    border: 1px solid #ccc;
+    border: 1px solid lightgrey;
     border-radius: 50%;
     cursor: pointer;
 }
@@ -130,19 +130,19 @@ main {
 
 .size-options button {
     padding: 8px 14px;
-    border: 1px solid #ccc;
+    border: 1px solid lightgrey;
     border-radius: 4px;
     background: white;
     cursor: pointer;
 }
 
 .size-options button:hover {
-    background: #f2f2f2;
-    border-color: #000;
+    background: white;
+    border-color: black;
 }
 
-.container-button button {
-    background-color: #ff5a7c;
+.section-product .container-button button {
+    background-color: #F2C641;
     color: white;
     border: none;
     width: 100%;
@@ -151,9 +151,13 @@ main {
     border-radius: 4px;
     cursor: pointer;
 }
+.section-product .container-button a {
+    text-decoration: none;
+    color: black;
+}
 
-.container-button button:hover {
-    background-color: #e14e6e;
+.section-product .container-button button:hover {
+    background: #F2B035;
 }
 
 
@@ -165,7 +169,15 @@ main .section-comment {
 }
 main .section-comment h3 {
     font-size: 22px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
+}
+main .section-comment .comment-form button {
+    background-color: #F2C641;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 4px;
+    cursor: pointer;
 }
 main .section-comment .comment-form {
     padding: 15px;
