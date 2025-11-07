@@ -14,45 +14,58 @@
     <div class="container">
         <div class="product-info">
             <div class="product-info-header">
-                <div class="product-info-header-content" id="product-info-header-title">Title</div>
-                <div class="product-info-header-content" id="product-info-header-price">Price</div>
-                <div class="product-info-header-content" id="product-info-header-quantity">Quantity</div>
-                <div class="product-info-header-content" id="product-info-header-total">Total</div>
+                <div class="product-info-header-content" id="product-info-header-title">Tiêu đề</div>
+                <div class="product-info-header-content" id="product-info-header-price">Đơn giá</div>
+                <div class="product-info-header-content" id="product-info-header-quantity">Số lượng</div>
+                <div class="product-info-header-content" id="product-info-header-total">Tổng</div>
+                <div class="product-info-header-content" id="product-info-header-action">Thao tác</div>
             </div>
 
-            <div class="product-info-content">
-                <div class="product-info-content-title">
+            <div class="product-item">
+                <div class="product-item-title">
                     <img src="../images/Niko.png" class="img_Show" alt="">
-                    <label>Name placeholder</label>
+                    <div class="product-item-info">
+                        <label>Name placeholder</label>
+                        <p>description placeholder</p>
+                    </div>
                 </div>
-                <div class="product-info-content-more">
+                <div class="product-item-more">
                     <span class="price">345.000 đ</span>
                 </div>
-                <div class="product-info-content-quantity">
+                <div class="product-item-quantity">
                     <button class="minus-quantity-button">-</button>
                     <span class="quantity">1</span>
                     <button class="plus-quantity-button">+</button>
                 </div>
-                <div class="product-info-content-more">
+                <div class="product-item-more">
                     <span class="total">345.000 đ</span>
+                </div>
+                <div class="product-item-more">
+                    <button class="action-delete-product">Xóa</button>
                 </div>
             </div>
 
-            <div class="product-info-content">
-                <div class="product-info-content-title">
+            <div class="product-item">
+                <div class="product-item-title">
                     <img src="../images/Niko.png" class="img_Show" alt="">
-                    <label>Name placeholder</label>
+                    <div class="product-item-info">
+                        <label>Name placeholder</label>
+                        <p>description placeholder</p>
+                    </div>
                 </div>
-                <div class="product-info-content-more">
+                <div class="product-item-more">
                     <span class="price">345.000 đ</span>
                 </div>
-                <div class="product-info-content-quantity">
+                <div class="product-item-quantity">
                     <button class="minus-quantity-button">-</button>
                     <span class="quantity">1</span>
                     <button class="plus-quantity-button">+</button>
                 </div>
-                <div class="product-info-content-more">
+                <div class="product-item-more">
                     <span class="total">345.000 đ</span>
+                </div>
+                <div class="product-item-more">
+                    <button class="action-delete-product">Xóa</button>
                 </div>
             </div>
         </div>
@@ -61,37 +74,37 @@
                 <div class="form-container">
 
                     <div class="user-info-container">
-                        <h2>User info</h2>
+                        <h2>Thông tin người dùng</h2>
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="name">Buyer:</label>
-                                <input type="text" id="name" placeholder="Full name" required>
+                                <label for="name">Họ tên:</label>
+                                <input type="text" id="name" placeholder="Họ tên" required>
                             </div>
                             <div class="form-group">
-                                <label for="phone">Phone:</label>
-                                <input type="text" id="phone" placeholder="Phone number" required>
+                                <label for="phone">Số điện thoại:</label>
+                                <input type="text" id="phone" placeholder="Số điện thoại" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="address">Address:</label>
+                            <label for="address">Địa chỉ:</label>
                             <input type="text" id="address"
-                                   placeholder="Address..." required>
+                                   placeholder="Địa chỉ..." required>
                         </div>
                         <div class="form-group">
-                            <label for="note">Notes:</label>
+                            <label for="note">Thông tin thêm:</label>
                             <textarea id="note" rows="3" placeholder="Optional"></textarea>
                         </div>
                     </div>
 
                     <div class="payment-container">
-                        <h2>Payment method</h2>
-                        <label><input type="radio" name="payment" required>Bank transfer</label>
-                        <label><input type="radio" name="payment">Visa card</label>
-                        <label><input type="radio" name="payment">Cash</label>
+                        <h2>Phương thức thanh toán</h2>
+                        <label><input type="radio" name="payment" required>Chuyển ngân hàng</label>
+                        <label><input type="radio" name="payment">Thẻ Visa</label>
+                        <label><input type="radio" name="payment">Tiền mặt</label>
                     </div>
 
                     <div class="container-button">
-                        <button type="submit" class="confirm-btn">Buy</button>
+                        <button type="submit" class="confirm-btn">Thanh toán</button>
                     </div>
                 </div>
             </form>

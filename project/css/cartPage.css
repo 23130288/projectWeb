@@ -31,6 +31,7 @@ main .product-info-header {
     justify-content: space-between;
     align-items: center;
     padding: 22px;
+    font-size: 16px;
     font-weight: bold;
     border-bottom: 1px solid grey;
 }
@@ -45,37 +46,42 @@ main .product-info-header #product-info-header-title {
     text-align: left;
 }
 
-/* ======================= product info content ======================= */
+/* =========================== product item =========================== */
 /* ==================================================================== */
-main .product-info-content img {
+main .product-item img {
     width: 100px;
     height: 100px;
     border-radius: 4px;
 }
 
-main .product-info-content {
+main .product-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px;
+    font-size: 14px;
 }
 
-main .product-info-content .product-info-content-more,
-main .product-info-content .product-info-content-quantity {
+main .product-item .product-item-more,
+main .product-item .product-item-quantity {
     text-align: center;
     padding: 5px;
     flex: 1;
 }
 
 
-main .product-info-content .product-info-content-title {
+main .product-item .product-item-title {
     display: flex;
     flex: 2;
     gap: 10px;
     align-items: center;
 }
 
-main .product-info-content .product-info-content-quantity {
+main .product-item .product-item-title p {
+    color: grey;
+}
+
+main .product-item .product-item-quantity {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -86,7 +92,6 @@ main .product-info-content .product-info-content-quantity {
 .quantity {
     width: 30px;
     height: 30px;
-    font-size: 12px;
     cursor: pointer;
     background: white;
     box-sizing: border-box;
@@ -112,6 +117,15 @@ main .product-info-content .product-info-content-quantity {
     cursor: default;
 }
 
+.action-delete-product {
+    padding: 0;
+    border: none;
+    background: white;
+}
+
+.action-delete-product:hover {
+    cursor: pointer;
+}
 
 /* =============================== form =============================== */
 /* ==================================================================== */
@@ -119,6 +133,7 @@ main .user-info {
     border-top: grey 1px solid;
     margin: 20px 0 0;
     padding: 0 50px;
+    font-size: 14px;
 }
 
 main #form-input-info {
