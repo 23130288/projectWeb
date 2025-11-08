@@ -8,9 +8,6 @@
 li {
     list-style: none;
 }
-
-/* header */
-
 .top-banner {
     position: relative;
     background-color: black;
@@ -19,26 +16,21 @@ li {
     justify-content: center;
     align-items: center;
     gap: 40px;
-    padding: 7px 0;
+    padding: 5px 0;
     font-size: 14px;
-    border-bottom: 2px solid #333
+    border-bottom: 2px solid black;
 }
 .brand-name {
     position: absolute;
     top: 5px;
     left: 25px
-
-
 }
-
 .brand-name h1 {
     font-size: 20px;
     margin: 0;
     font-weight: bold;
     letter-spacing: 2px;
-
 }
-
 .brand-name p {
     margin: 0;
     font-size: 10px;
@@ -54,223 +46,164 @@ li {
     display: flex;
     border-radius: 6px;
     overflow: hidden;
+    width: 600px;
 }
-.search-select{
-    padding: 10px 10px;
+.search-select {
+    padding: 9px 10px;
     color: black;
+    height: 40px;
+    background-color: orange;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
 }
+.search-select:focus {
+    color: white;
+    background-color: purple;
+}
+.search-select option {
+    color: black;
+    background-color: white;
+}
+
+.search-icon {
+    padding: 8px 10px;
+    color: black;
+    font-size: 16px;
+    background-color: white;
+}
+
 .search-bar input {
     flex: 1;
-    padding: 8px 100px;
     border: none;
     outline: none;
-
+    padding: 2px;
+    font-size: 12px;
 }
-.search-bar input::placeholder {
-    position: relative;
-    color: lightgrey;
-    right: 15px;
+.divider {
+    width: 1px;
+    height: 22px;
+    background-color: black;
 }
-
-.search-btn {
-    background: orange;
+.search-bar button {
+    background-color: orange;
+    color: black;
     border: none;
-    padding: 8px 14px;
+    padding: 0 15px;
+    font-weight: bold;
+    text-transform: uppercase;
     cursor: pointer;
+    transition: 0.3s;
+    height: 40px;
+    font-size: 12px;
 }
-.search-btn:hover {
-    background-color: purple;
-}
-
-.lang-select {
-    position: relative;
-    width: 150px;
-    font-size: 14px;
-    user-select: none;
-}
-
-
-
-.selected {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #fff;
-    color: black;
-    border-radius: 6px;
-    padding: 6px 30px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.selected:hover {
-    background-color: purple;
+.search-bar button:hover {
     color: white;
-}
-
-
-.selected img {
-    width: 15px;
-    height: 14px;
-    margin-right: 6px;
-}
-
-
-.options {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: #fff;
-    color: black;
-    border: 1px solid #a020f0;
-    border-radius: 6px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    z-index: 100;
-}
-
-
-.lang-select:hover .options {
-    display: block;
-}
-
-
-.option {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 10px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.option img {
-    width: 20px;
-    height: 14px;
-}
-
-.option:hover {
     background-color: purple;
+}
+.avatar-icon-shopping-cart {
+    width: 140px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left : 250px;
+
+}
+.avatar-icon-user {
+    width: 140px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left :140px;
+}
+
+.inner-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inner-circle:hover {
+    background-color: purple;
+}
+
+.inner-circle i {
+    color: black;
+    font-size: 28px;
+}
+.inner-circle i:hover {
     color: white;
-}
-
-
-.lang-select,
-.selected,
-.options {
-    background-color: #fff;
-}
-#cart {
-    background-color: white;
-    border:  1px solid transparent;
-    border-radius: 10px;
-    padding: 7px;
-    cursor: pointer;
-    outline: none;
-    margin-left: 1rem;
-    position: relative;
-    right: -200px;
-    font-size: 20px;
-}
-
-#cart:hover {
-    border-width: 1px;
-    border-color: purple;
-}
-
-#cart i {
-    font-size: 20px;
-    color: black;
-}
-#login {
-    background-color: white;
-    color: black;
-    border-radius: 10px;
-    padding: 7px;
-    border:  1px solid transparent;
-    font-size: 20px;
-    cursor: pointer;
-    position: relative;
-    right :-200px;
-
-}
-
-#login:hover {
-    border-width:1px ;
-    border-color:purple;
 }
 
 nav {
-    background-color: #ffa500;
+    background-color: orange;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 7px 50px;
     gap: 25px;
 }
-
-
 .img-nav img {
     width: 80px;
     height: auto;
 }
-
+.content-nav {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex: 1;
+    font-size: 14px;
+}
 #menu-toggle {
+    width: 30px;
+    height: 32px;
     background-color: white;
     color: black;
     border-radius: 5px;
     padding: 5px;
     border:  1px solid transparent;
-    font-size: 15px;
     cursor: pointer;
     position: relative;
     right :75px;
+    font-size: 15px;
 }
-
 #menu-toggle:hover {
-    border-width:1px ;
-    border-color:purple;
+    background-color: purple;
+    color: white;
 }
-
-.content-nav {
-    display: flex;
-    align-items: center;
-    /*justify-content: center;*/
-    gap: 50px;
-    flex: 1;
-    font-size: 12px;
-}
-
 .content-nav > ul  {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 40px;
     margin: 0;
     padding: 0;
     position: relative;
     right: 85px;
 }
-
 .content-nav ul li a  {
     text-decoration: none;
-    color: white;
+    color: black;
     font-weight: bold;
     text-transform: uppercase;
     transition: 0.3s;
     box-shadow: 0 0 0 rgba(255, 255, 255, 0.5);
 }
-
 .content-nav ul li a:hover {
+    color: white;
     background-color: purple;
 }
-
-
 .dropdown {
     position: relative;
 }
-
-
 .dropdown-menu {
     position: absolute;
     top: 150%;
@@ -289,15 +222,11 @@ nav {
     transform: translateY(10px);
     transition: all 0.25s ease;
 }
-
-
 .dropdown:hover .dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
-
-
 .dropdown-menu li {
     margin: 0;
     padding: 0;
@@ -307,8 +236,6 @@ nav {
 .dropdown-menu li:last-child {
     border-bottom: none;
 }
-
-
 .dropdown-menu li a {
     display: block;
     padding: 10px 15px;
@@ -318,40 +245,29 @@ nav {
     font-weight: 500;
     transition: all 0.25s ease;
 }
-
-
-
-.product-section {
-    padding: 50px 80px;
-    background-color: #f9f9f9;
+.results {
+    padding: 30px 60px;
+    background-color: white;
     text-align: center;
 }
 
-.product-section h2 {
-    background-color: #ffa500;
-    color: white;
-    font-size: 26px;
-    margin: 20px 0 25px;
-    letter-spacing: 1.5px;
-    border-bottom: 2px solid transparent;
-    display: inline-block;
-    padding-bottom: 5px;
-    border-radius: 10px;
-    width: 22%;
-    cursor: pointer;
+.results h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #222;
 }
 
-.product-grid {
+.product-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
-    margin-bottom: 40px;
+    margin-bottom: 70px;
     padding: 30px 40px;
 }
 
 .product-card {
     position: relative;
-    background: #fff;
+    background: white;
     border-radius: 12px;
     padding: 15px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -366,26 +282,24 @@ nav {
     position: absolute;
     top: 10px;
     right: 10px;
-    background-color: purple;
+    background-color: orange;
     color: white;
     font-weight: bold;
-    font-size: 15px;
-    padding: 5px 8px;
+    font-size: 17px;
+    padding: 5px 2px;
     border-radius: 5px;
     z-index: 10;
 }
+
 .product-card img {
     width: 45%;
     height: 180px;
     object-fit: cover;
     border-radius: 10px;
 }
-
 .product-card img:hover {
     transform: scale(1.1);
 }
-
-
 .product-card h3 {
     margin: 10px 0 5px;
     font-size: 17px;
@@ -400,8 +314,8 @@ nav {
 }
 .price .old-price {
     text-decoration: line-through;
-    color: #888;
-    margin-right: 8px;
+    color: purple;
+    margin-right: 10px;
 }
 
 .price .new-price {
@@ -410,8 +324,8 @@ nav {
 }
 
 .buy-btn {
-    background-color: #800080;
-    color: #fff;
+    background-color: orange;
+    color: black;
     border: none;
     border-radius: 25px;
     padding: 8px 20px;
@@ -421,14 +335,14 @@ nav {
 }
 
 .buy-btn:hover {
-    background-color: #a000a0;
+    color: white;
+    background-color: purple;
 }
-
 .footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #2c2c2c;
+    background-color: black;
     color: white;
     padding: 28px 60px;
     font-size: 14px;
@@ -436,13 +350,10 @@ nav {
     bottom: 0;
     width: 100%;
 }
-
 .footer-left {
     position: absolute;
     top: 5px;
     left: 25px
-
-
 }
 
 .footer-left h3 {
@@ -457,7 +368,7 @@ nav {
     margin: 0;
     font-size: 10px;
     letter-spacing: 2px;
-    color: #fff;
+    color: white;
     opacity: 0.9;
     transform: translateX(20px);
 }
@@ -475,4 +386,3 @@ nav {
     color: orange;
     font-size: 18px;
 }
-
