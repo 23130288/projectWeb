@@ -1,9 +1,9 @@
-const tabs = document.querySelectorAll('.tab');
-const contents = document.querySelectorAll('.tab-content');
+const tabs = document.querySelectorAll('.tab-menu');
+const contents = document.querySelectorAll('.product-content');
 
 tabs.forEach(tab => {
     tab.addEventListener('click', (e) => {
-        e.preventDefault(); // ❗ Ngăn link nhảy trang (#)
+        e.preventDefault();
 
         tabs.forEach(t => t.classList.remove('active'));
         contents.forEach(c => c.classList.remove('active'));
