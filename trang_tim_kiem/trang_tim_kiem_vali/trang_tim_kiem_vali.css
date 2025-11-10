@@ -261,7 +261,7 @@ nav {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
-    margin-bottom: 70px;
+    margin-bottom: 40px;
     padding: 30px 40px;
 }
 
@@ -339,16 +339,16 @@ nav {
     background-color: purple;
 }
 .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    position: relative;
     background-color: black;
-    color: white;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
     padding: 28px 60px;
     font-size: 14px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    border-bottom: 2px solid black;
 }
 .footer-left {
     position: absolute;
