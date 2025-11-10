@@ -4,91 +4,110 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="../css/cartPage.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 <header>
     this is a header
 </header>
 <main>
+    <i class="fa-regular fa-pen"></i>
     <div class="container">
+        <h1>Giỏ hàng</h1>
         <div class="product-info">
             <div class="product-info-header">
-                <div class="product-info-header-content" id="product-info-header-title">Tiêu đề</div>
+                <div class="product-info-header-content" id="product-info-header-title">Sản phẩm</div>
                 <div class="product-info-header-content" id="product-info-header-price">Đơn giá</div>
                 <div class="product-info-header-content" id="product-info-header-quantity">Số lượng</div>
                 <div class="product-info-header-content" id="product-info-header-total">Tổng</div>
                 <div class="product-info-header-content" id="product-info-header-action">Thao tác</div>
             </div>
 
-            <div class="product-item">
-                <div class="product-item-title">
-                    <img src="../images/Niko.png" class="img_Show" alt="">
-                    <div class="product-item-info">
-                        <label>Name placeholder</label>
-                        <p>description placeholder</p>
+            <div class="container-product-items">
+                <div class="product-item">
+                    <div class="product-item-title">
+                        <img src="../images/Niko.png" class="img_Show" alt="">
+                        <div class="product-item-info">
+                            <label>Name placeholder</label>
+                            <p>description placeholder</p>
+                        </div>
+                    </div>
+                    <div class="product-item-more">
+                        <span class="price">345.000 đ</span>
+                    </div>
+                    <div class="product-item-quantity">
+                        <button class="minus-quantity-button">-</button>
+                        <span class="quantity">1</span>
+                        <button class="plus-quantity-button">+</button>
+                    </div>
+                    <div class="product-item-more">
+                        <span class="total">345.000 đ</span>
+                    </div>
+                    <div class="product-item-more">
+                        <button class="action-delete-product">Xóa</button>
                     </div>
                 </div>
-                <div class="product-item-more">
-                    <span class="price">345.000 đ</span>
-                </div>
-                <div class="product-item-quantity">
-                    <button class="minus-quantity-button">-</button>
-                    <span class="quantity">1</span>
-                    <button class="plus-quantity-button">+</button>
-                </div>
-                <div class="product-item-more">
-                    <span class="total">345.000 đ</span>
-                </div>
-                <div class="product-item-more">
-                    <button class="action-delete-product">Xóa</button>
+
+                <div class="product-item">
+                    <div class="product-item-title">
+                        <img src="../images/Niko.png" class="img_Show" alt="">
+                        <div class="product-item-info">
+                            <label>Name placeholder</label>
+                            <p>description placeholder</p>
+                        </div>
+                    </div>
+                    <div class="product-item-more">
+                        <span class="price">345.000 đ</span>
+                    </div>
+                    <div class="product-item-quantity">
+                        <button class="minus-quantity-button">-</button>
+                        <span class="quantity">1</span>
+                        <button class="plus-quantity-button">+</button>
+                    </div>
+                    <div class="product-item-more">
+                        <span class="total">345.000 đ</span>
+                    </div>
+                    <div class="product-item-more">
+                        <button class="action-delete-product">Xóa</button>
+                    </div>
                 </div>
             </div>
 
-            <div class="product-item">
-                <div class="product-item-title">
-                    <img src="../images/Niko.png" class="img_Show" alt="">
-                    <div class="product-item-info">
-                        <label>Name placeholder</label>
-                        <p>description placeholder</p>
-                    </div>
+            <div class="container-product-price">
+                <div class="container-price">
+                    <label>Tổng tiền:</label>
+                    <label>690.000 đ</label>
                 </div>
-                <div class="product-item-more">
-                    <span class="price">345.000 đ</span>
+                <div class="container-price">
+                    <label>Giảm giá:</label>
+                    <label>0 đ</label>
                 </div>
-                <div class="product-item-quantity">
-                    <button class="minus-quantity-button">-</button>
-                    <span class="quantity">1</span>
-                    <button class="plus-quantity-button">+</button>
-                </div>
-                <div class="product-item-more">
-                    <span class="total">345.000 đ</span>
-                </div>
-                <div class="product-item-more">
-                    <button class="action-delete-product">Xóa</button>
+                <div class="container-price" id="final-price">
+                    <label class="title">Tổng thanh toán:</label>
+                    <label class="price">690.000 đ</label>
                 </div>
             </div>
         </div>
         <div class="user-info">
             <form id="form-input-info" action="thanksForBuying.html">
                 <div class="form-container">
-
                     <div class="user-info-container">
                         <h2>Thông tin người dùng</h2>
+                        <button type="button" class="edit-btn" id="editBtn">Chỉnh sửa thông tin ✏️</button>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">Họ tên:</label>
-                                <input type="text" id="name" placeholder="Họ tên" required>
+                                <input type="text" id="name" placeholder="Họ tên" value="Name placeholder" required disabled>
                             </div>
                             <div class="form-group">
                                 <label for="phone">Số điện thoại:</label>
-                                <input type="text" id="phone" placeholder="Số điện thoại" required>
+                                <input type="text" id="phone" placeholder="Số điện thoại" value="0123456789" required disabled>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="address">Địa chỉ:</label>
                             <input type="text" id="address"
-                                   placeholder="Địa chỉ..." required>
+                                   placeholder="Địa chỉ..." value="1A/1 Tổ 1A, Khu phố 1, Phường An Bình, Tỉnh Đồng Nai" required disabled>
                         </div>
                         <div class="form-group">
                             <label for="note">Thông tin thêm:</label>
@@ -97,10 +116,12 @@
                     </div>
 
                     <div class="payment-container">
-                        <h2>Phương thức thanh toán</h2>
-                        <label><input type="radio" name="payment" required>Chuyển ngân hàng</label>
-                        <label><input type="radio" name="payment">Thẻ Visa</label>
-                        <label><input type="radio" name="payment">Tiền mặt</label>
+                        <label>Phương thức thanh toán</label>
+                        <div class="radio-container">
+                            <label><input type="radio" name="payment" required>Chuyển ngân hàng</label>
+                            <label><input type="radio" name="payment">Thẻ Visa</label>
+                            <label><input type="radio" name="payment">Tiền mặt</label>
+                        </div>
                     </div>
 
                     <div class="container-button">
@@ -115,5 +136,6 @@
     this is a footer
 </footer>
 <script src="../js/cartPageJS/quantity.js"></script>
+<script src="../js/cartPageJS/editInfo.js"></script>
 </body>
 </html>

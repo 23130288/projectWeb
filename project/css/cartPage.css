@@ -23,7 +23,12 @@ main .container {
     background: white;
     margin: 0 350px;
 }
-
+main h1 {
+    font-size: 24px;
+    color: #F2B035;
+    margin: 0;
+    padding: 10px 10px 0;
+}
 /* ======================= product info header ======================= */
 /* =================================================================== */
 main .product-info-header {
@@ -126,9 +131,32 @@ main .product-item .product-item-quantity {
 .action-delete-product:hover {
     cursor: pointer;
 }
+/* ============================= final cost =========================== */
+/* ==================================================================== */
+.container-product-price {
+    margin-top: 10px;
+    border-top: black 1px solid;
+    padding: 10px;
+}
+.container-product-price .container-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    font-size: 14px;
+}
+.container-product-price #final-price .title {
+    font-weight: bold;
+}
+.container-product-price #final-price .price {
+    font-weight: bold;
+    color: #F2B035;
+}
+
 
 /* =============================== form =============================== */
 /* ==================================================================== */
+/* margin, font-size, etc */
 main .user-info {
     border-top: grey 1px solid;
     margin: 20px 0 0;
@@ -140,12 +168,6 @@ main #form-input-info {
     display: flex;
     flex-direction: column;
     gap: 15px;
-}
-
-main #form-input-info .form-group label {
-    font-weight: bold;
-    display: flex;
-    margin-bottom: 5px;
 }
 
 main #form-input-info h2 {
@@ -167,26 +189,28 @@ main #form-input-info .form-group {
     flex: 1;
 }
 
-main #form-input-info .form-group label {
+/* label */
+main #form-input-info .form-group label,
+main #form-input-info .payment-container > label {
     font-weight: bold;
     margin-bottom: 5px;
 }
-
+/* input textarea */
 main #form-input-info .form-group input,
 main #form-input-info .form-group textarea {
+    resize: none;
     padding: 8px 10px;
     border: 1px solid lightgrey;
     border-radius: 4px;
 }
 
-main #form-input-info .payment-container {
+main #form-input-info .radio-container {
     padding: 10px;
-    margin-top: 30px;
     border: lightgrey 1px solid;
     border-radius: 4px;
 }
 
-.payment-container label {
+.radio-container label {
     display: block;
     margin: 8px 0;
 }
@@ -197,7 +221,7 @@ main #form-input-info .payment-container {
     margin: 40px 0;
 }
 
-main #form-input-info button {
+main #form-input-info .confirm-btn {
     width: 50%;
     background-color: #F2C641;
     color: white;
@@ -205,4 +229,16 @@ main #form-input-info button {
     padding: 15px;
     border: none;
     border-radius: 8px;
+}
+
+.edit-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.edit-btn:hover {
+    transform: scale(1.2);
 }
