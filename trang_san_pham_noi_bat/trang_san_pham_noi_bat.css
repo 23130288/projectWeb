@@ -8,9 +8,6 @@
 li {
     list-style: none;
 }
-
-/* header */
-
 .top-banner {
     position: relative;
     background-color: black;
@@ -253,6 +250,9 @@ nav {
     background-color: white;
     text-align: center;
 }
+.product-section h1{
+    text-align: center;
+}
 .product-section h2 {
     background-color: orange;
     color: white;
@@ -266,21 +266,32 @@ nav {
     width: 22%;
     cursor: pointer;
 }
+
+/* --- Slider --- */
+.slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
 .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    margin-bottom: 40px;
-    padding: 30px 40px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    transition: all 0.3s ease;
 }
 
 .product-card {
     position: relative;
     background: white;
     border-radius: 12px;
-    padding: 15px;
+    padding: 25px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     transition: transform 0.3s, box-shadow 0.3s;
+
 }
 
 .product-card:hover {
@@ -300,7 +311,7 @@ nav {
     z-index: 10;
 }
 .product-card img {
-    width: 45%;
+    width: 70%;
     height: 180px;
     object-fit: cover;
     border-radius: 10px;
@@ -346,17 +357,50 @@ nav {
     color: white;
     background-color: purple;
 }
-.footer {
+
+/* --- Nút mũi tên --- */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    color: black;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background-color: black;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 30px;
+    transition: 0.3s;
+    border: 1px solid black;
+}
+
+.arrow:hover {
     color: white;
+    background-color: purple;
+}
+
+.arrow.left {
+    left: 50px;
+}
+
+.arrow.right {
+    right: 50px;
+}
+.footer {
+    position: relative;
+    background-color: black;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
     padding: 28px 60px;
     font-size: 14px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    border-bottom: 2px solid black;
 }
 .footer-left {
     position: absolute;
