@@ -12,27 +12,107 @@
 <main>
     <div class="container" id="container">
         <div class="tab-nav-menu">
-            <a href="#" class="tab active" data-tab="all">All</a>
-            <a href="#" class="tab" data-tab="delivered">Delivered</a>
-            <a href="#" class="tab" data-tab="shipping">Shipping</a>
-            <a href="#" class="tab" data-tab="cancelled">Canceled</a>
+            <a href="#" class="tab-menu active" data-tab="all">All</a>
+            <a href="#" class="tab-menu" data-tab="delivered">Delivered</a>
+            <a href="#" class="tab-menu" data-tab="shipping">Shipping</a>
+            <a href="#" class="tab-menu" data-tab="cancelled">Canceled</a>
         </div>
-        <div class="tab-contents">
-            <section class="tab-content all active">
-                <div class="product">Áo thun nam - 250.000đ - Đã giao</div>
-                <div class="product">Quần jean nữ - 320.000đ - Đang giao</div>
-                <div class="product">Giày thể thao - 550.000đ - Đã giao</div>
-            </section>
-            <section class="tab-content delivered">
-                <div class="product">Áo thun nam - 250.000đ</div>
-                <div class="product">Giày thể thao - 550.000đ</div>
-            </section>
-            <section class="tab-content shipping">
-                <div class="product">Quần jean nữ - 320.000đ</div>
-            </section>
-            <section class="tab-content cancelled">
-                Empty
-            </section>
+        <div class="container-contents">
+            <div class="product-content all active" id="all">
+                <!--header-->
+                <div class="product-header">
+                    <div class="product-header-title">Sản phẩm</div>
+                    <div class="product-header-price">Đơn giá</div>
+                    <div class="product-header-status">Tình trạng</div>
+                </div>
+                <!--content-->
+                <div class="product">
+                    <div class="product-title">
+                        <img src="../images/Niko.png" alt="">
+                        <div class="product-info">
+                            <label>Name placeholder</label>
+                        </div>
+                    </div>
+                    <div class="product-price">345.000 đ</div>
+                    <div class="product-status">Đã giao</div>
+                </div>
+                <div class="product">
+                    <div class="product-title">
+                        <img src="../images/Niko.png" alt="">
+                        <div class="wishlist-item-info">
+                            <label>Name placeholder</label>
+                        </div>
+                    </div>
+                    <div class="product-price">345.000 đ</div>
+                    <div class="product-status">Đã giao</div>
+                </div>
+                <div class="product">
+                    <div class="product-title">
+                        <img src="../images/Niko.png" alt="">
+                        <div class="wishlist-item-info">
+                            <label>Name placeholder</label>
+                        </div>
+                    </div>
+                    <div class="product-price">345.000 đ</div>
+                    <div class="product-status">Đã giao</div>
+                </div>
+                <div class="product">
+                    <div class="product-title">
+                        <img src="../images/Niko.png" alt="">
+                        <div class="wishlist-item-info">
+                            <label>Name placeholder</label>
+                        </div>
+                    </div>
+                    <div class="product-price">345.000 đ</div>
+                    <div class="product-status">Đang giao</div>
+                </div>
+            </div>
+            <div class="product-content delivered" id="delivered">
+                <!--header-->
+                <div class="product-header">
+                    <div class="product-header-title">Tiêu đề</div>
+                    <div class="product-header-price">Đơn giá</div>
+                </div>
+                <!--content-->
+                <div class="product">
+                    <div class="product-title">
+                        <img src="../images/Niko.png" alt="">
+                        <div class="wishlist-item-info">
+                            <label>Name placeholder</label>
+                        </div>
+                    </div>
+                    <div class="product-price">345.000 đ</div>
+                </div>
+                <div class="product">
+                    <div class="product-title">
+                        <img src="../images/Niko.png" alt="">
+                        <div class="wishlist-item-info">
+                            <label>Name placeholder</label>
+                        </div>
+                    </div>
+                    <div class="product-price">345.000 đ</div>
+                </div>
+            </div>
+            <div class="product-content shipping" id="shipping">
+                <!--header-->
+                <div class="product-header">
+                    <div class="product-header-title">Tiêu đề</div>
+                    <div class="product-header-price">Đơn giá</div>
+                </div>
+                <!--content-->
+                <div class="product">
+                    <div class="product-title">
+                        <img src="../images/Niko.png" alt="">
+                        <div class="wishlist-item-info">
+                            <label>Name placeholder</label>
+                        </div>
+                    </div>
+                    <div class="product-price">345.000 đ</div>
+                </div>
+            </div>
+            <div class="product-content cancelled" id="cancelled">
+                <img src="../images/nothingHere.jpg" alt="">
+            </div>
         </div>
     </div>
 </main>
