@@ -41,10 +41,40 @@ document.addEventListener("DOMContentLoaded", function () {
     `,
         "Thông báo": `
       <h2>Thông báo</h2>
-      <ul>
-        <li>Bạn có 2 thông báo mới.</li>
-        <li>Tài khoản của bạn đã được cập nhật.</li>
-      </ul>
+      
+      <div class="notification_item" id="selection_shop">
+      
+        <div class="avatar">
+          <img src="anh/avatar.jpg" alt="Ảnh đại diện">
+        </div>
+        <div class="info">
+          <h4>Đơn hàng giao thành công</h4>
+          <p>Mã đơn hàng: hvshiodvosidjvpodjspc</p>
+          <span>10/04/2025</span>
+        </div>
+      </div>
+      
+      <div class="notification_item">
+        <div class="avatar">
+          <img src="anh/avatar.jpg" alt="Ảnh đại diện">
+        </div>
+        <div class="info">
+          <h4>Đơn hàng giao thành công</h4>
+          <p>Mã đơn hàng: hvshiodvosidjvpodjspc</p>
+          <span>10/04/2025</span>
+        </div>
+      </div>
+      
+      <div class="notification_item">
+        <div class="avatar">
+          <img src="anh/avatar.jpg" alt="Ảnh đại diện">
+        </div>
+        <div class="info">
+          <h4>Đơn hàng giao thành công</h4>
+          <p>Mã đơn hàng: hvshiodvosidjvpodjspc</p>
+          <span>10/04/2025</span>
+        </div>
+      </div>
     `,
         "Đổi mật khẩu": `
       <h2>Đổi mật khẩu</h2>
@@ -73,14 +103,15 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
         </div>
         <div class="in4_row">
-            <input class="log" id="log" type="submit" value="Xác nhận">
+            <button class="bt_xac_nhan" id="btn-doi-mk">Xác nhận</button>
         </div>
       </div>
             `,
         "Đăng xuất": `
-      <h2>Đăng xuất</h2>
-      <p>Bạn có chắc muốn đăng xuất không?</p>
-      <button id="logout-btn">Đăng xuất</button>`
+            <h2>Đăng xuất</h2>
+            <p>Bạn có chắc muốn đăng xuất không?</p>
+            <button class="bt_xac_nhan" id="btn-dang-xuat">Đăng xuất</button>
+     `
     };
     // 👉 Gán mặc định hiển thị "Thông tin tài khoản" khi load
     infoBox.innerHTML = contents["Thông tin tài khoản"];
@@ -108,6 +139,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 setToggle(togglePassword, password);
                 setToggle(toggleConfirm, confirmPassword);
                 setToggle(toggleOld, old_password);
+            }
+            if (text === "Đổi mật khẩu") {
+                document.getElementById("btn-doi-mk").addEventListener("click", () => {
+                    alert("Đổi mật khẩu thành công!");
+                });
+            }
+
+            if (text === "Đăng xuất") {
+                document.getElementById("btn-dang-xuat").addEventListener("click", () => {
+                    localStorage.removeItem("user");
+                    alert("Đăng xuất thành công!");
+                    window.location.href = "dang_nhap.html";
+                });
             }
         });
     });
