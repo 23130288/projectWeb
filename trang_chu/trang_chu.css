@@ -253,34 +253,78 @@ nav {
     background-color: white;
     text-align: center;
 }
+.product-section h1{
+    top : -30px;
+    text-align: left;
+    font-size: 25px;
+}
 .product-section h2 {
     background-color: orange;
     color: white;
     font-size: 26px;
-    margin: 20px 0 25px;
+    margin: 20px 0 50px;
     letter-spacing: 1.5px;
     border-bottom: 2px solid transparent;
     display: inline-block;
-    padding-bottom: 5px;
+    padding-bottom: 6px;
     border-radius: 10px;
-    width: 22%;
+    width: 24%;
     cursor: pointer;
 }
+.slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    color: black;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 30px;
+    transition: 0.3s;
+    border: 1px solid black;
+}
+
+.arrow:hover {
+    color: white;
+    background-color: purple;
+}
+
+.arrow.left {
+    left: 100px;
+}
+
+.arrow.right {
+    right: 100px;
+}
 .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    margin-bottom: 40px;
-    padding: 30px 40px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    transition: all 0.3s ease;
 }
 
 .product-card {
     position: relative;
     background: white;
     border-radius: 12px;
-    padding: 15px;
+    padding: 25px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     transition: transform 0.3s, box-shadow 0.3s;
+
 }
 
 .product-card:hover {
@@ -300,7 +344,7 @@ nav {
     z-index: 10;
 }
 .product-card img {
-    width: 45%;
+    width: 70%;
     height: 180px;
     object-fit: cover;
     border-radius: 10px;
@@ -346,6 +390,7 @@ nav {
     color: white;
     background-color: purple;
 }
+
 .footer {
     position: relative;
     background-color: black;

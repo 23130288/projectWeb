@@ -265,13 +265,22 @@ nav {
     padding: 30px 40px;
 }
 
+.product-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    transition: all 0.3s ease;
+}
+
 .product-card {
     position: relative;
     background: white;
     border-radius: 12px;
-    padding: 15px;
+    padding: 25px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     transition: transform 0.3s, box-shadow 0.3s;
+
 }
 
 .product-card:hover {
@@ -290,9 +299,8 @@ nav {
     border-radius: 5px;
     z-index: 10;
 }
-
 .product-card img {
-    width: 45%;
+    width: 70%;
     height: 180px;
     object-fit: cover;
     border-radius: 10px;
@@ -332,6 +340,11 @@ nav {
     cursor: pointer;
     font-weight: 600;
     transition: background 0.3s;
+}
+
+.buy-btn:hover {
+    color: white;
+    background-color: purple;
 }
 
 .buy-btn:hover {
