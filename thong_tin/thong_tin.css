@@ -1,0 +1,65 @@
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+#selection1 {
+    background-color: black;
+    width: 100%;
+    height: 500px;
+
+    /* Ảnh nền */
+    background-image: url('anh/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#selection1 .logo img {
+    width: 200px;
+}
+
+#selection2 {
+    width: 90%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#selection2 .information {
+    width: 100%;
+    height: auto;
+    margin: 20px;
+}
+
+#selection2 .terms_services {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* 👉 chia đều 2 cột theo 2 mép */
+    align-items: flex-start;
+}
+
+#selection2 .terms,
+#selection2 .services {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#selection2 .item {
+    padding: 15px 50px;
+    width: 150px;
+    text-decoration: none;
+    color: black;
+}
+
+#selection2 .terms .item:focus {
+    background: #EDB310;
+    color: white;
+}
