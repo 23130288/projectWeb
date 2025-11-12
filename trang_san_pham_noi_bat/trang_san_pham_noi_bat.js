@@ -22,14 +22,4 @@ document.querySelectorAll(".slider-container").forEach(container => {
 
     update();
 });
-document.addEventListener('DOMContentLoaded', function() {
-    const noiBatLink = Array.from(document.querySelectorAll('nav ul li a')).find(a => a.textContent.includes('TRANG CHỦ'));
-
-    if (noiBatLink) {
-        noiBatLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.location.href = 'trang_chu.html';
-        });
-    }
-});
 

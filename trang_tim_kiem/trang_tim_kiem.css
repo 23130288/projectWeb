@@ -8,6 +8,12 @@
 li {
     list-style: none;
 }
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
 .top-banner {
     position: relative;
     background-color: black;
@@ -22,7 +28,7 @@ li {
 }
 .brand-name {
     position: absolute;
-    top: 5px;
+    top: 15px;
     left: 25px
 }
 .brand-name h1 {
@@ -40,13 +46,15 @@ li {
     transform: translateX(20px);
 }
 .header-search {
-    padding: 0 120px;
+    padding: 10px 120px;
 }
 .search-bar {
     display: flex;
     border-radius: 6px;
     overflow: hidden;
-    width: 600px;
+    width: 900px;
+    position: relative;
+    left: 150px;
 }
 .search-select {
     padding: 9px 10px;
@@ -109,7 +117,7 @@ li {
     justify-content: center;
     align-items: center;
     position: relative;
-    left : 250px;
+    left : 170px;
 
 }
 .avatar-icon-user {
@@ -120,7 +128,7 @@ li {
     justify-content: center;
     align-items: center;
     position: relative;
-    left :140px;
+    left :57px;
 }
 
 .inner-circle {
@@ -331,25 +339,48 @@ nav {
     color: purple;
 }
 
-.buy-btn {
+.product-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.product-actions .buy-btn {
+    flex-grow: 1;
     background-color: orange;
-    color: black;
+    color: white;
+    padding: 8px 20px;
     border: none;
     border-radius: 25px;
-    padding: 8px 20px;
     cursor: pointer;
-    font-weight: 600;
-    transition: background 0.3s;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.buy-btn:hover {
-    color: white;
-    background-color: purple;
+.product-actions .inner-circle1 {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
-
-.buy-btn:hover {
-    color: white;
+.product-actions .buy-btn:hover {
     background-color: purple;
+    color: white;
+}
+.product-actions .inner-circle1:hover {
+    background-color:purple;
+    color: white;
 }
 .footer {
     position: relative;
@@ -362,6 +393,7 @@ nav {
     padding: 28px 60px;
     font-size: 14px;
     border-bottom: 2px solid black;
+    top : 435px;
 }
 .footer-left {
     position: absolute;
