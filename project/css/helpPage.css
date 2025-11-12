@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Make body at least fill the viewport */
+}
+
+main {
+    flex: 1;
+}
+
+/* ======================= support header ======================= */
+/* ============================================================== */
+.support-header {
+    padding: 30px 20px;
+    background: #F1E7C4;
+}
+
+.support-header h1 {
+    text-align: center;
+    color: black;
+    font-size: 35px;
+}
+
+/* ===== search bar ===== */
+.container-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    min-width: 280px;
+}
+
+.search-bar i {
+    position: absolute;
+    left: 18px;
+    color: #999999;
+    font-size: 16px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 12px 18px 12px 45px; /* chừa chỗ bên trái cho icon */
+    font-size: 16px;
+    border-radius: 30px;
+    border: 1px solid lightgrey;
+    box-shadow: 0 4px 10px darkgrey;
+    outline: none; /* remove blue line thing */
+    transition: 0.3s;
+}
+
+.search-bar input:focus {
+    border-color: #E8C839;
+    box-shadow: 0 4px 12px #E8C839;
+}
+
+/* === button === */
+.container-search button {
+    background: #F2C641;
+    color: black;
+    border: none;
+    padding: 15px;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.container-search button:hover {
+    background: #F2B035;
+}
+
+
+/* ============================ topics =========================== */
+/* =============================================================== */
+.container-topics {
+    display: grid;
+    max-width: 50%;
+    margin: 30px auto;
+    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.container-topics .topic {
+    display: flex;
+    flex: 1;
+    font-size: 14px;
+    padding: 15px;
+    border: black 1px solid;
+    border-radius: 10px;
+    background: white;
+    align-items: center;
+    gap: 5px;
+    transition: 0.3s;
+}
+
+.container-topics .topic:hover {
+    cursor: pointer;
+    border-color: #F2B035;
+    background: #F1E7C4;
+}
+
+.container-topics .topic img {
+    width: 50px;
+    height: 50px;
+}
