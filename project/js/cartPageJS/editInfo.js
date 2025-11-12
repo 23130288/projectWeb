@@ -8,5 +8,7 @@ editBtn.addEventListener('click', () => {
     inputs.forEach(input => input.disabled = !isEditing);
 
     // Thay đổi icon & màu
-    editBtn.textContent = isEditing ? 'Lưu thông tin 💾' : 'Chỉnh sửa thông tin ✏️';
+    editBtn.innerHTML = isEditing
+        ? '<i class="fa-solid fa-floppy-disk"></i> Lưu'
+        : '<i class="fa-solid fa-pen"></i> Chỉnh sửa';
 });

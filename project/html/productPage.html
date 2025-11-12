@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="../css/productPage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
 <header>
@@ -37,9 +38,9 @@
                 </p>
 
                 <!--option section-->
-                <div class="options">
+                <div class="container-options">
                     <div class="option">
-                        <label>Chọn màu</label>
+                        <label>Chọn màu: </label>
                         <div class="color-options">
                             <button class="color-btn black"></button>
                             <button class="color-btn red"></button>
@@ -47,7 +48,7 @@
                         </div>
                     </div>
                     <div class="option">
-                        <label>Chọn kích cỡ</label>
+                        <label>Chọn kích cỡ: </label>
                         <div class="size-options">
                             <button>XS</button>
                             <button>S</button>
@@ -60,8 +61,9 @@
                 </div>
 
                 <!--Button section-->
-                <div class="container-button">
-                    <button><a href="cartPage.html">Bỏ vào giỏ hàng</a></button>
+                <div class="container-to-cartPage-btn">
+                    <button id="addToCartBtn"><i class="fa-solid fa-cart-shopping"></i> Bỏ vào giỏ hàng</a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -91,9 +93,9 @@
         </div>
     </div>
 </main>
-
 <footer>
     this is a footer
 </footer>
+<script src="../js/productPageJS/toCartPage.js"></script>
 </body>
 </html>
