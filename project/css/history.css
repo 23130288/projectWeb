@@ -101,8 +101,19 @@ main .container-contents .product .product-title {
 }
 
 main .container-contents .product .product-price,
-main .container-contents .product .product-status {
+main .container-contents .product .product-status-delivered,
+main .container-contents .product .product-status-shipping {
     text-align: center;
     padding: 5px;
     flex: 1;
+}
+
+.product-status-delivered {
+    font-weight: bold;
+    color: green;
+}
+
+.product-status-shipping {
+    font-weight: bold;
+    color: #F0AF35;
 }

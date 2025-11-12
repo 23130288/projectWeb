@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="../css/cartPage.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
 <header>
     this is a header
 </header>
 <main>
-    <i class="fa-regular fa-pen"></i>
     <div class="container">
         <h1>Giỏ hàng</h1>
         <div class="product-info">
@@ -90,24 +89,30 @@
         </div>
         <div class="user-info">
             <form id="form-input-info" action="thanksForBuying.html">
+                <div class="container-user-title">
+                    <h2>Thông tin người dùng</h2>
+                    <button type="button" class="edit-btn" id="editBtn">Chỉnh sửa <i class="fa-solid fa-pen"></i>
+                    </button>
+                </div>
                 <div class="form-container">
                     <div class="user-info-container">
-                        <h2>Thông tin người dùng</h2>
-                        <button type="button" class="edit-btn" id="editBtn">Chỉnh sửa thông tin ✏️</button>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">Họ tên:</label>
-                                <input type="text" id="name" placeholder="Họ tên" value="Name placeholder" required disabled>
+                                <input type="text" id="name" placeholder="Họ tên" value="Name placeholder" required
+                                       disabled>
                             </div>
                             <div class="form-group">
                                 <label for="phone">Số điện thoại:</label>
-                                <input type="text" id="phone" placeholder="Số điện thoại" value="0123456789" required disabled>
+                                <input type="text" id="phone" placeholder="Số điện thoại" value="0123456789" required
+                                       disabled>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="address">Địa chỉ:</label>
                             <input type="text" id="address"
-                                   placeholder="Địa chỉ..." value="1A/1 Tổ 1A, Khu phố 1, Phường An Bình, Tỉnh Đồng Nai" required disabled>
+                                   placeholder="Địa chỉ..." value="1A/1 Tổ 1A, Khu phố 1, Phường An Bình, Tỉnh Đồng Nai"
+                                   required disabled>
                         </div>
                         <div class="form-group">
                             <label for="note">Thông tin thêm:</label>
@@ -118,13 +123,17 @@
                     <div class="payment-container">
                         <label>Phương thức thanh toán</label>
                         <div class="radio-container">
-                            <label><input type="radio" name="payment" required>Chuyển ngân hàng</label>
-                            <label><input type="radio" name="payment">Thẻ Visa</label>
+                            <label><input type="radio" name="payment" required>Vietcombank
+                                <img src="../images/bankImages/vietcombank.jpg" alt="Chuyển ngân hàng">
+                            </label>
+                            <label><input type="radio" name="payment">Visa
+                                <img src="../images/bankImages/visa.jpeg" alt="Chuyển ngân hàng">
+                            </label>
                             <label><input type="radio" name="payment">Tiền mặt</label>
                         </div>
                     </div>
 
-                    <div class="container-button">
+                    <div class="container-to-cartPage-btn">
                         <button type="submit" class="confirm-btn">Thanh toán</button>
                     </div>
                 </div>

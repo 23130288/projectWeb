@@ -23,12 +23,14 @@ main .container {
     background: white;
     margin: 0 350px;
 }
+
 main h1 {
     font-size: 24px;
     color: #F2B035;
     margin: 0;
     padding: 10px 10px 0;
 }
+
 /* ======================= product info header ======================= */
 /* =================================================================== */
 main .product-info-header {
@@ -131,6 +133,7 @@ main .product-item .product-item-quantity {
 .action-delete-product:hover {
     cursor: pointer;
 }
+
 /* ============================= final cost =========================== */
 /* ==================================================================== */
 .container-product-price {
@@ -138,6 +141,7 @@ main .product-item .product-item-quantity {
     border-top: black 1px solid;
     padding: 10px;
 }
+
 .container-product-price .container-price {
     display: flex;
     align-items: center;
@@ -145,9 +149,11 @@ main .product-item .product-item-quantity {
     padding: 5px;
     font-size: 14px;
 }
+
 .container-product-price #final-price .title {
     font-weight: bold;
 }
+
 .container-product-price #final-price .price {
     font-weight: bold;
     color: #F2B035;
@@ -159,7 +165,9 @@ main .product-item .product-item-quantity {
 /* margin, font-size, etc */
 main .user-info {
     border-top: grey 1px solid;
-    margin: 20px 0 0;
+}
+
+main .form-container {
     padding: 0 50px;
     font-size: 14px;
 }
@@ -170,13 +178,35 @@ main #form-input-info {
     gap: 15px;
 }
 
-main #form-input-info h2 {
-    font-size: 16px;
-    margin-bottom: 15px;
+/* title and button to change your information */
+main #form-input-info .container-user-title {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin: 20px 10px 0;
+}
+
+main #form-input-info .container-user-title h2 {
+    margin: 0;
+    font-size: 20px;
     color: #F2C641;
     text-transform: uppercase;
 }
 
+.edit-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.edit-btn:hover {
+    transform: scale(1.2);
+}
+
+/* input, textarea place */
 main #form-input-info .form-row {
     display: flex;
     gap: 20px;
@@ -195,6 +225,7 @@ main #form-input-info .payment-container > label {
     font-weight: bold;
     margin-bottom: 5px;
 }
+
 /* input textarea */
 main #form-input-info .form-group input,
 main #form-input-info .form-group textarea {
@@ -204,6 +235,7 @@ main #form-input-info .form-group textarea {
     border-radius: 4px;
 }
 
+/* Radio button choosing your payment method*/
 main #form-input-info .radio-container {
     padding: 10px;
     border: lightgrey 1px solid;
@@ -211,14 +243,21 @@ main #form-input-info .radio-container {
 }
 
 .radio-container label {
-    display: block;
+    display: flex;
     margin: 8px 0;
+    align-items: center;
 }
 
-.container-button {
+.radio-container img {
+    width: auto;
+    height: 30px;
+}
+
+main .container-to-cartPage-btn {
     display: flex;
+    align-content: center;
     justify-content: center;
-    margin: 40px 0;
+    margin: 20px;
 }
 
 main #form-input-info .confirm-btn {
@@ -229,16 +268,4 @@ main #form-input-info .confirm-btn {
     padding: 15px;
     border: none;
     border-radius: 8px;
-}
-
-.edit-btn {
-    background: none;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-.edit-btn:hover {
-    transform: scale(1.2);
 }
