@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (filteredProducts.length > 0) {
         filteredProducts.forEach(product => {
+            // --- BẮT ĐẦU CHUỖI HTML ĐÃ CẬP NHẬT ---
             const productCard = `
                 <div class="product-card">
                     <div class="discount-badge">${product.discount}</div>
@@ -85,9 +86,15 @@ document.addEventListener('DOMContentLoaded', function() {
                         <span class="old-price">${product.oldPrice}</span>
                         <span class="new-price">${product.price}</span>
                     </p>
-                    <button class="buy-btn">Mua Ngay</button>
+                    <div class="product-actions">
+                        <button class="buy-btn">Mua Ngay</button>
+                        <div class="inner-circle1">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                    </div>
                 </div>
             `;
+            // --- KẾT THÚC CHUỖI HTML ĐÃ CẬP NHẬT ---
             resultsGrid.innerHTML += productCard;
         });
         resultsSection.appendChild(resultsGrid);
