@@ -50,20 +50,38 @@
                     <div class="option">
                         <label>Chọn kích cỡ: </label>
                         <div class="size-options">
-                            <button>XS</button>
                             <button>S</button>
                             <button>M</button>
                             <button>L</button>
                             <button>XL</button>
-                            <button>XXL</button>
                         </div>
                     </div>
                 </div>
 
                 <!--Button section-->
-                <div class="container-to-cartPage-btn">
-                    <button id="addToCartBtn"><i class="fa-solid fa-cart-shopping"></i> Bỏ vào giỏ hàng
-                    </button>
+                <div class="container-buttons">
+                    <button id="buyBtn"><i class="fa-solid fa-money-check-dollar"></i> Mua</button>
+                    <button id="addToCartBtn"><i class="fa-solid fa-cart-shopping"></i></button>
+                    <button id="addToWishListBtn"><i class="fa-solid fa-heart"></i></button>
+                </div>
+                <p id="statusMessage" class="status-msg"></p>
+                <div id="buyPopup" class="popup">
+                    <div class="popup-content">
+                        <h2>Thông tin mua hàng</h2>
+                        <label>Họ tên:</label>
+                        <input type="text" id="buyerName" placeholder="Nhập họ tên...">
+
+                        <label>Số điện thoại:</label>
+                        <input type="text" id="buyerPhone" placeholder="Nhập số điện thoại...">
+
+                        <label>Địa chỉ giao hàng:</label>
+                        <textarea id="buyerAddress" placeholder="Nhập địa chỉ..."></textarea>
+
+                        <div class="popup-buttons">
+                            <button id="confirmBuy">Xác nhận</button>
+                            <button id="cancelBuy">Hủy</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

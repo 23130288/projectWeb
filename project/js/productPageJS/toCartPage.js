@@ -1,6 +1,14 @@
+function showMessage(msg, color = 'green') {
+    const status = document.getElementById('statusMessage');
+    status.textContent = msg;
+    status.style.color = color;
+    status.classList.add('show');
+    setTimeout(() => status.classList.remove('show'), 2000);
+}
+
+
 const colorButtons = document.querySelectorAll('.color-btn'); // get button color
 const sizeButtons = document.querySelectorAll('.size-options button'); // get button size
-const addToCartBtn = document.getElementById('addToCartBtn'); // get button to cart page
 
 // handle selection for color, change border when clicked in css
 colorButtons.forEach(btn => {
@@ -18,15 +26,56 @@ sizeButtons.forEach(btn => {
     });
 });
 
-// handle Add to Cart button, make sure options are selected to continue
+
+/* ============================================== button handler =============================================== */
+/* ============================================================================================================= */
+const buyBtn = document.getElementById('buyBtn'); // get button to cart page
+const addToCartBtn = document.getElementById('addToCartBtn'); // get button to cart page
+const addToWishListBtn = document.getElementById('addToWishListBtn'); // get button to cart page
+
 addToCartBtn.addEventListener('click', () => {
     const colorSelected = document.querySelector('.color-btn.active');
     const sizeSelected = document.querySelector('.size-options button.active');
 
     if (!colorSelected || !sizeSelected) {
-        alert('Vui lòng chọn cả màu và kích cỡ trước khi thêm vào giỏ hàng!');
+        showMessage('Vui lòng chọn cả màu và kích cỡ trước khi thêm vào giỏ hàng!', 'red');
         return;
     }
+    showMessage('Sản phẩm đã được thêm vào giỏ hàng!');
+});
 
-    window.location.href = 'cartPage.html';
+addToWishListBtn.addEventListener('click', () => {
+    showMessage('Đã thêm vào danh sách yêu thích!');
+});
+
+/* ======= buy button ======= */
+/* open and off */
+const buyPopup = document.getElementById('buyPopup');
+const confirmBuy = document.getElementById('confirmBuy');
+const cancelBuy = document.getElementById('cancelBuy');
+buyBtn.addEventListener('click', () => {
+    const colorSelected = document.querySelector('.color-btn.active');
+    const sizeSelected = document.querySelector('.size-options button.active');
+
+    if (!colorSelected || !sizeSelected) {
+        showMessage('Vui lòng chọn cả màu và kích cỡ trước khi thêm vào giỏ hàng!', 'red');
+        return;
+    }
+    buyPopup.style.display = 'flex';
+});
+cancelBuy.addEventListener('click', () => {
+    buyPopup.style.display = 'none';
+});
+/* Buy handler */
+confirmBuy.addEventListener('click', () => {
+    const name = document.getElementById('buyerName').value.trim();
+    const phone = document.getElementById('buyerPhone').value.trim();
+    const address = document.getElementById('buyerAddress').value.trim();
+
+    if (!name || !phone || !address) {
+        showMessage('Vui lòng điền đầy đủ thông tin trước khi xác nhận!', 'red');
+        return;
+    }
+    showMessage('Cảm ơn, Đơn hàng của bạn đang được xử lý.')
+    buyPopup.style.display = 'none';
 });
