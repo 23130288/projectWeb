@@ -21,7 +21,7 @@ main {
 
 main .container {
     background: white;
-    margin: 0 350px;
+    margin: 0 18%;
 }
 
 main h1 {
@@ -253,7 +253,7 @@ main #form-input-info .radio-container {
     height: 30px;
 }
 
-main .container-to-cartPage-btn {
+main .container-buttons {
     display: flex;
     align-content: center;
     justify-content: center;
