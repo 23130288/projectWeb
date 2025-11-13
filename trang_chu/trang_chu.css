@@ -1,5 +1,5 @@
 * {
-    padding: 0 ;
+    padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Muli', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -25,18 +25,16 @@ body {
     padding: 5px 0;
     font-size: 14px;
     border-bottom: 2px solid black;
-
 }
 .brand-name {
     position: absolute;
     top: 15px;
     left: 25px
 }
-.brand-name h1 {
-    font-size: 20px;
-    margin: 0;
-    font-weight: bold;
-    letter-spacing: 2px;
+img[alt="Travel Logo"] {
+    width: 125px;
+    height: 55px;
+    margin: -11px;
 }
 .brand-name p {
     margin: 0;
@@ -94,7 +92,7 @@ body {
     height: 22px;
     background-color: black;
 }
-.search-bar button {
+.search-button {
     background-color: orange;
     color: black;
     border: none;
@@ -105,10 +103,24 @@ body {
     transition: 0.3s;
     height: 40px;
     font-size: 12px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.search-bar button:hover {
+.search-button:hover {
     color: white;
     background-color: purple;
+}
+.avatar-icon-notify{
+    width: 140px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left : 140px;
 }
 .avatar-icon-shopping-cart {
     width: 140px;
@@ -118,7 +130,7 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    left : 170px;
+    left : 80px;
 
 }
 .avatar-icon-user {
@@ -129,7 +141,7 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    left :57px;
+    left :20px;
 }
 
 .inner-circle {
@@ -430,52 +442,94 @@ nav {
     color: white;
 }
 
-.footer {
-    position: relative;
+.footer-container {
+    width: 100%;
     background-color: black;
-    color: #fff;
+    padding-top: 40px;
+}
+
+.footer-top {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 40px;
-    padding: 28px 60px;
-    font-size: 14px;
-    border-bottom: 2px solid black;
-}
-.footer-left {
-    position: absolute;
-    top: 5px;
-    left: 25px
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 40px 20px;
 }
 
-.footer-left h3 {
-    font-size: 20px;
-    margin: 0;
+.footer-col {
+    flex: 1;
+    min-width: 150px;
+    padding: 0 15px;
+}
+
+.footer-col h4 {
+    font-size: 16px;
     font-weight: bold;
-    letter-spacing: 2px;
-
-}
-
-.footer-left p {
-    margin: 0;
-    font-size: 10px;
-    letter-spacing: 2px;
-    color: white;
-    opacity: 0.9;
-    transform: translateX(20px);
-}
-.footer-right {
-    position: absolute;
-    right: 40px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: bold;
-    color: white;
-}
-
-.footer-right i {
+    margin-bottom: 20px;
     color: orange;
-    font-size: 18px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+    background-color: purple;
+    color: white;
+
+}
+
+.footer-social-section {
+    background-color: #000;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid white;
+}
+
+.social-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 0 15px;
+    transition: opacity 0.3s;
+}
+
+.social-links a:hover {
+    background-color: purple;
+    color: white;
+}
+
+.footer-bottom {
+    background-color: #000;
+    padding: 30px 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.footer-logo {
+    margin-bottom: 15px;
+}
+
+.footer-logo img {
+    width: 125px;
+    height: 55px;
+    margin: -11px;
+}
+
+.copyright {
+    font-size: 12px;
+    margin: 0;
 }
 
