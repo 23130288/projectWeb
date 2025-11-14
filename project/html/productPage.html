@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Sản phẩm</title>
     <link rel="stylesheet" href="../css/productPage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
 </head>
 <body>
 <header>
@@ -20,67 +21,78 @@
 <main>
     <div class="section-product">
         <div class="container-images">
-            <img src="../images/Niko.png" class="main-image" alt="Product">
+            <img src="../images/balos/apollo/apollo1.webp" class="main-image" alt="Product">
             <div class="images-list">
-                <img src="../images/Niko.png" alt="">
-                <img src="../images/Niko.png" alt="">
-                <img src="../images/Niko.png" alt="">
-                <img src="../images/Niko.png" alt="">
+                <img class="sub-image active" src="../images/balos/apollo/apollo1.webp" alt="">
+                <img class="sub-image" src="../images/balos/apollo/apollo2.webp" alt="">
+                <img class="sub-image" src="../images/balos/apollo/apollo3.webp" alt="">
+                <img class="sub-image" src="../images/balos/apollo/apollo4.webp" alt="">
+                <img class="sub-image" src="../images/balos/apollo/apollo5.webp" alt="">
             </div>
         </div>
         <div class="product-details">
-            <div class="product-info">
-                <!--general info section-->
-                <h2>Balo title placeholder</h2>
-                <p class="price">price placeholder</p>
-                <p class="desc">
-                    Information placeholder
-                </p>
+            <!--general info section-->
+            <h2>Balo title placeholder</h2>
+            <p class="price">price placeholder</p>
+            <p class="desc">
+                Information placeholder
+            </p>
 
-                <!--option section-->
-                <div class="container-options">
-                    <div class="option">
-                        <label>Chọn màu: </label>
-                        <div class="color-options">
-                            <button class="color-btn black"></button>
-                            <button class="color-btn red"></button>
-                            <button class="color-btn blue"></button>
-                        </div>
-                    </div>
-                    <div class="option">
-                        <label>Chọn kích cỡ: </label>
-                        <div class="size-options">
-                            <button>S</button>
-                            <button>M</button>
-                            <button>L</button>
-                            <button>XL</button>
-                        </div>
+            <!--option section-->
+            <div class="container-options">
+                <div class="option">
+                    <label>Chọn màu: </label>
+                    <div class="color-options">
+                        <button class="color-btn black"></button>
+                        <button class="color-btn red"></button>
+                        <button class="color-btn blue"></button>
                     </div>
                 </div>
-
-                <!--Button section-->
-                <div class="container-buttons">
-                    <button id="buyBtn"><i class="fa-solid fa-money-check-dollar"></i> Mua</button>
-                    <button id="addToCartBtn"><i class="fa-solid fa-cart-shopping"></i></button>
-                    <button id="addToWishListBtn"><i class="fa-solid fa-heart"></i></button>
+                <div class="option">
+                    <label>Chọn kích cỡ: </label>
+                    <div class="size-options">
+                        <button>S</button>
+                        <button>M</button>
+                        <button>L</button>
+                        <button>XL</button>
+                    </div>
                 </div>
-                <p id="statusMessage" class="status-msg"></p>
-                <div id="buyPopup" class="popup">
-                    <div class="popup-content">
-                        <h2>Thông tin mua hàng</h2>
-                        <label>Họ tên:</label>
-                        <input type="text" id="buyerName" placeholder="Nhập họ tên...">
+            </div>
 
-                        <label>Số điện thoại:</label>
-                        <input type="text" id="buyerPhone" placeholder="Nhập số điện thoại...">
+            <!--Button section-->
+            <div class="container-buttons">
+                <button id="buyBtn"><i class="fa-solid fa-money-check-dollar"></i> Mua</button>
+                <button id="addToCartBtn"><i class="fa-solid fa-cart-shopping"></i></button>
+                <button id="addToWishListBtn"><i class="fa-solid fa-heart"></i></button>
+            </div>
+            <p id="statusMessage" class="status-msg"></p>
+            <div class="popup" id="buyPopup">
+                <div class="popup-content">
+                    <h2>Thông tin mua hàng</h2>
+                    <label>Họ tên:<input type="text" id="buyerName" placeholder="Nhập họ tên..."></label>
 
-                        <label>Địa chỉ giao hàng:</label>
-                        <textarea id="buyerAddress" placeholder="Nhập địa chỉ..."></textarea>
+                    <label>Số điện thoại:<input type="text" id="buyerPhone"
+                                                placeholder="Nhập số điện thoại..."></label>
 
-                        <div class="popup-buttons">
-                            <button id="confirmBuy">Xác nhận</button>
-                            <button id="cancelBuy">Hủy</button>
+                    <label>Địa chỉ giao hàng:<textarea id="buyerAddress"
+                                                       placeholder="Nhập địa chỉ..."></textarea></label>
+
+                    <div class="payment-container">
+                        <label>Phương thức thanh toán</label>
+                        <div class="radio-container">
+                            <label><input type="radio" name="payment" required>Vietcombank
+                                <img src="../images/bankImages/vietcombank.jpg" alt="Chuyển ngân hàng">
+                            </label>
+                            <label><input type="radio" name="payment">Visa
+                                <img src="../images/bankImages/visa.jpeg" alt="Chuyển ngân hàng">
+                            </label>
+                            <label><input type="radio" name="payment">Tiền mặt</label>
                         </div>
+                    </div>
+
+                    <div class="popup-buttons">
+                        <button id="confirmBuy">Xác nhận</button>
+                        <button id="cancelBuy">Hủy</button>
                     </div>
                 </div>
             </div>
@@ -91,9 +103,9 @@
     <div class="section-comment">
         <h3>Bình luận</h3>
         <form class="comment-form">
-            <textarea rows="4"
-                      placeholder="Write a comment to express how you feel about the product"
-                      required></textarea>
+            <label><textarea rows="4"
+                             placeholder="Write a comment to express how you feel about the product"
+                             required></textarea></label>
             <button type="submit">Đăng bình luận</button>
         </form>
 
@@ -114,6 +126,7 @@
 <footer>
     this is a footer
 </footer>
-<script src="../js/productPageJS/toCartPage.js"></script>
+<script src="../js/productPageJS/changeImage.js"></script>
+<script src="../js/productPageJS/buttonHandler.js"></script>
 </body>
 </html>

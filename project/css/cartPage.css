@@ -94,9 +94,9 @@ main .product-item .product-item-quantity {
     justify-content: center;
 }
 
-.minus-quantity-button,
-.plus-quantity-button,
-.quantity {
+main .product-item .product-item-quantity .minus-quantity-button,
+main .product-item .product-item-quantity .plus-quantity-button,
+main .product-item .product-item-quantity .quantity {
     width: 30px;
     height: 30px;
     cursor: pointer;
@@ -108,31 +108,22 @@ main .product-item .product-item-quantity {
 }
 
 
-.minus-quantity-button:hover,
-.plus-quantity-button:hover {
+main .product-item .product-item-quantity .minus-quantity-button:hover,
+main .product-item .product-item-quantity .plus-quantity-button:hover {
     background: lightgrey;
 }
 
-.quantity {
+main .product-item .product-item-quantity .quantity {
     padding: 0 20px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.quantity:hover {
+main .product-item .product-item-quantity .quantity:hover {
     cursor: default;
 }
 
-.action-delete-product {
-    padding: 0;
-    border: none;
-    background: white;
-}
-
-.action-delete-product:hover {
-    cursor: pointer;
-}
 
 /* ============================= final cost =========================== */
 /* ==================================================================== */
@@ -178,7 +169,7 @@ main #form-input-info {
     gap: 15px;
 }
 
-/* title and button to change your information */
+/* ============ title and button to change your information ============ */
 main #form-input-info .container-user-title {
     display: flex;
     flex-direction: row;
@@ -193,7 +184,8 @@ main #form-input-info .container-user-title h2 {
     text-transform: uppercase;
 }
 
-.edit-btn {
+/* edit button to change your information */
+main #form-input-info .container-user-title .edit-btn {
     background: none;
     border: none;
     padding: 0;
@@ -202,8 +194,8 @@ main #form-input-info .container-user-title h2 {
     transition: transform 0.2s ease;
 }
 
-.edit-btn:hover {
-    transform: scale(1.2);
+main #form-input-info .container-user-title .edit-btn:hover {
+    transform: scale(1.05);
 }
 
 /* input, textarea place */
@@ -242,18 +234,23 @@ main #form-input-info .radio-container {
     border-radius: 4px;
 }
 
-.radio-container label {
+main #form-input-info .radio-container input {
+    margin: 0 10px;
+}
+
+main #form-input-info .radio-container label {
     display: flex;
     margin: 8px 0;
     align-items: center;
 }
 
-.radio-container img {
+main #form-input-info .radio-container img {
     width: auto;
     height: 30px;
 }
 
-main .container-buttons {
+/* confirm/submit button */
+main #form-input-info .container-buttons {
     display: flex;
     align-content: center;
     justify-content: center;
