@@ -1,90 +1,69 @@
-.footer-container {
-    width: 100%;
-    background-color: black;
-    padding-top: 40px;
+#footer1 {
+    background: black;
+    padding: 60px 10%;
+    border-top: 1px solid #eee;
 }
 
-.footer-top {
+#footer1 .footer1-container {
     display: flex;
-    justify-content: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px 40px 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.footer-col {
-    flex: 1;
-    min-width: 150px;
-    padding: 0 15px;
+#footer1 .footer1-column {
+    min-width: 180px;
+    margin-bottom: -35px;
 }
 
-.footer-col h4 {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: orange;
+#footer1 .footer1-column h4 {
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #EDB310;
 }
 
-.footer-col ul {
-    list-style: none;
-    padding: 0;
+#footer1 .footer1-column a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    margin: 6px 0;
+    transition: 0.2s;
 }
 
-.footer-col ul li {
-    margin-bottom: 10px;
+#footer1 .footer1-column a:hover {
+    color: #EDB310;
 }
 
-.footer-col ul li a {
+#footer2 {
+    background: black;
+    padding: 60px 0;
+    border-top: 1px solid black;
+}
+
+#footer2 .socials {
+    text-align: center;
+    margin: 30px 0;
+}
+
+#footer2 .socials a {
+    margin: 0 10px;
     text-decoration: none;
     color: white;
     font-size: 14px;
-    transition: color 0.3s;
 }
 
-.footer-col ul li a:hover {
-    background-color: purple;
+#footer2 .socials a:hover {
+    color: #EDB310;
+}
+
+#footer2 .brand {
     color: white;
-
-}
-
-.footer-social-section {
-    background-color: #000;
-    padding: 20px 0;
     text-align: center;
     border-top: 1px solid white;
+    padding-top:  20px;
 }
 
-.social-links a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 14px;
-    margin: 0 15px;
-    transition: opacity 0.3s;
-}
-
-.social-links a:hover {
-    background-color: purple;
-    color: white;
-}
-
-.footer-bottom {
-    background-color: #000;
-    padding: 30px 20px;
-    text-align: center;
-    color: #fff;
-}
-
-.footer-logo {
-    margin-bottom: 15px;
-}
-
-.footer-logo img {
-    width: 125px;
-    height: 55px;
-    margin: -11px;
-}
-
-.copyright {
-    font-size: 12px;
-    margin: 0;
+#footer2 .brand img {
+    width: 100px;
+    margin-bottom: 10px;
 }
