@@ -34,7 +34,8 @@ main .tab-menu {
 
 main .tab-menu.active,
 main .tab-menu:hover {
-    border-bottom: #F2C641 solid;
+    border-bottom: #F2B035 2px solid;
+    color: #F2B035;
 }
 
 /* ========================= product header =========================== */
@@ -44,7 +45,7 @@ main .product-header {
     align-items: center;
     padding: 22px;
     font-weight: bold;
-    border-bottom: 1px solid #F2C641;
+    border-bottom: 1px solid lightgrey;
 }
 
 main .product-header-price,
@@ -77,7 +78,7 @@ main #cancelled.active {
 }
 
 
-/* what they show */
+/* layout */
 main .container-contents .product {
     display: flex;
     align-items: center;

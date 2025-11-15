@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-family: sans-serif;
+    background: #f5f5f5;
 }
 
 header, footer {
@@ -44,7 +45,7 @@ header, footer {
 /* ======================= main ======================= */
 /* ==================================================== */
 main {
-    margin: 0 350px;
+    margin: 0 18%;
 }
 
 /* ======================= product section ======================= */
@@ -54,6 +55,9 @@ main {
     display: flex;
     gap: 60px;
     align-items: flex-start;
+    background: white;
+    padding: 15px;
+    margin-bottom: 10px;
 }
 
 /* ======================= image ======================= */
@@ -97,16 +101,25 @@ main {
     margin-bottom: 10px;
 }
 
+.section-product .product-details .rating .star {
+    color: #F0AF35;
+}
+
 .section-product .product-details .price {
     font-size: 22px;
     font-weight: bold;
-    color: black;
+    color: #F2B035;
+}
+
+.section-product .product-details > label {
+    font-size: 20px;
 }
 
 .section-product .product-details .desc {
-    color: grey;
+    color: #333333;
     margin-bottom: 20px;
     line-height: 1.5;
+    white-space: pre-line;
 }
 
 /* =============================== option section ===============================
@@ -287,11 +300,87 @@ you choosing size, colors for your product
     display: flex;
     margin: 8px 0;
     align-items: center;
+    font-weight: normal;
 }
 
 .section-product .product-details .popup .payment-container .radio-container img {
     width: auto;
     height: 30px;
+}
+
+
+/* voucher */
+.section-product .product-details .popup #container-voucher {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+    border-bottom: lightgrey solid 1px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.section-product .product-details .popup #container-voucher > label {
+    margin: 0;
+}
+
+.section-product .product-details .popup #container-voucher .voucher-input {
+    display: flex;
+    gap: 5px;
+}
+
+.section-product .product-details .popup #container-voucher input {
+    padding: 5px;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    outline: none;
+}
+
+.section-product .product-details .popup #container-voucher button {
+    padding: 5px;
+    border: none;
+    background: #F2C641;
+    border-radius: 4px;
+    outline: none;
+    transition: 0.3s;
+
+}
+
+.section-product .product-details .popup #container-voucher button:hover {
+    background: #F2B035;
+}
+
+/* price popup */
+.section-product .product-details .popup .container-product-price {
+    background: white;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: lightgrey 1px solid;
+}
+
+.section-product .product-details .popup .container-product-price .container-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+    font-size: 14px;
+}
+
+.section-product .product-details .popup .container-product-price .container-price label {
+    font-weight: normal;
+}
+
+.section-product .product-details .popup .container-product-price .container-price p {
+    margin: 10px;
+}
+
+.section-product .product-details .popup .container-product-price #final-price .title {
+    font-weight: bold;
+}
+
+.section-product .product-details .popup .container-product-price #final-price .final-price-para {
+    font-weight: bold;
+    color: #F2B035;
 }
 
 /* buttons for popup */
@@ -333,6 +422,9 @@ you choosing size, colors for your product
 main .section-comment {
     display: flex;
     flex-direction: column;
+    background: white;
+    padding: 15px;
+    margin-bottom: 10px;
 }
 
 main .section-comment h3 {
@@ -341,9 +433,9 @@ main .section-comment h3 {
 }
 
 main .section-comment .comment-form {
-    padding: 15px;
+    padding: 15px 0;
     margin: 10px;
-    border-bottom: 2px #F2C641 solid;
+    border-bottom: 1px lightgrey solid;
 }
 
 /* button for commenting */
@@ -367,6 +459,7 @@ main .section-comment .comment-form textarea {
     width: 100%;
     height: 100px;
     resize: none;
+    outline: none;
 }
 
 /* Container comment */
@@ -392,6 +485,11 @@ main .section-comment .comment h4 {
     font-weight: bold;
     margin: 6px 0 6px;
     color: #333333;
+}
+
+/* rating */
+main .section-comment .comment .rating .star {
+    color: #F0AF35;
 }
 
 /* comment content */
