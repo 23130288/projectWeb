@@ -4,7 +4,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* Make body at least fill the viewport */
-    background: lightgrey;
+    background: #f5f5f5;
 }
 
 header, footer {
@@ -20,15 +20,15 @@ main {
 }
 
 main .container {
-    background: white;
     margin: 0 18%;
 }
 
 main h1 {
     font-size: 24px;
     color: #F2B035;
-    margin: 0;
-    padding: 10px 10px 0;
+    padding: 20px 30px;
+    margin: 0 0 10px;
+    background: white;
 }
 
 /* ======================= product info header ======================= */
@@ -37,10 +37,11 @@ main .product-info-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 10px;
     padding: 22px;
     font-size: 16px;
     font-weight: bold;
-    border-bottom: 1px solid grey;
+    background: white;
 }
 
 main .product-info-header .product-info-header-content {
@@ -55,6 +56,11 @@ main .product-info-header #product-info-header-title {
 
 /* =========================== product item =========================== */
 /* ==================================================================== */
+main .product-info .container-product-items {
+    background: white;
+    margin-bottom: 10px;
+}
+
 main .product-item img {
     width: 100px;
     height: 100px;
@@ -124,21 +130,42 @@ main .product-item .product-item-quantity .quantity:hover {
     cursor: default;
 }
 
+/* action button */
+/* select */
+main .product-item .action-select-product {
+    accent-color: #d38d0e;
+    transition: 0.3s;
+}
+
+/* delete */
+main .product-item .action-delete-product {
+    background: none;
+    border: none;
+    transition: 0.3s;
+}
+
+main .product-item .action-delete-product:hover {
+    color: red;
+}
 
 /* ============================= final cost =========================== */
 /* ==================================================================== */
 .container-product-price {
-    margin-top: 10px;
-    border-top: black 1px solid;
+    background: white;
     padding: 10px;
+    margin-bottom: 10px;
 }
 
 .container-product-price .container-price {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 5px;
+    padding: 0 5px;
     font-size: 14px;
+}
+
+.container-product-price .container-price p {
+    margin: 10px;
 }
 
 .container-product-price #final-price .title {
@@ -150,12 +177,46 @@ main .product-item .product-item-quantity .quantity:hover {
     color: #F2B035;
 }
 
+/* voucher */
+.container-product-price #container-voucher {
+    justify-content: left;
+    gap: 10px;
+    border-bottom: lightgrey solid 1px;
+    padding: 10px;
+}
+
+.container-product-price #container-voucher .voucher-input {
+    display: flex;
+    gap: 5px;
+}
+
+.container-product-price #container-voucher input {
+    padding: 5px;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    outline: none;
+}
+
+.container-product-price #container-voucher button {
+    padding: 5px;
+    border: none;
+    background: #F2C641;
+    border-radius: 4px;
+    outline: none;
+    transition: 0.3s;
+
+}
+
+.container-product-price #container-voucher button:hover {
+    background: #F2B035;
+}
 
 /* =============================== form =============================== */
 /* ==================================================================== */
 /* margin, font-size, etc */
 main .user-info {
-    border-top: grey 1px solid;
+    background: white;
+    margin-bottom: 10px;
 }
 
 main .form-container {
@@ -225,6 +286,7 @@ main #form-input-info .form-group textarea {
     padding: 8px 10px;
     border: 1px solid lightgrey;
     border-radius: 4px;
+    outline: none;
 }
 
 /* Radio button choosing your payment method*/

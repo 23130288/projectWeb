@@ -64,6 +64,7 @@ main {
 .section-product .container-images .main-image {
     width: 100%;
     border: 1px solid lightgrey;
+    border-radius: 5px;
 }
 
 .section-product .container-images .images-list {
@@ -76,6 +77,7 @@ main {
     width: 45px;
     height: 100%;
     border: 1px solid lightgrey;
+    border-radius: 5px;
     cursor: pointer;
 }
 
