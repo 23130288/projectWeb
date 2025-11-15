@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-family: sans-serif;
+    background: #f5f5f5;
 }
 
 header, footer {
@@ -44,89 +45,107 @@ header, footer {
 /* ======================= main ======================= */
 /* ==================================================== */
 main {
-    margin: 0 350px;
+    margin: 0 18%;
 }
 
 /* ======================= product section ======================= */
 /* =============================================================== */
-/* Product section layout */
+/* ======================= layout ======================= */
 .section-product {
     display: flex;
     gap: 60px;
     align-items: flex-start;
+    background: white;
+    padding: 15px;
+    margin-bottom: 10px;
 }
 
-.container-images {
+/* ======================= image ======================= */
+.section-product .container-images {
     flex: 1;
 }
 
-.container-images .main-image {
+.section-product .container-images .main-image {
     width: 100%;
     border: 1px solid lightgrey;
+    border-radius: 5px;
 }
 
-.images-list {
+.section-product .container-images .images-list {
     display: flex;
     gap: 10px;
     margin-top: 15px;
 }
 
-.images-list img {
+.section-product .container-images .images-list img {
     width: 45px;
-    height: 45px;
+    height: 100%;
     border: 1px solid lightgrey;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-.images-list img:hover {
-    border-color: black;
+.section-product .container-images .images-list img:hover,
+.section-product .container-images .images-list img.active {
+    border-color: #F2B035;
 }
 
-/* Product details (right side) */
-.product-details {
+/* ======================= Product details (right side) ======================= */
+.section-product .product-details {
     flex: 1;
 }
 
-.product-title {
-    font-size: 28px;
+/* title */
+.section-product .product-details h2 {
+    font-size: 26px;
     margin-bottom: 10px;
 }
 
-.price {
-    font-size: 22px;
-    font-weight: bold;
-    color: black;
+.section-product .product-details .rating .star {
+    color: #F0AF35;
 }
 
-.desc {
-    color: grey;
+.section-product .product-details .price {
+    font-size: 22px;
+    font-weight: bold;
+    color: #F2B035;
+}
+
+.section-product .product-details > label {
+    font-size: 20px;
+}
+
+.section-product .product-details .desc {
+    color: #333333;
     margin-bottom: 20px;
     line-height: 1.5;
+    white-space: pre-line;
 }
 
 /* =============================== option section ===============================
 you choosing size, colors for your product
 */
-.option {
+.section-product .product-details .container-options .option {
     display: flex;
     align-items: center;
     gap: 10px;
     margin-bottom: 20px;
 }
 
-.option label {
+.section-product .product-details .container-options .option label {
     display: block;
     font-size: 14px;
     font-weight: bold;
 }
 
-.color-options, .size-options {
+/* size button */
+.section-product .product-details .container-options .color-options, .size-options {
     display: flex;
     gap: 10px;
 }
 
 /* color button */
-.color-btn {
+.section-product .product-details .container-options .color-options .color-btn {
     width: 25px;
     height: 25px;
     border: 1px solid lightgrey;
@@ -135,25 +154,25 @@ you choosing size, colors for your product
     transition: 0.1s;
 }
 
-.color-btn.black {
+.section-product .product-details .container-options .color-options .color-btn.black {
     background: black;
 }
 
-.color-btn.red {
+.section-product .product-details .container-options .color-options .color-btn.red {
     background: red;
 }
 
-.color-btn.blue {
+.section-product .product-details .container-options .color-options .color-btn.blue {
     background: blue;
 }
 
 /* When selected */
-.color-btn.active {
+.section-product .product-details .container-options .color-options .color-btn.active {
     border: 3px solid #F2B035;
 }
 
 /* size button */
-.size-options button {
+.section-product .product-details .container-options .size-options button {
     padding: 8px 14px;
     border: 1px solid lightgrey;
     border-radius: 4px;
@@ -163,13 +182,13 @@ you choosing size, colors for your product
 
 }
 
-.size-options button:hover {
+.section-product .product-details .container-options .size-options button:hover {
     background: white;
     border-color: #F2B035;
 }
 
 /* when selected */
-.size-options button.active {
+.section-product .product-details .container-options .size-options button.active {
     background: #F2B035;
     border-color: #F2B035;
 }
@@ -199,17 +218,32 @@ you choosing size, colors for your product
     width: 10%;
 }
 
-#addToWishListBtn {
+.section-product .container-buttons #addToWishListBtn {
     color: white;
     background: hotpink;
 }
 
-#addToWishListBtn:hover {
+.section-product .container-buttons #addToWishListBtn:hover {
     background: deeppink;
 }
 
-/* ======= Popup ======= */
-.popup {
+/* status shows when you press a button */
+.product-details .status-msg {
+    color: green;
+    font-weight: bold;
+    transition: opacity 0.3s;
+    opacity: 0;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.product-details .status-msg.show {
+    opacity: 1;
+}
+
+/*======================= Pop up =======================*/
+/* pop up appears when you press the buy button */
+.section-product .product-details .popup {
     display: none; /* ẩn mặc định */
     position: fixed;
     top: 0;
@@ -221,7 +255,7 @@ you choosing size, colors for your product
     align-items: center;
 }
 
-.popup .popup-content {
+.section-product .product-details .popup .popup-content {
     background: white;
     padding: 30px;
     border-radius: 10px;
@@ -229,19 +263,19 @@ you choosing size, colors for your product
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-.popup .popup-content h2 {
+.section-product .product-details .popup .popup-content h2 {
     margin-top: 0;
     text-align: center;
 }
 
-.popup .popup-content label {
+.section-product .product-details .popup .popup-content label {
     display: block;
     margin-top: 10px;
     font-weight: 600;
 }
 
-.popup .popup-content input,
-.popup .popup-content textarea {
+.section-product .product-details .popup .popup-content > label input,
+.section-product .product-details .popup .popup-content > label textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #CCCCCC;
@@ -251,13 +285,112 @@ you choosing size, colors for your product
     box-sizing: border-box;
 }
 
-.popup .popup-buttons {
+/* payment method */
+.section-product .product-details .popup .payment-container .radio-container {
+    padding: 10px;
+    border: lightgrey 1px solid;
+    border-radius: 4px;
+}
+
+.section-product .product-details .popup .payment-container .radio-container input {
+    margin: 0 10px;
+}
+
+.section-product .product-details .popup .payment-container .radio-container label {
+    display: flex;
+    margin: 8px 0;
+    align-items: center;
+    font-weight: normal;
+}
+
+.section-product .product-details .popup .payment-container .radio-container img {
+    width: auto;
+    height: 30px;
+}
+
+
+/* voucher */
+.section-product .product-details .popup #container-voucher {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+    border-bottom: lightgrey solid 1px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.section-product .product-details .popup #container-voucher > label {
+    margin: 0;
+}
+
+.section-product .product-details .popup #container-voucher .voucher-input {
+    display: flex;
+    gap: 5px;
+}
+
+.section-product .product-details .popup #container-voucher input {
+    padding: 5px;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    outline: none;
+}
+
+.section-product .product-details .popup #container-voucher button {
+    padding: 5px;
+    border: none;
+    background: #F2C641;
+    border-radius: 4px;
+    outline: none;
+    transition: 0.3s;
+
+}
+
+.section-product .product-details .popup #container-voucher button:hover {
+    background: #F2B035;
+}
+
+/* price popup */
+.section-product .product-details .popup .container-product-price {
+    background: white;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: lightgrey 1px solid;
+}
+
+.section-product .product-details .popup .container-product-price .container-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+    font-size: 14px;
+}
+
+.section-product .product-details .popup .container-product-price .container-price label {
+    font-weight: normal;
+}
+
+.section-product .product-details .popup .container-product-price .container-price p {
+    margin: 10px;
+}
+
+.section-product .product-details .popup .container-product-price #final-price .title {
+    font-weight: bold;
+}
+
+.section-product .product-details .popup .container-product-price #final-price .final-price-para {
+    font-weight: bold;
+    color: #F2B035;
+}
+
+/* buttons for popup */
+.section-product .product-details .popup .popup-buttons {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
 }
 
-.popup .popup-buttons button {
+.section-product .product-details .popup .popup-buttons button {
     padding: 10px 20px;
     border: none;
     border-radius: 6px;
@@ -265,20 +398,20 @@ you choosing size, colors for your product
     transition: 0.3s;
 }
 
-.popup #confirmBuy {
+.section-product .product-details .popup #confirmBuy {
     background: #F2C641;
     font-weight: bold;
 }
 
-.popup #confirmBuy:hover {
+.section-product .product-details .popup #confirmBuy:hover {
     background: #F2B035;
 }
 
-.popup #cancelBuy {
+.section-product .product-details .popup #cancelBuy {
     background: lightgray;
 }
 
-.popup #cancelBuy:hover {
+.section-product .product-details .popup #cancelBuy:hover {
     color: white;
     background: red;
 }
@@ -289,6 +422,9 @@ you choosing size, colors for your product
 main .section-comment {
     display: flex;
     flex-direction: column;
+    background: white;
+    padding: 15px;
+    margin-bottom: 10px;
 }
 
 main .section-comment h3 {
@@ -297,9 +433,9 @@ main .section-comment h3 {
 }
 
 main .section-comment .comment-form {
-    padding: 15px;
+    padding: 15px 0;
     margin: 10px;
-    border-bottom: 2px #F2C641 solid;
+    border-bottom: 1px lightgrey solid;
 }
 
 /* button for commenting */
@@ -323,6 +459,7 @@ main .section-comment .comment-form textarea {
     width: 100%;
     height: 100px;
     resize: none;
+    outline: none;
 }
 
 /* Container comment */
@@ -350,6 +487,11 @@ main .section-comment .comment h4 {
     color: #333333;
 }
 
+/* rating */
+main .section-comment .comment .rating .star {
+    color: #F0AF35;
+}
+
 /* comment content */
 main .section-comment .comment p {
     font-size: 14px;
@@ -361,16 +503,4 @@ main .section-comment .comment p {
 main .section-comment .comment span {
     font-size: 12px;
     color: #999999;
-}
-
-.status-msg {
-    color: green;
-    font-weight: bold;
-    transition: opacity 0.3s;
-    opacity: 0;
-    text-align: center;
-    margin-top: 10px;
-}
-.status-msg.show {
-    opacity: 1;
 }

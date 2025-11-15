@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Giỏ hàng</title>
     <link rel="stylesheet" href="../css/cartPage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
@@ -11,8 +11,8 @@
     this is a header
 </header>
 <main>
+    <h1>Giỏ hàng</h1>
     <div class="container">
-        <h1>Giỏ hàng</h1>
         <div class="product-info">
             <div class="product-info-header">
                 <div class="product-info-header-content" id="product-info-header-title">Sản phẩm</div>
@@ -32,17 +32,20 @@
                         </div>
                     </div>
                     <div class="product-item-more">
-                        <span class="price">345.000 đ</span>
+                        <p class="price">345.000 đ</p>
                     </div>
                     <div class="product-item-quantity">
                         <button class="minus-quantity-button">-</button>
-                        <span class="quantity">1</span>
+                        <p class="quantity">1</p>
                         <button class="plus-quantity-button">+</button>
                     </div>
                     <div class="product-item-more">
-                        <span class="total">345.000 đ</span>
+                        <p class="total">345.000 đ</p>
                     </div>
                     <div class="product-item-more">
+                        <label class="action-select-product">
+                            <input type="checkbox" name="select-checkbox">
+                        </label>
                         <button class="action-delete-product">Xóa</button>
                     </div>
                 </div>
@@ -56,37 +59,48 @@
                         </div>
                     </div>
                     <div class="product-item-more">
-                        <span class="price">345.000 đ</span>
+                        <p class="price">345.000 đ</p>
                     </div>
                     <div class="product-item-quantity">
                         <button class="minus-quantity-button">-</button>
-                        <span class="quantity">1</span>
+                        <p class="quantity">1</p>
                         <button class="plus-quantity-button">+</button>
                     </div>
                     <div class="product-item-more">
-                        <span class="total">345.000 đ</span>
+                        <p class="total">345.000 đ</p>
                     </div>
                     <div class="product-item-more">
+                        <label class="action-select-product">
+                            <input type="checkbox" name="select-checkbox">
+                        </label>
                         <button class="action-delete-product">Xóa</button>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="container-product-price">
-                <div class="container-price">
-                    <label>Tổng tiền:</label>
-                    <label>690.000 đ</label>
-                </div>
-                <div class="container-price">
-                    <label>Giảm giá:</label>
-                    <label>0 đ</label>
-                </div>
-                <div class="container-price" id="final-price">
-                    <label class="title">Tổng thanh toán:</label>
-                    <label class="price">690.000 đ</label>
+        <div class="container-product-price">
+            <div class="container-price" id="container-voucher">
+                <label for="voucher">Voucher:</label>
+                <div class="voucher-input">
+                    <input type="text" id="voucher" placeholder="Nhập mã giảm giá">
+                    <button id="apply-voucher">Áp dụng</button>
                 </div>
             </div>
+            <div class="container-price">
+                <label>Tổng tiền:</label>
+                <p>690.000 đ</p>
+            </div>
+            <div class="container-price">
+                <label>Giảm giá:</label>
+                <p>0 đ</p>
+            </div>
+            <div class="container-price" id="final-price">
+                <label class="title">Tổng thanh toán:</label>
+                <p class="price">690.000 đ</p>
+            </div>
         </div>
+
         <div class="user-info">
             <form id="form-input-info" action="thanksForBuying.html">
                 <div class="container-user-title">
