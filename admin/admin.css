@@ -1,0 +1,184 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+    color: white;
+}
+
+#selection_2 {
+    height: 700px;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+#selection_2 .menu {
+    height: auto;
+    margin: 0px 50px;
+    width: 250px;
+}
+
+#selection_2 .menu .avata {
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+    color: black;
+    border-bottom: #EDB310 solid 1px;
+}
+
+#selection_2 .menu .avata img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #EDB310;
+}
+
+#selection_2 .menu .avata .username {
+    margin: 15px 0;
+    font-size: 20px;
+}
+
+#selection_2 .bt_xac_nhan {
+    background: #EDB310;
+    border: none;
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+#selection_2 .bt_xac_nhan {
+    width: 30%;
+    margin: 0 auto; /* căn giữa ngang */
+}
+
+#selection_2 .bt_xac_nhan:hover {
+    background: #ffdb5c;
+    cursor: pointer;
+}
+
+#selection_2 .menu .menu_item {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#selection_2 .menu .menu_item .item {
+    padding: 15px 50px;
+    width: 150px;
+    text-decoration: none;
+    color: black;
+}
+
+#selection_2 .menu .menu_item .item:focus,
+#selection_2 .menu .menu_item .item:hover {
+    background: #EDB310;
+    color: white;
+}
+
+/* --- KHU HIỂN THỊ THÔNG TIN --- */
+.infomation {
+    flex: 1;
+    background: white;
+    margin: 40px 40px 40px 0;
+    border: 1px solid #EDB310;
+    border-radius: 10px;
+    color: black;
+    padding: 25px;
+}
+
+.infomation h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* --- BẢNG DỮ LIỆU --- */
+.table_data {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table_data th, .table_data td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.table_data th {
+    background: #EDB310;
+    color: white;
+}
+
+.table_data td button {
+    background: #EDB310;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    margin: 0px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.table_data td button:hover {
+    background: #ffdb5c;
+}
+
+/* --- NÚT XÁC NHẬN --- */
+.bt_xac_nhan {
+    background: #EDB310;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.bt_xac_nhan:hover {
+    background: #ffdb5c;
+}
+
+/* --- PHẦN THÔNG BÁO --- */
+.notification_item {
+    display: flex;
+    background: #f9f9f9;
+    padding: 15px;
+    gap: 15px;
+}
+
+.notification_item:hover {
+    border: 2px solid #EDB310;
+}
+
+.avatar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    border: 2px solid #FFD700;
+}
+
+.info h4 {
+    margin: 0px;
+    color: green;
+    font-size: 16px;
+}
+
+.info p {
+    margin: 0px 10px;
+    font-size: 14px;
+}
+
+.info span {
+    font-size: 12px;
+    color: #999;
+}

@@ -1,0 +1,33 @@
+#footer {
+    background: black;
+    padding: 60px 10%;
+    border-top: 1px solid #eee;
+}
+
+#footer .socials {
+    text-align: center;
+    margin: 30px 0;
+}
+
+#footer .socials a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+#footer .socials a:hover {
+    color: #EDB310;
+}
+
+#footer .brand {
+    color: white;
+    text-align: center;
+    border-top: 1px solid white;
+    padding-top: 20px;
+}
+
+#footer .brand img {
+    width: 100px;
+    margin-bottom: 10px;
+}
