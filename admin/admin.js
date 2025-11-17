@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         "Quản lý thông báo": `
             <h2>Quản lý đơn hàng</h2>
-                <button class="bt_xac_nhan" id="btn-them-sp">+ Thêm thông báo</button>
+                <button class="bt_xac_nhan" id="btn-them-tb">+ Thêm thông báo</button>
             <table class="table_data">
                 <tr><th>Mã thông báo</th><th>người nhận thông báo</th><th>loại thông báo</th><th>nội dung</th><th>ngày thông báo</th></tr>
                 <tr><td>tb001</td><td>0001</td><td>giảm giá</td><td>giảm 100k cho đơn hàng trên 500k</td><td>11/11/2025</td>
@@ -182,7 +182,63 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (text === "Quản lý sản phẩm") {
                 const btnThem = document.getElementById("btn-them-sp");
-                if (btnThem) btnThem.addEventListener("click", () => alert("Tính năng thêm sản phẩm đang được phát triển"));
+                if (btnThem) btnThem.addEventListener("click", () => {
+                    openAdminPopup(
+                        "Thêm sản phẩm mới",
+                        `
+                 <div class="popup_item">
+                    <label>Mã sản phẩm:</label>
+                    <input type="text" id="sp-id">
+                </div>
+                
+                <div class="popup_item">
+                    <label>Tên sản phẩm:</label>
+                    <input type="text" id="sp-name">
+                </div>
+                
+                <div class="popup_item">
+                    <label>Giá:</label>
+                    <input type="number" id="sp-price">
+                </div>
+                
+                <div class="popup_item">
+                    <label>Số lượng:</label>
+                    <input type="number" id="sp-quantity">
+                </div>
+            `,
+                        () => {
+                            // callback sau khi nhấn xác nhận
+                            const name = document.getElementById("sp-name").value;
+                            alert("Thêm sản phẩm: " + name);
+                        }
+                    );
+                });
+            }
+
+            if (text === "Quản lý thông báo") {
+                const btnThemTB = document.getElementById("btn-them-tb");
+                if (btnThemTB) btnThemTB.addEventListener("click", () => {
+                    openAdminPopup(
+                        "Tạo thông báo mới",
+                        `
+                <label>Người nhận (UID):</label>
+                <input type="text" id="tb-uid">
+
+                <label>Loại thông báo:</label>
+                <input type="text" id="tb-type">
+
+                <label>Nội dung:</label>
+                <textarea id="tb-content"></textarea>
+            `,
+                        () => {
+                            const uid = document.getElementById("tb-uid").value;
+                            const type = document.getElementById("tb-type").value;
+                            const content = document.getElementById("tb-content").value;
+
+                            alert(`✔ Đã tạo thông báo cho UID ${uid}`);
+                        }
+                    );
+                });
             }
 
             if (text === "Trả lời câu hỏi") {
@@ -199,3 +255,41 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+/* ======= buy button ======= */
+/* open and off */
+const buyPopup = document.getElementById('buyPopup');
+const confirmBuy = document.getElementById('confirmBuy');
+const cancelBuy = document.getElementById('cancelBuy');
+buyBtn.addEventListener('click', () => {
+    const colorSelected = document.querySelector('.color-btn.active');
+    const sizeSelected = document.querySelector('.size-options button.active');
+
+    if (!colorSelected || !sizeSelected) {
+        showMessage('Vui lòng chọn cả màu và kích cỡ trước khi thêm vào giỏ hàng!', 'red');
+        return;
+    }
+    buyPopup.style.display = 'flex';
+});
+cancelBuy.addEventListener('click', () => {
+    buyPopup.style.display = 'none';
+});
+function openAdminPopup(title, bodyHTML, onConfirm) {
+    const popup = document.getElementById("adminPopup");
+    const popupTitle = document.getElementById("popup-title");
+    const popupBody = document.getElementById("popup-body");
+    const btnConfirm = document.getElementById("popup-confirm");
+    const btnCancel = document.getElementById("popup-cancel");
+
+    popupTitle.textContent = title;
+    popupBody.innerHTML = bodyHTML;
+
+    popup.style.display = "flex";
+
+    btnCancel.onclick = () => popup.style.display = "none";
+
+    btnConfirm.onclick = () => {
+        popup.style.display = "none";
+        if (onConfirm) onConfirm();
+    };
+}
+
