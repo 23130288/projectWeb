@@ -32,7 +32,7 @@ body {
     left: 25px
 }
 img[alt="Travel Logo"] {
-    width: 100px;
+    width: 140px;
     height: 60px;
     margin: -7px;
 }
@@ -44,9 +44,9 @@ img[alt="Travel Logo"] {
     display: flex;
     border-radius: 6px;
     overflow: hidden;
-    width: 900px;
+    width: 1000px;
     position: relative;
-    left: 150px;
+    left: 80px;
 }
 .search-select {
     padding: 9px 10px;
@@ -109,7 +109,7 @@ img[alt="Travel Logo"] {
     justify-content: center;
     align-items: center;
     position: relative;
-    left : 140px;
+    left : 70px;
 }
 .avatar-icon-shopping-cart {
     width: 140px;
@@ -119,7 +119,7 @@ img[alt="Travel Logo"] {
     justify-content: center;
     align-items: center;
     position: relative;
-    left : 80px;
+    left : 40px;
 
 }
 .avatar-icon-user {
@@ -130,7 +130,7 @@ img[alt="Travel Logo"] {
     justify-content: center;
     align-items: center;
     position: relative;
-    left :20px;
+    left :5px;
 }
 
 .inner-circle {
@@ -266,124 +266,6 @@ nav {
     font-size: 24px;
     color: #222;
 }
-
-/*.product-list {*/
-/*    display: grid;*/
-/*    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));*/
-/*    gap: 25px;*/
-/*    margin-bottom: 40px;*/
-/*    padding: 30px 40px;*/
-/*}*/
-
-/*.product-grid {*/
-/*    display: flex;*/
-/*    gap: 20px;*/
-/*    justify-content: center;*/
-/*    flex-wrap: wrap;*/
-/*    transition: all 0.3s ease;*/
-/*}*/
-
-/*.product-card {*/
-/*    position: relative;*/
-/*    background: white;*/
-/*    border-radius: 12px;*/
-/*    padding: 25px;*/
-/*    box-shadow: 0 0 10px rgba(0,0,0,0.1);*/
-/*    transition: transform 0.3s, box-shadow 0.3s;*/
-
-/*}*/
-
-/*.product-card:hover {*/
-/*    transform: translateY(-1px);*/
-/*    box-shadow: 0 10px 25px rgba(0,0,0,0.15);*/
-/*}*/
-/*.discount-badge {*/
-/*    position: absolute;*/
-/*    top: 10px;*/
-/*    right: 10px;*/
-/*    background-color: orange;*/
-/*    color: white;*/
-/*    font-weight: bold;*/
-/*    font-size: 17px;*/
-/*    padding: 5px 2px;*/
-/*    border-radius: 5px;*/
-/*    z-index: 10;*/
-/*}*/
-/*.product-card img {*/
-/*    width: 70%;*/
-/*    height: 180px;*/
-/*    object-fit: cover;*/
-/*    border-radius: 10px;*/
-/*}*/
-/*.product-card img:hover {*/
-/*    transform: scale(1.1);*/
-/*}*/
-/*.product-card h3 {*/
-/*    margin: 10px 0 5px;*/
-/*    font-size: 17px;*/
-/*    color: #333;*/
-/*}*/
-
-/*.price {*/
-/*    margin-top: 10px;*/
-/*    font-size: 16px;*/
-/*    text-align: center;*/
-/*    height: 40px;*/
-/*}*/
-/*.price .old-price {*/
-/*    text-decoration: line-through;*/
-/*    color: purple;*/
-/*    margin-right: 10px;*/
-/*}*/
-
-/*.price .new-price {*/
-/*    font-weight: bold;*/
-/*    color: purple;*/
-/*}*/
-
-/*.product-actions {*/
-/*    display: flex;*/
-/*    gap: 10px;*/
-/*    margin-top: 10px;*/
-/*    width: 100%;*/
-/*}*/
-
-/*.product-actions .buy-btn {*/
-/*    flex-grow: 1;*/
-/*    background-color: orange;*/
-/*    color: white;*/
-/*    padding: 8px 20px;*/
-/*    border: none;*/
-/*    border-radius: 25px;*/
-/*    cursor: pointer;*/
-/*    font-size: 14px;*/
-/*    transition: background-color 0.3s;*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*}*/
-
-/*.product-actions .inner-circle1 {*/
-/*    width: 45px;*/
-/*    height: 45px;*/
-/*    border-radius: 50%;*/
-/*    background-color: white;*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    color: black;*/
-/*    font-size: 20px;*/
-/*    cursor: pointer;*/
-/*    transition: background-color 0.3s;*/
-/*}*/
-/*.product-actions .buy-btn:hover {*/
-/*    background-color: purple;*/
-/*    color: white;*/
-/*}*/
-/*.product-actions .inner-circle1:hover {*/
-/*    background-color:purple;*/
-/*    color: white;*/
-/*}*/
 #footer1 {
     background: black;
     padding: 60px 10%;
