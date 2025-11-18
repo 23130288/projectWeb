@@ -49,7 +49,8 @@ main .product-header {
 }
 
 main .product-header-price,
-main .product-header-status {
+main .product-header-status,
+main .product-header-date {
     flex: 1;
     text-align: center;
 }
@@ -103,7 +104,8 @@ main .container-contents .product .product-title {
 
 main .container-contents .product .product-price,
 main .container-contents .product .product-status-delivered,
-main .container-contents .product .product-status-shipping {
+main .container-contents .product .product-status-shipping,
+main .container-contents .product .product-date {
     text-align: center;
     padding: 5px;
     flex: 1;

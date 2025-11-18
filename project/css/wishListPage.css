@@ -24,8 +24,7 @@ main .container {
 }
 
 h1 {
-    text-align: center;
-    color: #F2C641;
+    color: #F2B035;
     margin-bottom: 30px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -39,7 +38,7 @@ main .wishlist-header {
     align-items: center;
     padding: 22px;
     font-weight: bold;
-    border-bottom: 1px solid grey;
+    background: #f2f2f2;
 }
 
 main .wishlist-header .wishlist-header-content {
@@ -69,6 +68,12 @@ main .wishlist-item {
     padding: 5px;
     flex: 1;
 }
+.wishlist-item .wishlist-item-status.hasProduct {
+    color: green;
+}
+.wishlist-item .wishlist-item-status.outOfProduct {
+    color: red;
+}
 
 /* title */
 .wishlist-item .wishlist-item-title {
@@ -80,7 +85,7 @@ main .wishlist-item {
 /* img */
 .wishlist-item .wishlist-item-title img {
     width: 100px;
-    height: 100px;
+    height: auto;
     border-radius: 4px;
 }
 /* p-description */
@@ -115,6 +120,6 @@ main .wishlist-item {
 }
 
 .wishlist-item .wishlist-item-buttons .remove-btn:hover {
-    border-color: red;
-    color: red;
+    background: red;
+    color: white;
 }
