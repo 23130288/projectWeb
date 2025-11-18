@@ -33,9 +33,9 @@ body {
     left: 25px
 }
 img[alt="Travel Logo"] {
-    width: 125px;
-    height: 55px;
-    margin: -11px;
+    width: 140px;
+    height: 60px;
+    margin: -7px;
 }
 .brand-name p {
     margin: 0;
@@ -52,9 +52,9 @@ img[alt="Travel Logo"] {
     display: flex;
     border-radius: 6px;
     overflow: hidden;
-    width: 900px;
+    width: 1000px;
     position: relative;
-    left :150px;
+    left :80px;
 }
 .search-select {
     padding: 9px 10px;
@@ -121,7 +121,7 @@ img[alt="Travel Logo"] {
     justify-content: center;
     align-items: center;
     position: relative;
-    left : 140px;
+    left : 70px;
 }
 .avatar-icon-shopping-cart {
     width: 140px;
@@ -131,7 +131,7 @@ img[alt="Travel Logo"] {
     justify-content: center;
     align-items: center;
     position: relative;
-    left : 80px;
+    left : 40px;
 
 }
 .avatar-icon-user {
@@ -142,7 +142,7 @@ img[alt="Travel Logo"] {
     justify-content: center;
     align-items: center;
     position: relative;
-    left :20px;
+    left :5px;
 }
 
 .inner-circle {
