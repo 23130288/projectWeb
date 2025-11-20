@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Trang quản trị</title>
     <link rel="stylesheet" href="admin.css">
-    <link rel="stylesheet" href="footer.css">
 </head>
 <body>
 <div class="selection_2" id="selection_2">
@@ -30,21 +29,23 @@
     <div class="infomation">
         <!-- Nội dung động sẽ hiển thị ở đây -->
     </div>
+    <!-- POPUP THÊM SẢN PHẨM / THÔNG BÁO -->
+    <div id="adminPopup" class="popup">
+        <div class="popup-content">
+            <h2 id="popup-title">Tiêu đề</h2>
+
+            <div id="popup-body">
+                <!-- Nội dung popup sẽ được chèn bằng JS -->
+            </div>
+
+            <div class="popup-actions">
+                <button id="popup-confirm" class="btn confirm">Xác nhận</button>
+                <button id="popup-cancel" class="btn cancel">Hủy</button>
+            </div>
+        </div>
+    </div>
+
 </div>
-
-<footer class="footer" id="footer">
-    <div class="socials">
-        <a href="https://www.facebook.com/groups/congdongsinhvien.hcmnlu">Tiktok</a>
-        <a href="https://www.facebook.com/groups/congdongsinhvien.hcmnlu">Instagram</a>
-        <a href="https://www.facebook.com/groups/congdongsinhvien.hcmnlu">Facebook</a>
-        <a href="https://www.facebook.com/groups/congdongsinhvien.hcmnlu">Pinterest</a>
-    </div>
-
-    <div class="brand">
-        <img src="anh/logo_white.png" alt="Logo ABC">
-        <p>© 2025 Công ty Balo & Vali Du lịch Travel</p>
-    </div>
-</footer>
 
 <script src="admin.js"></script>
 
