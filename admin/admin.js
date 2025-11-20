@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "Đăng xuất": `
             <h2>Đăng xuất</h2>
             <p>Bạn có chắc muốn đăng xuất khỏi trang quản trị?</p>
-            <button class="bt_xac_nhan" id="btn-dang-xuat">Đăng xuất</button>
+            <button class="bt_xac_nhan" id="btn_dang_xuat">Đăng xuất</button>
         `
     };
 
@@ -205,10 +205,30 @@ document.addEventListener("DOMContentLoaded", function () {
                     <label>Số lượng:</label>
                     <input type="number" id="sp-quantity">
                 </div>
+                
+                <div class="popup_item">
+                    <label>Ảnh sản phẩm:</label>
+                
+                    <!-- Khu vực kéo/thả -->
+                    <div class="img-upload-box" id="drop-zone">
+                        <span>+</span>
+                        <p>Kéo hoặc click để thêm ảnh</p>
+<!--                        <input type="file" id="sp-img" accept="image/*" multiple>-->
+                    </div>
+                
+                    <!-- Khu vực preview nhiều ảnh -->
+                    <div class="preview-list" id="preview-list">
+                        <div class="preview-item">
+                            <img src="anh/balo1.jpg">
+                        </div>
+                        <div class="preview-item">
+                            <img src="anh/balo2.jpg">
+                        </div>
+                    </div>
+                </div>
             `,
                         () => {
                             // callback sau khi nhấn xác nhận
-                            const name = document.getElementById("sp-name").value;
                             alert("Thêm sản phẩm: " + name);
                         }
                     );
@@ -231,11 +251,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <textarea id="tb-content"></textarea>
             `,
                         () => {
-                            const uid = document.getElementById("tb-uid").value;
-                            const type = document.getElementById("tb-type").value;
-                            const content = document.getElementById("tb-content").value;
-
-                            alert(`✔ Đã tạo thông báo cho UID ${uid}`);
+                            alert(`✔ Đã tạo thông báo cho UID: 12345`);
                         }
                     );
                 });

@@ -132,20 +132,20 @@ body {
     background: #ffdb5c;
 }
 
-/* --- NÚT XÁC NHẬN --- */
-.bt_xac_nhan {
-    background: #EDB310;
+.table_data td .btn-huy,
+.table_data td .btn-xoa {
+    background: #ff4c4c;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
     color: white;
-    font-weight: bold;
+    padding: 5px 10px;
+    margin: 0px 10px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: 0.2s;
 }
 
-.bt_xac_nhan:hover {
-    background: #ffdb5c;
+.table_data td .btn-huy:hover,
+.table_data td .btn-xoa:hover {
+    background: #ff6666;
 }
 
 /* --- PHẦN THÔNG BÁO --- */
@@ -186,10 +186,11 @@ body {
 /* ===== Popup ===== */
 .popup {
     position: fixed;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(3px); /* mờ nhẹ background */
     display: none;
     justify-content: center;
@@ -258,7 +259,7 @@ body {
 
 .popup-actions .confirm {
     background: #EDB310;
-    color: #1a1a1a;
+    color: white;
 }
 
 .popup-actions .confirm:hover {
@@ -274,24 +275,51 @@ body {
     background: #ff6666;
 }
 
-/* Nút Hủy, Xóa đều màu đỏ */
-.btn-xoa,
-.btn-huy,
-.cancel {
-    background-color: #e74c3c; /* đỏ tươi */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 15px;
-    font-weight: bold;
+.popup_item  .img-upload-box {
+    width: 100%;
+    height: 160px;
+    border: 2px dashed #888;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    transition: 0.2s;
+    position: relative;
+    color: #ccc;
+    margin-bottom: 15px;
 }
 
-/* hover hiệu ứng */
-.btn-xoa:hover,
-.btn-huy:hover,
-.cancel:hover {
-    background-color: #ff4c4c; /* đỏ sáng khi hover */
+.popup_item .img-upload-box:hover {
+    border-color: #ff7b57;
+    color: #ff7b57;
 }
 
+.popup_item .img-upload-box input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* danh sách preview */
+.popup_item .preview-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.popup_item .preview-list .preview-item {
+    width: 90px;
+    height: 90px;
+    border: 1px solid #555;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.popup_item .preview-list .preview-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
