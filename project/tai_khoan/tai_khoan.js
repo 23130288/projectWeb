@@ -76,6 +76,115 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
       </div>
     `,
+        "Đơn hàng": `
+        <main>
+            <div class="container" id="container">
+                <div class="tab-nav-menu">
+                    <a href="#" class="tab-menu active" data-tab="all">Tất cả</a>
+                    <a href="#" class="tab-menu" data-tab="delivered">Đã giao</a>
+                    <a href="#" class="tab-menu" data-tab="shipping">Đang giao</a>
+                    <a href="#" class="tab-menu" data-tab="cancelled">Hủy</a>
+                </div>
+                <div class="container-contents">
+                    <div class="product-content all active" id="all">
+                        <!--header-->
+                        <div class="product-header">
+                            <div class="product-header-title">Sản phẩm</div>
+                            <div class="product-header-price">Đơn giá</div>
+                            <div class="product-header-status">Tình trạng</div>
+                        </div>
+                        <!--content-->
+                        <div class="product">
+                            <div class="product-title">
+                                <img src="../images/Niko.png" alt="">
+                                <div class="product-info">
+                                    <label>Name placeholder</label>
+                                </div>
+                            </div>
+                            <div class="product-price">345.000 đ</div>
+                            <div class="product-status-delivered">Đã giao</div>
+                        </div>
+                        <div class="product">
+                            <div class="product-title">
+                                <img src="../images/Niko.png" alt="">
+                                <div class="wishlist-item-info">
+                                    <label>Name placeholder</label>
+                                </div>
+                            </div>
+                            <div class="product-price">345.000 đ</div>
+                            <div class="product-status-delivered">Đã giao</div>
+                        </div>
+                        <div class="product">
+                            <div class="product-title">
+                                <img src="../images/Niko.png" alt="">
+                                <div class="wishlist-item-info">
+                                    <label>Name placeholder</label>
+                                </div>
+                            </div>
+                            <div class="product-price">345.000 đ</div>
+                            <div class="product-status-delivered">Đã giao</div>
+                        </div>
+                        <div class="product">
+                            <div class="product-title">
+                                <img src="../images/Niko.png" alt="">
+                                <div class="wishlist-item-info">
+                                    <label>Name placeholder</label>
+                                </div>
+                            </div>
+                            <div class="product-price">345.000 đ</div>
+                            <div class="product-status-shipping">Đang giao</div>
+                        </div>
+                    </div>
+                    <div class="product-content delivered" id="delivered">
+                        <!--header-->
+                        <div class="product-header">
+                            <div class="product-header-title">Tiêu đề</div>
+                            <div class="product-header-price">Đơn giá</div>
+                        </div>
+                        <!--content-->
+                        <div class="product">
+                            <div class="product-title">
+                                <img src="../images/Niko.png" alt="">
+                                <div class="wishlist-item-info">
+                                    <label>Name placeholder</label>
+                                </div>
+                            </div>
+                            <div class="product-price">345.000 đ</div>
+                        </div>
+                        <div class="product">
+                            <div class="product-title">
+                                <img src="../images/Niko.png" alt="">
+                                <div class="wishlist-item-info">
+                                    <label>Name placeholder</label>
+                                </div>
+                            </div>
+                            <div class="product-price">345.000 đ</div>
+                        </div>
+                    </div>
+                    <div class="product-content shipping" id="shipping">
+                        <!--header-->
+                        <div class="product-header">
+                            <div class="product-header-title">Tiêu đề</div>
+                            <div class="product-header-price">Đơn giá</div>
+                        </div>
+                        <!--content-->
+                        <div class="product">
+                            <div class="product-title">
+                                <img src="../images/Niko.png" alt="">
+                                <div class="wishlist-item-info">
+                                    <label>Name placeholder</label>
+                                </div>
+                            </div>
+                            <div class="product-price">345.000 đ</div>
+                        </div>
+                    </div>
+                    <div class="product-content cancelled" id="cancelled">
+                        <img src="../images/nothingHere.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </main>
+    `,
         "Đổi mật khẩu": `
       <h2>Đổi mật khẩu</h2>
       <div class="in4">
@@ -139,6 +248,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 setToggle(togglePassword, password);
                 setToggle(toggleConfirm, confirmPassword);
                 setToggle(toggleOld, old_password);
+            }
+            if (text === "Đơn hàng") {
+                const tabMenus = document.querySelectorAll('.tab-menu');
+                const contents = document.querySelectorAll('.product-content');
+
+                tabMenus.forEach(tabMenu => {
+                    tabMenu.addEventListener('click', (e) => {
+                        e.preventDefault();
+
+                        tabMenus.forEach(t => t.classList.remove('active'));
+                        contents.forEach(c => c.classList.remove('active'));
+
+                        tabMenu.classList.add('active');
+                        document.querySelector(`.${tabMenu.dataset.tab}`).classList.add('active');
+                    });
+                });
             }
             if (text === "Đổi mật khẩu") {
                 document.getElementById("btn-doi-mk").addEventListener("click", () => {
