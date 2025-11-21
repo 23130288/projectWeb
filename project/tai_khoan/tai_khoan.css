@@ -1,0 +1,197 @@
+body {
+    margin: 0;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+    color: white;
+}
+
+#selection_2 {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+#selection_2 .menu {
+    height: auto;
+    margin: 0px 50px;
+    width: 250px;
+}
+
+#selection_2 .menu .avata {
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+    color: black;
+    border-bottom: #EDB310 solid 1px;
+}
+
+#selection_2 .menu .avata img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #EDB310;
+}
+
+#selection_2 .menu .avata .username {
+    margin: 15px 0;
+    font-size: 20px;
+}
+
+#selection_2 .bt_xac_nhan,
+#selection_2 .menu .avata .change-btn {
+    background: #EDB310;
+    border: none;
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+#selection_2 .menu .avata .change-btn:hover {
+    background: #ffdb5c;
+}
+
+#selection_2 .bt_xac_nhan {
+    width: 30%;
+    margin: 0 auto; /* căn giữa ngang */
+}
+
+#selection_2 .bt_xac_nhan:hover {
+    background: #ffdb5c;
+    cursor: pointer;
+}
+
+#selection_2 .menu .menu_item {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#selection_2 .menu .menu_item .item {
+    padding: 15px 50px;
+    width: 150px;
+    text-decoration: none;
+    color: black;
+}
+
+#selection_2 .menu .menu_item .item:focus {
+    background: #EDB310;
+    color: white;
+}
+
+#selection_2 .infomation {
+    background: white;
+    margin: 70px 250px 70px 20px;
+    height: auto;
+    width: calc(100% - 250px);
+    border: #EDB310 solid 1px;
+    padding: 20px;
+    border-radius: 10px;
+    color: black;
+}
+
+#selection_2 .infomation h2 {
+    text-align: center;
+    padding: 25px 0px;
+}
+
+#selection_2 .infomation .in4_row, .password-wrapper {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+#selection_2 .infomation .in4_label {
+    width: 200px;
+    padding: 10px;
+    color: #333;
+    font-weight: bold;
+    text-align: right;
+}
+
+#selection_2 .infomation .in4_input, .password-wrapper {
+    flex: 1;
+    background: #eeee;
+    border-radius: 5px;
+    border: none;
+    color: #333;
+    font-size: 15px;
+    font-weight: bold;
+    text-indent: 10px;
+}
+
+#selection_2 .infomation #gt {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: none;
+    border: none;
+    text-indent: 0;
+}
+
+#selection_2 #old_password,
+#selection_2 #password,
+#selection_2 #confirm_password {
+    padding: 10px 0px;
+}
+
+
+#selection_2 .password-wrapper {
+    position: relative;
+    padding: 10px, 0px;
+    margin: none;
+}
+
+#selection_2 .password-wrapper button {
+    position: absolute;
+    right: 10px;
+    margin-top: 3px;
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+#selection_2 .password-wrapper button:hover {
+    color: #EDB310;
+}
+
+.notification_item {
+    display: flex;
+    background: #f9f9f9;
+    padding: 15px;
+    gap: 15px;
+}
+
+.avatar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    border: 2px solid #FFD700;
+}
+
+.info h4 {
+    margin: 0px;
+    color: green;
+    font-size: 16px;
+}
+
+.info p {
+    margin: 0px 10px;
+    font-size: 14px;
+}
+
+.info span {
+    font-size: 12px;
+    color: #999;
+}
+
+

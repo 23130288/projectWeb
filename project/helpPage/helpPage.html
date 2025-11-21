@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hỗ trợ</title>
+    <link rel="stylesheet" href="helpPage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+<main>
+    <div class="container">
+        <!-- header sub -->
+        <div class="support-header">
+            <h1>Trung tâm hỗ trợ khách hàng</h1>
+            <div class="container-search">
+                <div class="search-bar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="search" placeholder="Tìm kiếm chủ đề, ví dụ: giao hàng, đổi trả...">
+                </div>
+            </div>
+        </div>
+        <!-- topics to choose -->
+        <div class="container-topics">
+            <button class="topic" id="order">
+                <img src="../images/helpPage/package.png" alt="">
+                <span>Kiểm tra, hủy hoặc thay đổi đơn hàng</span>
+            </button>
+            <button class="topic" id="login">
+                <img src="../images/helpPage/login.png" alt="">
+                <span>Đăng nhập/Đăng ký</span>
+            </button>
+            <button class="topic" id="payment">
+                <img src="../images/helpPage/card.png" alt="">
+                <span>Phương thức trả tiền</span>
+            </button>
+            <button class="topic" id="question">
+                <img src="../images/helpPage/question.png" alt="">
+                <span>Câu hỏi khác</span>
+            </button>
+        </div>
+        <!-- form -->
+        <div class="support-form" id="supportForm">
+            <h2 id="selectedTopic">Chủ đề: </h2>
+            <textarea rows=3 placeholder="Hãy mô tả vấn đề của bạn tại đây..."></textarea>
+            <button>Gửi yêu cầu hỗ trợ</button>
+        </div>
+    </div>
+</main>
+<script>
+    const topics = document.querySelectorAll('.topic');
+    const selectedTopic = document.getElementById('selectedTopic');
+
+    topics.forEach(topic => {
+        topic.addEventListener('click', () => {
+            // Bỏ active ở tất cả các nút
+            topics.forEach(t => t.classList.remove('active'));
+
+            // Thêm active cho nút được click
+            topic.classList.add('active');
+            // Update h2
+            const topicText = topic.querySelector('span').innerText;
+            selectedTopic.innerText = 'Chủ đề: ' + topicText;
+        });
+    });
+</script>
+</body>
+</html>

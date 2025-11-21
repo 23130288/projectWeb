@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="dang_nhap.css">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="section_2" id="section_2">
+    <img src="anh/logo.png" alt="Logo" class="logo">
+</div>
+
+<div class="section_1" id="section_1">
+    <h1>Đăng nhập tài khoản của bạn</h1>
+    <form>
+
+        <div class="container" id="container_email">
+            <label for="email">Email hoặc tên người dùng:</label>
+            <input type="text" id="email" name="email">
+        </div>
+
+        <div class="container" id="container_password">
+            <label for="password">Mật khẩu:</label>
+            <div class="password-wrapper">
+                <input type="password" id="password" name="password">
+                <button type="button" id="togglePassword">👁</button>
+            </div>
+        </div>
+
+        <div class="container" id="container_remember">
+            <div class="remember" id="remember">
+                <input id="check" type="checkbox"> Nhớ mật khẩu
+            </div>
+
+            <div class="forget" id="forget">
+                <a class="link" id="foget" href="resetPass.html">Quên mật khẩu?</a>
+            </div>
+        </div>
+        <div class="container" id="container_log">
+            <input class="log" id="log" type="submit" value="Đăng nhập">
+        </div>
+
+    </form>
+    <footer class="footer" id="container_more">
+        người dùng mới:&nbsp;
+        <a class="link" href="dang_ky.html">Tạo tài khoản</a>
+    </footer>
+    <script src="dang_nhap.js"></script>
+
+</body>
+</html>

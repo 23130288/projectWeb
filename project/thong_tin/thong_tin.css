@@ -1,0 +1,150 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* ----------------------------------------selection1---------------------------------------- */
+#selection1 {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+/* Nửa trái */
+#selection1 .left {
+    flex: 1;
+    background-image: url('anh/left.jpg'); /* Thay ảnh của bạn */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* Nửa phải */
+#selection1 .right {
+    flex: 1;
+    background-image: url('anh/right.jpg'); /* Thay ảnh của bạn */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* Lớp mờ và nội dung */
+#selection1 .overlay {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+#selection1 .overlay h2 {
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: white;
+}
+
+#selection1 .overlay .btn {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 2px;
+    transition: 0.3s;
+    text-decoration: underline;
+}
+
+#selection1 .overlay .btn:hover {
+    color: #EDB310;
+    text-decoration: underline;
+}
+
+/* Logo ở giữa */
+#selection1 .logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 70px;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 5px;
+    z-index: 2;
+}
+
+#selection1 .logo img {
+    color: white;
+    width: 300px;
+}
+
+/* ----------------------------------------selection2---------------------------------------- */
+#selection2 {
+    background: white;
+    padding: 60px 10%;
+    border-top: 1px solid #eee;
+}
+
+#selection2 .selection2-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#selection2 .selection2-column {
+    min-width: 180px;
+    margin-bottom: 30px;
+}
+
+#selection2 .selection2-column h4 {
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+#selection2 .selection2-column a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    margin: 6px 0;
+    transition: 0.2s;
+}
+
+#selection2 .selection2-column a:hover {
+    color: #EDB310;
+}
+
+/* ----------------------------------------footer---------------------------------------- */
+#footer {
+    background: black;
+    padding: 60px 10%;
+    border-top: 1px solid #eee;
+}
+
+#footer .socials {
+    text-align: center;
+    margin: 30px 0;
+}
+
+#footer .socials a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+#footer .socials a:hover {
+    color: #EDB310;
+}
+
+#footer .brand {
+    color: white;
+    text-align: center;
+    border-top: 1px solid white;
+    padding-top: 20px;
+}
+
+#footer .brand img {
+    width: 100px;
+    margin-bottom: 10px;
+}

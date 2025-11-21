@@ -1,0 +1,109 @@
+body {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+    color: white;
+
+    /* Ảnh nền */
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.section_1 {
+    background: #212328;
+    width: 50%;
+    height: 600px;
+    border-top: #EDB310 solid 7px;
+    border-radius: 5px;
+}
+
+.logo {
+    display: block;
+    padding-top: 30px;
+    margin-bottom: 50px;
+    width: 100px;
+}
+
+.section_1 h1 {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+.section_1 label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.section_1 .container {
+    margin: 40px 70px;
+}
+
+.section_1 .container:hover {
+    margin: 40px 70px;
+    color: #EDB310;
+}
+
+.section_1 input {
+    padding: 10px 0px;
+    width: 100%;
+    border-radius: 5px;
+    background: #3D414A;
+    border: none;
+}
+
+#check {
+    width: auto;
+}
+
+#container_remember {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 70px;
+    color: white;
+    font-size: 16px;
+}
+
+#foget {
+    padding: 0px;
+}
+
+.section_1 .log {
+    background: #FEC012;
+    width: 100%;
+    font-family: 'Arial', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+}
+
+.section_1 #container_more {
+    display: flex;
+    justify-content: center;
+}
+
+.section_1 .link {
+    color: white;
+    font-family: 'Arial', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.section_1 .link:hover {
+    color: #EDB310;
+}
+
+footer#container_more {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #EDB310;
+    background: #2E2F37;
+}
