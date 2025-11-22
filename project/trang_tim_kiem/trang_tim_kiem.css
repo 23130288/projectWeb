@@ -258,6 +258,13 @@ nav {
     font-size: 24px;
     color: #222;
 }
+#no-results {
+    text-align: center;
+    padding: 15px;
+    font-size: 15px;
+    color: black;
+    background-color: white;
+}
 #footer1 {
     background: black;
     padding: 60px 10%;
