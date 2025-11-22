@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Yêu thích</title>
     <link rel="stylesheet" href="wishListPage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
 <header>
@@ -15,42 +16,66 @@
 
         <!-- Header -->
         <div class="wishlist-header">
-            <div class="wishlist-header-content" id="wishlist-header-title">Tiêu đề</div>
+            <div class="wishlist-header-content" id="wishlist-header-title">Sản phẩm</div>
             <div class="wishlist-header-content" id="wishlist-header-price">Đơn giá</div>
             <div class="wishlist-header-content" id="wishlist-header-status">Tình trạng</div>
             <div class="wishlist-header-content" id="wishlist-header-action">Thao tác</div>
         </div>
 
         <!-- products -->
-        <div class="wishlist-item">
-            <div class="wishlist-item-title">
-                <img src="../images/Niko.png" alt="">
-                <div class="wishlist-item-info">
-                    <label>Name placeholder</label>
-                    <p>description placeholder</p>
+        <div class="container-wishlist-items">
+            <div class="wishlist-item">
+                <div class="wishlist-item-title">
+                    <img src="../images/balos/apollo/apollo1.webp" alt="">
+                    <div class="wishlist-item-info">
+                        <label>Balo Apollo đựng laptop</label>
+                        <p>1. Thông tin chi tiết
+                            - Chất liệu: Da tráng PU chống thấm. Vải lót trượt nước.
+                            Balo của MDR được sử dụng chất liệu vải bố tráng PU chống thấm, độ bền cao, có thể giặt và
+                            vệ sinh thoải
+                            mái...</p>
+                        <div class="rating">
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9734;</span>
+                            <span class="rating-number">(4.0)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="wishlist-item-price">345.000 đ</div>
+                <div class="wishlist-item-status hasProduct"><i class="fa-solid fa-circle-check"></i> Còn hàng (12)
+                </div>
+                <div class="wishlist-item-buttons">
+                    <button class="add-to-cart">Thêm vào giỏ</button>
+                    <button class="remove-btn">Xóa</button>
                 </div>
             </div>
-            <div class="wishlist-item-price">345.000 đ</div>
-            <div class="wishlist-item-status">Còn hàng</div>
-            <div class="wishlist-item-buttons">
-                <button class="add-to-cart">Thêm vào giỏ</button>
-                <button class="remove-btn">Xóa</button>
-            </div>
-        </div>
 
-        <div class="wishlist-item">
-            <div class="wishlist-item-title">
-                <img src="../images/Niko.png" alt="">
-                <div class="wishlist-item-info">
-                    <label>Name placeholder</label>
-                    <p>description placeholder</p>
+            <div class="wishlist-item">
+                <div class="wishlist-item-title">
+                    <img src="../images/valies/ValiJOYWAYxMELALINIA/vali3.webp" alt="">
+                    <div class="wishlist-item-info">
+                        <label>Vali Nhựa Đẹp Bền ABS Cao Cấp JOYWAY x MELALINIA SIZE 20/24/28 Khóa số TSA BẢO HÀNH TRỌN
+                            ĐỜI</label>
+                        <p>Bộ hành lý: Có // Kích thước: 20 - 25 inches // Loại bánh xe: Bánh xe quay...</p>
+                        <div class="rating">
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9734;</span>
+                            <span class="rating-number">(4.0)</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="wishlist-item-price">299.000 đ</div>
-            <div class="wishlist-item-status">Hết hàng</div>
-            <div class="wishlist-item-buttons">
-                <button class="add-to-cart">Thêm vào giỏ</button>
-                <button class="remove-btn">Xóa</button>
+                <div class="wishlist-item-price">299.000 đ</div>
+                <div class="wishlist-item-status outOfProduct"><i class="fa-solid fa-circle-xmark"></i> Hết hàng</div>
+                <div class="wishlist-item-buttons">
+                    <button class="add-to-cart">Thêm vào giỏ</button>
+                    <button class="remove-btn">Xóa</button>
+                </div>
             </div>
         </div>
     </div>

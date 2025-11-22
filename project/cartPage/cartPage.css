@@ -4,7 +4,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* Make body at least fill the viewport */
-    background: #f5f5f5;
+
 }
 
 header, footer {
@@ -28,7 +28,7 @@ main h1 {
     color: #F2B035;
     padding: 20px 30px;
     margin: 0 0 10px;
-    background: white;
+    border-bottom: lightgrey 1px solid;
 }
 
 /* ======================= product info header ======================= */
@@ -41,7 +41,7 @@ main .product-info-header {
     padding: 22px;
     font-size: 16px;
     font-weight: bold;
-    background: white;
+    border: lightgrey 1px solid;
 }
 
 main .product-info-header .product-info-header-content {
@@ -57,7 +57,7 @@ main .product-info-header #product-info-header-title {
 /* =========================== product item =========================== */
 /* ==================================================================== */
 main .product-info .container-product-items {
-    background: white;
+    border: lightgrey 1px solid;
     margin-bottom: 10px;
 }
 
@@ -151,7 +151,7 @@ main .product-item .action-delete-product:hover {
 /* ============================= final cost =========================== */
 /* ==================================================================== */
 .container-product-price {
-    background: white;
+    border: lightgrey 1px solid;
     padding: 10px;
     margin-bottom: 10px;
 }
@@ -215,7 +215,7 @@ main .product-item .action-delete-product:hover {
 /* ==================================================================== */
 /* margin, font-size, etc */
 main .user-info {
-    background: white;
+    border: lightgrey 1px solid;
     margin-bottom: 10px;
 }
 
