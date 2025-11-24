@@ -6,14 +6,6 @@ body {
     min-height: 100vh; /* Make body at least fill the viewport */
 }
 
-header, footer {
-    padding: 30px;
-    text-align: center;
-    background: #F2C641;
-    color: white;
-    font-size: 30px;
-}
-
 main {
     flex: 1;
 }
@@ -21,6 +13,7 @@ main {
 main .container {
     background: white;
     margin: 0 18%;
+    min-height: 900px;
 }
 
 h1 {

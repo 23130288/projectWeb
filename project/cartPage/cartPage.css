@@ -7,14 +7,6 @@ body {
 
 }
 
-header, footer {
-    padding: 30px;
-    text-align: center;
-    background: #F2C641;
-    color: white;
-    font-size: 30px;
-}
-
 main {
     flex: 1;
 }
@@ -216,7 +208,7 @@ main .product-item .action-delete-product:hover {
 /* margin, font-size, etc */
 main .user-info {
     border: lightgrey 1px solid;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
 }
 
 main .form-container {
