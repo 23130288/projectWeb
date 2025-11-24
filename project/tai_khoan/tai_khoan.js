@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="notification_item" id="selection_shop">
       
         <div class="avatar">
-          <img src="anh/avatar.jpg" alt="Ảnh đại diện">
+          <img src="image/avatar.jpg" alt="Ảnh đại diện">
         </div>
         <div class="info">
           <h4>Đơn hàng giao thành công</h4>
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
       
       <div class="notification_item">
         <div class="avatar">
-          <img src="anh/avatar.jpg" alt="Ảnh đại diện">
+          <img src="image/avatar.jpg" alt="Ảnh đại diện">
         </div>
         <div class="info">
           <h4>Đơn hàng giao thành công</h4>
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
       
       <div class="notification_item">
         <div class="avatar">
-          <img src="anh/avatar.jpg" alt="Ảnh đại diện">
+          <img src="image/avatar.jpg" alt="Ảnh đại diện">
         </div>
         <div class="info">
           <h4>Đơn hàng giao thành công</h4>
@@ -76,9 +76,116 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
       </div>
     `,
+        "Voucher": `
+        <main>
+            <div class="container" id="Voucher">
+                <div class="tab-nav-menu">
+                    <a href="#" class="tab-menu active" data-tab="all">Tất cả</a>
+                    <a href="#" class="tab-menu" data-tab="free">Miễn phí vận chuyển</a>
+                    <a href="#" class="tab-menu" data-tab="percent">Giảm theo %</a>
+                    <a href="#" class="tab-menu" data-tab="value">Giảm theo giá trị</a>
+                    <a href="#" class="tab-menu" data-tab="cancelled">Hủy</a>
+                </div>
+        
+                <div class="container-contents">
+        
+                    <!-- Tất cả -->
+                    <div class="product-content all active" id="all">
+                        <div class="product-header">
+                            <div class="product-header-title">Voucher</div>
+                            <div class="product-header-price">Nội dung</div>
+                            <div class="product-header-date">Hạn sử dụng</div>
+                        </div>
+        
+                        <div class="product">
+                            <div class="product-title">
+                                <img src="../images/Niko.png" alt="">
+                            </div>
+                            <div class="product-price">Miễn phí vận chuyển</div>
+                            <div class="product-date">01/12/2025</div>
+                        </div>
+        
+                        <div class="product">
+                            <div class="product-title">
+                                <img src="../images/Niko.png" alt="">
+                            </div>
+                            <div class="product-price">Giảm 5% cho đơn trên 100k</div>
+                            <div class="product-date">01/12/2025</div>
+                        </div>
+                        
+                         <div class="product">
+                            <div class="product-title">
+                                <img src="../images/Niko.png" alt="">
+                            </div>
+                            <div class="product-price">Giảm 20.000đ cho đơn từ 150k</div>
+                            <div class="product-date">01/12/2025</div>
+                        </div>
+                    </div>
+        
+                    <!-- Miễn phí vận chuyển -->
+                    <div class="product-content free" id="free">
+                        <div class="product-header">
+                            <div class="product-header-title">Tiêu đề</div>
+                            <div class="product-header-price">Nội dung</div>
+                            <div class="product-header-date">HSD</div>
+                        </div>
+        
+                        <div class="product">
+                            <div class="product-title">
+                                <img src="../images/Niko.png" alt="">
+                            </div>
+                            <div class="product-price">Miễn phí vận chuyển đơn từ 0đ</div>
+                            <div class="product-date">01/12/2025</div>
+                        </div>
+                    </div>
+        
+                    <!-- Giảm theo % -->
+                    <div class="product-content percent" id="percent">
+                        <div class="product-header">
+                            <div class="product-header-title">Tiêu đề</div>
+                            <div class="product-header-price">Nội dung</div>
+                            <div class="product-header-date">HSD</div>
+                        </div>
+        
+                        <div class="product">
+                            <div class="product-title">
+                                <img src="../images/Niko.png" alt="">
+                            </div>
+                            <div class="product-price">Giảm 5% cho đơn trên 100k</div>
+                            <div class="product-date">01/12/2025</div>
+                        </div>
+                    </div>
+        
+                    <!-- Giảm theo giá trị -->
+                    <div class="product-content value" id="value">
+                        <div class="product-header">
+                            <div class="product-header-title">Tiêu đề</div>
+                            <div class="product-header-price">Nội dung</div>
+                            <div class="product-header-date">HSD</div>
+                        </div>
+        
+                        <div class="product">
+                            <div class="product-title">
+                                <img src="../images/Niko.png" alt="">
+                            </div>
+                            <div class="product-price">Giảm 20.000đ cho đơn từ 150k</div>
+                            <div class="product-date">01/12/2025</div>
+                        </div>
+                    </div>
+        
+                    <!-- Hủy -->
+                    <div class="product-content cancelled" id="cancelled">
+                        <img src="../images/nothingHere.jpg" alt="">
+                    </div>
+        
+                </div>
+            </div>
+        </main>
+        `,
+
         "Đơn hàng": `
         <main>
-            <div class="container-history">
+            <div class="container" id="Order">
                 <div class="tab-nav-menu">
                     <a href="#" class="tab-menu active" data-tab="all">Tất cả</a>
                     <a href="#" class="tab-menu" data-tab="delivered">Đã giao</a>
@@ -234,7 +341,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <button class="bt_xac_nhan" id="btn-dang-xuat">Đăng xuất</button>
      `
     };
-    // 👉 Gán mặc định hiển thị "Thông tin tài khoản" khi load
+    // Gán mặc định hiển thị "Thông tin tài khoản" khi load
     infoBox.innerHTML = contents["Thông tin tài khoản"];
 
     items.forEach(item => {
@@ -261,12 +368,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 setToggle(toggleConfirm, confirmPassword);
                 setToggle(toggleOld, old_password);
             }
+
             if (text === "Đổi mật khẩu") {
                 document.getElementById("btn-doi-mk").addEventListener("click", () => {
                     alert("Đổi mật khẩu thành công!");
                 });
             }
-            if (text === "Đơn hàng") {
+
+            if (text === "Đơn hàng" || text === "voucher") {
                 const tabMenus = document.querySelectorAll('.tab-menu');
                 const contents = document.querySelectorAll('.product-content');
 
@@ -282,14 +391,86 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
                 });
             }
+
             if (text === "Đăng xuất") {
                 document.getElementById("btn-dang-xuat").addEventListener("click", () => {
                     localStorage.removeItem("user");
                     alert("Đăng xuất thành công!");
-                    window.location.href = "dang_nhap.html";
+                    window.location.href = "../dang_nhap/dang_nhap.html";
                 });
             }
         });
     });
 });
+
+/* ======= button popup======= */
+
+/* open and off */
+function openAdminPopup(title, bodyHTML, onConfirm) {
+    const popup = document.getElementById("adminPopup");
+    const popupTitle = document.getElementById("popup-title");
+    const popupBody = document.getElementById("popup-body");
+    const btnConfirm = document.getElementById("popup-confirm");
+    const btnCancel = document.getElementById("popup-cancel");
+
+    popupTitle.textContent = title;
+    popupBody.innerHTML = bodyHTML;
+    popup.style.display = "flex";
+
+    btnCancel.onclick = () => popup.style.display = "none";
+    btnConfirm.onclick = () => {
+        popup.style.display = "none";
+        if (onConfirm) onConfirm();
+    };
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const btnDoiThongTin = document.getElementById("btn-doi-thong-tin");
+    if (btnDoiThongTin) {
+        btnDoiThongTin.addEventListener("click", () => {
+            openAdminPopup(
+                "Thay đổi thông tin",
+                `
+                <div class="popup_item">
+                    <label>Tên tài khoản</label>
+                    <input class="in4_input" type="text" id="name" value="Nguyễn Văn A" readonly>
+                </div>
+                
+                <div class="popup_item">
+                    <label>Thông tin đăng nhập</label>
+                    <input class="in4_input" type="text" id="email" name="email" value="nguyenvana@example.com" readonly>
+                </div>
+                
+                <div class="popup_item">
+                    <label>Số điện thoại*</label>
+                    <input type="text" id="sdt" placeholder="Nhập số điện thoại">
+                </div>
+                
+                <div class="popup_item">
+                    <label>Đia chỉ*</label>
+                    <input type="text" id="dia_chi" placeholder="Nhập địa chỉ">
+                </div>  
+                 
+                <div class="popup_item"> 
+                    <label>Avata</label>                  
+                    <div class="popup_avata">
+                        <div class="preview-item">
+                            <img src="image/avatar.jpg">
+                        </div>    
+                              
+                        <div class="img-upload-box" id="drop-zone">
+                            <span>+</span>
+                            <p>Kéo hoặc click để thêm ảnh</p>
+                        </div>
+                    </div>
+                </div>
+                `,
+                () => {
+                    alert("Đã thay đổi thông tin thành công!");
+                }
+            );
+        });
+    }
+});
+
 

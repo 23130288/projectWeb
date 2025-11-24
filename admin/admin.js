@@ -84,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="info">
               <h4>Cách dùng mã vận chuyển</h4>
               <p>Mã đơn hàng:abcdefgh. | người gửi: 0002.</p>
+    
               <span>10/04/2025</span>
             </div>
           </div>

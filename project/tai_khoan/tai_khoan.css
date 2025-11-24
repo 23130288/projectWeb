@@ -17,6 +17,7 @@ body {
     height: auto;
     margin: 0px 50px;
     width: 250px;
+    padding-bottom: 50px;
 }
 
 #selection_2 .menu .avata {
@@ -67,6 +68,71 @@ body {
     cursor: pointer;
 }
 
+/* Nền tối */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+/* Khung popup */
+.popup-content {
+    background: #fff;
+    padding: 25px;
+    width: 350px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    animation: popupShow 0.25s ease;
+}
+
+@keyframes popupShow {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.popup-content input {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.popup-btns {
+    text-align: right;
+}
+
+.popup-btns button {
+    margin-left: 10px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#save-info {
+    background-color: #2196F3;
+    border: none;
+    color: #fff;
+}
+
+#close-popup {
+    background-color: #ccc;
+    border: none;
+}
+
 #selection_2 .menu .menu_item {
     margin-top: 20px;
     display: flex;
@@ -81,6 +147,7 @@ body {
     color: black;
 }
 
+#selection_2 .menu .menu_item .item:hover,
 #selection_2 .menu .menu_item .item:focus {
     background: #EDB310;
     color: white;
@@ -164,11 +231,16 @@ body {
     color: #EDB310;
 }
 
+/* --- PHẦN THÔNG BÁO --- */
 .notification_item {
     display: flex;
     background: #f9f9f9;
     padding: 15px;
     gap: 15px;
+}
+
+.notification_item:hover {
+    border: 2px solid #EDB310;
 }
 
 .avatar img {
@@ -194,4 +266,266 @@ body {
     color: #999;
 }
 
+/* ============================= tab menu ============================= */
+/* ==================================================================== */
+.container .tab-nav-menu {
+    display: flex;
+    margin: 30px 0;
+    border: lightgrey solid 2px;
+}
 
+.container .tab-menu {
+    flex: 1;
+    text-align: center;
+    color: black;
+    padding: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.container .tab-menu.active,
+.container .tab-menu:hover {
+    border-bottom: #F2B035 2px solid;
+    color: #F2B035;
+}
+
+/* ========================= product header =========================== */
+/* ==================================================================== */
+.container .product-header {
+    display: flex;
+    align-items: center;
+    padding: 22px;
+    font-weight: bold;
+    border-bottom: 1px solid lightgrey;
+}
+
+.container .product-header-price,
+.container .product-header-status,
+.container .product-header-date {
+    flex: 1;
+    text-align: center;
+}
+
+.container .product-header-title {
+    flex: 2;
+    text-align: left;
+}
+
+.container .voucher-header {
+    display: flex;
+    align-items: center;
+    padding: 22px;
+    font-weight: bold;
+    border-bottom: 1px solid lightgrey;
+}
+
+.container .voucher-header-price,
+.container .voucher-header-status,
+.container .voucher-header-date {
+    flex: 1;
+    text-align: center;
+}
+
+.container .voucher-header-title {
+    flex: 2;
+    text-align: left;
+}
+
+/* ============================= content ============================== */
+/* ==================================================================== */
+/* show content */
+.container .product-content {
+    display: none;
+}
+
+.container .product-content.active {
+    display: block;
+}
+
+/* nothing image show */
+.container #cancelled.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* layout */
+.container .container-contents .product {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* img */
+.container .container-contents .product img {
+    width: 100px;
+    height: 100px;
+    border-radius: 4px;
+}
+
+/* title */
+.container .container-contents .product .product-title {
+    display: flex;
+    flex: 2;
+    gap: 10px;
+    align-items: center;
+}
+
+.container .container-contents .product .product-price,
+.container .container-contents .product .product-status-delivered,
+.container .container-contents .product .product-status-shipping,
+.container .container-contents .product .product-date {
+    text-align: center;
+    padding: 5px;
+    flex: 1;
+}
+
+.container .product .product-status-delivered {
+    font-weight: bold;
+    color: green;
+}
+
+.container .product .product-status-shipping {
+    font-weight: bold;
+    color: #F0AF35;
+}
+/* ===== Popup ===== */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px); /* mờ nhẹ background */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.popup-content {
+    background: white; /* màu tối đồng bộ admin */
+    color: black;
+    width: 90%;
+    max-width: 500px;
+    padding: 30px 30px;
+    border-radius: 10px;
+    border: 2px solid #EDB310;
+    animation: fadeIn 0.3s ease;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.popup-content h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #EDB310; /* màu vàng chủ đạo */
+    font-size: 22px;
+    text-align: center;
+}
+
+.popup_item {
+    margin-bottom: 15px;
+}
+
+.popup-content label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.popup-content input,
+.popup-content select,
+.popup-content textarea {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 6px;
+    border: 1px solid #EDB310;
+    background-color: #f5f5f5;
+    color: black;
+    font-size: 15px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.popup-actions {
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.popup-actions .btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.2s;
+    cursor: pointer;
+    border: none;
+}
+
+.popup-actions .confirm {
+    background: #EDB310;
+    color: white;
+}
+
+.popup-actions .confirm:hover {
+    background: #FFD700;
+}
+
+.popup-actions .cancel {
+    background: #ff4c4c;
+    color: white;
+}
+
+.popup-actions .cancel:hover {
+    background: #ff6666;
+}
+
+.popup_item .img-upload-box {
+    width: 100%;
+    height: 160px;
+    border: 2px dashed #888;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    color: #ccc;
+    margin-bottom: 15px;
+}
+
+.popup_item .img-upload-box:hover {
+    border-color: #ff7b57;
+    color: #ff7b57;
+}
+
+.popup_item .img-upload-box input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* preview avata */
+.popup_avata {
+    display: flex;
+    align-items: flex-start; /* căn theo trên */
+    gap: 10px; /* khoảng cách giữa preview và drop-zone */
+}
+.preview-item {
+    margin: auto;
+}
+
+.preview-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #EDB310;
+}
