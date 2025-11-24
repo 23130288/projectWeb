@@ -383,11 +383,16 @@ nav {
     font-weight: bold;
     color: purple;
 }
-
+.sold-out-tag{
+    position: relative;
+    top: -20px;
+    font-size: 14px;
+    color: #333;
+}
 .product-actions {
     display: flex;
     gap: 10px;
-    margin-top: 10px;
+    margin-top: -5px;
     width: 100%;
 }
 
