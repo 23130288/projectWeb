@@ -14,3 +14,7 @@ document.getElementById('log').addEventListener('click', function (event) {
     event.preventDefault();
     window.location.href = '../tai_khoan/tai_khoan.html';
 });
+document.getElementById('log_admin').addEventListener('click', function (event) {
+    event.preventDefault();
+    window.location.href = '../admin/admin.html';
+});

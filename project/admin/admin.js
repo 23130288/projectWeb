@@ -43,6 +43,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 </table>
             `,
 
+        "Quản lý voucher": `
+            <h2>Quản lý voucher</h2>
+                <button class="bt_xac_nhan" id="btn-them-tb">+ Thêm voucher</button>
+            <table class="table_data">
+                <tr><th>Mã voucher</th><th>đối tượng nhận</th><th>loại voucher</th><th>nội dung</th><th>có hiệu lực đến</th></tr>
+                <tr><td>v001</td><td>all</td><td>giảm giá</td><td>giảm 100k cho đơn hàng trên 500k</td><td>15/11/2025</td>
+                <tr><td>v001</td><td>0001</td><td>giảm giá</td><td>giảm 100k cho đơn hàng trên 500k</td><td>15/11/2025</td>
+            </table>
+        `,
+
         "Quản lý thông báo": `
             <h2>Quản lý đơn hàng</h2>
                 <button class="bt_xac_nhan" id="btn-them-tb">+ Thêm thông báo</button>
@@ -74,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="info">
               <h4>Cách dùng mã vận chuyển</h4>
               <p>Mã đơn hàng:abcdefgh. | người gửi: 0002.</p>
+    
               <span>10/04/2025</span>
             </div>
           </div>
@@ -133,8 +144,8 @@ document.addEventListener("DOMContentLoaded", function () {
         "Đăng xuất": `
             <h2>Đăng xuất</h2>
             <p>Bạn có chắc muốn đăng xuất khỏi trang quản trị?</p>
-            <button class="bt_xac_nhan" id="btn_dang_xuat">Đăng xuất</button>
-        `
+            <button class="bt_xac_nhan" id="btn-dang-xuat">Đăng xuất</button>
+     `
     };
 
     // Gắn sự kiện cho nút Xóa, Hủy, Sửa, Xem
@@ -149,15 +160,97 @@ document.addEventListener("DOMContentLoaded", function () {
 
         document.querySelectorAll(".btn-sua").forEach(btn => {
             btn.addEventListener("click", () => {
-                alert("Tính năng sửa đang được phát triển!");
+                openAdminPopup(
+                    "Sửa sản phẩm",
+                    `
+            <div class="popup_item">
+                <label>Mã sản phẩm:</label>
+                <input type="text" id="sp-id" value="SP001">
+            </div>
+            
+            <div class="popup_item">
+                <label>Tên sản phẩm:</label>
+                <input type="text" id="sp-name" value="Balo du lịch">
+            </div>
+            
+            <div class="popup_item">
+                <label>Giá:</label>
+                <input type="number" id="sp-price" value="500000">
+            </div>
+            
+            <div class="popup_item">
+                <label>Số lượng:</label>
+                <input type="number" id="sp-quantity" value="5">
+            </div>
+            
+            <div class="popup_item">
+                <label>Ảnh sản phẩm:</label>
+                <div class="img-upload-box" id="drop-zone">
+                    <span>+</span>
+                    <p>Kéo hoặc click để thêm ảnh</p>
+                </div>
+                
+                <div class="preview-list" id="preview-list">
+                    <div class="preview-item">
+                        <img src="anh/balo1.jpg" alt="Balo 1">
+                    </div>
+                    <div class="preview-item">
+                        <img src="anh/balo2.jpg" alt="Balo 2">
+                    </div>
+                </div>
+            </div>
+            `,
+                    () => {
+                        alert("✔ Sửa sản phẩm xong (dữ liệu tạm thời)!");
+                    }
+                );
             });
         });
 
+
         document.querySelectorAll(".btn-xem").forEach(btn => {
             btn.addEventListener("click", () => {
-                alert("Hiển thị thông tin chi tiết đơn hàng!");
+                openAdminPopup(
+                    "Chi tiết đơn hàng",
+                    `
+            <div class="popup_item">
+                <label>Mã đơn:</label>
+                <input type="text" value="DH001" readonly>
+            </div>
+            
+            <div class="popup_item">
+                <label>Khách hàng:</label>
+                <input type="text" value="Nguyễn Văn A" readonly>
+            </div>
+            
+            <div class="popup_item">
+                <label>Tổng tiền:</label>
+                <input type="text" value="750.000₫" readonly>
+            </div>
+            
+            <div class="popup_item">
+                <label>Trạng thái:</label>
+                <input type="text" value="Đang giao" readonly>
+            </div>
+            
+            <div class="popup_item">
+                <label>Sản phẩm trong đơn:</label>
+                <textarea readonly>Balo du lịch x2 - 500.000₫
+Vali cao cấp x1 - 1.200.000₫</textarea>
+            </div>
+            
+            <div class="popup_item">
+                <label>Ghi chú:</label>
+                <input type="text" value="Không có" readonly>
+            </div>
+            `,
+                    () => {
+                        alert("✔ Đóng popup chi tiết đơn hàng");
+                    }
+                );
             });
         });
+
     }
 
     // Hiển thị mặc định
@@ -172,11 +265,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (text === "Đăng xuất") {
                 document.getElementById("btn-dang-xuat").addEventListener("click", () => {
-                    localStorage.removeItem("admin");
-                    if (confirm("Bạn có chắc muốn đăng xuất khỏi trang này không?")) {
-                        alert("Đăng xuất thành công!");
-                        window.location.href = "dang_nhap.html";
-                    }
+                    localStorage.removeItem("user");
+                    alert("Đăng xuất thành công!");
+                    window.location.href = "../dang_nhap/dang_nhap.html";
                 });
             }
 
@@ -219,10 +310,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     <!-- Khu vực preview nhiều ảnh -->
                     <div class="preview-list" id="preview-list">
                         <div class="preview-item">
-                            <img src="anh/balo1.jpg">
+                            <img src="anh/balo1.jpg" alt="Balo 1">
                         </div>
                         <div class="preview-item">
-                            <img src="anh/balo2.jpg">
+                            <img src="anh/balo2.jpg" alt="Balo 2">
                         </div>
                     </div>
                 </div>
@@ -230,6 +321,47 @@ document.addEventListener("DOMContentLoaded", function () {
                         () => {
                             // callback sau khi nhấn xác nhận
                             alert("Thêm sản phẩm: " + name);
+                        }
+                    );
+                });
+            }
+
+            if (text === "Quản lý voucher") {
+                const btnThemTB = document.getElementById("btn-them-tb");
+                if (btnThemTB) btnThemTB.addEventListener("click", () => {
+                    openAdminPopup(
+                        "Tạo voucher mới",
+                        `
+                <label>Đối tượng nhận voucher:</label>
+                <select id="tb-target-type">
+                    <option value="all">Tất cả</option>
+                    <option value="specific">Cụ thể</option>
+                </select>
+                
+                <!-- Ô nhập UID chỉ hiện khi chọn "specific" -->
+                <div id="uid-box" style="display:none; margin-top: 5px;">
+                    <label>Nhập UID (hoặc danh sách UID, cách nhau bằng dấu phẩy):</label>
+                    <input type="text" id="tb-uid" placeholder="VD: 0001, 0002, 0003">
+                </div>
+
+                <label>Loại voucher:</label>
+                <select id="tb-type">
+                    <option value="giam_gia">Giảm giá (VNĐ)</option>
+                    <option value="phan_tram">Giảm theo %</option>
+                    <option value="mien_phi_van_chuyen">Miễn phí vận chuyển</option>
+                </select>
+                
+                <label>Nội dung:</label>
+                <div id="content-area">
+                    <!-- Nội dung sẽ tự thay đổi bằng JS -->
+                </div>
+                
+                <label>Ngày hết hạn:</label>
+                <input type="date" id="tb-expired">
+
+            `,
+                        () => {
+                            alert(`✔ Đã tạo voucher.`);
                         }
                     );
                 });
@@ -260,9 +392,8 @@ document.addEventListener("DOMContentLoaded", function () {
             if (text === "Trả lời câu hỏi") {
                 const notiItems = document.querySelectorAll(".notification_item");
                 notiItems.forEach(item => {
-                    item.style.cursor = "pointer";
                     item.addEventListener("click", () => {
-                        window.location.href = "lien_he.html";
+                        window.location.href = "../helpPage/helpPage.html";
                     });
                 });
             }
@@ -271,24 +402,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
-/* ======= buy button ======= */
+/* ======= button popup======= */
 /* open and off */
-const buyPopup = document.getElementById('buyPopup');
-const confirmBuy = document.getElementById('confirmBuy');
-const cancelBuy = document.getElementById('cancelBuy');
-buyBtn.addEventListener('click', () => {
-    const colorSelected = document.querySelector('.color-btn.active');
-    const sizeSelected = document.querySelector('.size-options button.active');
-
-    if (!colorSelected || !sizeSelected) {
-        showMessage('Vui lòng chọn cả màu và kích cỡ trước khi thêm vào giỏ hàng!', 'red');
-        return;
-    }
-    buyPopup.style.display = 'flex';
-});
-cancelBuy.addEventListener('click', () => {
-    buyPopup.style.display = 'none';
-});
 function openAdminPopup(title, bodyHTML, onConfirm) {
     const popup = document.getElementById("adminPopup");
     const popupTitle = document.getElementById("popup-title");
@@ -298,14 +413,50 @@ function openAdminPopup(title, bodyHTML, onConfirm) {
 
     popupTitle.textContent = title;
     popupBody.innerHTML = bodyHTML;
-
     popup.style.display = "flex";
 
     btnCancel.onclick = () => popup.style.display = "none";
-
     btnConfirm.onclick = () => {
         popup.style.display = "none";
         if (onConfirm) onConfirm();
     };
-}
 
+    // ======= XỬ LÝ VOUCHER =========
+    const targetSelect = document.getElementById("tb-target-type");
+    const uidBox = document.getElementById("uid-box");
+    const typeSelect = document.getElementById("tb-type");
+    const contentArea = document.getElementById("content-area");
+
+    if (targetSelect && uidBox) {
+        targetSelect.addEventListener("change", () => {
+            uidBox.style.display = targetSelect.value === "specific" ? "block" : "none";
+        });
+    }
+
+    function updateContentInput() {
+        if (!typeSelect || !contentArea) return;
+
+        const type = typeSelect.value;
+
+        if (type === "giam_gia") {
+            contentArea.innerHTML = `
+                <input type="number" id="amount" placeholder="Số tiền giảm (VD: 50000)">
+                <input type="number" id="min" placeholder="Áp dụng cho đơn hàng từ (VD: 200000)">
+            `;
+        } else if (type === "phan_tram") {
+            contentArea.innerHTML = `
+                <input type="number" id="percent" placeholder="Giảm (%) (VD: 10)">
+                <input type="number" id="min" placeholder="Áp dụng cho đơn hàng từ (VD: 200000)">
+            `;
+        } else if (type === "mien_phi_van_chuyen") {
+            contentArea.innerHTML = `
+                <input type="number" id="min" placeholder="Miễn phí vận chuyển cho đơn từ (VD: 300000)">
+            `;
+        }
+    }
+
+    if (typeSelect) {
+        typeSelect.addEventListener("change", updateContentInput);
+        updateContentInput(); // gọi 1 lần khi mở popup
+    }
+}
