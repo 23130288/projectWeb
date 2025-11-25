@@ -7,7 +7,7 @@ body {
     color: white;
 
     /* Ảnh nền */
-    background-image: url('anh/background.jpg');
+    background-image: url('image/background.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -24,9 +24,9 @@ body {
 
 .logo {
     display: block;
-    padding-top: 30px;
-    margin-bottom: 50px;
-    width: 100px;
+    padding-top: 10px;
+    margin-bottom: 30px;
+    width: 150px;
 }
 
 .section_1 h1 {

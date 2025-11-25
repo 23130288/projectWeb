@@ -23,6 +23,6 @@ toggleConfirm.addEventListener('mouseout', () => {
 //sử lí nút
 document.getElementById('log').addEventListener('click', function (event) {
     event.preventDefault();
-    window.location.href = 'nguoi_dung.html';
+    window.location.href = '../tai_khoan/tai_khoan.html';
 });
 
