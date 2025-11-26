@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>TÌM KIẾM </title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="trang_tim_kiem.css">
     <link rel="stylesheet" href="../shareStuff/header/header.css">
     <link rel="stylesheet" href="../shareStuff/footer/footer.css">
@@ -13,10 +13,54 @@
     <div id="header-placeholder"></div>
     <script src="../shareStuff/header/headerGetter.js"></script>
 </header>
+<div class="container-search">
+    <div class="search-bar">
+        <input type="text" name="query" placeholder="Tên sản phẩm..."/>
+        <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+
+    <div class="filter-container">
+
+        <button class="filter-toggle" id="filterToggle">
+            <label>Bộ lọc</label>
+            <i class="fa-solid fa-plus"></i>
+        </button>
+        <!-- FILTER DROPDOWN -->
+        <div class="filter-panel" id="filterPanel">
+            <div class="filter-group">
+                <label>Danh mục:</label>
+                <div class="filter-tags">
+                    <span class="tag">Balo</span>
+                    <span class="tag">Túi xách</span>
+                    <span class="tag">Phụ kiện</span>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label>Giá:</label>
+                <div class="filter-tags">
+                    <span class="tag">0 - 200k</span>
+                    <span class="tag">200k - 500k</span>
+                    <span class="tag">500k - 1 triệu</span>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label>Sắp xếp:</label>
+                <div class="filter-tags">
+                    <span class="tag">Tên A → Z</span>
+                    <span class="tag">Tên Z → A</span>
+                    <span class="tag">Giá thấp → cao</span>
+                    <span class="tag">Giá cao → thấp</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <section class="results">
     <h1>KẾT QUẢ TÌM KIẾM</h1>
-<!--    <div id="search-info"></div>-->
-<!--    <div id="no-results">Xin lỗi, không tìm thấy kết quả !</div>-->
+    <!--    <div id="search-info"></div>-->
+    <!--    <div id="no-results">Xin lỗi, không tìm thấy kết quả !</div>-->
     <div class="slider-container">
         <div class="product-grid">
             <div class="product-card">
@@ -177,7 +221,7 @@
             <div class="product-card">
                 <div class="discount-badge">-25%</div>
                 <img src="image/img1.png"
-                     alt ="Vali Chống Va Đập">
+                     alt="Vali Chống Va Đập">
                 <h2>Vali Chống Va Đập</h2>
                 <p class="price">
                     <span class="old-price">1.200.000đ</span>
@@ -212,7 +256,7 @@
             <div class="product-card">
                 <div class="discount-badge">-35%</div>
                 <img src="image/img3.png"
-                     alt ="Vali Chống Va Đập">
+                     alt="Vali Chống Va Đập">
                 <h2>Vali Chống Va Đập</h2>
                 <p class="price">
                     <span class="old-price">1.200.000đ</span>
@@ -227,11 +271,11 @@
                 </div>
             </div>
 
-    <!-- Balo du lịch -->
+            <!-- Balo du lịch -->
             <div class="product-card">
                 <div class="discount-badge">-25%</div>
                 <img src="image/balo_chong_nuoc.png"
-                     alt = "Balo du lịch chống nước">
+                     alt="Balo du lịch chống nước">
                 <h2>Balo Du Lich Chống Nước</h2>
                 <p class="price">
                     <span class="old-price">1.300.000đ</span>
@@ -267,7 +311,7 @@
             <div class="product-card">
                 <div class="discount-badge">-35%</div>
                 <img src="image/bao_thoi_trang.png"
-                     alt ="Balo thời trang ">
+                     alt="Balo thời trang ">
                 <h2>Balo Thời Trang </h2>
                 <p class="price">
                     <span class="old-price">1.100.000đ</span>
@@ -284,8 +328,8 @@
             <div class="product-card">
                 <div class="discount-badge">-20%</div>
                 <img src="image/balo_1_quai_đeo.png"
-                     alt ="Balo 1 quai đeo  ">
-                <h2>Balo 1 quai đeo  </h2>
+                     alt="Balo 1 quai đeo  ">
+                <h2>Balo 1 quai đeo </h2>
                 <p class="price">
                     <span class="old-price">600.000đ</span>
                     <span class="new-price">480.000đ</span>
@@ -301,8 +345,8 @@
             <div class="product-card">
                 <div class="discount-badge">-20%</div>
                 <img src="image/balo_phuot.png"
-                     alt ="Balo Phượt  ">
-                <h2>Balo Phượt  </h2>
+                     alt="Balo Phượt  ">
+                <h2>Balo Phượt </h2>
                 <p class="price">
                     <span class="old-price">900.000đ</span>
                     <span class="new-price">720.000đ</span>
@@ -318,8 +362,8 @@
             <div class="product-card">
                 <div class="discount-badge">-25%</div>
                 <img src="image/balo_cam_trai.png"
-                     alt ="Balo cắm trại  ">
-                <h2>Balo Cắm Trại  </h2>
+                     alt="Balo cắm trại  ">
+                <h2>Balo Cắm Trại </h2>
                 <p class="price">
                     <span class="old-price">1.600.000đ</span>
                     <span class="new-price">1.200.000đ</span>
@@ -335,7 +379,7 @@
             <div class="product-card">
                 <div class="discount-badge">-15%</div>
                 <img src="image/balo_leo_nui.png"
-                     alt ="Balo leo núi  ">
+                     alt="Balo leo núi  ">
                 <h2>Balo Leo Núi </h2>
                 <p class="price">
                     <span class="old-price">1.500.000đ</span>
@@ -352,7 +396,7 @@
             <div class="product-card">
                 <div class="discount-badge">-20%</div>
                 <img src="image/balo_giu_nhiet.png"
-                     alt ="Balo giữ nhiệt  ">
+                     alt="Balo giữ nhiệt  ">
                 <h2>Balo Giữ Nhiệt </h2>
                 <p class="price">
                     <span class="old-price">570.000đ</span>
@@ -369,7 +413,7 @@
             <div class="product-card">
                 <div class="discount-badge">-15%</div>
                 <img src="image/balo_simplecarry_twb.png"
-                     alt ="Balo Simplecarry TWB ">
+                     alt="Balo Simplecarry TWB ">
                 <h2>Balo Simplecarry TWB </h2>
                 <p class="price">
                     <span class="old-price">990.000đ</span>
@@ -386,7 +430,7 @@
             <div class="product-card">
                 <div class="discount-badge">-25%</div>
                 <img src="image/img7.png"
-                     alt ="Balo GUBAG-BL80">
+                     alt="Balo GUBAG-BL80">
                 <h2>Balo GUBAG-BL80 </h2>
                 <p class="price">
                     <span class="old-price">1.300.000đ</span>
@@ -403,7 +447,7 @@
             <div class="product-card">
                 <div class="discount-badge">-30%</div>
                 <img src="image/img8.png"
-                     alt ="Balo ROKIN VELOCITY">
+                     alt="Balo ROKIN VELOCITY">
                 <h2>Balo ROKIN VELOCITY</h2>
                 <p class="price">
                     <span class="old-price">900.000đ</span>
@@ -420,7 +464,7 @@
             <div class="product-card">
                 <div class="discount-badge">-35%</div>
                 <img src="image/img9.png"
-                     alt ="Balo Simplecarry E-City">
+                     alt="Balo Simplecarry E-City">
                 <h2>Balo Simplecarry E-Cityh </h2>
                 <p class="price">
                     <span class="old-price">1.100.000đ</span>
@@ -435,8 +479,8 @@
                 </div>
             </div>
         </div>
-            <div class="slider-nav"></div>
-        </div>
+        <div class="slider-nav"></div>
+    </div>
 </section>
 <footer>
     <div id="footer-placeholder"></div>

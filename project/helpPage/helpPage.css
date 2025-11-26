@@ -24,43 +24,6 @@ main {
     font-size: 35px;
 }
 
-/*!* ===== search bar ===== *!*/
-/*.container-search {*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    gap: 10px;*/
-/*}*/
-
-/*.search-bar {*/
-/*    position: relative;*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    width: 50%;*/
-/*    min-width: 280px;*/
-/*}*/
-
-/*.search-bar i {*/
-/*    position: absolute;*/
-/*    left: 18px;*/
-/*    color: #999999;*/
-/*    font-size: 16px;*/
-/*}*/
-
-/*.search-bar input {*/
-/*    width: 100%;*/
-/*    padding: 12px 18px 12px 45px; !* chừa chỗ bên trái cho icon *!*/
-/*    font-size: 16px;*/
-/*    border-radius: 30px;*/
-/*    border: 1px solid lightgrey;*/
-/*    box-shadow: 0 4px 10px darkgrey;*/
-/*    outline: none; !* remove blue line thing *!*/
-/*    transition: 0.3s;*/
-/*}*/
-
-/*.search-bar input:focus {*/
-/*    border-color: #E8C839;*/
-/*}*/
 
 /* === button === */
 .container-search button {
@@ -82,65 +45,45 @@ main {
 /* ============================ topics =========================== */
 /* =============================================================== */
 .container-topics {
-    display: grid;
-    max-width: 50%;
-    margin: 30px auto;
-    gap: 20px;
-    grid-template-columns: repeat(2, 1fr);
+    margin: 30px 18%;
 }
-
-.container-topics .topic {
-    display: flex;
-    flex: 1;
-    font-size: 14px;
-    padding: 15px;
-    border: black 1px solid;
-    border-radius: 10px;
+.container-topics select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
     background: white;
-    align-items: center;
-    gap: 5px;
-    transition: 0.3s;
-}
-
-.container-topics .topic.active,
-.container-topics .topic:hover {
     cursor: pointer;
-    border-color: #F2B035;
-    background: #F1E7C4;
-}
-
-.container-topics .topic img {
-    width: 50px;
-    height: 50px;
 }
 
 /* ========================== form box ========================== */
 .support-form {
     display: flex;
     flex-direction: column;
-    max-width: 60%;
-    margin: 20px auto 60px;
+    margin: 0 18%;
     gap: 15px;
 }
 
-.support-form h2 {
-    text-align: center;
-    font-size: 22px;
-    color: #333333;
-}
-
 .support-form textarea {
+    box-sizing: border-box;
     font-size: 16px;
     padding: 15px;
     border-radius: 10px;
     border: 1px solid #ccc;
     resize: none;
     transition: 0.3s;
+    width: 100%;
 }
 
 .support-form textarea:focus {
     border-color: #F2C641;
     outline: none;
+}
+.support-form a {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
 }
 
 .support-form button {
@@ -150,7 +93,7 @@ main {
     border: none;
     padding: 12px 25px;
     font-weight: bold;
-    border-radius: 30px;
+    border-radius: 20px;
     cursor: pointer;
     transition: 0.3s;
 }

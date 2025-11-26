@@ -27,28 +27,22 @@
         </div>
         <!-- topics to choose -->
         <div class="container-topics">
-            <button class="topic" id="order">
-                <img src="../images/helpPage/package.png" alt="">
-                <span>Kiểm tra, hủy hoặc thay đổi đơn hàng</span>
-            </button>
-            <button class="topic" id="login">
-                <img src="../images/helpPage/login.png" alt="">
-                <span>Đăng nhập/Đăng ký</span>
-            </button>
-            <button class="topic" id="payment">
-                <img src="../images/helpPage/card.png" alt="">
-                <span>Phương thức trả tiền</span>
-            </button>
-            <button class="topic" id="question">
-                <img src="../images/helpPage/question.png" alt="">
-                <span>Câu hỏi khác</span>
-            </button>
+            <label for="topicSelect"></label><select id="topicSelect">
+            <option value="" disabled selected>Chọn chủ đề...</option>
+            <option value="order">Kiểm tra, hủy hoặc thay đổi đơn hàng</option>
+            <option value="login">Đăng nhập/Đăng ký</option>
+            <option value="payment">Phương thức trả tiền</option>
+            <option value="question">Câu hỏi khác</option>
+        </select>
         </div>
         <!-- form -->
         <div class="support-form" id="supportForm">
-            <h2 id="selectedTopic">Chủ đề: </h2>
-            <textarea rows=3 placeholder="Hãy mô tả vấn đề của bạn tại đây..."></textarea>
-            <button>Gửi yêu cầu hỗ trợ</button>
+            <label>
+                <textarea rows=3 placeholder="Hãy mô tả vấn đề của bạn tại đây..."></textarea>
+            </label>
+            <a href="helpPage.html">
+                <button>Gửi yêu cầu hỗ trợ</button>
+            </a>
         </div>
     </div>
 </main>

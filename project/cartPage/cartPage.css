@@ -55,7 +55,7 @@ main .product-info .container-product-items {
 
 main .product-item img {
     width: 100px;
-    height: 100px;
+    height: 100%;
     border-radius: 4px;
 }
 

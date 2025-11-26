@@ -10,6 +10,7 @@
     font-size: 24px;
     color: #222;
 }
+
 /*#no-results {*/
 /*    text-align: center;*/
 /*    padding: 15px;*/
@@ -28,6 +29,7 @@
     width: 100%;
     overflow-y: hidden;
 }
+
 .slider-nav {
     position: absolute;
     bottom: -27px;
@@ -37,21 +39,25 @@
     padding: 15px 0 30px;
     width: 100%;
 }
+
 .slider-nav button.active {
     background-color: purple;
     color: white;
 }
+
 .slider-nav button {
     background-color: white;
     border: 1px solid black;
-    color:black;
+    color: black;
     padding: 8px 15px;
     margin: 0 5px;
 }
+
 .slider-nav button:hover {
-        background-color: purple;
-        color: white;
+    background-color: purple;
+    color: white;
 }
+
 .product-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -65,15 +71,16 @@
     background: white;
     border-radius: 12px;
     padding: 25px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
 
 }
 
 .product-card:hover {
     transform: translateY(-1px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
+
 .discount-badge {
     position: absolute;
     top: 10px;
@@ -86,15 +93,18 @@
     border-radius: 5px;
     z-index: 10;
 }
+
 .product-card img {
     width: 70%;
     height: 180px;
     object-fit: cover;
     border-radius: 10px;
 }
+
 .product-card img:hover {
     transform: scale(1.1);
 }
+
 .product-card h2 {
     margin: 10px -15px 5px;
     font-size: 17px;
@@ -118,12 +128,14 @@
     font-weight: bold;
     color: purple;
 }
-.sold-out-tag{
+
+.sold-out-tag {
     position: relative;
     top: -20px;
     font-size: 14px;
     color: #333;
 }
+
 .product-actions {
     display: flex;
     gap: 10px;
@@ -159,13 +171,109 @@
     cursor: pointer;
     transition: background-color 0.3s;
 }
+
 .product-actions .buy-btn:hover {
     background-color: purple;
     color: white;
 }
+
 .product-actions .inner-circle1:hover {
-    background-color:purple;
+    background-color: purple;
     color: white;
 }
 
 
+/* ============ Thanh tìm kiếm và các filter ============ */
+/* ====================================================== */
+/* Thanh tìm kiếm */
+.container-search {
+    margin: 20px 18%;
+    background: #fff;
+}
+
+.container-search .search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.container-search .search-bar input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.container-search .search-bar input:focus {
+    border: #F2B035 1px solid;
+}
+
+.container-search .search-bar button {
+    border: 1px solid #ccc;
+    border-left: none;
+    border-radius: 0;
+    background: #F2B035;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+.container-search .search-bar button:hover {
+    color: white;
+    background-color: purple;
+}
+
+/* Filter */
+.container-search .filter-container .filter-toggle {
+    width: 100%;
+    padding: 10px;
+    background: #F1E7C4;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* label trái, icon phải */
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.container-search .filter-container .filter-toggle:hover {
+    cursor: pointer;
+    background: #F2C641;
+}
+
+.container-search .filter-container .filter-panel {
+    display: none;
+    margin-top: 10px;
+    padding: 12px;
+    background: whitesmoke;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.container-search .filter-container .filter-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.container-search .filter-container .filter-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.container-search .filter-container .filter-tags {
+    display: flex;
+    gap: 8px;
+}
+
+.container-search .filter-container .tag {
+    padding: 6px 12px;
+    background: white;
+    border-radius: 20px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+
+.container-search .filter-container .tag.selected {
+    background: #F2C641;
+    border-color: #F2C641;
+}

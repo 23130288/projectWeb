@@ -56,3 +56,29 @@ document.querySelectorAll(".slider-container").forEach(container => {
     createNavButtons();
     update();
 });
+
+/* */
+
+
+const filterToggle = document.getElementById("filterToggle");
+const filterPanel = document.getElementById("filterPanel");
+const tags = document.querySelectorAll(".tag");
+
+filterToggle.addEventListener("click", () => {
+    // Toggle panel
+    const isOpen = filterPanel.style.display === "block";
+    filterPanel.style.display = isOpen ? "none" : "block";
+
+    // Toggle icon
+    const icon = filterToggle.querySelector("i");
+    icon.classList.toggle("fa-plus", isOpen);
+    icon.classList.toggle("fa-minus", !isOpen);
+});
+
+// Toggle tag selection
+tags.forEach(tag => {
+    tag.addEventListener("click", () => {
+        tag.classList.toggle("selected");
+    });
+});
+
