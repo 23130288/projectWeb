@@ -55,7 +55,7 @@ img {
 /* ==================================================================== */
 main .product-item img {
     width: 100px;
-    height: 100px;
+    height: 100%;
     border-radius: 4px;
 }
 
@@ -126,5 +126,5 @@ main .product-item .product-item-quantity {
 
 #form-input-info button:hover {
     cursor: pointer;
-    background: lightgrey;
+    background: #F2B035;
 }
