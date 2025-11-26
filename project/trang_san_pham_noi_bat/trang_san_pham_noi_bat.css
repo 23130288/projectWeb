@@ -1,3 +1,255 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+.top-banner {
+    position: relative;
+    background-color: black;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 5px 0;
+    font-size: 14px;
+    border-bottom: 2px solid black;
+}
+.brand-name {
+    position: absolute;
+    top: 15px;
+    left: 25px
+}
+img[alt="Travel Logo"] {
+    width: 140px;
+    height: 60px;
+    margin: -7px;
+}
+.header-search {
+    padding: 10px 120px;
+}
+.search-bar {
+    display: flex;
+    border-radius: 6px;
+    overflow: hidden;
+    width: 1000px;
+    position: relative;
+    left :80px;
+}
+.search-select {
+    padding: 9px 10px;
+    color: black;
+    height: 40px;
+    background-color: orange;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.search-select:focus {
+    color: white;
+    background-color: purple;
+}
+.search-select option {
+    color: black;
+    background-color: white;
+}
+
+.search-icon {
+    padding: 8px 10px;
+    color: black;
+    font-size: 16px;
+    background-color: white;
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 2px;
+    font-size: 12px;
+}
+.divider {
+    width: 1px;
+    height: 22px;
+    background-color: black;
+}
+.search-button {
+    background-color: orange;
+    color: black;
+    border: none;
+    padding: 0 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+    height: 40px;
+    font-size: 12px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search-button:hover {
+    color: white;
+    background-color: purple;
+}
+.avatar-icon-notify{
+    width: 140px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left : 70px;
+}
+.avatar-icon-shopping-cart {
+    width: 140px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left : 40px;
+
+}
+.avatar-icon-user {
+    width: 140px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left :5px;
+}
+
+.inner-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inner-circle:hover {
+    background-color: purple;
+}
+
+.inner-circle i {
+    color: black;
+    font-size: 28px;
+}
+.inner-circle i:hover {
+    color: white;
+}
+
+nav {
+    background-color: orange;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 50px;
+    gap: 25px;
+}
+.img-nav img {
+    width: 80px;
+    height: auto;
+}
+.content-nav {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex: 1;
+    font-size: 14px;
+}
+#menu-toggle {
+    width: 30px;
+    height: 32px;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    padding: 5px;
+    border:  1px solid transparent;
+    cursor: pointer;
+    position: relative;
+    right :75px;
+    font-size: 15px;
+}
+#menu-toggle:hover {
+    background-color: purple;
+    color: white;
+}
+.content-nav > ul  {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    right: 85px;
+}
+.content-nav ul li a  {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    /*text-transform: uppercase;*/
+    transition: 0.3s;
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0.5);
+}
+.content-nav ul li a:hover {
+    color: white;
+    background-color: purple;
+}
+.dropdown {
+    position: relative;
+}
+.dropdown-menu {
+    position: absolute;
+    top: 150%;
+    left: -30px;
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 6px;
+    min-width: 160px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.25s ease;
+}
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.dropdown-menu li {
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid black;
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
+}
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 15px;
+    color: black !important;
+    text-decoration: none;
+    background-color: white;
+    font-weight: 500;
+    transition: all 0.25s ease;
+}
 .product-section {
     padding: 50px 80px;
     background-color: white;
@@ -181,4 +433,73 @@
     color: white;
 }
 
+#footer1 {
+    background: black;
+    padding: 60px 10%;
+    border-top: 1px solid #eee;
+}
+
+#footer1 .footer1-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#footer1 .footer1-column {
+    min-width: 180px;
+    margin-bottom: -35px;
+}
+
+#footer1 .footer1-column h4 {
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #EDB310;
+}
+
+#footer1 .footer1-column a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    margin: 6px 0;
+    transition: 0.2s;
+}
+
+#footer1 .footer1-column a:hover {
+    color: #EDB310;
+}
+
+#footer2 {
+    background: black;
+    padding: 60px 0;
+    border-top: 1px solid black;
+}
+
+#footer2 .socials {
+    text-align: center;
+    margin: 30px 0;
+}
+
+#footer2 .socials a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+#footer2 .socials a:hover {
+    color: #EDB310;
+}
+
+#footer2 .brand {
+    color: white;
+    text-align: center;
+    border-top: 1px solid white;
+    padding-top:  20px;
+}
+
+#footer2 .brand img {
+    width: 100px;
+    margin-bottom: 10px;
+}
 

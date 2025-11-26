@@ -5,445 +5,121 @@
     <title>TÌM KIẾM </title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="trang_tim_kiem.css">
-    <link rel="stylesheet" href="../shareStuff/header/header.css">
-    <link rel="stylesheet" href="../shareStuff/footer/footer.css">
 </head>
 <body>
 <header>
-    <div id="header-placeholder"></div>
-    <script src="../shareStuff/header/headerGetter.js"></script>
-</header>
-<section class="results">
-    <h1>KẾT QUẢ TÌM KIẾM</h1>
-<!--    <div id="search-info"></div>-->
-<!--    <div id="no-results">Xin lỗi, không tìm thấy kết quả !</div>-->
-    <div class="slider-container">
-        <div class="product-grid">
-            <div class="product-card" >
-                <div class="discount-badge">-25%</div>
-                <img src="image/vai_keo_24_inch.png"
-                     alt="Vali kéo cỡ nhỏ">
-                <h2>Vali Kéo Cỡ Nhỏ</h2>
-                <p class="price">
-                    <span class="old-price">1.200.000đ</span>
-                    <span class="new-price">900.000đ</span>
-                </p>
-                <div class="sold-out-tag">Đã Bán : 5</div>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
+    <div class="top-banner">
+        <div class="brand-name">
+            <img src="image/logo.png" alt="Travel Logo">
+        </div>
+        <div class="header-search">
+            <form class="search-bar" >
+                <select class="search-select" name="category">
+                    <option value="VALI">VALI</option>
+                    <option value="BALO">BALO</option>
+                </select>
 
-            <div class="product-card">
-                <div class="discount-badge">-30%</div>
-                <img src="image/vali_keo_chong_nuoc.jpg"
-                     alt="Vali kéo chống nước">
-                <h2>Vali Kéo Chống Nước</h2>
-                <p class="price">
-                    <span class="old-price">1.300.000đ</span>
-                    <span class="new-price">910.000đ</span>
-                </p>
-                <div class="sold-out-tag">Đã Bán : 10</div>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
+                <div class="divider"></div>
+                <div class="search-icon">
+                    <i class="fa fa-search"></i>
                 </div>
-            </div>
+                <input type="text" name="query" placeholder="Nhập từ khóa..." />
+                <div class="divider"></div>
+                <button type="submit" >TÌM KIẾM</button>
+            </form>
+        </div>
 
-            <div class="product-card">
-                <div class="discount-badge">-25%</div>
-                <img src="image/vai_keo_28_inch.png"
-                     alt="Vali kéo cỡ to">
-                <h2>Vali Kéo Cỡ To</h2>
-                <p class="price">
-                    <span class="old-price">2.000.000đ</span>
-                    <span class="new-price">1.500.000đ</span>
-                </p>
-                <div class="sold-out-tag">Đã Bán : 15</div>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="discount-badge">-35%</div>
-                <img src="image/vali_keo_mini_xach_tay.png"
-                     alt="Vali mini xách tay">
-                <h2>Vali Kéo Mini Xách Tay</h2>
-                <p class="price">
-                    <span class="old-price">1.200.000đ</span>
-                    <span class="new-price">780.000đ</span>
-                </p>
-                <div class="sold-out-tag">Đã Bán : 20</div>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="discount-badge">-25%</div>
-                <img src="image/vali_thoi_trang_nu_28_inch.png"
-                     alt="Vali kéo thời trang nữ">
-                <h2>Vali Kéo Thời Trang Nữ</h2>
-                <p class="price">
-                    <span class="old-price">1.700.000đ</span>
-                    <span class="new-price">1.275.000đ</span>
-                </p>
-                <div class="sold-out-tag">Đã Bán : 25</div>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="discount-badge">-30%</div>
-                <img src="image/vali_thoi_trang_nam_24_inch.png"
-                     alt="Vali kéo thời trang nam">
-                <h2>Vali Kéo Thời Trang Nam</h2>
-                <p class="price">
-                    <span class="old-price">1.400.000đ</span>
-                    <span class="new-price">980.000đ</span>
-                </p>
-                <div class="sold-out-tag">Đã Bán : 5</div>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="discount-badge">-30%</div>
-                <img src="image/vai_keo_Maxwell.png"
-                     alt="Vali kéo Maxwell">
-                <h2>Vali Kéo Maxwell</h2>
-                <p class="price">
-                    <span class="old-price">2.800.000đ</span>
-                    <span class="new-price">1.960.000đ</span>
-                </p>
-                <div class="sold-out-tag">Đã Bán : 10</div>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="discount-badge">-20%</div>
-                <img src="image/vali_keo_B_Lite_4.png"
-                     alt="Vali kéo B-Lite 4">
-                <h2>Vali Kéo B-Lite 4</h2>
-                <p class="price">
-                    <span class="old-price">3.300.000đ</span>
-                    <span class="new-price">2.640.000đ</span>
-                </p>
-                <div class="sold-out-tag">Đã Bán : 15</div>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="discount-badge">-25%</div>
-                <img src="image/vali_chong_va_dap_24_inch.png"
-                     alt="Vali chống va đập">
-                <h2>Vali Chống Va Đập</h2>
-                <p class="price">
-                    <span class="old-price">1.800.000đ</span>
-                    <span class="new-price">1.250.000đ</span>
-                </p>
-                <div class="sold-out-tag">Đã Bán : 20</div>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="discount-badge">-25%</div>
-                <img src="image/img1.png"
-                     alt ="Vali Chống Va Đập">
-                <h2>Vali Chống Va Đập</h2>
-                <p class="price">
-                    <span class="old-price">1.200.000đ</span>
-                    <span class="new-price">900.000đ</span>
-                </p>
-                <div class="sold-out-tag">Đã Bán : 5</div>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="discount-badge">-30%</div>
-                <img src="image/img2.png"
-                     alt="Vali Chống Bể Vỡ">
-                <h2>Vali Chống Bể Vỡ</h2>
-                <p class="price">
-                    <span class="old-price">1.300.000đ</span>
-                    <span class="new-price">910.000đ</span>
-                </p>
-                <div class="sold-out-tag">Đã Bán : 10</div>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="discount-badge">-35%</div>
-                <img src="image/img3.png"
-                     alt ="Vali Chống Va Đập">
-                <h2>Vali Chống Va Đập</h2>
-                <p class="price">
-                    <span class="old-price">1.200.000đ</span>
-                    <span class="new-price">780.000đ</span>
-                </p>
-                <div class="sold-out-tag">Đã Bán : 15</div>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-
-    <!-- Balo du lịch -->
-            <div class="product-card">
-                <div class="discount-badge">-25%</div>
-                <img src="image/balo_chong_nuoc.png"
-                     alt = "Balo du lịch chống nước">
-                <h2>Balo Du Lich Chống Nước</h2>
-                <p class="price">
-                    <span class="old-price">1.300.000đ</span>
-                    <span class="new-price">975.000đ</span>
-                </p>
-                <div class="sold-out-tag">Đã Bán : 5</div>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="discount-badge">-30%</div>
-                <img src="image/balo_du_lich_gon_nhe.png"
-                     alt="Balo du lịch gọn nhẹ">
-                <h2>Balo Du Lịch Gọn Nhẹ</h2>
-                <p class="price">
-                    <span class="old-price">900.000đ</span>
-                    <span class="new-price">630.000đ</span>
-                </p>
-                <div class="sold-out-tag">Đã Bán : 10</div>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="discount-badge">-35%</div>
-                <img src="image/bao_thoi_trang.png"
-                     alt ="Balo thời trang ">
-                <h2>Balo Thời Trang </h2>
-                <p class="price">
-                    <span class="old-price">1.100.000đ</span>
-                    <span class="new-price">715.000đ</span>
-                </p>
-                <div class="sold-out-tag">Đã Bán : 15</div>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="discount-badge">-20%</div>
-                <img src="image/balo_1_quai_đeo.png"
-                     alt ="Balo 1 quai đeo  ">
-                <h2>Balo 1 quai đeo  </h2>
-                <p class="price">
-                    <span class="old-price">600.000đ</span>
-                    <span class="new-price">480.000đ</span>
-                </p>
-                <div class="sold-out-tag">Đã Bán : 20</div>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="discount-badge">-20%</div>
-                <img src="image/balo_phuot.png"
-                     alt ="Balo Phượt  ">
-                <h2>Balo Phượt  </h2>
-                <p class="price">
-                    <span class="old-price">900.000đ</span>
-                    <span class="new-price">720.000đ</span>
-                </p>
-                <div class="sold-out-tag">Đã Bán : 5</div>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="discount-badge">-25%</div>
-                <img src="image/balo_cam_trai.png"
-                     alt ="Balo cắm trại  ">
-                <h2>Balo Cắm Trại  </h2>
-                <p class="price">
-                    <span class="old-price">1.600.000đ</span>
-                    <span class="new-price">1.200.000đ</span>
-                </p>
-                <div class="sold-out-tag">Đã Bán : 10</div>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="discount-badge">-15%</div>
-                <img src="image/balo_leo_nui.png"
-                     alt ="Balo leo núi  ">
-                <h2>Balo Leo Núi </h2>
-                <p class="price">
-                    <span class="old-price">1.500.000đ</span>
-                    <span class="new-price">1.275.000đ</span>
-                </p>
-                <div class="sold-out-tag">Đã Bán : 15</div>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="discount-badge">-20%</div>
-                <img src="image/balo_giu_nhiet.png"
-                     alt ="Balo giữ nhiệt  ">
-                <h2>Balo Giữ Nhiệt </h2>
-                <p class="price">
-                    <span class="old-price">570.000đ</span>
-                    <span class="new-price">456.000đ</span>
-                </p>
-                <div class="sold-out-tag">Đã Bán : 5</div>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="discount-badge">-15%</div>
-                <img src="image/balo_simplecarry_twb.png"
-                     alt ="Balo Simplecarry TWB ">
-                <h2>Balo Simplecarry TWB </h2>
-                <p class="price">
-                    <span class="old-price">990.000đ</span>
-                    <span class="new-price">841.500đ</span>
-                </p>
-                <div class="sold-out-tag">Đã Bán : 10</div>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="discount-badge">-20%</div>
-                <img src="image/img10.png"
-                     alt ="Balo Mikkor The Irvin">
-                <h2>Balo Mikkor The Irvin </h2>
-                <p class="price">
-                    <span class="old-price">600.000đ</span>
-                    <span class="new-price">480.000đ</span>
-                </p>
-                <div class="sold-out-tag">Đã Bán : 20</div>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="discount-badge">-20%</div>
-                <img src="image/img11.png"
-                     alt ="Balo The Edwin Backpack">
-                <h2>Balo The Edwin Backpack </h2>
-                <p class="price">
-                    <span class="old-price">900.000đ</span>
-                    <span class="new-price">720.000đ</span>
-                </p>
-                <div class="sold-out-tag">Đã Bán : 5</div>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="discount-badge">-25%</div>
-                <img src="image/img12.png"
-                     alt ="Balo Simplecarry K-City ">
-                <h2>Balo Simplecarry K-City</h2>
-                <p class="price">
-                    <span class="old-price">1.600.000đ</span>
-                    <span class="new-price">1.200.000đ</span>
-                </p>
-                <div class="sold-out-tag">Đã Bán : 10</div>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
+        <div class="avatar-icon-notify">
+            <div class="inner-circle">
+                <i class="fa fa-bell"></i>
             </div>
         </div>
-        <div class="slider-nav"></div>
+        <div class="avatar-icon-shopping-cart">
+            <div class="inner-circle">
+                <i class="fa fa-shopping-cart"></i>
+            </div>
+        </div>
+        <div class="avatar-icon-user">
+            <div class="inner-circle">
+                <i class="fa fa-user"></i>
+            </div>
+        </div>
     </div>
+
+    <nav>
+        <div class="img-nav">
+            <img src="img/logo.png" alt="" />
+        </div>
+        <div class="content-nav">
+            <button id="menu-toggle">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </button>
+            <ul>
+                <li><a href="../trang_chu/trang_chu.html">TRANG CHỦ</a></li>
+                <li class="dropdown">
+                    <a href="#">SẢN PHẨM</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">TẤT CẢ</a></li>
+                        <li><a href="#">VALI</a></li>
+                        <li><a href="#">BALO</a></li>
+                    </ul>
+                </li>
+                <li><a href="../trang_san_pham_noi_bat/trang_san_pham_noi_bat.html">NỔI BẬT</a></li>
+                <li><a href="#">LIÊN HỆ</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<section class="results">
+    <h2>KẾT QUẢ TÌM KIẾM</h2>
+<!--    <div id="search-info"></div>-->
+    <div id="no-results">Xin lỗi, không tìm thấy kết quả !</div>
 </section>
 <footer>
-    <div id="footer-placeholder"></div>
-    <script src="../shareStuff/footer/footerGetter.js"></script>
+    <div class="footer1" id="footer1">
+        <div class="footer1-container">
+            <div class="footer1-column">
+                <h4>Cửa hàng Travel</h4>
+                <a href="trang_chu.html">Balo & Vali Lịch</a>
+            </div>
+
+            <div class="footer1-column">
+                <h4>Dịch vụ khách hàng</h4>
+                <a href="#">Liên hệ</a>
+                <a href="dich_vu.html">Giao hàng & Đổi trả</a>
+                <a href="dich_vu.html">Câu hỏi thường gặp (FAQ)</a>
+            </div>
+
+            <div class="footer1-column">
+                <h4>Về Công ty Travel</h4>
+                <a href="dich_vu.html">Giới thiệu</a>
+                <a href="dich_vu.html">Tuyển dụng</a>
+                <a href="dich_vu.html">Trách nhiệm & Bền vững</a>
+            </div>
+
+            <div class="footer1-column">
+                <h4>Điều khoản pháp lý</h4>
+                <a href="dich_vu.html">Chính sách bảo mật</a>
+                <a href="dich_vu.html">Chính sách bảo hành</a>
+                <a href="dich_vu.html">Điều khoản sử dụng</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer2" id="footer2">
+        <div class="socials">
+            <a href="https://www.facebook.com/groups/congdongsinhvien.hcmnlu">Tiktok</a>
+            <a href="https://www.facebook.com/groups/congdongsinhvien.hcmnlu">Instagram</a>
+            <a href="https://www.facebook.com/groups/congdongsinhvien.hcmnlu">Facebook</a>
+            <a href="https://www.facebook.com/groups/congdongsinhvien.hcmnlu">Pinterest</a>
+        </div>
+
+        <div class="brand">
+            <img src="image/logo.png" alt="Logo ABC">
+            <p>© 2025 Công ty Balo & Vali Du lịch Travel</p>
+        </div>
+    </div>
 </footer>
-<script src="trang_tim_kiem.js"></script>
 </body>
 
 

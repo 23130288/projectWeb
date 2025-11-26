@@ -5,13 +5,71 @@
     <title>SẢN PHẨM NỔI BẬT</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="trang_san_pham_noi_bat.css">
-    <link rel="stylesheet" href="../shareStuff/header/header.css">
-    <link rel="stylesheet" href="../shareStuff/footer/footer.css">
 </head>
 <body>
 <header>
-    <div id="header-placeholder"></div>
-    <script src="../shareStuff/header/headerGetter.js"></script>
+    <div class="top-banner">
+        <div class="brand-name">
+            <img src="image/logo.png" alt="Travel Logo">
+        </div>
+        <div class="header-search">
+            <form class="search-bar">
+                <select class="search-select" name="category">
+                    <option value="VALI">VALI</option>
+                    <option value="BALO">BALO</option>
+                </select>
+
+                <div class="divider"></div>
+                <div class="search-icon">
+                    <i class="fa fa-search"></i>
+                </div>
+                <input type="text" name="query" placeholder="Nhập từ khóa..." />
+                <div class="divider"></div>
+                <a href="../trang_tim_kiem/trang_tim_kiem.html" class="search-button">TÌM KIẾM</a>
+            </form>
+        </div>
+
+        <div class="avatar-icon-notify">
+            <div class="inner-circle">
+                <i class="fa fa-bell"></i>
+            </div>
+        </div>
+        <div class="avatar-icon-shopping-cart">
+            <div class="inner-circle">
+                <i class="fa fa-shopping-cart"></i>
+            </div>
+        </div>
+        <div class="avatar-icon-user">
+            <div class="inner-circle">
+                <i class="fa fa-user"></i>
+            </div>
+        </div>
+    </div>
+
+    <nav>
+        <div class="img-nav">
+            <img src="img/logo.png" alt="" />
+        </div>
+        <div class="content-nav">
+            <button id="menu-toggle">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </button>
+            <ul>
+                <li><a href="../trang_chu/trang_chu.html">TRANG CHỦ</a></li>
+                <li class="dropdown">
+                    <a href="#">SẢN PHẨM</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">TẤT CẢ</a></li>
+                        <li><a href="#">VALI</a></li>
+                        <li><a href="#">BALO</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">NỔI BẬT</a></li>
+                <li><a href="#">LIÊN HỆ</a></li>
+            </ul>
+        </div>
+    </nav>
+
 </header>
 <section class="product-section">
     <div class="page-title">
@@ -245,10 +303,52 @@
         <div class="arrow right"><i class="fa fa-angle-right"></i></div>
     </div>
 </section>
+
 <script src="trang_san_pham_noi_bat.js"></script>
 <footer>
-    <div id="footer-placeholder"></div>
-    <script src="../shareStuff/footer/footerGetter.js"></script>
+    <div class="footer1" id="footer1">
+        <div class="footer1-container">
+            <div class="footer1-column">
+                <h4>Cửa hàng Travel</h4>
+                <a href="trang_chu.html">Balo & Vali Lịch</a>
+            </div>
+
+            <div class="footer1-column">
+                <h4>Dịch vụ khách hàng</h4>
+                <a href="#">Liên hệ</a>
+                <a href="dich_vu.html">Giao hàng & Đổi trả</a>
+                <a href="dich_vu.html">Câu hỏi thường gặp (FAQ)</a>
+            </div>
+
+            <div class="footer1-column">
+                <h4>Về Công ty Travel</h4>
+                <a href="dich_vu.html">Giới thiệu</a>
+                <a href="dich_vu.html">Tuyển dụng</a>
+                <a href="dich_vu.html">Trách nhiệm & Bền vững</a>
+            </div>
+
+            <div class="footer1-column">
+                <h4>Điều khoản pháp lý</h4>
+                <a href="dich_vu.html">Chính sách bảo mật</a>
+                <a href="dich_vu.html">Chính sách bảo hành</a>
+                <a href="dich_vu.html">Điều khoản sử dụng</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer2" id="footer2">
+        <div class="socials">
+            <a href="https://www.facebook.com/groups/congdongsinhvien.hcmnlu">Tiktok</a>
+            <a href="https://www.facebook.com/groups/congdongsinhvien.hcmnlu">Instagram</a>
+            <a href="https://www.facebook.com/groups/congdongsinhvien.hcmnlu">Facebook</a>
+            <a href="https://www.facebook.com/groups/congdongsinhvien.hcmnlu">Pinterest</a>
+        </div>
+
+        <div class="brand">
+            <img src="image/logo.png" alt="Logo ABC">
+            <p>© 2025 Công ty Balo & Vali Du lịch Travel</p>
+        </div>
+    </div>
 </footer>
 </body>
 
