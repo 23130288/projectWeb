@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="notification_item" id="selection_shop">
       
         <div class="avatar">
-          <img src="image/avatar.jpg" alt="Ảnh đại diện">
+          <img src="image/balo_cam_trai.png" alt="Ảnh đại diện">
         </div>
         <div class="info">
           <h4>Đơn hàng giao thành công</h4>
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
       
       <div class="notification_item">
         <div class="avatar">
-          <img src="image/avatar.jpg" alt="Ảnh đại diện">
+          <img src="image/balo_giu_nhiet.png" alt="Ảnh đại diện">
         </div>
         <div class="info">
           <h4>Đơn hàng giao thành công</h4>
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
       
       <div class="notification_item">
         <div class="avatar">
-          <img src="image/avatar.jpg" alt="Ảnh đại diện">
+          <img src="image/balo_1_quai_đeo.png" alt="Ảnh đại diện">
         </div>
         <div class="info">
           <h4>Đơn hàng giao thành công</h4>
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
         
                         <div class="product">
                             <div class="product-title">
-                                <img src="../images/Niko.png" alt="">
+                                <img src="image/vpucher_free_ship.png" alt="">
                             </div>
                             <div class="product-price">Miễn phí vận chuyển</div>
                             <div class="product-date">01/12/2025</div>
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
         
                         <div class="product">
                             <div class="product-title">
-                                <img src="../images/Niko.png" alt="">
+                                <img src="image/voucer_percent.png" alt="">
                             </div>
                             <div class="product-price">Giảm 5% cho đơn trên 100k</div>
                             <div class="product-date">01/12/2025</div>
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         
                          <div class="product">
                             <div class="product-title">
-                                <img src="../images/Niko.png" alt="">
+                                <img src="image/voucher_50k.png" alt="">
                             </div>
                             <div class="product-price">Giảm 20.000đ cho đơn từ 150k</div>
                             <div class="product-date">01/12/2025</div>
@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
         
                         <div class="product">
                             <div class="product-title">
-                                <img src="../images/Niko.png" alt="">
+                                <img src="image/vpucher_free_ship.png" alt="">
                             </div>
                             <div class="product-price">Miễn phí vận chuyển đơn từ 0đ</div>
                             <div class="product-date">01/12/2025</div>
@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
         
                         <div class="product">
                             <div class="product-title">
-                                <img src="../images/Niko.png" alt="">
+                                <img src="image/voucer_percent.png" alt="">
                             </div>
                             <div class="product-price">Giảm 5% cho đơn trên 100k</div>
                             <div class="product-date">01/12/2025</div>
@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
         
                         <div class="product">
                             <div class="product-title">
-                                <img src="../images/Niko.png" alt="">
+                                <img src="image/voucher_50k.png" alt="">
                             </div>
                             <div class="product-price">Giảm 20.000đ cho đơn từ 150k</div>
                             <div class="product-date">01/12/2025</div>
@@ -204,7 +204,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <!--content-->
                         <div class="product">
                             <div class="product-title">
-                                <img src="../images/Niko.png" alt="">
+                                <img src="image/balo_1_quai_đeo.png" alt="">
                                 <div class="product-info">
                                     <label>Name placeholder</label>
                                 </div>
@@ -215,7 +215,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
                         <div class="product">
                             <div class="product-title">
-                                <img src="../images/Niko.png" alt="">
+                                <img src="image/balo_cam_trai.png" alt="">
                                 <div class="wishlist-item-info">
                                     <label>Name placeholder</label>
                                 </div>
@@ -226,7 +226,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
                         <div class="product">
                             <div class="product-title">
-                                <img src="../images/Niko.png" alt="">
+                                <img src="image/balo_du_lich_gon_nhe.png" alt="">
                                 <div class="wishlist-item-info">
                                     <label>Name placeholder</label>
                                 </div>
@@ -237,7 +237,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
                         <div class="product">
                             <div class="product-title">
-                                <img src="../images/Niko.png" alt="">
+                                <img src="image/balo_giu_nhiet.png" alt="">
                                 <div class="wishlist-item-info">
                                     <label>Name placeholder</label>
                                 </div>
@@ -258,7 +258,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <!--content-->
                         <div class="product">
                             <div class="product-title">
-                                <img src="../images/Niko.png" alt="">
+                                <img src="image/balo_giu_nhiet.png" alt="">
                                 <div class="wishlist-item-info">
                                     <label>Name placeholder</label>
                                 </div>
@@ -268,7 +268,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
                         <div class="product">
                             <div class="product-title">
-                                <img src="../images/Niko.png" alt="">
+                                <img src="image/balo_du_lich_gon_nhe.png" alt="">
                                 <div class="wishlist-item-info">
                                     <label>Name placeholder</label>
                                 </div>
@@ -288,7 +288,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <!--content-->
                         <div class="product">
                             <div class="product-title">
-                                <img src="../images/Niko.png" alt="">
+                                <img src="image/balo_chong_nuoc.png" alt="">
                                 <div class="wishlist-item-info">
                                     <label>Name placeholder</label>
                                 </div>
@@ -375,7 +375,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             }
 
-            if (text === "Đơn hàng" || text === "voucher") {
+            if (text === "Đơn hàng" || text === "Voucher") {
                 const tabMenus = document.querySelectorAll('.tab-menu');
                 const contents = document.querySelectorAll('.product-content');
 
