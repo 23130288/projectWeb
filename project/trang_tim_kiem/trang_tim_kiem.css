@@ -65,7 +65,11 @@
     padding: 55px 0;
     text-align: center;
 }
-
+.product-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
 .product-card {
     position: relative;
     background: white;
