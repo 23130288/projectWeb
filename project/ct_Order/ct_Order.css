@@ -80,8 +80,32 @@ main .product-item .product-item-title {
     flex: 2;
     gap: 10px;
     align-items: center;
+    text-align: left;
+}
+main .product-item .product-item-title .product-item-info .product-item-variant {
+    font-size: 14px;
+    color: #444;
 }
 
+main .product-item .product-item-title .product-item-info .product-item-variant .product-item-variant p {
+    margin: 2px 0;
+}
+main .product-item .product-item-title .product-item-info .product-item-variant .variant-color {
+    width: 15px;
+    height: 15px;
+    border: 1px solid lightgrey;
+    border-radius: 50%;
+    background: #F2B035;
+}
+main .product-item .product-item-title .product-item-info .product-item-variant .variant-size {
+    font-weight: bold;
+}
+
+main .product-item .product-item-quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 main .product-item .product-item-quantity {
     display: flex;
     align-items: center;

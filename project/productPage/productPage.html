@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="../shareStuff/header/header.css">
     <link rel="stylesheet" href="../shareStuff/footer/footer.css">
-
 </head>
 <body>
 <header>
@@ -84,14 +83,22 @@
             <p id="statusMessage" class="status-msg"></p>
             <div class="popup" id="buyPopup">
                 <div class="popup-content">
-                    <h2>Thông tin mua hàng</h2>
-                    <label>Họ tên:<input type="text" id="buyerName" placeholder="Nhập họ tên..."></label>
+                    <div class="container-popup-title">
+                        <h2>Thông tin mua hàng</h2>
+                        <button type="button" class="edit-btn" id="editBtn">Chỉnh sửa <i class="fa-solid fa-pen"></i>
+                        </button>
+                    </div>
+                    <label>Họ tên:<input type="text" id="name" placeholder="Nhập họ tên..."
+                                         value="Name placeholder" required disabled></label>
 
-                    <label>Số điện thoại:<input type="text" id="buyerPhone"
-                                                placeholder="Nhập số điện thoại..."></label>
+                    <label>Số điện thoại:<input type="text" id="phone"
+                                                placeholder="Nhập số điện thoại..." value="0123456789" required
+                                                disabled></label>
 
-                    <label>Địa chỉ giao hàng:<textarea id="buyerAddress"
-                                                       placeholder="Nhập địa chỉ..."></textarea></label>
+                    <label>Địa chỉ giao hàng:<input id="address"
+                                                    placeholder="Nhập địa chỉ..."
+                                                    value="1A/1 Tổ 1A, Khu phố 1, Phường An Bình, Tỉnh Đồng Nai"
+                                                    required disabled></label>
 
                     <div class="payment-container">
                         <label>Phương thức thanh toán</label>
@@ -184,5 +191,6 @@
 </footer>
 <script src="productPageJS/changeImage.js"></script>
 <script src="productPageJS/buttonHandler.js"></script>
+<script src="../cartPage/cartPageJS/editInfo.js"></script>
 </body>
 </html>

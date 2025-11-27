@@ -38,13 +38,13 @@
 .voucher-conten h3 {
     margin: 0;
     display: flex;
-    font-size: ;   /* giảm kích thước chữ */
+    font-size: 16px;   /* giảm kích thước chữ */
     font-weight: 600;
     color: white;
     white-space: nowrap; /* giữ chữ trên 1 hàng */
 }
 
-.voucher-conten #getBtn {
+.voucher-conten .getBtn {
     margin-top: 8px;
     padding: 6px 16px;
     font-size: 0.95rem;
@@ -57,7 +57,7 @@
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.voucher-conten #getBtn:hover {
+.voucher-conten .getBtn:hover {
     background-color: #45a049;
     transform: scale(1.05);
 }
