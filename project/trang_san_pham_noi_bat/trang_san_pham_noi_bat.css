@@ -59,11 +59,11 @@
 }
 
 .arrow.left {
-    left: 50px;
+    left: 170px;
 }
 
 .arrow.right {
-    right: 50px;
+    right: 130px;
 }
 
 .product-grid {
@@ -73,7 +73,11 @@
     flex-wrap: wrap;
     transition: all 0.3s ease;
 }
-
+.product-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
 .product-card {
     position: relative;
     background: white;
