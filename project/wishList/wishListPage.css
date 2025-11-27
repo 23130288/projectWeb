@@ -17,10 +17,10 @@ main .container {
 }
 
 h1 {
-    color: #F2B035;
-    margin-bottom: 30px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-size: 24px;
+    padding: 20px 30px;
+    margin: 0 0 10px;
+    border-bottom: lightgrey 1px solid;
 }
 
 /* ========================== wishlist header ========================= */
