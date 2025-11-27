@@ -11,42 +11,19 @@ main {
     min-height: 900px;
 }
 
-/* ======================= support header ======================= */
-/* ============================================================== */
-.support-header {
-    padding: 30px 20px;
-    background: #F2C641;
+main h1 {
+    font-size: 24px;
+    padding: 20px 30px;
+    margin: 0 0 10px;
+    border-bottom: lightgrey 1px solid;
 }
-
-.support-header h1 {
-    text-align: center;
-    color: black;
-    font-size: 35px;
-}
-
-
-/* === button === */
-.container-search button {
-    background: #F2C641;
-    color: black;
-    border: none;
-    padding: 15px;
-    font-weight: 600;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.container-search button:hover {
-    background: #F2B035;
-}
-
 
 /* ============================ topics =========================== */
 /* =============================================================== */
 .container-topics {
     margin: 30px 18%;
 }
+
 .container-topics select {
     width: 100%;
     padding: 12px;
@@ -80,6 +57,7 @@ main {
     border-color: #F2C641;
     outline: none;
 }
+
 .support-form a {
     text-decoration: none;
     display: flex;
