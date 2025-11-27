@@ -22,3 +22,7 @@ document.querySelectorAll(".slider-container").forEach(container => {
 
     update();
 });
+
+document.getElementById("getBtn").addEventListener("click", () => {
+    alert("Bạn đã nhận được voucher!");
+});

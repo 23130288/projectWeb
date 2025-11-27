@@ -1,3 +1,67 @@
+.voucher_section {
+    display: flex;
+    justify-content: center; /* căn giữa toàn bộ voucher */
+    margin: 20px 0;
+}
+
+.voucher-container {
+    margin: 0 10px;
+    display: flex;
+    align-items: center; /* vẫn giữ ảnh ở giữa theo chiều dọc */
+    background-color: #EDB310;
+    border-radius: 12px;
+    padding: 15px 20px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.voucher-container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.voucher-avata img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 15px;
+    border: 2px solid #ddd;
+}
+
+.voucher-conten {
+    display: flex;        /* thêm */
+    flex-direction: column; /* chữ trên, nút dưới */
+    justify-content: center; /* căn giữa theo chiều dọc */
+}
+
+.voucher-conten h3 {
+    margin: 0;
+    display: flex;
+    font-size: ;   /* giảm kích thước chữ */
+    font-weight: 600;
+    color: white;
+    white-space: nowrap; /* giữ chữ trên 1 hàng */
+}
+
+.voucher-conten #getBtn {
+    margin-top: 8px;
+    padding: 6px 16px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.voucher-conten #getBtn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
 .product-section {
     padding: 50px 80px;
     background-color: white;
