@@ -42,8 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "Thông báo": `
       <h2>Thông báo</h2>
       
-      <div class="notification_item" id="selection_shop">
-      
+      <a href="../ct_Order/ct_Order.html" class="notification_item">
         <div class="avatar">
           <img src="image/balo_cam_trai.png" alt="Ảnh đại diện">
         </div>
@@ -52,9 +51,9 @@ document.addEventListener("DOMContentLoaded", function () {
           <p>Mã đơn hàng: hvshiodvosidjvpodjspc</p>
           <span>10/04/2025</span>
         </div>
-      </div>
+      </a>
       
-      <div class="notification_item">
+      <a href="../ct_Order/ct_Order.html" class="notification_item">
         <div class="avatar">
           <img src="image/balo_giu_nhiet.png" alt="Ảnh đại diện">
         </div>
@@ -63,9 +62,9 @@ document.addEventListener("DOMContentLoaded", function () {
           <p>Mã đơn hàng: hvshiodvosidjvpodjspc</p>
           <span>10/04/2025</span>
         </div>
-      </div>
+      </a>
       
-      <div class="notification_item">
+      <a href="../ct_Order/ct_Order.html" class="notification_item">
         <div class="avatar">
           <img src="image/balo_1_quai_đeo.png" alt="Ảnh đại diện">
         </div>
@@ -74,8 +73,9 @@ document.addEventListener("DOMContentLoaded", function () {
           <p>Mã đơn hàng: hvshiodvosidjvpodjspc</p>
           <span>10/04/2025</span>
         </div>
-      </div>
+      </a>
     `,
+
         "Voucher": `
         <main>
             <div class="container" id="Voucher">
@@ -472,5 +472,12 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+document.querySelectorAll('.notification_item').forEach(item => {
+    item.addEventListener('click', () => {
+        window.location.href = 'ct_Order.html';
+    });
+});
+
 
 
