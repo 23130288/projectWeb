@@ -288,44 +288,71 @@ you choosing size, colors for your product
 
 
 /* voucher */
-.section-product .product-details .popup #container-voucher {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    gap: 10px;
-    border-bottom: lightgrey solid 1px;
-    padding: 10px;
+/*.section-product .product-details .popup #container-voucher {*/
+/*    display: flex;*/
+/*    justify-content: left;*/
+/*    align-items: center;*/
+/*    gap: 10px;*/
+/*    border-bottom: lightgrey solid 1px;*/
+/*    padding: 10px;*/
+/*    margin-top: 10px;*/
+/*}*/
+
+/*.section-product .product-details .popup #container-voucher > label {*/
+/*    margin: 0;*/
+/*}*/
+
+/*.section-product .product-details .popup #container-voucher .voucher-input {*/
+/*    display: flex;*/
+/*    gap: 5px;*/
+/*}*/
+
+/*.section-product .product-details .popup #container-voucher input {*/
+/*    padding: 5px;*/
+/*    border: 1px solid lightgrey;*/
+/*    border-radius: 4px;*/
+/*    outline: none;*/
+/*}*/
+
+/*.section-product .product-details .popup #container-voucher button {*/
+/*    padding: 5px;*/
+/*    border: none;*/
+/*    background: #F2C641;*/
+/*    border-radius: 4px;*/
+/*    outline: none;*/
+/*    transition: 0.3s;*/
+
+/*}*/
+
+/*.section-product .product-details .popup #container-voucher button:hover {*/
+/*    background: #F2B035;*/
+/*}*/
+.section-product .product-details .popup .container-voucher {
     margin-top: 10px;
 }
 
-.section-product .product-details .popup #container-voucher > label {
-    margin: 0;
-}
-
-.section-product .product-details .popup #container-voucher .voucher-input {
+.section-product .product-details .popup .container-voucher .voucher-container {
+    padding: 10px;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
     display: flex;
-    gap: 5px;
+    flex-direction: column;
+    gap: 8px;
 }
 
-.section-product .product-details .popup #container-voucher input {
+.section-product .product-details .popup .container-voucher .voucher-container label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     padding: 5px;
     border: 1px solid lightgrey;
     border-radius: 4px;
-    outline: none;
-}
-
-.section-product .product-details .popup #container-voucher button {
-    padding: 5px;
-    border: none;
-    background: #F2C641;
-    border-radius: 4px;
-    outline: none;
+    cursor: pointer;
     transition: 0.3s;
-
 }
 
-.section-product .product-details .popup #container-voucher button:hover {
-    background: #F2B035;
+.section-product .product-details .popup .container-voucher .voucher-container input {
+    margin: 0;
 }
 
 /* price popup */

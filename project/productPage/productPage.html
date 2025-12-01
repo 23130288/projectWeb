@@ -113,13 +113,37 @@
                         </div>
                     </div>
 
+<!--                    <div class="container-voucher" id="container-voucher">-->
+<!--                        <label for="voucher">Voucher:</label>-->
+<!--                        <div class="voucher-input">-->
+<!--                            <input type="text" id="voucher" placeholder="Nhập mã giảm giá">-->
+<!--                            <button id="apply-voucher">Áp dụng</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
                     <div class="container-voucher" id="container-voucher">
-                        <label for="voucher">Voucher:</label>
-                        <div class="voucher-input">
-                            <input type="text" id="voucher" placeholder="Nhập mã giảm giá">
-                            <button id="apply-voucher">Áp dụng</button>
+                        <label>Voucher:</label>
+                        <div class="voucher-container">
+                            <label>
+                                <input type="checkbox" name="voucher" value="5%">
+                                <span class="voucher-name">Giảm giá 5%</span>
+                                <span class="voucher-condition">Áp dụng cho đơn từ 200k</span>
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="voucher" value="free_ship">
+                                <span class="voucher-name">Miễn phí vận chuyển</span>
+                                <span class="voucher-condition">Áp dụng cho đơn từ 0đ</span>
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="voucher" value="10%">
+                                <span class="voucher-name">Giảm 10%</span>
+                                <span class="voucher-condition">Áp dụng cho đơn từ 500k</span>
+                            </label>
                         </div>
                     </div>
+
                     <div class="container-product-price">
                         <div class="container-price">
                             <label>Tổng tiền:</label>
