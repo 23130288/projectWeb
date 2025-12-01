@@ -199,16 +199,34 @@ body {
     z-index: 999;
 }
 
-.popup-content {
+.popup .popup-content {
     background: white; /* màu tối đồng bộ admin */
     color: black;
     width: 90%;
+    max-height: 90vh;
     max-width: 500px;
     padding: 30px 30px;
     border-radius: 10px;
     border: 2px solid #EDB310;
     animation: fadeIn 0.3s ease;
     font-family: 'Segoe UI', sans-serif;
+}
+
+.popup .popup-content #popup-body {
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+.popup .popup-content .popup-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+    background: white;
 }
 
 .popup-content h2 {
@@ -333,11 +351,11 @@ body {
     gap: 10px; /* khoảng cách giữa preview và drop-zone */
 }
 
-.preview-item {
+.popup_avata .preview-item {
     margin: auto;
 }
 
-.preview-item img {
+.popup_avata .preview-item img {
     width: 100px;
     height: 100px;
     border-radius: 50%;

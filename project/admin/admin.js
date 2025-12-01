@@ -8,18 +8,18 @@ document.addEventListener("DOMContentLoaded", function () {
             <button class="bt_xac_nhan" id="btn-them-sp">+ Thêm sản phẩm</button>
             <table class="table_data">
                 <tr>
-                    <th>Mã SP</th><th>Tên sản phẩm</th><th>Còn lại</th><th>Giá</th><th>Trạng thái</th><th>Thao tác</th>
+                    <th>Mã SP</th><th>Tên sản phẩm</th><th>Còn lại</th><th>Màu</th><th>Size</th><th>Giá</th><th>Trạng thái</th><th>Thao tác</th>
                 </tr>
                 <tr>
-                    <td>SP001</td><td>Balo du lịch</td><td>5</td><td>500.000₫</td><td>đang bán</td>
+                    <td>SP001</td><td>Balo du lịch</td><td>5</td><td>dỏ</td><td>M</td><td>500.000₫</td><td>đang bán</td>
                     <td><button class="btn-sua" id="sua_sp">Sửa</button><button class="btn-xoa">Xóa</button></td>
                 </tr>
                 <tr>
-                    <td>SP002</td><td>Vali cao cấp</td><td>12</td><td>1.200.000₫</td><td>bán chạy</td>
+                    <td>SP002</td><td>Vali cao cấp</td><td>12</td><td>vàng</td><td>XL</td><td>1.200.000₫</td><td>bán chạy</td>
                     <td><button class="btn-sua" id="sua_sp">Sửa</button><button class="btn-xoa">Xóa</button></td>
                 </tr>
                 <tr>
-                    <td>SP003</td><td>Balo leo núi</td><td>5</td><td>1500.000₫</td><td>dừng bán</td>
+                    <td>SP003</td><td>Balo leo núi</td><td>5</td><td>đen</td><td>M</td><td>1500.000₫</td><td>dừng bán</td>
                     <td><button class="btn-sua" id="sua_sp">Sửa</button><button class="btn-xoa">Xóa</button></td>
                 </tr>
             </table>
@@ -188,6 +188,23 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
             
             <div class="popup_item">
+                <label>Màu:</label>
+                <select id="sp-color">
+                    <option value="red">đỏ</option>
+                    <option value="yellow">vàng</option>
+                </select>            
+            </div>
+            
+            <div class="popup_item">
+                <label>Size:</label>
+                <select id="sp-size">
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select> 
+            </div>
+            
+            <div class="popup_item">
                 <label>Giá:</label>
                 <input type="number" id="sp-price" value="500000">
             </div>
@@ -340,6 +357,23 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
                     <input type="text" id="sp-name" placeholder="Nhập tên sản phẩm">
                 </div>
                 
+                <div class="popup_item">
+                    <label>Màu:</label>
+                    <select id="sp-color">
+                        <option value="red">đỏ</option>
+                        <option value="yellow">vàng</option>
+                    </select>            
+                </div>
+                
+                <div class="popup_item">
+                    <label>Size:</label>
+                    <select id="sp-size">
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select> 
+                </div>
+            
                 <div class="popup_item">
                     <label>Giá:</label>
                     <input type="number" id="sp-price" placeholder="Nhập giá sản phẩm">
