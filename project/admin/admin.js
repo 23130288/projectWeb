@@ -8,15 +8,19 @@ document.addEventListener("DOMContentLoaded", function () {
             <button class="bt_xac_nhan" id="btn-them-sp">+ Thêm sản phẩm</button>
             <table class="table_data">
                 <tr>
-                    <th>Mã SP</th><th>Tên sản phẩm</th><th>Còn lại</th><th>Giá</th><th>Thao tác</th>
+                    <th>Mã SP</th><th>Tên sản phẩm</th><th>Còn lại</th><th>Giá</th><th>Trạng thái</th><th>Thao tác</th>
                 </tr>
                 <tr>
-                    <td>SP001</td><td>Balo du lịch</td><td>5</td><td>500.000₫</td>
-                    <td><button class="btn-sua">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    <td>SP001</td><td>Balo du lịch</td><td>5</td><td>500.000₫</td><td>đang bán</td>
+                    <td><button class="btn-sua" id="sua_sp">Sửa</button><button class="btn-xoa">Xóa</button></td>
                 </tr>
                 <tr>
-                    <td>SP002</td><td>Vali cao cấp</td><td>12</td><td>1.200.000₫</td>
-                    <td><button class="btn-sua">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    <td>SP002</td><td>Vali cao cấp</td><td>12</td><td>1.200.000₫</td><td>bán chạy</td>
+                    <td><button class="btn-sua" id="sua_sp">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                </tr>
+                <tr>
+                    <td>SP003</td><td>Balo leo núi</td><td>5</td><td>1500.000₫</td><td>dừng bán</td>
+                    <td><button class="btn-sua" id="sua_sp">Sửa</button><button class="btn-xoa">Xóa</button></td>
                 </tr>
             </table>
         `,
@@ -24,10 +28,10 @@ document.addEventListener("DOMContentLoaded", function () {
         "Quản lý người dùng": `
             <h2>Quản lý người dùng</h2>
             <table class="table_data">
-                <tr><th>Mã người dùng</th><th>Tên</th><th>Email</th><th>Vai trò</th><th>Thao tác</th></tr>
-                <tr><td>U0001</td><td>Nguyễn Văn A</td><td>a@gmail.com</td><td>Người dùng</td>
+                <tr><th>Mã người dùng</th><th>Tên</th><th>Email</th><th>Vai trò</th><th>Trạng thái</th><th>Thao tác</th></tr>
+                <tr><td>U0001</td><td>Nguyễn Văn A</td><td>a@gmail.com</td><td>Người dùng</td><td>Còn hoạt động</td>
                     <td><button class="btn-xoa">Xóa</button></td></tr>
-                <tr><td>U0002</td><td>Trần Thị B</td><td>b@gmail.com</td><td>Người dùng</td>
+                <tr><td>U0002</td><td>Trần Thị B</td><td>b@gmail.com</td><td>Người dùng</td><td>Còn hoạt động</td>
                     <td><button class="btn-xoa">Xóa</button></td></tr>
             </table>
         `,
@@ -47,10 +51,25 @@ document.addEventListener("DOMContentLoaded", function () {
             <h2>Quản lý voucher</h2>
                 <button class="bt_xac_nhan" id="btn-them-tb">+ Thêm voucher</button>
             <table class="table_data">
-                <tr><th>Mã voucher</th><th>đối tượng nhận</th><th>loại voucher</th><th>nội dung</th><th>có hiệu lực đến</th></tr>
+                <tr><th>Mã voucher</th><th>Đối tượng nhận</th><th>Loại voucher</th><th>Nội dung</th><th>Có hiệu lực đến</th></tr>
                 <tr><td>v001</td><td>all</td><td>giảm giá</td><td>giảm 100k cho đơn hàng trên 500k</td><td>15/11/2025</td>
-                <tr><td>v001</td><td>0001</td><td>giảm giá</td><td>giảm 100k cho đơn hàng trên 500k</td><td>15/11/2025</td>
+                <tr><td>v002</td><td>0001</td><td>giảm giá</td><td>giảm 5% cho đơn hàng trên 500k</td><td>15/11/2025</td>
             </table>
+        `,
+
+        "Quản lý dịch vụ, chính sách": `
+            <h2>Quản lý dịch vụ, chính sách</h2>
+                <button class="bt_xac_nhan" id="btn-them-tb">+ Thêm dịch vụ, chính sách</button>
+            <table class="table_data">
+                <tr><th>Mã</th><th>Tiêu đề</th><th>Nội dung</th><th>Ngày tạo</th><th>Trạng thái</th><th>Thao tác</th></tr>
+                <tr><td>p001</td><td>chính sách mua hàng</td><td>chính sách ......</td><td>15/11/2025</td><td>đang áp dụng</td>
+                <td><button class="btn-sua" id="sua_cs_dv">Sửa</button>
+                <tr><td>p002</td><td>chính sách đổi trả</td><td>chính sách ......</td><td>15/11/2025</td><td>đang áp dụng</td>
+                <td><button class="btn-sua" id="sua_cs_dv">Sửa</button>
+                <tr><td>s001</td><td>dịch vụ tư vấn</td><td>dịch vụ ......</td><td>15/11/2025</td><td>đang áp dụng</td>
+                <td><button class="btn-sua" id="sua_cs_dv">Sửa</button>
+                <tr><td>s001</td><td>dịch vụ đổi cũ lấy mới</td><td>dịch vụ ......</td><td>5/12/2025</td><td>dừng áp dụng</td>
+                <td><button class="btn-sua" id="sua_cs_dv">Sửa</button>
         `,
 
         "Quản lý thông báo": `
@@ -59,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <table class="table_data">
                 <tr><th>Mã thông báo</th><th>người nhận thông báo</th><th>loại thông báo</th><th>nội dung</th><th>ngày thông báo</th></tr>
                 <tr><td>tb001</td><td>0001</td><td>giảm giá</td><td>giảm 100k cho đơn hàng trên 500k</td><td>11/11/2025</td>
-                <tr><td>tb001</td><td>0001</td><td>giảm giá</td><td>giảm 100k cho đơn hàng trên 500k</td><td>11/11/2025</td>
+                <tr><td>tb002</td><td>all</td><td>giảm giá</td><td>giảm 100k cho đơn hàng trên 500k</td><td>11/11/2025</td>
             </table>
         `,
 
@@ -68,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
           
           <div class="notification_item" id="selection_shop">
             <div class="avatar">
-              <img src="anh/balo2.jpg" alt="Ảnh đại diện">
+              <img src="image/balo2.jpg" alt="Ảnh đại diện">
             </div>
             <div class="info">
               <h4>Balo apolo</h4>
@@ -79,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
           
           <div class="notification_item">
             <div class="avatar">
-              <img src="anh/vali2.jpg" alt="Ảnh đại diện">
+              <img src="image/vali2.jpg" alt="Ảnh đại diện">
             </div>
             <div class="info">
               <h4>Cách dùng mã vận chuyển</h4>
@@ -91,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
           
           <div class="notification_item">
             <div class="avatar">
-              <img src="anh/vali1.jpg" alt="Ảnh đại diện">
+              <img src="image/vali1.jpg" alt="Ảnh đại diện">
             </div>
             <div class="info">
               <h4>chính sách đổi trả</h4>
@@ -102,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
           
           <div class="notification_item" id="selection_shop">
             <div class="avatar">
-              <img src="anh/balo2.jpg" alt="Ảnh đại diện">
+              <img src="image/balo2.jpg" alt="Ảnh đại diện">
             </div>
             <div class="info">
               <h4>Balo apolo</h4>
@@ -113,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
           
           <div class="notification_item">
             <div class="avatar">
-              <img src="anh/vali2.jpg" alt="Ảnh đại diện">
+              <img src="image/vali2.jpg" alt="Ảnh đại diện">
             </div>
             <div class="info">
               <h4>Cách dùng mã vận chuyển</h4>
@@ -124,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
           
           <div class="notification_item">
             <div class="avatar">
-              <img src="anh/vali1.jpg" alt="Ảnh đại diện">
+              <img src="image/vali1.jpg" alt="Ảnh đại diện">
             </div>
             <div class="info">
               <h4>chính sách đổi trả</h4>
@@ -158,16 +177,11 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
 
-        document.querySelectorAll(".btn-sua").forEach(btn => {
+        document.querySelectorAll("#sua_sp").forEach(btn => {
             btn.addEventListener("click", () => {
                 openAdminPopup(
                     "Sửa sản phẩm",
                     `
-            <div class="popup_item">
-                <label>Mã sản phẩm:</label>
-                <input type="text" id="sp-id" value="SP001">
-            </div>
-            
             <div class="popup_item">
                 <label>Tên sản phẩm:</label>
                 <input type="text" id="sp-name" value="Balo du lịch">
@@ -184,6 +198,16 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
             
             <div class="popup_item">
+                <label>Trạng thái:</label>
+                <select id="sp-Status">
+                    <option value="đang bán">Đang bán</option>
+                    <option value="bán chạy">Bán chạy</option>
+                    <option value="dừng bán">Dừng bán</option>
+                </select>
+            </div>
+
+            
+            <div class="popup_item">
                 <label>Ảnh sản phẩm:</label>
                 <div class="img-upload-box" id="drop-zone">
                     <span>+</span>
@@ -192,21 +216,55 @@ document.addEventListener("DOMContentLoaded", function () {
                 
                 <div class="preview-list" id="preview-list">
                     <div class="preview-item">
-                        <img src="anh/balo1.jpg" alt="Balo 1">
+                        <img src="image/balo1.jpg" alt="Balo 1">
                     </div>
                     <div class="preview-item">
-                        <img src="anh/balo2.jpg" alt="Balo 2">
+                        <img src="image/balo2.jpg" alt="Balo 2">
                     </div>
                 </div>
             </div>
             `,
                     () => {
-                        alert("✔ Sửa sản phẩm xong (dữ liệu tạm thời)!");
+                        alert("✔ Sửa sản phẩm xong!");
                     }
                 );
             });
         });
 
+        document.querySelectorAll("#sua_cs_dv").forEach(btn => {
+            btn.addEventListener("click", () => {
+                openAdminPopup(
+                    "Sửa chính sách, dịch vụ",
+                    `
+            <div class="popup_item">
+                <label>Tên chính sách, dịch vụ:</label>
+                <input type="text" id="cs_dv-name" value="chính sách mua hàng" readonly>
+            </div>
+            
+            <div class="popup_item">
+                <label>Loại:</label>
+                <input type="text" id="cs_dv-type" value="chính sách" readonly>
+            </div>
+            
+            <div class="popup_item">
+                <label>Trạng thái:</label>
+                <select id="sp-Status">
+                    <option value="đang bán">Đang áp dụng</option>
+                    <option value="dừng bán">Dừng áp dụng</option>
+                </select>
+            </div>
+            
+             <div class="popup_item">
+                <label>Nội dung:</label>
+                <textarea id="tb-content">đây là nội dung chính sách</textarea>
+            </div>
+            `,
+                    () => {
+                        alert("✔ Sửa sản phẩm xong!");
+                    }
+                );
+            });
+        });
 
         document.querySelectorAll(".btn-xem").forEach(btn => {
             btn.addEventListener("click", () => {
@@ -277,26 +335,30 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
                     openAdminPopup(
                         "Thêm sản phẩm mới",
                         `
-                 <div class="popup_item">
-                    <label>Mã sản phẩm:</label>
-                    <input type="text" id="sp-id">
-                </div>
-                
                 <div class="popup_item">
                     <label>Tên sản phẩm:</label>
-                    <input type="text" id="sp-name">
+                    <input type="text" id="sp-name" placeholder="Nhập tên sản phẩm">
                 </div>
                 
                 <div class="popup_item">
                     <label>Giá:</label>
-                    <input type="number" id="sp-price">
+                    <input type="number" id="sp-price" placeholder="Nhập giá sản phẩm">
                 </div>
                 
                 <div class="popup_item">
                     <label>Số lượng:</label>
-                    <input type="number" id="sp-quantity">
+                    <input type="number" id="sp-quantity" placeholder="Nhập số lượng sản phẩm">
                 </div>
                 
+                <div class="popup_item">
+                    <label>Trạng thái:</label>
+                    <select id="sp-Status">
+                        <option value="đang bán">Đang bán</option>
+                        <option value="bán chạy">Bán chạy</option>
+                        <option value="dừng bán">Dừng bán</option>
+                    </select>
+                </div>
+            
                 <div class="popup_item">
                     <label>Ảnh sản phẩm:</label>
                 
@@ -310,17 +372,17 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
                     <!-- Khu vực preview nhiều ảnh -->
                     <div class="preview-list" id="preview-list">
                         <div class="preview-item">
-                            <img src="anh/balo1.jpg" alt="Balo 1">
+                            <img src="image/balo1.jpg" alt="Balo 1">
                         </div>
                         <div class="preview-item">
-                            <img src="anh/balo2.jpg" alt="Balo 2">
+                            <img src="image/balo2.jpg" alt="Balo 2">
                         </div>
                     </div>
                 </div>
             `,
                         () => {
                             // callback sau khi nhấn xác nhận
-                            alert("Thêm sản phẩm: " + name);
+                            alert("Thêm sản phẩm: aaaaa");
                         }
                     );
                 });
@@ -373,17 +435,62 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
                     openAdminPopup(
                         "Tạo thông báo mới",
                         `
-                <label>Người nhận (UID):</label>
-                <input type="text" id="tb-uid">
+                <label>Đối tượng nhận thông báo:</label>
+                <select id="tb-target-type">
+                    <option value="all">Tất cả</option>
+                    <option value="specific">Cụ thể</option>
+                </select>
+                
+                <!-- Ô nhập UID chỉ hiện khi chọn "specific" -->
+                <div id="uid-box" style="display:none; margin-top: 5px;">
+                    <label>Nhập UID (hoặc danh sách UID, cách nhau bằng dấu phẩy):</label>
+                    <input type="text" id="tb-uid" placeholder="VD: 0001, 0002, 0003">
+                </div>
 
                 <label>Loại thông báo:</label>
-                <input type="text" id="tb-type">
+                <select id="tb-type">
+                    <option value="item">Có sản phẩm mới</option>
+                    <option value="voucher">Có voucher mới</option>
+                    <option value="policy">Có chính sách hoặc dich vụ mới</option>
+                    <option value="Order">Yêu cầu hủy đơn hàng</option>
+                </select>
 
                 <label>Nội dung:</label>
-                <textarea id="tb-content"></textarea>
+                <textarea id="tb-content" placeholder="Nhập nội dung thông báo"></textarea>
             `,
                         () => {
                             alert(`✔ Đã tạo thông báo cho UID: 12345`);
+                        }
+                    );
+                });
+            }
+
+            if (text === "Quản lý dịch vụ, chính sách") {
+                const btnThemTB = document.getElementById("btn-them-tb");
+                if (btnThemTB) btnThemTB.addEventListener("click", () => {
+                    openAdminPopup(
+                        "Tạo thông báo mới",
+                        `
+                <label>Tên chính sách, dịch vụ:</label>
+                <input type="text" id="cs_dv-name" placeholder="Nhập tiêu đề">
+            
+                <label>Loại:</label>
+                <select id="tb-type">
+                    <option value="chính sách">Chính sách</option>
+                    <option value="dich_vu">Dịch vụ</option>
+                </select>
+            
+                <label>Trạng thái:</label>
+                <select id="sp-Status">
+                    <option value="đang bán">Đang áp dụng</option>
+                    <option value="dừng bán">Dừng áp dụng</option>
+                </select>
+            
+                <label>Nội dung:</label>
+                <textarea id="tb-content" placeholder="Nhập nội dung"></textarea>
+            `,
+                        () => {
+                            alert(`✔ Đã Thêm chính sách, dịch vụ.`);
                         }
                     );
                 });
@@ -460,3 +567,36 @@ function openAdminPopup(title, bodyHTML, onConfirm) {
         updateContentInput(); // gọi 1 lần khi mở popup
     }
 }
+document.addEventListener("DOMContentLoaded", function () {
+    const btnDoiThongTin = document.getElementById("btn-doi-thong-tin");
+    if (btnDoiThongTin) {
+        btnDoiThongTin.addEventListener("click", () => {
+            openAdminPopup(
+                "Thay đổi thông tin",
+                `
+                <div class="popup_item">
+                    <label>Tên tài khoản</label>
+                    <input class="in4_input" type="text" id="name" value="Nguyễn Văn A" readonly>
+                </div>
+                 
+                <div class="popup_item"> 
+                    <label>Avata</label>                  
+                    <div class="popup_avata">
+                        <div class="preview-item">
+                            <img src="image/avatar.jpg">
+                        </div>    
+                              
+                        <div class="img-upload-box" id="drop-zone">
+                            <span>+</span>
+                            <p>Kéo hoặc click để thêm ảnh</p>
+                        </div>
+                    </div>
+                </div>
+                `,
+                () => {
+                    alert("Đã thay đổi thông tin thành công!");
+                }
+            );
+        });
+    }
+});

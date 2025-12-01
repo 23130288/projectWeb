@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+}
+
+
+/* Container */
+.container {
+    display: flex;
+    margin: 20px 0;
+}
+
+.name {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name h1 {
+    margin-left: 50px;
+    font-size: 30px;
+    color: #333;
+}
+
+/* Sidebar */
+#sidebar {
+    width: 250px;
+    background-color: #fff;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+}
+
+#sidebar h3 {
+    padding: 15px 50px;
+    border-bottom: 1px solid #EDB310;
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#sidebar .menu_item {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#sidebar .menu_item .item {
+    padding: 15px 50px;
+    width: 150px;
+    text-decoration: none;
+    color: black;
+}
+
+#sidebar .menu_item .item:hover,
+#sidebar .menu_item .item:focus {
+    color: white;
+    background: #EDB310;
+}
+
+/* Content */
+#content {
+    flex: 1;
+    padding: 20px;
+}
+
+#content h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: black;
+}
+
+#content .faq-section {
+    margin-bottom: 20px;
+}
+
+#content .faq-section h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #EDB310;
+}
+
+#content .faq-section p {
+    font-size: 16px;
+    color: black;
+    margin-bottom: 10px;
+}
