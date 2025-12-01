@@ -55,6 +55,7 @@ main .wishlist-item {
     border-bottom: solid 1px lightgrey;
 }
 
+.wishlist-item .wishlist-item-options,
 .wishlist-item .wishlist-item-price,
 .wishlist-item .wishlist-item-status,
 .wishlist-item .wishlist-item-buttons {
@@ -62,9 +63,11 @@ main .wishlist-item {
     padding: 5px;
     flex: 1;
 }
+
 .wishlist-item .wishlist-item-status.hasProduct {
     color: green;
 }
+
 .wishlist-item .wishlist-item-status.outOfProduct {
     color: red;
 }
@@ -76,12 +79,65 @@ main .wishlist-item {
     gap: 10px;
     align-items: center;
 }
+
+/* options */
+.wishlist-item .wishlist-item-options {
+    display: flex;
+    flex-direction: column;
+}
+
+.wishlist-item .wishlist-item-options .wishlist-colors,
+.wishlist-item .wishlist-item-options .wishlist-sizes {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.wishlist-item .wishlist-item-options .w-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    cursor: pointer;
+}
+
+.wishlist-item .wishlist-item-options .w-red {
+    background: red;
+}
+
+.wishlist-item .wishlist-item-options .w-blue {
+    background: blue;
+}
+
+.wishlist-item .wishlist-item-options .w-black {
+    background: black;
+}
+
+.wishlist-item .wishlist-item-options .w-color:hover {
+    border: 2px solid #F2B035;
+}
+
+.wishlist-item .wishlist-item-options .wishlist-sizes button {
+    padding: 5px 10px;
+    background: #f5f5f5;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+
+.wishlist-item .wishlist-item-options .wishlist-sizes button:hover {
+    background: #F2B035;
+}
+
 /* img */
 .wishlist-item .wishlist-item-title img {
     width: 100px;
     height: auto;
     border-radius: 4px;
 }
+
 /* p-description */
 .wishlist-item .wishlist-item-title p {
     color: grey;
