@@ -1,4 +1,3 @@
-
 body {
     height: auto;
     display: flex;
@@ -17,7 +16,7 @@ body {
 .section_1 {
     background: #212328;
     width: 50%;
-    height: 600px;
+    height: 680px;
     border-top: #EDB310 solid 7px;
     border-radius: 5px;
 }
@@ -33,6 +32,7 @@ body {
     display: flex;
     justify-content: center;
     padding: 50px;
+    margin: 0;
     color: #EDB310;
 }
 
@@ -51,7 +51,7 @@ body {
 }
 
 .section_1 input {
-    padding: 10px 0px;
+    padding: 10px 0;
     width: 100%;
     border-radius: 5px;
     background: #3D414A;

@@ -188,36 +188,16 @@ main .product-item .action-delete-product:hover {
 
 /* voucher */
 .container-product-price #container-voucher {
-    justify-content: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     gap: 10px;
     border-bottom: lightgrey solid 1px;
     padding: 10px;
 }
-
-.container-product-price #container-voucher .voucher-input {
+.container-product-price #container-voucher .vouchers {
     display: flex;
-    gap: 5px;
-}
-
-.container-product-price #container-voucher input {
-    padding: 5px;
-    border: 1px solid lightgrey;
-    border-radius: 4px;
-    outline: none;
-}
-
-.container-product-price #container-voucher button {
-    padding: 5px;
-    border: none;
-    background: #F2C641;
-    border-radius: 4px;
-    outline: none;
-    transition: 0.3s;
-
-}
-
-.container-product-price #container-voucher button:hover {
-    background: #F2B035;
+    flex-direction: column;
 }
 
 /* =============================== form =============================== */
