@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>HEADER</title>
@@ -10,7 +10,9 @@
 <header>
     <div class="top-banner">
         <div class="brand-name">
-            <img src="../shareStuff/header/image/logo.png" alt="Travel Logo">
+            <a href="../trang_chu/trang_chu.html">
+                <img src="../shareStuff/header/image/logo.png" alt="Travel Logo">
+            </a>
         </div>
         <div class="header-search">
             <form class="search-bar">
@@ -18,7 +20,15 @@
                     <option value="VALI">VALI</option>
                     <option value="BALO">BALO</option>
                 </select>
-
+                <div class="search-suggestions" id="suggestions">
+                    <ul>
+                        <li>Balo laptop chống sốc</li>
+                        <li>Balo du lịch 40L</li>
+                        <li>Vali kéo 24 inch</li>
+                        <li>Vali nhựa siêu nhẹ</li>
+                        <li>Balo thời trang nữ</li>
+                    </ul>
+                </div>
                 <div class="divider"></div>
                 <div class="search-icon">
                     <i class="fa fa-search"></i>
@@ -53,9 +63,9 @@
 
     <nav>
         <div class="content-nav">
-<!--            <button id="menu-toggle">-->
-<!--                <i class="fa fa-bars" aria-hidden="true"></i>-->
-<!--            </button>-->
+            <!--            <button id="menu-toggle">-->
+            <!--                <i class="fa fa-bars" aria-hidden="true"></i>-->
+            <!--            </button>-->
             <ul>
                 <li><a href="../trang_chu/trang_chu.html">TRANG CHỦ</a></li>
                 <li class="dropdown">
@@ -74,7 +84,6 @@
             </ul>
         </div>
     </nav>
-
 </header>
 </body>
 </html>

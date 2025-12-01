@@ -123,18 +123,18 @@
 }
 
 .arrow.left {
-    left: 150px;
+    left: 100px;
 }
 
 .arrow.right {
-    right: 150px;
+    right: 100px;
 }
 
 .product-grid {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     justify-content: center;
-    flex-wrap: wrap;
     transition: all 0.3s ease;
 }
 .product-link {

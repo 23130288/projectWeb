@@ -47,10 +47,36 @@ header .header-search {
 header .search-bar {
     display: flex;
     border-radius: 6px;
-    overflow: hidden;
     width: 1000px;
     position: relative;
     left: 80px;
+}
+
+header .header-search .search-suggestions {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    background: white;
+    border-radius: 5px;
+    display: none;
+}
+
+header .header-search .search-suggestions ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header .header-search .search-suggestions li {
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    color: black;
+}
+
+header .header-search .search-suggestions li:hover {
+    background: lightgrey;
 }
 
 header .search-select {
@@ -62,6 +88,7 @@ header .search-select {
     text-transform: uppercase;
     font-weight: bold;
     border: none;
+    border-radius: 5px 0 0 5px;
 }
 
 header .search-select:focus {
@@ -99,6 +126,7 @@ header .search-button {
     background-color: orange;
     color: black;
     border: none;
+    border-radius: 0 5px 5px 0;
     padding: 0 15px;
     font-weight: bold;
     text-transform: uppercase;
