@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Make body at least fill the viewport */
+}
+
+main {
+    flex: 1;
+    min-height: 900px;
+}
+
+main h1 {
+    font-size: 24px;
+    padding: 20px 30px;
+    margin: 0 0 10px;
+    border-bottom: lightgrey 1px solid;
+}
+
+/* ============================ topics =========================== */
+/* =============================================================== */
+.container-topics {
+    margin: 30px 18%;
+}
+
+.container-topics select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    background: white;
+    cursor: pointer;
+}
+
+/* ========================== form box ========================== */
+.support-form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 18%;
+    gap: 15px;
+}
+
+.support-form textarea {
+    box-sizing: border-box;
+    font-size: 16px;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    resize: none;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.support-form textarea:focus {
+    border-color: #F2C641;
+    outline: none;
+}
+
+.support-form a {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+}
+
+.support-form button {
+    align-self: center;
+    background: #F2C641;
+    color: black;
+    border: none;
+    padding: 12px 25px;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.support-form button:hover {
+    background: #F2B035;
+}

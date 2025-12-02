@@ -86,69 +86,35 @@ document.addEventListener("DOMContentLoaded", function () {
           <h2>Thông báo</h2>
           
           <div class="notification_item" id="selection_shop">
-            <div class="avatar">
-              <img src="image/balo2.jpg" alt="Ảnh đại diện">
-            </div>
             <div class="info">
-              <h4>Balo apolo</h4>
-              <p>Mã đơn hàng:đueihoeoi. | người gửi: 0001.</p>
+              <h4>Kiểm tra, hủy hoặc thay đổi đơn hàng</h4>
+              <p>Mã câu hỏi:đueihoeoi. | người gửi: u0001.</p>
               <span>10/11/2025</span>
             </div>
           </div>
           
           <div class="notification_item">
-            <div class="avatar">
-              <img src="image/vali2.jpg" alt="Ảnh đại diện">
-            </div>
             <div class="info">
-              <h4>Cách dùng mã vận chuyển</h4>
-              <p>Mã đơn hàng:abcdefgh. | người gửi: 0002.</p>
+              <h4>Đăng nhập/Đăng ký</h4>
+              <p>Mã câu hỏi:đueihoeoi. | người gửi: u0002.</p>
     
               <span>10/04/2025</span>
             </div>
           </div>
           
           <div class="notification_item">
-            <div class="avatar">
-              <img src="image/vali1.jpg" alt="Ảnh đại diện">
-            </div>
             <div class="info">
-              <h4>chính sách đổi trả</h4>
-              <p>Mã đơn hàng:12345678. | người gửi: 0003.</p>
+              <h4>Phương thức trả tiền</h4>
+              <p>Mã câu hỏi:12345678. | người gửi: u0003.</p>
               <span>10/10/2025</span>
             </div>
           </div>
           
           <div class="notification_item" id="selection_shop">
-            <div class="avatar">
-              <img src="image/balo2.jpg" alt="Ảnh đại diện">
-            </div>
             <div class="info">
-              <h4>Balo apolo</h4>
-              <p>Mã đơn hàng:đueihoeoi. | người gửi: 0001.</p>
+              <h4>Câu hỏi khác</h4>
+              <p>Mã đơn hàng:akwkofnv. | người gửi: u0001.</p>
               <span>10/11/2025</span>
-            </div>
-          </div>
-          
-          <div class="notification_item">
-            <div class="avatar">
-              <img src="image/vali2.jpg" alt="Ảnh đại diện">
-            </div>
-            <div class="info">
-              <h4>Cách dùng mã vận chuyển</h4>
-              <p>Mã đơn hàng:abcdefgh. | người gửi: 0002.</p>
-              <span>10/04/2025</span>
-            </div>
-          </div>
-          
-          <div class="notification_item">
-            <div class="avatar">
-              <img src="image/vali1.jpg" alt="Ảnh đại diện">
-            </div>
-            <div class="info">
-              <h4>chính sách đổi trả</h4>
-              <p>Mã đơn hàng:12345678. | người gửi: 0003.</p>
-              <span>10/10/2025</span>
             </div>
           </div>
         `,
@@ -534,7 +500,7 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
                 const notiItems = document.querySelectorAll(".notification_item");
                 notiItems.forEach(item => {
                     item.addEventListener("click", () => {
-                        window.location.href = "../helpPage/helpPage.html";
+                        window.location.href = "../helpPage_admin/helpPage.html";
                     });
                 });
             }

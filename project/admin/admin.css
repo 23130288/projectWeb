@@ -161,13 +161,6 @@ body {
     border: 2px solid #EDB310;
 }
 
-.avatar img {
-    width: 50px;
-    height: 50px;
-    border-radius: 5px;
-    border: 2px solid #FFD700;
-}
-
 .info h4 {
     margin: 0;
     color: green;
