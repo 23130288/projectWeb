@@ -1,6 +1,6 @@
 const data = {
     bao_mat: `
-        <h2>Chính sách bảo mật</h2>
+        <h2>Chính sách bảo mật</h2> 11/12/2018
 
         <p>
             Chúng tôi cam kết bảo vệ tối đa quyền riêng tư và thông tin cá nhân của khách hàng. 
@@ -54,7 +54,7 @@ const data = {
     `,
 
     bao_hanh: `
-        <h2>Chính sách bảo hành</h2>
+        <h2>Chính sách bảo hành</h2> 11/12/2018
 
         <p>
             Chúng tôi luôn cam kết mang đến sản phẩm chất lượng và dịch vụ hậu mãi tốt nhất cho khách hàng. 
@@ -99,7 +99,7 @@ const data = {
     `,
 
     dieu_khoan: `
-        <h2>Điều khoản sử dụng</h2>
+        <h2>Điều khoản sử dụng</h2> 11/12/2018
 
         <p>
             Khi truy cập và sử dụng dịch vụ, bạn đồng ý tuân thủ các điều khoản dưới đây. 
