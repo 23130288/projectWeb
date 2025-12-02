@@ -28,15 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
             <label class="in4_label" for="email">Địa chỉ *</label>
             <input class="in4_input" type="text" id="email" name="email" value="phường a, thành phố b, defg" readonly>
         </div>
-        
-         <div class="in4_row">
-          <label class="in4_label">Giới tính</label>
-          <div class="in4_input" id="gt">
-            <label><input class="radio_gt" type="radio" name="gender" value="male"> Nam</label>
-            <label><input class="radio_gt" type="radio" name="gender" value="female"> Nữ</label>
-            <label><input class="radio_gt" type="radio" name="gender" value="other"> Khác</label>
-          </div>
-        </div>
     </div>
     `,
         "Thông báo": `
