@@ -5,86 +5,223 @@ document.addEventListener("DOMContentLoaded", function () {
     const contents = {
         "Quản lý sản phẩm": `
             <h2>Quản lý sản phẩm</h2>
-            <button class="bt_xac_nhan" id="btn-them-sp">+ Thêm sản phẩm</button>
-            <table class="table_data">
-                <tr>
-                    <th>Mã SP</th><th>Tên sản phẩm</th><th>Còn lại</th><th>Màu</th><th>Size</th><th>Giá</th><th>Trạng thái</th><th>Thao tác</th>
-                </tr>
-                <tr>
-                    <td>SP001</td><td>Balo du lịch</td><td>5</td><td>dỏ</td><td>M</td><td>500.000₫</td><td>đang bán</td>
-                    <td><button class="btn-sua" id="sua_sp">Sửa</button><button class="btn-xoa">Xóa</button></td>
-                </tr>
-                <tr>
-                    <td>SP002</td><td>Vali cao cấp</td><td>12</td><td>vàng</td><td>XL</td><td>1.200.000₫</td><td>bán chạy</td>
-                    <td><button class="btn-sua" id="sua_sp">Sửa</button><button class="btn-xoa">Xóa</button></td>
-                </tr>
-                <tr>
-                    <td>SP003</td><td>Balo leo núi</td><td>5</td><td>đen</td><td>M</td><td>1500.000₫</td><td>dừng bán</td>
-                    <td><button class="btn-sua" id="sua_sp">Sửa</button><button class="btn-xoa">Xóa</button></td>
-                </tr>
-            </table>
+            <div class="Menu-bar">
+                <button class="bt_menu" id="btn-them-sp">+ Thêm sản phẩm</button>
+                
+                <div class="search-bar">
+                    <input type="text" name="query" placeholder="Tên sản phẩm..."/>
+                    <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </div>
+            
+            <div class="table-wrapper">
+                <table class="table_data">
+                    <tr>
+                        <th>Mã SP</th><th>Tên sản phẩm</th><th>Loại</th><th>Kiểu dáng</th><th>Chất liệu</th><th>Còn lại</th><th>NCC</th><th>Trạng thái</th><th>Thao tác</th>
+                    </tr>
+                    <tr>
+                        <td>SP001</td><td>Balo du lịch</td><td>Balo</td><td>đi biển</td><td>Nhựa</td><td>5</td><td>công ty abc</td><td>đang bán</td>
+                        <td><button class="btn-them" id="them_sp">Thêm</button><button class="btn-sua" id="sua_sp">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP002</td><td>Vali cao cấp</td><td>Vali</td><td>Gia đình</td><td>Hợp kim</td><td>12</td><td>công ty abc</td><td>bán chạy</td>
+                        <td><button class="btn-them" id="them_sp">Thêm</button><button class="btn-sua" id="sua_sp">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP003</td><td>Balo leo núi</td><td>Balo</td><td>leo núi</td><td>Cottom</td><td>5</td><td>công ty abc</td><td>dừng bán</td>
+                        <td><button class="btn-them" id="them_sp">Thêm</button><button class="btn-sua" id="sua_sp">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr>
+                </table>
+            </div>
+        `,
+
+        "Quản lý biến thể sản phẩm": `
+            <h2>Quản lý biến thể sản phẩm</h2>
+            <div class="Menu-bar">
+<!--                <button class="bt_menu" id="btn-them-sp">+ Thêm biến thể</button>-->
+                
+                <div class="search-bar">
+                    <input type="text" name="query" placeholder="Tên sản phẩm..."/>
+                    <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </div>
+            
+            <div class="table-wrapper">
+                <table class="table_data">
+                    <tr><th>Mã SP</th><th>Tên sản phẩm</th><th>Còn lại</th><th>Màu</th><th>Size</th><th>Giá</th><th>Trạng thái</th><th>Thao tác</th></tr>
+                    <tr>
+                        <td>SP001</td><td>Balo du lịch</td><td>5</td><td>dỏ</td><td>M</td><td>500.000₫</td><td>đang bán</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP002</td><td>Vali cao cấp</td><td>12</td><td>vàng</td><td>XL</td><td>1.200.000₫</td><td>bán chạy</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP003</td><td>Balo leo núi</td><td>5</td><td>đen</td><td>M</td><td>1500.000₫</td><td>dừng bán</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr>
+                     <tr>
+                        <td>SP001</td><td>Balo du lịch</td><td>5</td><td>dỏ</td><td>M</td><td>500.000₫</td><td>đang bán</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP002</td><td>Vali cao cấp</td><td>12</td><td>vàng</td><td>XL</td><td>1.200.000₫</td><td>bán chạy</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP003</td><td>Balo leo núi</td><td>5</td><td>đen</td><td>M</td><td>1500.000₫</td><td>dừng bán</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr> <tr>
+                        <td>SP001</td><td>Balo du lịch</td><td>5</td><td>dỏ</td><td>M</td><td>500.000₫</td><td>đang bán</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP002</td><td>Vali cao cấp</td><td>12</td><td>vàng</td><td>XL</td><td>1.200.000₫</td><td>bán chạy</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP003</td><td>Balo leo núi</td><td>5</td><td>đen</td><td>M</td><td>1500.000₫</td><td>dừng bán</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr> <tr>
+                        <td>SP001</td><td>Balo du lịch</td><td>5</td><td>dỏ</td><td>M</td><td>500.000₫</td><td>đang bán</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP002</td><td>Vali cao cấp</td><td>12</td><td>vàng</td><td>XL</td><td>1.200.000₫</td><td>bán chạy</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP003</td><td>Balo leo núi</td><td>5</td><td>đen</td><td>M</td><td>1500.000₫</td><td>dừng bán</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr> <tr>
+                        <td>SP001</td><td>Balo du lịch</td><td>5</td><td>dỏ</td><td>M</td><td>500.000₫</td><td>đang bán</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP002</td><td>Vali cao cấp</td><td>12</td><td>vàng</td><td>XL</td><td>1.200.000₫</td><td>bán chạy</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP003</td><td>Balo leo núi</td><td>5</td><td>đen</td><td>M</td><td>1500.000₫</td><td>dừng bán</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr> <tr>
+                        <td>SP001</td><td>Balo du lịch</td><td>5</td><td>dỏ</td><td>M</td><td>500.000₫</td><td>đang bán</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP002</td><td>Vali cao cấp</td><td>12</td><td>vàng</td><td>XL</td><td>1.200.000₫</td><td>bán chạy</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP003</td><td>Balo leo núi</td><td>5</td><td>đen</td><td>M</td><td>1500.000₫</td><td>dừng bán</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr> 
+                </table>
+            </div>
         `,
 
         "Quản lý người dùng": `
             <h2>Quản lý người dùng</h2>
-            <table class="table_data">
-                <tr><th>Mã người dùng</th><th>Tên</th><th>Email</th><th>Vai trò</th><th>Trạng thái</th><th>Thao tác</th></tr>
-                <tr><td>U0001</td><td>Nguyễn Văn A</td><td>a@gmail.com</td><td>Người dùng</td><td>Còn hoạt động</td>
-                    <td><button class="btn-xoa">Xóa</button></td></tr>
-                <tr><td>U0002</td><td>Trần Thị B</td><td>b@gmail.com</td><td>Người dùng</td><td>Còn hoạt động</td>
-                    <td><button class="btn-xoa">Xóa</button></td></tr>
-            </table>
+            <div class="table-wrapper">
+                <table class="table_data">
+                    <tr><th>Mã người dùng</th><th>Tên</th><th>Email</th><th>Vai trò</th><th>Trạng thái</th><th>Thao tác</th></tr>
+                    <tr><td>U0001</td><td>Nguyễn Văn A</td><td>a@gmail.com</td><td>Người dùng</td><td>Còn hoạt động</td>
+                        <td><button class="btn-xoa">Xóa</button></td></tr>
+                    <tr><td>U0002</td><td>Trần Thị B</td><td>b@gmail.com</td><td>Người dùng</td><td>Còn hoạt động</td>
+                        <td><button class="btn-xoa">Xóa</button></td></tr>
+                </table>
+            <div/>
         `,
 
         "Quản lý đơn hàng": `
-                <h2>Quản lý đơn hàng</h2>
+            <h2>Quản lý đơn hàng</h2>
+            <div class="Menu-bar">
+                <div class="search-bar">
+                    <input type="text" name="query" placeholder="Mã đơn hàng..."/>
+                    <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </div>
+            
+            <div class="table-wrapper">
                 <table class="table_data">
                     <tr><th>Mã đơn</th><th>Khách hàng</th><th>Tổng tiền</th><th>Trạng thái</th><th>Thao tác</th></tr>
                     <tr><td>DH001</td><td>Nguyễn Văn A</td><td>750.000₫</td><td>Đang giao</td>
-                        <td><button class="btn-xem">Xem</button><button class="btn-huy">Hủy</button></td></tr>
+                    <td><button class="btn-xem">Xem</button><button class="btn-huy">Hủy</button></td></tr>
                     <tr><td>DH002</td><td>Trần Thị B</td><td>1.500.000₫</td><td>Hoàn thành</td>
-                        <td><button class="btn-xem">Xem</button></td></tr>
-                </table>
-            `,
+                    <td><button class="btn-xem">Xem</button></td></tr>
+                </table>    
+            </div>    
+        `,
 
         "Quản lý voucher": `
             <h2>Quản lý voucher</h2>
-                <button class="bt_xac_nhan" id="btn-them-tb">+ Thêm voucher</button>
-            <table class="table_data">
-                <tr><th>Mã voucher</th><th>Đối tượng nhận</th><th>Loại voucher</th><th>Nội dung</th><th>Có hiệu lực đến</th></tr>
-                <tr><td>v001</td><td>all</td><td>giảm giá</td><td>giảm 100k cho đơn hàng trên 500k</td><td>15/11/2025</td>
-                <tr><td>v002</td><td>0001</td><td>giảm giá</td><td>giảm 5% cho đơn hàng trên 500k</td><td>15/11/2025</td>
-            </table>
+            <div class="Menu-bar">
+                <button class="bt_menu" id="btn-them-tb">+ Thêm voucher</button>
+                
+                <div class="search-bar">
+                    <input type="text" name="query" placeholder="Tên voucher..."/>
+                    <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </div>
+               
+            <div class="table-wrapper"> 
+                <table class="table_data">
+                    <tr><th>Mã voucher</th><th>Đối tượng nhận</th><th>Loại voucher</th><th>Nội dung</th><th>Có hiệu lực đến</th></tr>
+                    <tr><td>v001</td><td>all</td><td>giảm giá</td><td>giảm 100k cho đơn hàng trên 500k</td><td>15/11/2025</td>
+                    <tr><td>v002</td><td>0001</td><td>giảm giá</td><td>giảm 5% cho đơn hàng trên 500k</td><td>15/11/2025</td>
+                </table>
+            </div>
         `,
 
         "Quản lý dịch vụ, chính sách": `
             <h2>Quản lý dịch vụ, chính sách</h2>
-                <button class="bt_xac_nhan" id="btn-them-tb">+ Thêm dịch vụ, chính sách</button>
-            <table class="table_data">
-                <tr><th>Mã</th><th>Tiêu đề</th><th>Nội dung</th><th>Ngày tạo</th><th>Trạng thái</th><th>Thao tác</th></tr>
-                <tr><td>p001</td><td>chính sách mua hàng</td><td>chính sách ......</td><td>15/11/2025</td><td>đang áp dụng</td>
-                <td><button class="btn-sua" id="sua_cs_dv">Sửa</button>
-                <tr><td>p002</td><td>chính sách đổi trả</td><td>chính sách ......</td><td>15/11/2025</td><td>đang áp dụng</td>
-                <td><button class="btn-sua" id="sua_cs_dv">Sửa</button>
-                <tr><td>s001</td><td>dịch vụ tư vấn</td><td>dịch vụ ......</td><td>15/11/2025</td><td>đang áp dụng</td>
-                <td><button class="btn-sua" id="sua_cs_dv">Sửa</button>
-                <tr><td>s001</td><td>dịch vụ đổi cũ lấy mới</td><td>dịch vụ ......</td><td>5/12/2025</td><td>dừng áp dụng</td>
-                <td><button class="btn-sua" id="sua_cs_dv">Sửa</button>
+            <div class="Menu-bar">
+                <button class="bt_menu" id="btn-them-tb">+ Thêm dịch vụ, chính sách</button>
+                
+                <div class="search-bar">
+                    <input type="text" name="query" placeholder="Tên chính sách, dịch vụ..."/>
+                    <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </div>
+               
+            <div class="table-wrapper">     
+                <table class="table_data">
+                    <tr><th>Mã</th><th>Tiêu đề</th><th>Nội dung</th><th>Ngày tạo</th><th>Trạng thái</th><th>Thao tác</th></tr>
+                    <tr><td>p001</td><td>chính sách mua hàng</td><td>chính sách ......</td><td>15/11/2025</td><td>đang áp dụng</td>
+                    <td><button class="btn-sua" id="sua_cs_dv">Sửa</button>
+                    <tr><td>p002</td><td>chính sách đổi trả</td><td>chính sách ......</td><td>15/11/2025</td><td>đang áp dụng</td>
+                    <td><button class="btn-sua" id="sua_cs_dv">Sửa</button>
+                    <tr><td>s001</td><td>dịch vụ tư vấn</td><td>dịch vụ ......</td><td>15/11/2025</td><td>đang áp dụng</td>
+                    <td><button class="btn-sua" id="sua_cs_dv">Sửa</button>
+                    <tr><td>s001</td><td>dịch vụ đổi cũ lấy mới</td><td>dịch vụ ......</td><td>5/12/2025</td><td>dừng áp dụng</td>
+                    <td><button class="btn-sua" id="sua_cs_dv">Sửa</button>
+                </table>
+            </div>
         `,
 
         "Quản lý thông báo": `
             <h2>Quản lý đơn hàng</h2>
-                <button class="bt_xac_nhan" id="btn-them-tb">+ Thêm thông báo</button>
-            <table class="table_data">
-                <tr><th>Mã thông báo</th><th>người nhận thông báo</th><th>loại thông báo</th><th>nội dung</th><th>ngày thông báo</th></tr>
-                <tr><td>tb001</td><td>0001</td><td>giảm giá</td><td>giảm 100k cho đơn hàng trên 500k</td><td>11/11/2025</td>
-                <tr><td>tb002</td><td>all</td><td>giảm giá</td><td>giảm 100k cho đơn hàng trên 500k</td><td>11/11/2025</td>
-            </table>
+            <div class="Menu-bar">
+                <button class="bt_menu" id="btn-them-tb">+ Thêm thông báo</button>
+                
+                <div class="search-bar">
+                    <input type="text" name="query" placeholder="Tên sản phẩm..."/>
+                    <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </div>
+            <div class="table-wrapper">     
+                <table class="table_data">
+                    <tr><th>Mã thông báo</th><th>người nhận thông báo</th><th>loại thông báo</th><th>nội dung</th><th>ngày thông báo</th></tr>
+                    <tr><td>tb001</td><td>0001</td><td>giảm giá</td><td>giảm 100k cho đơn hàng trên 500k</td><td>11/11/2025</td>
+                    <tr><td>tb002</td><td>all</td><td>giảm giá</td><td>giảm 100k cho đơn hàng trên 500k</td><td>11/11/2025</td>
+                </table>
+            </div>
         `,
 
         "Trả lời câu hỏi": `
           <h2>Thông báo</h2>
-          
+         
           <div class="notification_item" id="selection_shop">
             <div class="info">
               <h4>Kiểm tra, hủy hoặc thay đổi đơn hàng</h4>
@@ -143,10 +280,10 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
 
-        document.querySelectorAll("#sua_sp").forEach(btn => {
+        document.querySelectorAll("#them_sp").forEach(btn => {
             btn.addEventListener("click", () => {
                 openAdminPopup(
-                    "Sửa sản phẩm",
+                    "Thêm biến thể",
                     `
             <div class="popup_item">
                 <label>Tên sản phẩm:</label>
@@ -205,6 +342,128 @@ document.addEventListener("DOMContentLoaded", function () {
                         <img src="image/balo2.jpg" alt="Balo 2">
                     </div>
                 </div>
+            </div>
+            `,
+                    () => {
+                        alert("✔ Sửa sản phẩm xong!");
+                    }
+                );
+            });
+        });
+
+        document.querySelectorAll("#sua_sp").forEach(btn => {
+            btn.addEventListener("click", () => {
+                openAdminPopup(
+                    "Sửa sản phẩm",
+                    `
+            <div class="popup_item">
+                <label>Tên sản phẩm:</label>
+                <input type="text" id="sp-name" value="Balo du lịch">
+            </div>
+            
+            <div class="popup_item">
+                <label>Loại:</label>
+                <select id="sp-Tyoe">
+                    <option value="Balo">Balo</option>
+                    <option value="Vali">Vali</option>
+                </select>            
+            </div>
+                
+            <div class="popup_item">
+                <label>Kiểu dáng:</label>
+                <select id="sp-size">
+                    <option value="túi đeo chéo">túi đeo chéo</option>
+                    <option value="túi đeo bụng">túi đeo bụng</option>
+                    <option value="túi sách">túi sách</option>
+                </select> 
+            </div>
+          
+            <div class="popup_item">
+                <label>Chất liệu:</label>
+                <select id="sp-Tyoe">
+                    <option value="Balo">hợp kim</option>
+                    <option value="Vali">coston</option>
+                </select>            
+            </div>
+                
+            <div class="popup_item">
+                <label>Tên nhà cung cấp:</label>
+                <input type="text" id="sp-name" placeholder="Nhập nhà cung cấp">
+            </div>
+                
+            <div class="popup_item">
+                <label>Trạng thái:</label>
+                <select id="sp-Status">
+                    <option value="đang bán">Đang bán</option>
+                    <option value="bán chạy">Bán chạy</option>
+                    <option value="dừng bán">Dừng bán</option>
+                </select>
+            </div>
+
+            
+            <div class="popup_item">
+                <label>Ảnh sản phẩm:</label>
+                <div class="img-upload-box" id="drop-zone">
+                    <span>+</span>
+                    <p>Kéo hoặc click để thêm ảnh</p>
+                </div>
+                
+                <div class="preview-list" id="preview-list">
+                    <div class="preview-item">
+                        <img src="image/balo1.jpg" alt="Balo 1">
+                    </div>
+                    <div class="preview-item">
+                        <img src="image/balo2.jpg" alt="Balo 2">
+                    </div>
+                </div>
+            </div>
+            `,
+                    () => {
+                        alert("✔ Sửa sản phẩm xong!");
+                    }
+                );
+            });
+        });
+
+        document.querySelectorAll("#sua_bt").forEach(btn => {
+            btn.addEventListener("click", () => {
+                openAdminPopup(
+                    "Sửa biến thể sản phẩm",
+                    `
+            <div class="popup_item">
+                <label>Màu:</label>
+                <select id="sp-color">
+                    <option value="red">đỏ</option>
+                    <option value="yellow">vàng</option>
+                </select>            
+            </div>
+            
+            <div class="popup_item">
+                <label>Size:</label>
+                <select id="sp-size">
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select> 
+            </div>
+            
+            <div class="popup_item">
+                <label>Giá:</label>
+                <input type="number" id="sp-price" value="500000">
+            </div>
+            
+            <div class="popup_item">
+                <label>Số lượng:</label>
+                <input type="number" id="sp-quantity" value="5">
+            </div>
+            
+            <div class="popup_item">
+                <label>Trạng thái:</label>
+                <select id="sp-Status">
+                    <option value="đang bán">Đang bán</option>
+                    <option value="bán chạy">Bán chạy</option>
+                    <option value="dừng bán">Dừng bán</option>
+                </select>
             </div>
             `,
                     () => {
@@ -324,30 +583,33 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
                 </div>
                 
                 <div class="popup_item">
-                    <label>Màu:</label>
-                    <select id="sp-color">
-                        <option value="red">đỏ</option>
-                        <option value="yellow">vàng</option>
+                    <label>Loại:</label>
+                    <select id="sp-Tyoe">
+                        <option value="Balo">Balo</option>
+                        <option value="Vali">Vali</option>
                     </select>            
                 </div>
                 
                 <div class="popup_item">
-                    <label>Size:</label>
+                    <label>Kiểu dáng:</label>
                     <select id="sp-size">
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
+                        <option value="túi đeo chéo">túi đeo chéo</option>
+                        <option value="túi đeo bụng">túi đeo bụng</option>
+                        <option value="túi sách">túi sách</option>
                     </select> 
                 </div>
-            
+          
                 <div class="popup_item">
-                    <label>Giá:</label>
-                    <input type="number" id="sp-price" placeholder="Nhập giá sản phẩm">
+                    <label>Chất liệu:</label>
+                    <select id="sp-Tyoe">
+                        <option value="Balo">hợp kim</option>
+                        <option value="Vali">coston</option>
+                    </select>            
                 </div>
                 
                 <div class="popup_item">
-                    <label>Số lượng:</label>
-                    <input type="number" id="sp-quantity" placeholder="Nhập số lượng sản phẩm">
+                    <label>Tên nhà cung cấp:</label>
+                    <input type="text" id="sp-name" placeholder="Nhập nhà cung cấp">
                 </div>
                 
                 <div class="popup_item">
@@ -387,6 +649,81 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
                     );
                 });
             }
+
+//             if (text === "Quản lý biến thể sản phẩm") {
+//                 const btnThem = document.getElementById("btn-them-sp");
+//                 if (btnThem) btnThem.addEventListener("click", () => {
+//                     openAdminPopup(
+//                         "Thêm sản phẩm mới",
+//                         `
+//                 <div class="popup_item">
+//                     <label>Tên sản phẩm:</label>
+//                     <input type="text" id="sp-name" placeholder="Nhập tên sản phẩm">
+//                 </div>
+//                 <div class="popup_item">
+//                     <label>Màu:</label>
+//                     <select id="sp-color">
+//                         <option value="red">đỏ</option>
+//                         <option value="yellow">vàng</option>
+//                     </select>
+//                 </div>
+//
+//                 <div class="popup_item">
+//                     <label>Size:</label>
+//                     <select id="sp-size">
+//                         <option value="M">M</option>
+//                         <option value="L">L</option>
+//                         <option value="XL">XL</option>
+//                     </select>
+//                 </div>
+//
+//                 <div class="popup_item">
+//                     <label>Giá:</label>
+//                     <input type="number" id="sp-price" placeholder="Nhập giá sản phẩm">
+//                 </div>
+//
+//                 <div class="popup_item">
+//                     <label>Số lượng:</label>
+//                     <input type="number" id="sp-quantity" placeholder="Nhập số lượng sản phẩm">
+//                 </div>
+//
+//                 <div class="popup_item">
+//                     <label>Trạng thái:</label>
+//                     <select id="sp-Status">
+//                         <option value="đang bán">Đang bán</option>
+//                         <option value="bán chạy">Bán chạy</option>
+//                         <option value="dừng bán">Dừng bán</option>
+//                     </select>
+//                 </div>
+//
+//                 <div class="popup_item">
+//                     <label>Ảnh sản phẩm:</label>
+//
+//                     <!-- Khu vực kéo/thả -->
+//                     <div class="img-upload-box" id="drop-zone">
+//                         <span>+</span>
+//                         <p>Kéo hoặc click để thêm ảnh</p>
+// <!--                        <input type="file" id="sp-img" accept="image/*" multiple>-->
+//                     </div>
+//
+//                     <!-- Khu vực preview nhiều ảnh -->
+//                     <div class="preview-list" id="preview-list">
+//                         <div class="preview-item">
+//                             <img src="image/balo1.jpg" alt="Balo 1">
+//                         </div>
+//                         <div class="preview-item">
+//                             <img src="image/balo2.jpg" alt="Balo 2">
+//                         </div>
+//                     </div>
+//                 </div>
+//             `,
+//                         () => {
+//                             // callback sau khi nhấn xác nhận
+//                             alert("Thêm biến thể cho sản phẩm: aaaaa");
+//                         }
+//                     );
+//                 });
+//             }
 
             if (text === "Quản lý voucher") {
                 const btnThemTB = document.getElementById("btn-them-tb");
@@ -510,6 +847,7 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
     });
 });
 /* ======= button popup======= */
+
 /* open and off */
 function openAdminPopup(title, bodyHTML, onConfirm) {
     const popup = document.getElementById("adminPopup");
@@ -567,6 +905,7 @@ function openAdminPopup(title, bodyHTML, onConfirm) {
         updateContentInput(); // gọi 1 lần khi mở popup
     }
 }
+
 document.addEventListener("DOMContentLoaded", function () {
     const btnDoiThongTin = document.getElementById("btn-doi-thong-tin");
     if (btnDoiThongTin) {
