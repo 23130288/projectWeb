@@ -57,11 +57,12 @@ body {
 
 #selection_2 .bt_xac_nhan {
     width: 30%;
-    margin: 0 auto; /* căn giữa ngang */
+    margin: 0 auto;
 }
 
+#selection_2 .menu .avata .change-btn:hover,
 #selection_2 .bt_xac_nhan:hover {
-    background: #ffdb5c;
+    background: purple;
     cursor: pointer;
 }
 
@@ -79,9 +80,13 @@ body {
     color: black;
 }
 
-#selection_2 .menu .menu_item .item:focus,
-#selection_2 .menu .menu_item .item:hover {
+#selection_2 .menu .menu_item .item:focus {
     background: #EDB310;
+    color: white;
+}
+
+#selection_2 .menu .menu_item .item:hover {
+    background: purple;
     color: white;
 }
 
@@ -108,6 +113,14 @@ body {
     margin-top: 20px;
 }
 
+.table-wrapper {
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
 .table_data th, .table_data td {
     border: 1px solid #ddd;
     padding: 10px;
@@ -115,6 +128,9 @@ body {
 }
 
 .table_data th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
     background: #EDB310;
     color: white;
 }
@@ -130,7 +146,7 @@ body {
 }
 
 .table_data td button:hover {
-    background: #ffdb5c;
+    background: purple;
 }
 
 .table_data td .btn-huy,
@@ -147,6 +163,59 @@ body {
 .table_data td .btn-huy:hover,
 .table_data td .btn-xoa:hover {
     background: #ff6666;
+}
+
+.Menu-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.Menu-bar .bt_menu {
+    background: #EDB310;
+    border: none;
+    width: 30%;
+    padding: 10px 15px;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.Menu-bar .search-bar {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+    gap: 5px;
+}
+
+.Menu-bar .search-bar input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.Menu-bar .search-bar input:focus {
+    border: #F2B035 1px solid;
+}
+
+.Menu-bar .search-bar button {
+    border: 1px solid #ccc;
+    border-left: none;
+    border-radius: 0;
+    background: #F2B035;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+.Menu-bar .bt_menu:hover,
+.Menu-bar .search-bar button:hover {
+    color: white;
+    background-color: purple;
 }
 
 /* --- PHẦN THÔNG BÁO --- */
@@ -276,7 +345,7 @@ body {
 }
 
 .popup-actions .confirm:hover {
-    background: #FFD700;
+    background: #purple;
 }
 
 .popup-actions .cancel {
