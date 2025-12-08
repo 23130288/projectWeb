@@ -222,6 +222,8 @@ you choosing size, colors for your product
     border-radius: 10px;
     width: 40%;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    max-height:80%;
+    overflow-y: auto;
 }
 
 .section-product .product-details .popup .popup-content .container-popup-title h2 {
