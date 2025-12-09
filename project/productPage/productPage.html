@@ -170,14 +170,33 @@
     </div>
 
     <!--This is a comment section-->
-    <div class="section-comment">
-        <h3>Bình luận</h3>
-        <form class="comment-form">
-            <label><textarea rows="4"
-                             placeholder="Write a comment to express how you feel about the product"
-                             required></textarea></label>
-            <button type="submit">Đăng bình luận</button>
-        </form>
+    <div class="section-review">
+        <div class="container-review">
+            <!-- Rating -->
+            <form class="container-rating">
+                <h3>Đánh giá</h3>
+                <div class="stars">
+                    <input type="radio" id="star1" name="rating" value="1">
+                    <label for="star1">★</label>
+                    <input type="radio" id="star2" name="rating" value="2">
+                    <label for="star2">★</label>
+                    <input type="radio" id="star3" name="rating" value="3">
+                    <label for="star3">★</label>
+                    <input type="radio" id="star4" name="rating" value="4">
+                    <label for="star4">★</label>
+                    <input type="radio" id="star5" name="rating" value="5">
+                    <label for="star5">★</label>
+                </div>
+            </form>
+
+            <!-- Comment -->
+            <form class="comment-form">
+                <label>
+                    <textarea rows="4" placeholder="Viết bình luận của bạn về sản phẩm" required></textarea>
+                </label>
+                <button type="submit">Đăng bình luận</button>
+            </form>
+        </div>
 
         <div class="comment-list">
             <div class="comment">
