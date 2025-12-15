@@ -567,7 +567,7 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
                 document.getElementById("btn-dang-xuat").addEventListener("click", () => {
                     localStorage.removeItem("user");
                     alert("Đăng xuất thành công!");
-                    window.location.href = "../dang_nhap/dang_nhap.html";
+                    window.location.href = "../dang_nhap/dang_nhap.jsp";
                 });
             }
 
