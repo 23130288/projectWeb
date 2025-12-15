@@ -1,18 +1,13 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Sản phẩm</title>
-    <link rel="stylesheet" href="productPage.css">
+    <link rel="stylesheet" href="productPage/productPage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <link rel="stylesheet" href="../shareStuff/header/header.css">
-    <link rel="stylesheet" href="../shareStuff/footer/footer.css">
 </head>
 <body>
-<header>
-    <div id="header-placeholder"></div>
-    <script src="../shareStuff/header/headerGetter.js"></script>
-</header>
 <main>
     <div class="section-product">
         <div class="container-images">
@@ -228,10 +223,6 @@
         </div>
     </div>
 </main>
-<footer>
-    <div id="footer-placeholder"></div>
-    <script src="../shareStuff/footer/footerGetter.js"></script>
-</footer>
 <script src="productPageJS/changeImage.js"></script>
 <script src="productPageJS/buttonHandler.js"></script>
 <script src="../cartPage/cartPageJS/editInfo.js"></script>
