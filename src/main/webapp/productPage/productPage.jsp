@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,18 +12,17 @@
 <main>
     <div class="section-product">
         <div class="container-images">
-            <img src="../images/balos/apollo/apollo1.webp" class="main-image" alt="Product">
+            <img src="${p.mainImage.image}" class="main-image" alt="${p.name}">
             <div class="images-list">
-                <img class="sub-image active" src="../images/balos/apollo/apollo1.webp" alt="">
-                <img class="sub-image" src="../images/balos/apollo/apollo2.webp" alt="">
-                <img class="sub-image" src="../images/balos/apollo/apollo3.webp" alt="">
-                <img class="sub-image" src="../images/balos/apollo/apollo4.webp" alt="">
-                <img class="sub-image" src="../images/balos/apollo/apollo5.webp" alt="">
+                <c:forEach var="img" items="${p.images}" varStatus="st">
+                    <img class="sub-image ${st.index == 0 ? 'active' : ''}"
+                         src="${img.image}" alt="">
+                </c:forEach>
             </div>
         </div>
         <div class="product-details">
             <!--general info section-->
-            <h2>Balo Apollo đựng laptop</h2>
+            <h2>${p.name}</h2>
             <div class="rating">
                 <span class="star">&#9733;</span>
                 <span class="star">&#9733;</span>
@@ -31,40 +31,35 @@
                 <span class="star">&#9734;</span>
                 <span class="rating-number">(4.0)</span>
             </div>
-            <p class="price">345.000 đ</p>
+            <p class="price">${p.variants[0].price} Đ</p>
+
+            <label>Nhà sản xuất:</label>
+            <p class="desc">${p.producer}</p>
+            <label>Loại: <p class="desc">${p.type}</p></label>
+            <label>Kiểu dáng: <p class="desc">${p.style}</p></label>
+            <label>Chất liệu: <p class="desc">${p.material}</p></label>
+
             <label>Mô tả sản phẩm:</label>
-            <p class="desc">1. Thông tin chi tiết
-                - Chất liệu: Da tráng PU chống thấm. Vải lót trượt nước.
-                Balo của MDR được sử dụng chất liệu vải bố tráng PU chống thấm, độ bền cao, có thể giặt và vệ sinh thoải
-                mái.
-                - Màu sắc: ĐEN, ĐEN PHỐI TRẮNG, XÁM
-                - Kích thước: 40x28x16 cm
-                - Tính năng: Bên trong gồm 1 ngăn chính, 1 ngăn chống sốc laptop và 1 ngăn phụ nhỏ.
-                Quai đeo thiết kế với đệm mút chống nhức mỏi. Ngăn chống sốc laptop 15 inch.
-
-                2. Cách sử dụng balo
-                Thiết kế phù hợp cho cả nam và nữ, dùng để đựng laptop, sách vở, đồ dùng cá nhân hoặc hành lý nhẹ.
-                Thích hợp sử dụng khi đi học, đi làm, du lịch ngắn ngày, dạo phố hoặc công tác.
-                Ngăn chứa rộng rãi, có nhiều ngăn phụ giúp sắp xếp đồ dùng gọn gàng và tiện lợi.
-            </p>
-
+            <p class="desc">${p.description}</p>
             <!--option section-->
             <div class="container-options">
                 <div class="option">
                     <label>Chọn màu: </label>
                     <div class="color-options">
-                        <button class="color-btn black"></button>
-                        <button class="color-btn red"></button>
-                        <button class="color-btn blue"></button>
+                        <c:forEach var="v" items="${p.variants}">
+                            <button class="color-btn"
+                                data-color="${v.color}">${v.color}
+                            </button>
+                        </c:forEach>
                     </div>
                 </div>
                 <div class="option">
                     <label>Chọn kích cỡ: </label>
                     <div class="size-options">
-                        <button>S</button>
-                        <button>M</button>
-                        <button>L</button>
-                        <button>XL</button>
+                        <c:forEach var="v" items="${p.variants}">
+                            <button data-size="${v.size}">${v.size}
+                            </button>
+                        </c:forEach>
                     </div>
                 </div>
             </div>
@@ -223,8 +218,8 @@
         </div>
     </div>
 </main>
-<script src="productPageJS/changeImage.js"></script>
-<script src="productPageJS/buttonHandler.js"></script>
-<script src="../cartPage/cartPageJS/editInfo.js"></script>
+<script src="productPage/productPageJS/changeImage.js"></script>
+<script src="productPage/productPageJS/buttonHandler.js"></script>
+<script src="cartPage/cartPageJS/editInfo.js"></script>
 </body>
 </html>
