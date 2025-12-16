@@ -35,6 +35,14 @@ body {
     padding: 50px;
 }
 
+.section_1 span .login-error {
+    display: block;
+    text-align: center;
+    color: red;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
 .section_1 label {
     display: block;
     margin-bottom: 10px;
