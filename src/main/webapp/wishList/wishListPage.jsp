@@ -1,9 +1,10 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Yêu thích</title>
-    <link rel="stylesheet" href="wishListPage.css">
+    <link rel="stylesheet" href="wishList/wishListPage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="../shareStuff/header/header.css">
     <link rel="stylesheet" href="../shareStuff/footer/footer.css">

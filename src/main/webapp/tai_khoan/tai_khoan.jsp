@@ -1,6 +1,7 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="tai_khoan.css">
+<link rel="stylesheet" href="tai_khoan/tai_khoan.css">
 
 <head>
     <meta charset="UTF-8">
@@ -53,7 +54,7 @@
     </div>
 </div>
 
-<script src="tai_khoan.js"></script>
+<script src="tai_khoan/tai_khoan.js"></script>
 <footer>
     <div id="footer-placeholder">
         <script src="../shareStuff/footer/footerGetter.js"></script>
