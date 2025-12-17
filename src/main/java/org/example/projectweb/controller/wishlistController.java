@@ -10,6 +10,7 @@ import java.io.IOException;
 public class wishlistController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         request.getRequestDispatcher("wishList/wishListPage.jsp").forward(request, response);
     }
 

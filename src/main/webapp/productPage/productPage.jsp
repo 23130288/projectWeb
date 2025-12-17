@@ -24,12 +24,19 @@
             <!--general info section-->
             <h2>${p.name}</h2>
             <div class="rating">
-                <span class="star">&#9733;</span>
-                <span class="star">&#9733;</span>
-                <span class="star">&#9733;</span>
-                <span class="star">&#9733;</span>
-                <span class="star">&#9734;</span>
-                <span class="rating-number">(4.0)</span>
+                <c:forEach begin="1" end="5" var="i">
+                    <span class="star">
+                        <c:choose>
+                            <c:when test="${i <= avgRating}">
+                                <i class="fa-solid fa-star"></i>
+                            </c:when>
+                            <c:otherwise>
+                                <i class="fa-regular fa-star"></i>
+                            </c:otherwise>
+                        </c:choose>
+                    </span>
+                </c:forEach>
+                <span class="rating-number">(${avgRating})</span>
             </div>
             <p class="price">${p.variants[0].price} Đ</p>
 
@@ -189,32 +196,28 @@
         </div>
 
         <div class="comment-list">
-            <div class="comment">
-                <h4>name placeholder 1</h4>
-                <div class="rating">
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9734;</span>
-                    <span class="rating-number">(4.0)</span>
+            <c:forEach var="r" items="${reviews}">
+                <div class="comment">
+                    <h4>${r.userName}</h4>
+                    <div class="rating">
+                        <span class="star">
+                            <c:forEach begin="1" end="5" var="i">
+                                <c:choose>
+                                    <c:when test="${i <= r.rating}">
+                                        <i class="fa-solid fa-star"></i>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <i class="fa-regular fa-star"></i>
+                                    </c:otherwise>
+                                </c:choose>
+                            </c:forEach>
+                        </span>
+                    </div>
+
+                    <p>${r.comment}</p>
+                    <span>${r.createdDate}</span>
                 </div>
-                <p>a comment about how bad the product is</p>
-                <span>3 ngày trước</span>
-            </div>
-            <div class="comment">
-                <h4>name placeholder 2</h4>
-                <div class="rating">
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9734;</span>
-                    <span class="rating-number">(4.0)</span>
-                </div>
-                <p>a comment about how good the product is</p>
-                <span>5 ngày trước</span>
-            </div>
+            </c:forEach>
         </div>
     </div>
 </main>
