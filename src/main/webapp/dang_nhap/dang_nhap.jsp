@@ -24,7 +24,9 @@
             String email = (String) request.getParameter("email");
             if (email == null) email = "";
         %>
-        <span class="login-error"><%= err %></span>
+        <div class="container">
+            <span class="login-error"><%= err %></span>
+        </div>
         <div class="container" id="container_email">
             <label for="email">Email hoặc tên người dùng:</label>
             <input type="text" id="email" name="email" value="<%= email%>">
