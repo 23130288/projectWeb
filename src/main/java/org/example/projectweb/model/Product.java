@@ -33,15 +33,10 @@ public class Product implements Serializable {
         images = new ArrayList<>();
     }
 
-    public ImageProduct getMainImage() {
-        if (images == null)
-            return null;
-        for (ImageProduct img : images) {
-            if (img.isMain())
-                return img;
-        }
-        return null;
-    }
+    /**
+     * Getters
+     * @return
+     */
     public String getName() {
         return name;
     }
@@ -73,11 +68,30 @@ public class Product implements Serializable {
         return images;
     }
 
+
+    /**
+     * Setters
+     * @param variants
+     */
     public void setVariants(List<ProductVariant> variants) {
         this.variants = variants;
     }
 
     public void setImages(List<ImageProduct> images) {
         this.images = images;
+    }
+
+    /**
+     * Special getters
+     * @return
+     */
+    public ImageProduct getMainImage() {
+        if (images == null)
+            return null;
+        for (ImageProduct img : images) {
+            if (img.isMain())
+                return img;
+        }
+        return null;
     }
 }
