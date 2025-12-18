@@ -9,7 +9,7 @@ fetch('../shareStuff/footer/footer.html')
 Bỏ vào file ở đây như vậy, còn hạn chế nên đừng có tạo bỏ file linh tinh
 chỉ hoạt động với file theo format này
 trang_chu
-  + trang_chu.html
+  + trang_chu.jsp
 
 <footer>
     <div id="footer-placeholder"></div>
