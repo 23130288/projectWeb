@@ -1,12 +1,12 @@
-package org.example.projectweb;
+package org.example.projectweb.controller;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
-import org.example.projectweb.dao.userDao;
 import org.example.projectweb.model.User;
+import org.example.projectweb.service.DangNhapService;
 
 @WebServlet(name = "DangNhapController", value = "/dang_nhap")
 public class DangNhapController extends HttpServlet {
@@ -19,11 +19,12 @@ public class DangNhapController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+
         String email = request.getParameter("email");
         String pass = request.getParameter("password");
 
-        userDao dao = new userDao();
-        User user = dao.login(email, pass);
+        DangNhapService loginService = new DangNhapService();
+        User user = loginService.login(email, pass);
 
         if (user != null) {
             // đăng nhập thành công

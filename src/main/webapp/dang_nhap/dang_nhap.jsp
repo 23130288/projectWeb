@@ -47,7 +47,7 @@
     </form>
     <footer class="footer" id="container_more">
         người dùng mới:&nbsp;
-        <a class="link" href="dang_ky/dang_ky.html">Tạo tài khoản</a>
+        <a class="link" href="dang_ky">Tạo tài khoản</a>
     </footer>
     <script src="dang_nhap/dang_nhap.js"></script>
 </div>

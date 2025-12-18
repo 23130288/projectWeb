@@ -19,10 +19,3 @@ toggleConfirm.addEventListener('mouseout', () => {
     confirmPassword.type = 'password';
 });
 
-
-//sử lí nút
-document.getElementById('log').addEventListener('click', function (event) {
-    event.preventDefault();
-    window.location.href = '../tai_khoan/tai_khoan.jsp';
-});
-
