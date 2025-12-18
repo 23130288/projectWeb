@@ -14,7 +14,7 @@ fetch('../shareStuff/header/header.html')
 Bỏ vào file ở đây như vậy, còn hạn chế nên đừng có tạo bỏ file linh tinh
 chỉ hoạt động với file theo format này
 trang_chu
-  + trang_chu.html
+  + trang_chu.jsp
 
 <header>
     <div id="header-placeholder"></div>

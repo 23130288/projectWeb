@@ -1,10 +1,11 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>TRANG CHỦ</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="trang_chu.css">
+    <link rel="stylesheet" href="trang_chu/trang_chu.css">
     <link rel="stylesheet" href="../shareStuff/header/header.css">
     <link rel="stylesheet" href="../shareStuff/footer/footer.css">
 </head>
