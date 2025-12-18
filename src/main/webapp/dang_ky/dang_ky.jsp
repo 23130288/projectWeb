@@ -1,8 +1,6 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
-<%--<link rel="stylesheet" href="dang_ky/dang_ky.css">--%>
-<link rel="stylesheet" href="dang_nhap/dang_nhap.css">
+<link rel="stylesheet" href="dang_ky.css">
 
 <head>
     <meta charset="UTF-8">
@@ -11,49 +9,26 @@
 <body>
 <div class="section_2" id="section_2">
     <a href="../trang_chu/trang_chu.jsp">
-        <img src="dang_ky/image/logo_white.png" alt="Logo" class="logo">
+        <img src="image/logo_white.png" alt="Logo" class="logo">
     </a>
 </div>
 
 <div class="section_1" id="section_1">
     <h1>Đăng ký tài khoản của bạn</h1>
-    <form action="dang_ky" method="post">
-        <%
-            String err = (String) request.getAttribute("err");
-            if (err == null) err = "";
-
-            String name = (String) request.getParameter("name");
-            if (name == null) name = "";
-
-            String email = (String) request.getParameter("email");
-            if (email == null) email = "";
-
-            String password = "";
-            if (password == null) password = "";
-            if (err == "Mật khẩu nhập lại không khớp") {
-                email = (String) request.getParameter("email");
-                name = (String) request.getParameter("name");
-                password = (String) request.getAttribute("password");
-            }
-        %>
-
-        <div class="container">
-            <span class="login-error"><%= err %></span>
-        </div>
-
+    <form>
         <div class="container" id="container_email">
             <label for="email">Email:</label>
-            <input type="text" id="email" name="email" value="<%= email%>">
+            <input type="text" id="email" name="email">
         </div>
         <div class="container" id="container_name">
             <label for="name">Tên:</label>
-            <input type="text" id="name" name="name" value="<%= name%>">
+            <input type="text" id="name" name="name">
         </div>
 
         <div class="container" id="container_password">
             <label for="password">Mật khẩu:</label>
             <div class="password-wrapper">
-                <input type="password" id="password" name="password" value="<%= password%>">
+                <input type="password" id="password" name="password">
                 <button type="button" id="togglePassword">👁</button>
             </div>
         </div>
