@@ -1,11 +1,10 @@
-package org.example.projectweb;
+package org.example.projectweb.controller;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 @WebServlet(name = "TaiKhoanController", value = "/tai_khoan")
 public class TaiKhoanController extends HttpServlet {
