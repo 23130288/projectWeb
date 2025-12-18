@@ -37,14 +37,9 @@ public class Product implements Serializable {
      * Getters
      * @return
      */
-    public int getPid() {
-        return this.pid;
-    }
-
     public String getName() {
         return name;
     }
-
     public String getDescription() {
         return description;
     }
@@ -63,10 +58,6 @@ public class Product implements Serializable {
 
     public String getStyle() {
         return style;
-    }
-
-    public  String getStatus() {
-        return status;
     }
 
     public List<ProductVariant> getVariants() {
