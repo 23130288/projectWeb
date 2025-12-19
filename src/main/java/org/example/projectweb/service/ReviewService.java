@@ -2,9 +2,11 @@ package org.example.projectweb.service;
 
 import org.example.projectweb.dao.ReviewDao;
 import org.example.projectweb.dao.userDao;
+import org.example.projectweb.model.Product;
 import org.example.projectweb.model.Review;
 import org.example.projectweb.model.ReviewView;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +29,7 @@ public class ReviewService {
         }
         return result;
     }
+
     public double getAvgRating(int productId) {
         List<Review> reviews = rDao.getReviewsByProductId(productId);
         double res = 0;
@@ -35,6 +38,18 @@ public class ReviewService {
         for (Review r : reviews) {
             res += r.getRating();
         }
-        return res/reviews.size();
+        DecimalFormat df = new DecimalFormat("#.##");
+        return Double.parseDouble(df.format(res/reviews.size()));
+    }
+
+    public List<Double> getAvgRatingsForProducts(List<Product> products) {
+        List<Double> res = new ArrayList<>();
+
+        for (Product p : products) {
+            double avg = getAvgRating(p.getPid());
+            res.add(avg);
+        }
+
+        return res;
     }
 }

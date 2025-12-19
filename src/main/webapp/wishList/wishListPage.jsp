@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -6,14 +7,8 @@
     <title>Yêu thích</title>
     <link rel="stylesheet" href="wishList/wishListPage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <link rel="stylesheet" href="../shareStuff/header/header.css">
-    <link rel="stylesheet" href="../shareStuff/footer/footer.css">
 </head>
 <body>
-<header>
-    <div id="header-placeholder"></div>
-    <script src="../shareStuff/header/headerGetter.js"></script>
-</header>
 <main>
     <h1>Sản phẩm yêu thích</h1>
     <div class="container">
@@ -27,99 +22,52 @@
 
         <!-- products -->
         <div class="container-wishlist-items">
-            <div class="wishlist-item">
-                <div class="wishlist-item-title">
-                    <a href="../productPage/productPage.html">
-                        <img src="../images/balos/apollo/apollo1.webp" alt="">
-                    </a>
-                    <div class="wishlist-item-info">
-                        <label>Balo Apollo đựng laptop</label>
-                        <p>1. Thông tin chi tiết
-                            - Chất liệu: Da tráng PU chống thấm. Vải lót trượt nước.
-                            Balo của MDR được sử dụng chất liệu vải bố tráng PU chống thấm, độ bền cao, có thể giặt và
-                            vệ sinh thoải
-                            mái...</p>
-                        <div class="rating">
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9734;</span>
-                            <span class="rating-number">(4.0)</span>
+            <c:forEach var="p" items="${list}" varStatus="st">
+                <div class="wishlist-item">
+                    <div class="wishlist-item-title">
+                        <a href="">
+                            <img src="${p.mainImage.image}" alt="${p.name}">
+                        </a>
+                        <div class="wishlist-item-info">
+                            <label>${p.name}</label>
+                            <div class="rating">
+                                <c:forEach begin="1" end="5" var="i">
+                                    <span class="star">
+                                        <c:choose>
+                                            <c:when test="${i <= avgs[st.index]}">
+                                                <i class="fa-solid fa-star"></i>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <i class="fa-regular fa-star"></i>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </span>
+                                </c:forEach>
+                                <span class="rating-number">(${avgs[st.index]})</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="wishlist-item-options">
-                    <p>Chọn màu sắc:</p>
-                    <div class="wishlist-colors">
-                        <span class="w-color w-red"></span>
-                        <span class="w-color w-blue"></span>
-                        <span class="w-color w-black"></span>
+                    <div class="wishlist-item-price">${p.variants[0].price} Đ</div>
+                    <div class="wishlist-item-status ${p.totalQuantity > 0 ? 'hasProduct' : 'outOfProduct'}">
+                        <c:choose>
+                            <c:when test="${p.totalQuantity > 0}">
+                                <i class="fa-solid fa-circle-check"></i>
+                                Còn hàng (${p.totalQuantity})
+                            </c:when>
+                            <c:otherwise>
+                                <i class="fa-solid fa-circle-xmark"></i>
+                                Hết hàng
+                            </c:otherwise>
+                        </c:choose>
                     </div>
-
-                    <p>Chọn kích cỡ:</p>
-                    <div class="wishlist-sizes">
-                        <button>S</button>
-                        <button>M</button>
-                        <button>L</button>
-                    </div>
-                </div>
-                <div class="wishlist-item-price">345.000 đ</div>
-                <div class="wishlist-item-status hasProduct"><i class="fa-solid fa-circle-check"></i> Còn hàng (12)
-                </div>
-                <div class="wishlist-item-buttons">
-                    <button class="add-to-cart">Thêm vào giỏ</button>
-                    <button class="remove-btn">Xóa</button>
-                </div>
-            </div>
-
-            <div class="wishlist-item">
-                <div class="wishlist-item-title">
-                    <a href="../productPage/productPage.html">
-                        <img src="../images/valies/ValiJOYWAYxMELALINIA/vali3.webp" alt="">
-                    </a>
-                    <div class="wishlist-item-info">
-                        <label>Vali Nhựa Đẹp Bền ABS Cao Cấp JOYWAY x MELALINIA SIZE 20/24/28 Khóa số TSA BẢO HÀNH TRỌN
-                            ĐỜI</label>
-                        <p>Bộ hành lý: Có // Kích thước: 20 - 25 inches // Loại bánh xe: Bánh xe quay...</p>
-                        <div class="rating">
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9734;</span>
-                            <span class="rating-number">(4.0)</span>
-                        </div>
+                    <div class="wishlist-item-buttons">
+                        <button class="add-to-cart">Thêm vào giỏ</button>
+                        <button class="remove-btn">Xóa</button>
                     </div>
                 </div>
-                <div class="wishlist-item-options">
-                    <p>Chọn màu sắc:</p>
-                    <div class="wishlist-colors">
-                        <span class="w-color w-red"></span>
-                        <span class="w-color w-blue"></span>
-                        <span class="w-color w-black"></span>
-                    </div>
-
-                    <p>Chọn kích cỡ:</p>
-                    <div class="wishlist-sizes">
-                        <button>S</button>
-                        <button>M</button>
-                        <button>L</button>
-                    </div>
-                </div>
-                <div class="wishlist-item-price">299.000 đ</div>
-                <div class="wishlist-item-status outOfProduct"><i class="fa-solid fa-circle-xmark"></i> Hết hàng</div>
-                <div class="wishlist-item-buttons">
-                    <button class="add-to-cart">Thêm vào giỏ</button>
-                    <button class="remove-btn">Xóa</button>
-                </div>
-            </div>
+            </c:forEach>
         </div>
     </div>
 </main>
-<footer>
-    <div id="footer-placeholder"></div>
-    <script src="../shareStuff/footer/footerGetter.js"></script>
-</footer>
 </body>
 </html>
