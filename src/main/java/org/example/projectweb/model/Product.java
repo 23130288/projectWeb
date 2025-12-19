@@ -44,6 +44,7 @@ public class Product implements Serializable {
     public String getName() {
         return name;
     }
+
     public String getDescription() {
         return description;
     }
@@ -101,5 +102,12 @@ public class Product implements Serializable {
                 return img;
         }
         return null;
+    }
+    public int getTotalQuantity() {
+        int sum = 0;
+        for (ProductVariant pv : variants) {
+            sum += pv.getQuantity();
+        }
+        return sum;
     }
 }

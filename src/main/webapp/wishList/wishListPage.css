@@ -79,6 +79,9 @@ main .wishlist-item {
     gap: 10px;
     align-items: center;
 }
+.wishlist-item .wishlist-item-title .rating .star {
+    color: #F2B035;
+}
 
 /* options */
 .wishlist-item .wishlist-item-options {
@@ -146,7 +149,7 @@ main .wishlist-item {
 /* button */
 .wishlist-item .wishlist-item-buttons .add-to-cart {
     background: #F2C641;
-    color: white;
+    color: black;
     border: none;
     padding: 8px 12px;
     border-radius: 4px;
@@ -173,3 +176,4 @@ main .wishlist-item {
     background: red;
     color: white;
 }
+
