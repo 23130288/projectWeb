@@ -35,15 +35,15 @@ public class trangChuController extends HttpServlet {
             String type = p.getType();
             String status = p.getStatus();
 
-            if (status != null && status.equalsIgnoreCase("hot")) {
+            if (status != null && status.equalsIgnoreCase("Hot")) {
                 hotProducts.add(p);
             }
 
-            if (type != null && type.equalsIgnoreCase("Du Lich")) {
+            if (type != null && type.equalsIgnoreCase("Du Lịch")) {
                 valiProducts.add(p);
             }
 
-            if (type != null && type.equalsIgnoreCase("Du Lich")) {
+            if (type != null && type.equalsIgnoreCase("Du Lịch")) {
                 baloProducts.add(p);
             }
 
