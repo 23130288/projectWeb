@@ -16,5 +16,5 @@ topics.forEach(topic => {
 
 document.getElementById("sendBtn").addEventListener("click", () => {
     alert("Đã gưit phản hồi cho người dùng thành công!");
-    window.location.href = "../admin/admin.html";
+    window.location.href = "../admin/admin.jsp";
 });

@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+﻿document.addEventListener("DOMContentLoaded", function () {
     const items = document.querySelectorAll(".menu_item .item");
     const infoBox = document.querySelector(".infomation");
 
@@ -622,6 +622,11 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
                 </div>
             
                 <div class="popup_item">
+                    <label>Mô tả:</label>
+                    <textarea id="tb-content"></textarea>
+                </div>
+            
+                <div class="popup_item">
                     <label>Ảnh sản phẩm:</label>
                 
                     <!-- Khu vực kéo/thả -->
@@ -910,6 +915,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const btnDoiThongTin = document.getElementById("btn-doi-thong-tin");
     if (btnDoiThongTin) {
         btnDoiThongTin.addEventListener("click", () => {
+            // language=HTML format=false
             openAdminPopup(
                 "Thay đổi thông tin",
                 `
@@ -922,7 +928,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <label>Avata</label>                  
                     <div class="popup_avata">
                         <div class="preview-item">
-                            <img src="image/avatar.jpg">
+                            <img src="admin/image/avatar.jpg">
                         </div>    
                               
                         <div class="img-upload-box" id="drop-zone">

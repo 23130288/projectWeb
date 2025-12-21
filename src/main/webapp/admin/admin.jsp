@@ -1,17 +1,17 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <title>Trang quản trị</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="admin/admin.css">
 </head>
 <body>
 <div class="selection_2" id="selection_2">
     <!-- MENU BÊN TRÁI -->
     <div class="menu" id="menu">
         <div class="avata">
-            <img src="image/avatar.jpg" alt="Ảnh đại diện admin">
+            <img src="admin/image/avatar.jpg" alt="Ảnh đại diện admin">
             <h3 class="username">Admin A</h3>
             <button class="change-btn" id="btn-doi-thong-tin">Đổi thông tin</button>
         </div>
@@ -52,7 +52,7 @@
 
 </div>
 
-<script src="admin.js"></script>
+<script src="admin/admin.js"></script>
 
 </body>
 </html>
