@@ -73,9 +73,18 @@
 
             <!--Button section-->
             <div class="container-buttons">
-                <button id="buyBtn"><i class="fa-solid fa-money-check-dollar"></i> Mua</button>
-                <button id="addToCartBtn"><i class="fa-solid fa-cart-shopping"></i></button>
-                <button id="addToWishListBtn"><i class="fa-solid fa-heart"></i></button>
+                <button type="button" id="buyBtn">
+                    <i class="fa-solid fa-money-check-dollar"></i> Mua
+                </button>
+
+                <button type="button" id="addToCartBtn">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+
+                <button type="button" id="wishlistBtn"
+                        class="wishlistBtn ${inWishlist ? 'active' : ''}">
+                    <i class="fa-solid fa-heart"></i>
+                </button>
             </div>
             <p id="statusMessage" class="status-msg"></p>
             <div class="popup" id="buyPopup">
