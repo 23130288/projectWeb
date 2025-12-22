@@ -24,4 +24,17 @@ public class ProductDao {
     public Product getProductById(int productId) {
         return data.getOrDefault(productId, null);
     }
+    public List<Product> searchByName(String keyword) {
+        List<Product> result = new ArrayList<>();
+        if (keyword == null || keyword.trim().isEmpty()) {
+            return result;
+        }
+        String lowerKeyword = keyword.toLowerCase().trim();
+        for (Product p : data.values()) {
+            if (p.getName().toLowerCase().contains(lowerKeyword)) {
+                result.add(p);
+            }
+        }
+        return result;
+    }
 }
