@@ -6,6 +6,7 @@ import jakarta.servlet.annotation.*;
 import org.example.projectweb.model.Product;
 import org.example.projectweb.service.ProductService;
 import org.example.projectweb.service.ReviewService;
+import org.example.projectweb.service.UserService;
 import org.example.projectweb.service.WishlistService;
 
 import java.io.IOException;
@@ -17,13 +18,16 @@ public class ProductPageController extends HttpServlet {
         ProductService ps = new ProductService();
         ReviewService rs = new ReviewService();
         WishlistService ws = new WishlistService();
+        UserService us = new UserService();
 
         Product p = ps.getProductDetail(2);
 
         request.setAttribute("p", p);
+        request.setAttribute("mainImg", ps.getMainImg(2));
         request.setAttribute("reviews", rs.getReviewsForProduct(2));
         request.setAttribute("avgRating", rs.getAvgRating(2));
         request.setAttribute("inWishlist", ws.inWishlist(1, 2));
+        request.setAttribute("user", us.getUserById(1));
 
         request.getRequestDispatcher("productPage/productPage.jsp").forward(request, response);
     }

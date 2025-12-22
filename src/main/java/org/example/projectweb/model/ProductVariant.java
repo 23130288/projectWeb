@@ -10,6 +10,7 @@ public class ProductVariant implements Serializable {
     private double price;
     private int quantity;
 
+    public ProductVariant() {}
     public ProductVariant(int pvid, int pid, String size, String color, double price, int quantity) {
         this.pvid = pvid;
         this.pid = pid;
@@ -37,5 +38,29 @@ public class ProductVariant implements Serializable {
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public void setPvid(int pvid) {
+        this.pvid = pvid;
+    }
+
+    public void setPid(int pid) {
+        this.pid = pid;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

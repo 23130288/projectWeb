@@ -19,6 +19,9 @@ public class Product implements Serializable {
     private List<ProductVariant> variants;
     private List<ImageProduct> images;
 
+    public Product() {
+
+    }
     public Product(int pid, String name, String producer, String type, String material, String style, String description, String status) {
         this.pid = pid;
         this.name = name;
@@ -77,6 +80,37 @@ public class Product implements Serializable {
         return images;
     }
 
+    public void setPid(int pid) {
+        this.pid = pid;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setProducer(String producer) {
+        this.producer = producer;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setMaterial(String material) {
+        this.material = material;
+    }
+
+    public void setStyle(String style) {
+        this.style = style;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     /**
      * Setters
@@ -94,20 +128,25 @@ public class Product implements Serializable {
      * Special getters
      * @return
      */
-    public ImageProduct getMainImage() {
-        if (images == null)
-            return null;
-        for (ImageProduct img : images) {
-            if (img.isMain())
-                return img;
-        }
-        return null;
-    }
     public int getTotalQuantity() {
         int sum = 0;
         for (ProductVariant pv : variants) {
             sum += pv.getQuantity();
         }
         return sum;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "pid=" + pid +
+                ", name='" + name + '\'' +
+                ", producer='" + producer + '\'' +
+                ", type='" + type + '\'' +
+                ", material='" + material + '\'' +
+                ", style='" + style + '\'' +
+                ", description='" + description + '\'' +
+                ", status='" + status + '\'' +
+                '}';
     }
 }

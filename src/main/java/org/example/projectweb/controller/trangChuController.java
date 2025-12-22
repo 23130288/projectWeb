@@ -20,7 +20,7 @@ public class trangChuController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Product> allProducts = productDao.getListProductId();
+        List<Product> allProducts = productDao.getListProduct();
 
         for (Product p : allProducts) {
             p.setImages(imageProductDao.getImagesByProductId(p.getPid()));

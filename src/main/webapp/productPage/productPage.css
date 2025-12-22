@@ -99,13 +99,13 @@ you choosing size, colors for your product
     font-weight: bold;
 }
 
-/* ==== size button ==== */
+/* ======= options ======= */
 .section-product .product-details .container-options .color-options, .size-options {
     display: flex;
     gap: 10px;
 }
 
-/* ==== color button ==== */
+/* == color button == */
 .section-product .product-details .container-options .color-options .color-btn {
     width: 25px;
     height: 25px;
@@ -139,8 +139,8 @@ you choosing size, colors for your product
     border: 3px solid #F2B035;
 }
 
-/* size button */
-.section-product .product-details .container-options .size-options button {
+/* == size button == */
+.section-product .product-details .container-options .size-options .size-btn {
     padding: 8px 14px;
     border: 1px solid lightgrey;
     border-radius: 4px;
