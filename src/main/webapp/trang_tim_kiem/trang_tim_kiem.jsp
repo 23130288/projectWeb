@@ -1,10 +1,11 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>TÌM KIẾM </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <link rel="stylesheet" href="trang_tim_kiem.css">
+    <link rel="stylesheet" href="trang_tim_kiem/trang_tim_kiem.css">
     <link rel="stylesheet" href="../shareStuff/header/header.css">
     <link rel="stylesheet" href="../shareStuff/footer/footer.css">
 </head>

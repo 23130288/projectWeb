@@ -42,4 +42,12 @@ public class ProductService {
             }
         }
     }
+    public List<Product> searchProducts(String keyword) {
+        List<Product> results = pDao.searchByName(keyword);
+        for (Product p : results) {
+            p.setVariants(pvDao.getVariantsByProductId(p.getPid()));
+            p.setImages(ipDao.getImagesByProductId(p.getPid()));
+        }
+        return results;
+    }
 }
