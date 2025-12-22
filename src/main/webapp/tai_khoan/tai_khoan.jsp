@@ -20,11 +20,10 @@
 <div class="selection_2" id="selection_2">
     <div class="menu" id="menu">
         <div class="avata">
-            <img src="image/avatar.jpg" alt="Ảnh đại diện">
-            <h3 class="username">Nguyễn Văn A</h3>
+            <img src="images/userAvatar/${user.avatar}">
+            <h3 class="username">${user.name}</h3>
             <button class="change-btn" id="btn-doi-thong-tin">Đổi thông tin</button>
         </div>
-
         <div class="menu_item">
             <a class="item" href="#">Thông tin tài khoản</a>
             <a class="item" href="#">Thông báo</a>
@@ -54,7 +53,18 @@
     </div>
 </div>
 
+<script>
+    const user = {
+        name: "${user.name}",
+        email: "${user.email}",
+        phone: "${user.phone}",
+        address: "${user.address}",
+        avatar: "${user.avatar}"
+    };
+</script>
+
 <script src="tai_khoan/tai_khoan.js"></script>
+
 <footer>
     <div id="footer-placeholder">
         <script src="../shareStuff/footer/footerGetter.js"></script>

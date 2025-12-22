@@ -5,28 +5,28 @@ document.addEventListener("DOMContentLoaded", function () {
     // Dữ liệu hiển thị cho từng mục
     const contents = {
         "Thông tin tài khoản": `
-      <h2>Thông tin tài khoản</h2>
+       <h2>Thông tin tài khoản</h2>
 
        <div class="in4">
         <div class="in4_row">
             <label class="in4_label" for="email">Tên tài khoản</label>
-            <input class="in4_input" type="text" id="email" name="email" value="Nguyễn Văn A" readonly>
+            <input class="in4_input" type="text" id="name" name="name" value="${user.name}" readonly>
         </div>
 
 
         <div class="in4_row">
             <label class="in4_label" for="email">Thông tin đăng nhập</label>
-            <input class="in4_input" type="text" id="email" name="email" value="nguyenvana@example.com" readonly>
+            <input class="in4_input" type="text" id="email" name="email" value="${user.email}" readonly>
         </div>
 
         <div class="in4_row">
             <label class="in4_label" for="email">Số điện thoại *</label>
-            <input class="in4_input" ="text" id="email" name="email" value="09782534" readonly>
+            <input class="in4_input" ="text" id="sdt" name="sdt" placeholder="Bạn chưa nhập sdt" value="${user.phone}" readonly>
         </div>
 
         <div class="in4_row">
             <label class="in4_label" for="email">Địa chỉ *</label>
-            <input class="in4_input" type="text" id="email" name="email" value="phường a, thành phố b, defg" readonly>
+            <input class="in4_input" type="text" id="address" name="address" placeholder="Bạn chưa nhập địa chỉ"value="${user.address}" readonly>
         </div>
     </div>
     `,
@@ -424,22 +424,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 `
                 <div class="popup_item">
                     <label>Tên tài khoản</label>
-                    <input class="in4_input" type="text" id="name" value="Nguyễn Văn A" readonly>
+                    <input class="in4_input" type="text" id="name" value="${user.email}">
                 </div>
-                
-                <div class="popup_item">
-                    <label>Thông tin đăng nhập</label>
-                    <input class="in4_input" type="text" id="email" name="email" value="nguyenvana@example.com" readonly>
-                </div>
-                
+                                
                 <div class="popup_item">
                     <label>Số điện thoại*</label>
-                    <input type="text" id="sdt" placeholder="Nhập số điện thoại">
+                    <input type="text" id="sdt" placeholder="Nhập số điện thoại" value="${user.phone}">
                 </div>
                 
                 <div class="popup_item">
                     <label>Đia chỉ*</label>
-                    <input type="text" id="dia_chi" placeholder="Nhập địa chỉ">
+                    <input type="text" id="dia_chi" placeholder="Nhập địa chỉ" value="${user.address}">
                 </div>  
                  
                 <div class="popup_item"> 
