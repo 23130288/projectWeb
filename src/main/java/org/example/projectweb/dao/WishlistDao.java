@@ -24,4 +24,15 @@ public class WishlistDao {
     public List<Wishlist> getWishlistByUid(int userId) {
         return wishlistData.getOrDefault(userId, new ArrayList<>());
     }
+
+    public boolean inWishlist(int userId, int productId) {
+        List<Wishlist> wishlists = wishlistData.get(userId);
+        if (wishlists == null)
+            return false;
+        for (Wishlist wl : wishlists) {
+            if (wl.getPid() == productId)
+                return true;
+        }
+        return false;
+    }
 }

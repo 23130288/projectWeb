@@ -12,7 +12,7 @@
 <main>
     <div class="section-product">
         <div class="container-images">
-            <img src="${p.mainImage.image}" class="main-image" alt="${p.name}">
+            <img src="${mainImg.image}" class="main-image" alt="${p.name}">
             <div class="images-list">
                 <c:forEach var="img" items="${p.images}" varStatus="st">
                     <img class="sub-image ${st.index == 0 ? 'active' : ''}"
@@ -54,9 +54,7 @@
                     <label>Chọn màu: </label>
                     <div class="color-options">
                         <c:forEach var="v" items="${p.variants}">
-                            <button class="color-btn"
-                                data-color="${v.color}">${v.color}
-                            </button>
+                            <button class="color-btn ${v.color}"></button>
                         </c:forEach>
                     </div>
                 </div>
@@ -64,8 +62,7 @@
                     <label>Chọn kích cỡ: </label>
                     <div class="size-options">
                         <c:forEach var="v" items="${p.variants}">
-                            <button data-size="${v.size}">${v.size}
-                            </button>
+                            <button class="size-btn">${v.size}</button>
                         </c:forEach>
                     </div>
                 </div>
@@ -73,9 +70,18 @@
 
             <!--Button section-->
             <div class="container-buttons">
-                <button id="buyBtn"><i class="fa-solid fa-money-check-dollar"></i> Mua</button>
-                <button id="addToCartBtn"><i class="fa-solid fa-cart-shopping"></i></button>
-                <button id="addToWishListBtn"><i class="fa-solid fa-heart"></i></button>
+                <button type="button" id="buyBtn">
+                    <i class="fa-solid fa-money-check-dollar"></i> Mua
+                </button>
+
+                <button type="button" id="addToCartBtn">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+
+                <button type="button" id="wishlistBtn"
+                        class="wishlistBtn ${inWishlist ? 'active' : ''}">
+                    <i class="fa-solid fa-heart"></i>
+                </button>
             </div>
             <p id="statusMessage" class="status-msg"></p>
             <div class="popup" id="buyPopup">
@@ -86,15 +92,13 @@
                         </button>
                     </div>
                     <label>Họ tên:<input type="text" id="name" placeholder="Nhập họ tên..."
-                                         value="Name placeholder" required disabled></label>
-
+                                         value="${user.name}" required disabled></label>
                     <label>Số điện thoại:<input type="text" id="phone"
-                                                placeholder="Nhập số điện thoại..." value="0123456789" required
+                                                placeholder="Nhập số điện thoại..." value="${user.phone}" required
                                                 disabled></label>
-
                     <label>Địa chỉ giao hàng:<input id="address"
                                                     placeholder="Nhập địa chỉ..."
-                                                    value="1A/1 Tổ 1A, Khu phố 1, Phường An Bình, Tỉnh Đồng Nai"
+                                                    value="${user.address}"
                                                     required disabled></label>
 
                     <div class="payment-container">

@@ -99,13 +99,13 @@ you choosing size, colors for your product
     font-weight: bold;
 }
 
-/* size button */
+/* ======= options ======= */
 .section-product .product-details .container-options .color-options, .size-options {
     display: flex;
     gap: 10px;
 }
 
-/* color button */
+/* == color button == */
 .section-product .product-details .container-options .color-options .color-btn {
     width: 25px;
     height: 25px;
@@ -115,8 +115,12 @@ you choosing size, colors for your product
     transition: 0.1s;
 }
 
+/* colors for buttons */
 .section-product .product-details .container-options .color-options .color-btn.black {
     background: black;
+}
+.section-product .product-details .container-options .color-options .color-btn.grey {
+    background: grey;
 }
 
 .section-product .product-details .container-options .color-options .color-btn.red {
@@ -126,14 +130,17 @@ you choosing size, colors for your product
 .section-product .product-details .container-options .color-options .color-btn.blue {
     background: blue;
 }
+.section-product .product-details .container-options .color-options .color-btn.pink {
+    background: pink;
+}
 
 /* When selected */
 .section-product .product-details .container-options .color-options .color-btn.active {
     border: 3px solid #F2B035;
 }
 
-/* size button */
-.section-product .product-details .container-options .size-options button {
+/* == size button == */
+.section-product .product-details .container-options .size-options .size-btn {
     padding: 8px 14px;
     border: 1px solid lightgrey;
     border-radius: 4px;
@@ -175,17 +182,19 @@ you choosing size, colors for your product
 }
 
 .section-product .container-buttons #addToCartBtn,
-.section-product .container-buttons #addToWishListBtn {
+.section-product .container-buttons #wishlistBtn {
     width: 10%;
 }
 
-.section-product .container-buttons #addToWishListBtn {
-    color: white;
-    background: hotpink;
+.section-product .container-buttons .wishlist-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #aaa;
 }
 
-.section-product .container-buttons #addToWishListBtn:hover {
-    background: deeppink;
+.section-product .container-buttons .wishlist-btn.active {
+    color: deeppink;
 }
 
 /* status shows when you press a button */
