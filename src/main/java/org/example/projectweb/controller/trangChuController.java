@@ -32,18 +32,18 @@ public class trangChuController extends HttpServlet {
         List<Product> baloProducts = new ArrayList<>();
 
         for (Product p : allProducts) {
-            String type = p.getType();
+            String style = p.getStyle();
             String status = p.getStatus();
 
             if (status != null && status.equalsIgnoreCase("Hot")) {
                 hotProducts.add(p);
             }
 
-            if (type != null && type.equalsIgnoreCase("Du Lịch")) {
+            if (style != null && style.equalsIgnoreCase("Du Lịch")) {
                 valiProducts.add(p);
             }
 
-            if (type != null && type.equalsIgnoreCase("Du Lịch")) {
+            if (style != null && style.equalsIgnoreCase("Du Lịch")) {
                 baloProducts.add(p);
             }
 
