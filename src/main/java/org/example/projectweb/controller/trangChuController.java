@@ -53,6 +53,6 @@ public class trangChuController extends HttpServlet {
         request.setAttribute("valiProducts", valiProducts);
         request.setAttribute("baloProducts", baloProducts);
 
-        request.getRequestDispatcher("trang_chu.jsp").forward(request, response);
+        request.getRequestDispatcher("trang_chu/trang_chu.jsp").forward(request, response);
     }
 }
