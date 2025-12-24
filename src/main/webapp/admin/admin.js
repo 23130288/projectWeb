@@ -124,14 +124,17 @@
         "Quản lý người dùng": `
             <h2>Quản lý người dùng</h2>
             <div class="table-wrapper">
-                <table class="table_data">
-                    <tr><th>Mã người dùng</th><th>Tên</th><th>Email</th><th>Vai trò</th><th>Trạng thái</th><th>Thao tác</th></tr>
-                    <tr><td>U0001</td><td>Nguyễn Văn A</td><td>a@gmail.com</td><td>Người dùng</td><td>Còn hoạt động</td>
-                        <td><button class="btn-xoa">Xóa</button></td></tr>
-                    <tr><td>U0002</td><td>Trần Thị B</td><td>b@gmail.com</td><td>Người dùng</td><td>Còn hoạt động</td>
-                        <td><button class="btn-xoa">Xóa</button></td></tr>
+                <table class="table_data" id="userTable">
+                    <tr>
+                        <th>ID</th>
+                        <th>Tên</th>
+                        <th>Email</th>
+                        <th>Vai trò</th>
+                        <th>Trạng thái</th>
+                        <th>Thao tác</th>
+                    </tr>
                 </table>
-            <div/>
+            </div>
         `,
 
         "Quản lý đơn hàng": `
@@ -730,6 +733,10 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
 //                 });
 //             }
 
+            if (text === "Quản lý người dùng") {
+                loadUserList();
+            }
+
             if (text === "Quản lý voucher") {
                 const btnThemTB = document.getElementById("btn-them-tb");
                 if (btnThemTB) btnThemTB.addEventListener("click", () => {
@@ -945,3 +952,30 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+//hàm hỗ trợ
+function loadUserList() {
+    fetch('/projectWeb_war/admin/users')
+        .then(res => res.json())
+        .then(users => {
+            const table = document.getElementById("userTable");
+
+            users.forEach(u => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${u.id}</td>
+                    <td>${u.name}</td>
+                    <td>${u.email}</td>
+                    <td>${u.role}</td>
+                    <td>${u.status ? "Hoạt động" : "Bị khóa"}</td>
+                    <td>
+                        <button onclick="toggleUserStatus(${u.id})">
+                            ${u.status ? "Khóa" : "Mở"}
+                        </button>
+                    </td>
+                `;
+                table.appendChild(row);
+            });
+        });
+}
+

@@ -15,7 +15,7 @@ public class userDao {
         data.put(2, new User(2, "nguyen van b", "nguyenvanb@gmail.com", "123", "duong abc", "15/5/2009", "nguyenvanb.jpg", "user", "09638256192", true));
         data.put(3, new User(3, "nguyen van c", "nguyenvanc@gmail.com", "123", "duong abc", "24/1/2008", "nguyenvanc.jpg", "user", "09628237362", true));
         data.put(4, new User(4, "tran van a", "tranvana@gmail.com", "123", "duong abc", "2/7/2004", "tranvana.jpg", "user", "092129352761", true));
-        data.put(4, new User(5, "admin a", "admina@gmail.com", "123", null, "2/7/2004", "tranvana.jpg", "admin", null, true));
+        data.put(4, new User(5, "admin a", "admina@gmail.com", "123", null, "2/7/2004", "admina.jpg", "admin", null, true));
     }
 
     public User login(String email, String password) {
@@ -41,6 +41,13 @@ public class userDao {
         data.put(uid, new User(uid, name, email, pass, null, null, null, "user", null, true));
     }
 
+    public void updateStatus(int userId, boolean status) {
+        User u = data.get(userId);
+        if (u != null) {
+            u.setStatus(status);
+        }
+    }
+
     public List<User> getListUserId() {
         return new ArrayList<>(data.values());
     }
@@ -48,4 +55,5 @@ public class userDao {
     public User getUserById(int userId) {
         return data.getOrDefault(userId, null);
     }
+
 }
