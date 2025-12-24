@@ -5,6 +5,7 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
+
 import org.example.projectweb.model.User;
 import org.example.projectweb.service.DangNhapService;
 
@@ -30,8 +31,11 @@ public class DangNhapController extends HttpServlet {
             // đăng nhập thành công
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
-
-            response.sendRedirect("tai_khoan");
+            //check role
+            if ("admin".equalsIgnoreCase(user.getRole()))
+                response.sendRedirect("admin");
+            else
+                response.sendRedirect("tai_khoan");
         } else {
             // đăng nhập thất bại
             request.setAttribute("err", "Bạn nhập sai email hoặc mật khẩu");

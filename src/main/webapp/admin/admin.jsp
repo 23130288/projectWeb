@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
@@ -11,8 +12,8 @@
     <!-- MENU BÊN TRÁI -->
     <div class="menu" id="menu">
         <div class="avata">
-            <img src="admin/image/avatar.jpg" alt="Ảnh đại diện admin">
-            <h3 class="username">Admin A</h3>
+            <img src="images/userAvatar/${user.avatar}">
+            <h3 class="username">${user.name}</h3>
             <button class="change-btn" id="btn-doi-thong-tin">Đổi thông tin</button>
         </div>
 

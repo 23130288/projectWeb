@@ -1,4 +1,4 @@
-package org.example.projectweb.controller;
+package org.example.projectweb.controller.admincontroller;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
