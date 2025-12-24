@@ -6,7 +6,6 @@ import org.example.projectweb.model.Product;
 import org.example.projectweb.model.Review;
 import org.example.projectweb.model.ReviewView;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,8 +37,9 @@ public class ReviewService {
         for (Review r : reviews) {
             res += r.getRating();
         }
-        DecimalFormat df = new DecimalFormat("#.##");
-        return Double.parseDouble(df.format(res/reviews.size()));
+        res = res/reviews.size();
+        res = Math.round(res * Math.pow(10, 2)) / Math.pow(10, 2);
+        return res;
     }
 
     public List<Double> getAvgRatingsForProducts(List<Product> products) {

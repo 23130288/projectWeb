@@ -20,7 +20,7 @@ public class trangChuController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Product> allProducts = productDao.getListProductId();
+        List<Product> allProducts = productDao.getListProduct();
 
         for (Product p : allProducts) {
             p.setImages(imageProductDao.getImagesByProductId(p.getPid()));
@@ -53,6 +53,6 @@ public class trangChuController extends HttpServlet {
         request.setAttribute("valiProducts", valiProducts);
         request.setAttribute("baloProducts", baloProducts);
 
-        request.getRequestDispatcher("trang_chu.jsp").forward(request, response);
+        request.getRequestDispatcher("trang_chu/trang_chu.jsp").forward(request, response);
     }
 }

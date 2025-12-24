@@ -25,4 +25,7 @@ public class WishlistService {
         return products;
     }
 
+    public boolean inWishlist(int userId, int productId) {
+        return wDao.inWishlist(userId, productId);
+    }
 }

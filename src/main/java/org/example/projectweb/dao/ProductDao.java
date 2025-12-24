@@ -1,13 +1,14 @@
 package org.example.projectweb.dao;
 
 import org.example.projectweb.model.Product;
+import org.jdbi.v3.core.statement.PreparedBatch;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ProductDao {
+public class ProductDao extends BaseDao {
 
     static Map<Integer, Product> data = new HashMap<>();
     static {
@@ -18,12 +19,17 @@ public class ProductDao {
         data.put(5, new Product(5, "Balo2", "Producer3", "balo", "Vai", "Xach tay", "des", "status"));
     }
 
-    public List<Product> getListProductId() {
-        return new ArrayList<>(data.values());
+    public List<Product> getListProduct() {
+        return get().withHandle(h -> h.createQuery("select name, producer, type, material, style, description, status from product")
+                .mapToBean(Product.class).list());
     }
+
     public Product getProductById(int productId) {
-        return data.getOrDefault(productId, null);
+        return get().withHandle(h -> h.createQuery("select name, producer, type, material, style, description from product where pid = :pid")
+                .bind("pid", productId)
+                .mapToBean(Product.class).first());
     }
+
     public List<Product> searchByName(String keyword) {
         List<Product> result = new ArrayList<>();
         if (keyword == null || keyword.trim().isEmpty()) {
@@ -36,5 +42,21 @@ public class ProductDao {
             }
         }
         return result;
+    }
+
+    public void insert(List<Product> list) {
+        get().useHandle(h -> {
+            PreparedBatch pb = h.prepareBatch("insert into product (name, producer, type, material, style, description, status) " +
+                    "values (:name,:producer,:type,:material,:style,:description,:status)");
+            list.forEach(l -> {
+                pb.bindBean(l).add();
+            });
+            pb.execute();
+        });
+    }
+
+    public static void main(String[] args) {
+        ProductDao pd = new ProductDao();
+//        pd.insert(pd.getListProduct());
     }
 }

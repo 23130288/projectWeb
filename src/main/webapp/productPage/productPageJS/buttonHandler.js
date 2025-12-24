@@ -31,7 +31,7 @@ sizeButtons.forEach(btn => {
 /* ============================================================================================================= */
 const buyBtn = document.getElementById('buyBtn'); // get button to cart page
 const addToCartBtn = document.getElementById('addToCartBtn'); // get button to cart page
-const addToWishListBtn = document.getElementById('addToWishListBtn'); // get button to cart page
+const addToWishListBtn = document.getElementById('wishlistBtn'); // get button to cart page
 
 addToCartBtn.addEventListener('click', () => {
     const colorSelected = document.querySelector('.color-btn.active');
@@ -68,9 +68,9 @@ cancelBuy.addEventListener('click', () => {
 });
 /* Buy handler */
 confirmBuy.addEventListener('click', () => {
-    const name = document.getElementById('buyerName').value.trim();
-    const phone = document.getElementById('buyerPhone').value.trim();
-    const address = document.getElementById('buyerAddress').value.trim();
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const address = document.getElementById('address').value.trim();
 
     if (!name || !phone || !address) {
         showMessage('Vui lòng điền đầy đủ thông tin trước khi xác nhận!', 'red');

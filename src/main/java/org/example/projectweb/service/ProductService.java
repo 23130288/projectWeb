@@ -3,17 +3,15 @@ package org.example.projectweb.service;
 import org.example.projectweb.dao.ImageProductDao;
 import org.example.projectweb.dao.ProductDao;
 import org.example.projectweb.dao.ProductVariantDao;
-import org.example.projectweb.dao.ReviewDao;
+import org.example.projectweb.model.ImageProduct;
 import org.example.projectweb.model.Product;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProductService {
     ProductDao pDao = new ProductDao();
     ProductVariantDao pvDao = new ProductVariantDao();
     ImageProductDao ipDao = new ImageProductDao();
-    ReviewDao rDao = new ReviewDao();
 
 //    public List<Product> getListProductId() {
 //        return pDao.getListProductId();
@@ -27,7 +25,6 @@ public class ProductService {
         return p;
     }
 
-    // For wishlist
     public void setVariantsForProducts(List<Product> productList) {
         for (Product p : productList) {
             if (p != null) {
@@ -42,6 +39,10 @@ public class ProductService {
             }
         }
     }
+    public ImageProduct getMainImg(int productId) {
+        return ipDao.getMainImageByProductId(productId);
+    }
+
     public List<Product> searchProducts(String keyword) {
         List<Product> results = pDao.searchByName(keyword);
         for (Product p : results) {
@@ -50,4 +51,6 @@ public class ProductService {
         }
         return results;
     }
+
+
 }

@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,391 +60,44 @@
     </div>
 </div>
 <section class="results">
-    <h1>KẾT QUẢ TÌM KIẾM</h1>
-    <!--    <div id="search-info"></div>-->
-    <!--    <div id="no-results">Xin lỗi, không tìm thấy kết quả !</div>-->
-    <div class="slider-container">
-        <div class="product-grid">
-            <a href="../productPage/productPage.html" class="product-link">
-                <div class="product-card">
-                    <img src="image/vai_keo_24_inch.png"
-                         alt="Vali kéo cỡ nhỏ">
-                    <h3>Vali Kéo Cỡ Nhỏ</h3>
-                    <p class="price">
-                        <span class="new-price">900.000đ</span>
-                    </p>
-                    <div class="product-actions">
-                        <button class="buy-btn">Mua Ngay</button>
-                        <div class="inner-circle1">
-                            <i class="fa fa-shopping-cart"></i>
+    <c:choose>
+    <c:when test="${not empty searchResults}">
+        <h1>Kết quả tìm kiếm cho: "${lastSearch}"</h1>
+        <div class="slider-container">
+            <div class="product-grid">
+                <c:forEach var="p" items="${searchResults}">
+                    <div class="product-card">
+                        <a href="productDetail?pid=${p.pid}">
+                            <img src="${p.mainImage.image}" alt="${p.name}">
+                            <h2>${p.name}</h2>
+                        </a>
+                        <p class="price">
+                                <span class="new-price">
+                                    <fmt:formatNumber value="${p.variants[0].price}" pattern="#,###"/>đ
+                                </span>
+                        </p>
+                        <div class="product-actions">
+                            <button class="buy-btn">Mua Ngay</button>
+                            <div class="inner-circle1">
+                                <i class="fa fa-shopping-cart"></i>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
-
-            <a href="../productPage/productPage.html" class="product-link">
-                <div class="product-card">
-                    <img src="image/vali_keo_chong_nuoc.jpg"
-                         alt="Vali kéo chống nước">
-                    <h3>Vali Kéo Chống Nước</h3>
-                    <p class="price">
-                        <span class="new-price">910.000đ</span>
-                    </p>
-                    <div class="product-actions">
-                        <button class="buy-btn">Mua Ngay</button>
-                        <div class="inner-circle1">
-                            <i class="fa fa-shopping-cart"></i>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <a href="../productPage/productPage.html" class="product-link">
-                <div class="product-card">
-                    <img src="image/vai_keo_28_inch.png"
-                         alt="Vali kéo cỡ to">
-                    <h3>Vali Kéo Cỡ To</h3>
-                    <p class="price">
-                        <span class="new-price">1.500.000đ</span>
-                    </p>
-                    <div class="product-actions">
-                        <button class="buy-btn">Mua Ngay</button>
-                        <div class="inner-circle1">
-                            <i class="fa fa-shopping-cart"></i>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <a href="../productPage/productPage.html" class="product-link">
-                <div class="product-card">
-                    <img src="image/vali_keo_mini_xach_tay.png"
-                         alt="Vali mini xách tay">
-                    <h3>Vali Kéo Mini Xách Tay</h3>
-                    <p class="price">
-                        <span class="new-price">780.000đ</span>
-                    </p>
-                    <div class="product-actions">
-                        <button class="buy-btn">Mua Ngay</button>
-                        <div class="inner-circle1">
-                            <i class="fa fa-shopping-cart"></i>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <a href="../productPage/productPage.html" class="product-link">
-                <div class="product-card">
-                    <img src="image/vali_thoi_trang_nu_28_inch.png"
-                         alt="Vali kéo thời trang nữ">
-                    <h3>Vali Kéo Thời Trang Nữ</h3>
-                    <p class="price">
-                        <span class="new-price">1.275.000đ</span>
-                    </p>
-                    <div class="product-actions">
-                        <button class="buy-btn">Mua Ngay</button>
-                        <div class="inner-circle1">
-                            <i class="fa fa-shopping-cart"></i>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <a href="../productPage/productPage.html" class="product-link">
-                <div class="product-card">
-                    <img src="image/vali_thoi_trang_nam_24_inch.png"
-                         alt="Vali kéo thời trang nam">
-                    <h3>Vali Kéo Thời Trang Nam</h3>
-                    <p class="price">
-                        <span class="new-price">980.000đ</span>
-                    </p>
-                    <div class="product-actions">
-                        <button class="buy-btn">Mua Ngay</button>
-                        <div class="inner-circle1">
-                            <i class="fa fa-shopping-cart"></i>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <a href="../productPage/productPage.html" class="product-link">
-                <div class="product-card">
-                    <img src="image/vali_keo_Maxwell.png"
-                         alt="Vali kéo Maxwell">
-                    <h3>Vali Kéo Maxwell</h3>
-                    <p class="price">
-                        <span class="new-price">1.960.000đ</span>
-                    </p>
-                    <div class="product-actions">
-                        <button class="buy-btn">Mua Ngay</button>
-                        <div class="inner-circle1">
-                            <i class="fa fa-shopping-cart"></i>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <a href="../productPage/productPage.html" class="product-link">
-                <div class="product-card">
-                    <img src="image/vali_keo_B_Lite_4.png"
-                         alt="Vali kéo B Lite 4">
-                    <h3>Vali Kéo B Lite 4</h3>
-                    <p class="price">
-                        <span class="new-price">2.640.000đ</span>
-                    </p>
-                    <div class="product-actions">
-                        <button class="buy-btn">Mua Ngay</button>
-                        <div class="inner-circle1">
-                            <i class="fa fa-shopping-cart"></i>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <a href="../productPage/productPage.html" class="product-link">
-                <div class="product-card">
-                    <img src="image/vali_chong_va_dap_24_inch.png"
-                         alt="Vali chống va đập H0">
-                    <h3>Vali Chống Va Đập H0</h3>
-                    <p class="price">
-                        <span class="new-price">1.250.000đ</span>
-                    </p>
-                    <div class="product-actions">
-                        <button class="buy-btn">Mua Ngay</button>
-                        <div class="inner-circle1">
-                            <i class="fa fa-shopping-cart"></i>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <a href="../productPage/productPage.html" class="product-link">
-                <div class="product-card">
-                    <img src="image/img4.png"
-                         alt ="Vali Khung Nhôm Cao Cấp H3">
-                    <h3>Vali Khung Nhôm Cao Cấp H3</h3>
-                    <p class="price">
-                        <span class="new-price">1.500.000đ</span>
-                    </p>
-                    <div class="product-actions">
-                        <button class="buy-btn">Mua Ngay</button>
-                        <div class="inner-circle1">
-                            <i class="fa fa-shopping-cart"></i>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <a href="../productPage/productPage.html" class="product-link">
-                <div class="product-card">
-                    <img src="image/img5.png"
-                         alt ="Vali Khung Nhôm Cao Cấp H4">
-                    <h3>Vali Khung Nhôm Cao Cấp H4</h3>
-                    <p class="price">
-                        <span class="new-price">1.275.000đ</span>
-                    </p>
-                    <div class="product-actions">
-                        <button class="buy-btn">Mua Ngay</button>
-                        <div class="inner-circle1">
-                            <i class="fa fa-shopping-cart"></i>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <a href="../productPage/productPage.html" class="product-link">
-                <div class="product-card">
-                    <img src="image/img6.png"
-                         alt ="Vali Khung Nhôm Cao Cấp H5">
-                    <h3>Vali Khung Nhôm Cao Cấp H5</h3>
-                    <p class="price">
-                        <span class="new-price">980.000đ</span>
-                    </p>
-                    <div class="product-actions">
-                        <button class="buy-btn">Mua Ngay</button>
-                        <div class="inner-circle1">
-                            <i class="fa fa-shopping-cart"></i>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Balo du lịch -->
-            <div class="product-card">
-                <img src="image/balo_chong_nuoc.png"
-                     alt="Balo du lịch chống nước">
-                <h2>Balo Du Lich Chống Nước</h2>
-                <p class="price">
-                    <span class="new-price">975.000đ</span>
-                </p>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <img src="image/balo_du_lich_gon_nhe.png"
-                     alt="Balo du lịch gọn nhẹ">
-                <h2>Balo Du Lịch Gọn Nhẹ</h2>
-                <p class="price">
-                    <span class="new-price">630.000đ</span>
-                </p>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <img src="image/bao_thoi_trang.png"
-                     alt="Balo thời trang ">
-                <h2>Balo Thời Trang </h2>
-                <p class="price">
-                    <span class="new-price">715.000đ</span>
-                </p>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="image/balo_1_quai_đeo.png"
-                     alt="Balo 1 quai đeo  ">
-                <h2>Balo 1 quai đeo </h2>
-                <p class="price">
-                    <span class="new-price">480.000đ</span>
-                </p>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="">-20%</div>
-                <img src="image/balo_phuot.png"
-                     alt="Balo Phượt  ">
-                <h2>Balo Phượt </h2>
-                <p class="price">
-                    <span class="new-price">720.000đ</span>
-                </p>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="image/balo_cam_trai.png"
-                     alt="Balo cắm trại  ">
-                <h2>Balo Cắm Trại </h2>
-                <p class="price">
-                    <span class="new-price">1.200.000đ</span>
-                </p>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="">-15%</div>
-                <img src="image/balo_leo_nui.png"
-                     alt="Balo leo núi  ">
-                <h2>Balo Leo Núi </h2>
-                <p class="price">
-                    <span class="new-price">1.275.000đ</span>
-                </p>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="image/balo_giu_nhiet.png"
-                     alt="Balo giữ nhiệt  ">
-                <h2>Balo Giữ Nhiệt </h2>
-                <p class="price">
-                    <span class="new-price">456.000đ</span>
-                </p>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="image/balo_simplecarry_twb.png"
-                     alt="Balo Simplecarry TWB ">
-                <h2>Balo Simplecarry TWB </h2>
-                <p class="price">
-                    <span class="new-price">841.500đ</span>
-                </p>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="image/img7.png"
-                     alt="Balo GUBAG-BL80">
-                <h2>Balo GUBAG-BL80 </h2>
-                <p class="price">
-                    <span class="new-price">975.000đ</span>
-                </p>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="image/img8.png"
-                     alt="Balo ROKIN VELOCITY">
-                <h2>Balo ROKIN VELOCITY</h2>
-                <p class="price">
-                    <span class="new-price">630.000đ</span>
-                </p>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="image/img9.png"
-                     alt="Balo Simplecarry E-City">
-                <h2>Balo Simplecarry E-Cityh </h2>
-                <p class="price">
-                    <span class="new-price">715.000đ</span>
-                </p>
-                <div class="product-actions">
-                    <button class="buy-btn">Mua Ngay</button>
-                    <div class="inner-circle1">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
+                </c:forEach>
             </div>
         </div>
-        <div class="slider-nav"></div>
-    </div>
+    </c:when>
+    <c:otherwise>
+        <div class="no-results-container">
+            <h2 class="no-results-title">Không tìm thấy sản phẩm nào!</h2>
+            <p class="no-results-text">
+                Rất tiếc, chúng tôi không tìm thấy kết quả cho từ khóa:
+                <strong class="highlight-keyword">"${searchNotResults}"</strong>
+            </p>
+            <p class="no-results-subtext">Vui lòng kiểm tra lại chính tả hoặc tìm kiếm bằng từ khóa khác.</p>
+        </div>
+    </c:otherwise>
+    </c:choose>
 </section>
 <footer>
     <div id="footer-placeholder"></div>

@@ -8,6 +8,7 @@ public class ImageProduct implements Serializable {
     private String image;
     private boolean isMain;
 
+    public ImageProduct() {}
     public ImageProduct(int imgId, int pid, String image, boolean isMain) {
         this.imgId = imgId;
         this.pid = pid;
@@ -25,5 +26,21 @@ public class ImageProduct implements Serializable {
 
     public boolean isMain() {
         return this.isMain;
+    }
+
+    public void setImgId(int imgId) {
+        this.imgId = imgId;
+    }
+
+    public void setPid(int pid) {
+        this.pid = pid;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public void setMain(boolean main) {
+        isMain = main;
     }
 }
