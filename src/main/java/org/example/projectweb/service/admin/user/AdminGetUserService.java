@@ -9,7 +9,7 @@ public class AdminGetUserService {
     private final userDao userDao = new userDao();
 
     public List<User> getAllUsers() {
-        return userDao.getListUserId();
+        return userDao.getListUser();
     }
 
     public User getUserById(int id) {
