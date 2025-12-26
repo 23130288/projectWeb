@@ -26,7 +26,7 @@
                 <div class="wishlist-item">
                     <div class="wishlist-item-title">
                         <a href="">
-                            <img src="${p.mainImage.image}" alt="${p.name}">
+                            <img src="${listMainImgs[st.index].image}" alt="${p.name}">
                         </a>
                         <div class="wishlist-item-info">
                             <label>${p.name}</label>
@@ -62,7 +62,11 @@
                     </div>
                     <div class="wishlist-item-buttons">
                         <button class="add-to-cart">Thêm vào giỏ</button>
-                        <button class="remove-btn">Xóa</button>
+                        <form action="wishlist" method="post">
+                            <input type="hidden" name="action" value="remove">
+                            <input type="hidden" name="productId" value="${p.pid}">
+                            <button type="submit" class="remove-btn">Xóa</button>
+                        </form>
                     </div>
                 </div>
             </c:forEach>

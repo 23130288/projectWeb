@@ -13,10 +13,6 @@ public class ProductService {
     ProductVariantDao pvDao = new ProductVariantDao();
     ImageProductDao ipDao = new ImageProductDao();
 
-//    public List<Product> getListProductId() {
-//        return pDao.getListProductId();
-//    }
-
     public Product getProductDetail(int productId) {
         Product p = pDao.getProductById(productId);
         if (p == null) return null;
@@ -25,20 +21,6 @@ public class ProductService {
         return p;
     }
 
-    public void setVariantsForProducts(List<Product> productList) {
-        for (Product p : productList) {
-            if (p != null) {
-                p.setVariants(pvDao.getVariantsByProductId(p.getPid()));
-            }
-        }
-    }
-    public void setImagesForProducts(List<Product> productList) {
-        for (Product p : productList) {
-            if (p != null) {
-                p.setImages(ipDao.getImagesByProductId(p.getPid()));
-            }
-        }
-    }
     public ImageProduct getMainImg(int productId) {
         return ipDao.getMainImageByProductId(productId);
     }
@@ -51,6 +33,4 @@ public class ProductService {
         }
         return results;
     }
-
-
 }

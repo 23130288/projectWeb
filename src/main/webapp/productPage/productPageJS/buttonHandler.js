@@ -31,7 +31,6 @@ sizeButtons.forEach(btn => {
 /* ============================================================================================================= */
 const buyBtn = document.getElementById('buyBtn'); // get button to cart page
 const addToCartBtn = document.getElementById('addToCartBtn'); // get button to cart page
-const addToWishListBtn = document.getElementById('wishlistBtn'); // get button to cart page
 
 addToCartBtn.addEventListener('click', () => {
     const colorSelected = document.querySelector('.color-btn.active');
@@ -42,10 +41,6 @@ addToCartBtn.addEventListener('click', () => {
         return;
     }
     showMessage('Sản phẩm đã được thêm vào giỏ hàng!');
-});
-
-addToWishListBtn.addEventListener('click', () => {
-    showMessage('Đã thêm vào danh sách yêu thích!');
 });
 
 /* ======= buy button ======= */
