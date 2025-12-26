@@ -1,7 +1,5 @@
 package org.example.projectweb.model;
 
-import org.example.projectweb.dao.ImageProductDao;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

@@ -34,7 +34,18 @@ public class ProductPageController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int userId = 1;
+        int productId = Integer.parseInt(request.getParameter("productId"));
 
+        WishlistService ws = new WishlistService();
+
+        if (ws.inWishlist(userId, productId)) {
+            ws.removeFromWishlist(userId, productId);
+        } else {
+            ws.addToWishlist(userId, productId);
+        }
+
+        response.sendRedirect("productPage");
     }
 }
 

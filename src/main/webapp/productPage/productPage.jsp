@@ -78,10 +78,12 @@
                     <i class="fa-solid fa-cart-shopping"></i>
                 </button>
 
-                <button type="button" id="wishlistBtn"
-                        class="wishlistBtn ${inWishlist ? 'active' : ''}">
-                    <i class="fa-solid fa-heart"></i>
-                </button>
+                <form action="productPage" method="post">
+                    <input type="hidden" name="productId" value="${p.pid}">
+                    <button type="submit" class="wishlistBtn ${inWishlist ? 'active' : ''}" id="wishlistBtn">
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                </form>
             </div>
             <p id="statusMessage" class="status-msg"></p>
             <div class="popup" id="buyPopup">
