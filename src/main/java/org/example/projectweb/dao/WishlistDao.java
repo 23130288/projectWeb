@@ -7,32 +7,25 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class WishlistDao {
-    // key = uid, values = pid
-//    static Map<Integer, List<Integer>> wishlistData = new HashMap<>();
-//
-//    static {
-//        wishlistData.put(1, new ArrayList<>(List.of(2, 3)));
-//        wishlistData.put(2, new ArrayList<>(List.of(1)));
-//    }
-    static Map<Integer, List<Wishlist>> wishlistData = new HashMap<>();
-    static {
-        wishlistData.put(1, new ArrayList<>(List.of(new Wishlist(1, 1), new Wishlist(1, 2))));
-    }
-
-    // get wishlist by user's id
-    public List<Wishlist> getWishlistByUid(int userId) {
-        return wishlistData.getOrDefault(userId, new ArrayList<>());
-    }
-
+public class WishlistDao extends BaseDao {
     public boolean inWishlist(int userId, int productId) {
-        List<Wishlist> wishlists = wishlistData.get(userId);
-        if (wishlists == null)
-            return false;
-        for (Wishlist wl : wishlists) {
-            if (wl.getPid() == productId)
-                return true;
-        }
-        return false;
+        return !get().withHandle(h -> h.createQuery("select pid from wishlist where uid = :uid and pid = :pid")
+                .bind("uid", userId)
+                .bind("pid", productId)
+                .mapToBean(Wishlist.class).list()).isEmpty();
+    }
+
+    public void removeFromWishlist(int userId, int productId) {
+        get().useHandle(h -> h.createUpdate("delete from wishlist where uid = :uid and pid = :pid")
+                .bind("uid", userId)
+                .bind("pid", productId)
+                .execute());
+    }
+
+    public void addToWishlist(int userId, int productId) {
+        get().useHandle(h -> h.createUpdate("insert into wishlist (uid, pid) values (:uid,:pid)")
+                .bind("uid", userId)
+                .bind("pid", productId)
+                .execute());
     }
 }

@@ -11,6 +11,7 @@ import java.util.Map;
 public class ProductDao extends BaseDao {
 
     static Map<Integer, Product> data = new HashMap<>();
+
     static {
         data.put(1, new Product(1, "Balo Apollo đựng laptop", "Producer1", "balo", "Vai", "Deo lung", "des", "status"));
         data.put(2, new Product(2, "Vali1", "Producer1", "vali", "Nhom", "Keo", "des", "status"));
@@ -25,7 +26,7 @@ public class ProductDao extends BaseDao {
     }
 
     public Product getProductById(int productId) {
-        return get().withHandle(h -> h.createQuery("select name, producer, type, material, style, description from product where pid = :pid")
+        return get().withHandle(h -> h.createQuery("select pid, name, producer, type, material, style, description from product where pid = :pid")
                 .bind("pid", productId)
                 .mapToBean(Product.class).first());
     }
@@ -44,19 +45,10 @@ public class ProductDao extends BaseDao {
         return result;
     }
 
-    public void insert(List<Product> list) {
-        get().useHandle(h -> {
-            PreparedBatch pb = h.prepareBatch("insert into product (name, producer, type, material, style, description, status) " +
-                    "values (:name,:producer,:type,:material,:style,:description,:status)");
-            list.forEach(l -> {
-                pb.bindBean(l).add();
-            });
-            pb.execute();
-        });
-    }
-
-    public static void main(String[] args) {
-        ProductDao pd = new ProductDao();
-//        pd.insert(pd.getListProduct());
+    public List<Product> getProductsForWishlist(int userId) {
+        return get().withHandle(h -> h.createQuery("select p.pid, p.name from product p join wishlist wl on p.pid = wl.pid " +
+                        "where wl.uid = :uid")
+                .bind("uid", userId)
+                .mapToBean(Product.class).list());
     }
 }

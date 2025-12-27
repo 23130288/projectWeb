@@ -162,6 +162,11 @@ you choosing size, colors for your product
 }
 
 /*======================= cart page button section =======================*/
+.section-product .container-buttons {
+    display: flex;
+    gap: 5px;
+}
+
 .section-product .container-buttons button {
     background-color: #F2C641;
     color: black;
@@ -186,14 +191,14 @@ you choosing size, colors for your product
     width: 10%;
 }
 
-.section-product .container-buttons .wishlist-btn {
+.section-product .container-buttons #wishlistBtn {
     background: none;
     border: none;
     cursor: pointer;
     color: #aaa;
 }
 
-.section-product .container-buttons .wishlist-btn.active {
+.section-product .container-buttons #wishlistBtn.active {
     color: deeppink;
 }
 

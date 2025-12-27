@@ -147,6 +147,10 @@ main .wishlist-item {
 }
 
 /* button */
+.wishlist-item .wishlist-item-buttons {
+    display: flex;
+    gap: 5px;
+}
 .wishlist-item .wishlist-item-buttons .add-to-cart {
     background: #F2C641;
     color: black;
