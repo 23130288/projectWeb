@@ -15,24 +15,20 @@
             </div>
             
             <div class="table-wrapper">
-                <table class="table_data">
+                <table class="table_data" id="productTable">
                     <tr>
-                        <th>Mã SP</th><th>Tên sản phẩm</th><th>Loại</th><th>Kiểu dáng</th><th>Chất liệu</th><th>Còn lại</th><th>NCC</th><th>Trạng thái</th><th>Thao tác</th>
-                    </tr>
-                    <tr>
-                        <td>SP001</td><td>Balo du lịch</td><td>Balo</td><td>đi biển</td><td>Nhựa</td><td>5</td><td>công ty abc</td><td>đang bán</td>
-                        <td><button class="btn-them" id="them_sp">Thêm</button><button class="btn-sua" id="sua_sp">Sửa</button><button class="btn-xoa">Xóa</button></td>
-                    </tr>
-                    <tr>
-                        <td>SP002</td><td>Vali cao cấp</td><td>Vali</td><td>Gia đình</td><td>Hợp kim</td><td>12</td><td>công ty abc</td><td>bán chạy</td>
-                        <td><button class="btn-them" id="them_sp">Thêm</button><button class="btn-sua" id="sua_sp">Sửa</button><button class="btn-xoa">Xóa</button></td>
-                    </tr>
-                    <tr>
-                        <td>SP003</td><td>Balo leo núi</td><td>Balo</td><td>leo núi</td><td>Cottom</td><td>5</td><td>công ty abc</td><td>dừng bán</td>
-                        <td><button class="btn-them" id="them_sp">Thêm</button><button class="btn-sua" id="sua_sp">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                        <th>ID</th>
+                        <th>Tên</th>
+                        <th>Loại</th>
+                        <th>Kiểu dáng</th>
+                        <th>Chất liệu</th>
+                        <th>Còn lại</th>
+                        <th>NCC</th>
+                        <th>Trạng thái</th>
+                        <th>Thao tác</th>
                     </tr>
                 </table>
-            </div>
+            </div>         
         `,
 
         "Quản lý biến thể sản phẩm": `
@@ -575,6 +571,7 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
             }
 
             if (text === "Quản lý sản phẩm") {
+                loadProductList()
                 const btnThem = document.getElementById("btn-them-sp");
                 if (btnThem) btnThem.addEventListener("click", () => {
                     openAdminPopup(
@@ -953,7 +950,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-//hàm hỗ trợ
+//hàm hỗ trợ ajax
+//load user
 function loadUserList() {
     fetch('/projectWeb_war/admin/users')
         .then(res => res.json())
@@ -963,7 +961,7 @@ function loadUserList() {
             users.forEach(u => {
                 const row = document.createElement("tr");
                 row.innerHTML = `
-                    <td>${u.id}</td>
+                    <td>${u.uid}</td>
                     <td>${u.name}</td>
                     <td>${u.email}</td>
                     <td>${u.role}</td>
@@ -971,6 +969,35 @@ function loadUserList() {
                     <td>
                         <button onclick="toggleUserStatus(${u.id})">
                             ${u.status ? "Khóa" : "Mở"}
+                        </button>
+                    </td>
+                `;
+                table.appendChild(row);
+            });
+        });
+}
+
+//load product
+function loadProductList() {
+    fetch('/projectWeb_war/admin/product_load')
+        .then(res => res.json())
+        .then(products => {
+            const table = document.getElementById("productTable");
+
+            products.forEach(p => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${p.pid}</td>
+                    <td>${p.name}</td>
+                    <td>${p.type}</td>
+                    <td>${p.style}</td>
+                    <td>${p.material}</td>
+                    <td>${0}</td>
+                    <td>${p.producer}</td>
+                    <td>${p.status}</td>
+                    <td>
+                        <button onclick="toggleProductStatus(${p.id})">
+                            ${p.status}
                         </button>
                     </td>
                 `;
