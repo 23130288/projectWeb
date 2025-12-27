@@ -5,7 +5,9 @@ import org.example.projectweb.dao.ProductDao;
 import org.example.projectweb.dao.ProductVariantDao;
 import org.example.projectweb.model.ImageProduct;
 import org.example.projectweb.model.Product;
+import org.example.projectweb.model.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductService {
@@ -16,6 +18,10 @@ public class ProductService {
 //    public List<Product> getListProductId() {
 //        return pDao.getListProductId();
 //    }
+
+    public List<Product> getAllProducts() {
+        return pDao.getListProduct();
+    }
 
     public Product getProductDetail(int productId) {
         Product p = pDao.getProductById(productId);
@@ -32,6 +38,7 @@ public class ProductService {
             }
         }
     }
+
     public void setImagesForProducts(List<Product> productList) {
         for (Product p : productList) {
             if (p != null) {
@@ -39,6 +46,7 @@ public class ProductService {
             }
         }
     }
+
     public ImageProduct getMainImg(int productId) {
         return ipDao.getMainImageByProductId(productId);
     }

@@ -62,7 +62,7 @@ body {
 
 #selection_2 .menu .avata .change-btn:hover,
 #selection_2 .bt_xac_nhan:hover {
-    background: purple;
+    background: #800080;
     cursor: pointer;
 }
 
@@ -86,7 +86,7 @@ body {
 }
 
 #selection_2 .menu .menu_item .item:hover {
-    background: purple;
+    background: #800080;
     color: white;
 }
 
@@ -135,6 +135,10 @@ body {
     color: white;
 }
 
+.table_data td {
+    text-align: left;
+}
+
 .table_data td button {
     background: #EDB310;
     border: none;
@@ -146,7 +150,7 @@ body {
 }
 
 .table_data td button:hover {
-    background: purple;
+    background: #800080;
 }
 
 .table_data td .btn-huy,
@@ -215,7 +219,7 @@ body {
 .Menu-bar .bt_menu:hover,
 .Menu-bar .search-bar button:hover {
     color: white;
-    background-color: purple;
+    background-color: #800080;
 }
 
 /* --- PHẦN THÔNG BÁO --- */
@@ -345,7 +349,7 @@ body {
 }
 
 .popup-actions .confirm:hover {
-    background: #purple;
+    background: #800080;
 }
 
 .popup-actions .cancel {

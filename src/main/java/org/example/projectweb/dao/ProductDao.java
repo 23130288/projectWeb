@@ -20,7 +20,7 @@ public class ProductDao extends BaseDao {
     }
 
     public List<Product> getListProduct() {
-        return get().withHandle(h -> h.createQuery("select name, producer, type, material, style, description, status from product")
+        return get().withHandle(h -> h.createQuery("select pid, name, producer, type, material, style, status from product")
                 .mapToBean(Product.class).list());
     }
 

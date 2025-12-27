@@ -15,7 +15,7 @@ body {
 
 #selection_2 .menu {
     height: auto;
-    margin: 0px 50px;
+    margin: 0 50px;
     width: 250px;
     padding-bottom: 50px;
 }
@@ -88,7 +88,7 @@ body {
     padding: 25px;
     width: 350px;
     border-radius: 12px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     animation: popupShow 0.25s ease;
 }
 
@@ -166,7 +166,7 @@ body {
 
 #selection_2 .infomation h2 {
     text-align: center;
-    padding: 25px 0px;
+    padding: 25px 0;
 }
 
 #selection_2 .infomation .in4_row, .password-wrapper {
@@ -206,14 +206,14 @@ body {
 #selection_2 #old_password,
 #selection_2 #password,
 #selection_2 #confirm_password {
-    padding: 10px 0px;
+    padding: 10px 0;
 }
 
 
 #selection_2 .password-wrapper {
     position: relative;
-    padding: 10px, 0px;
-    margin: none;
+    padding: 10px 0;
+    margin: 0;
 }
 
 #selection_2 .password-wrapper button {
@@ -251,13 +251,13 @@ body {
 }
 
 .info h4 {
-    margin: 0px;
+    margin: 0;
     color: green;
     font-size: 16px;
 }
 
 .info p {
-    margin: 0px 10px;
+    margin: 0 10px;
     font-size: 14px;
 }
 
@@ -484,20 +484,6 @@ body {
     background: #ff6666;
 }
 
-.popup_item .img-upload-box {
-    width: 100%;
-    height: 160px;
-    border: 2px dashed #888;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    position: relative;
-    color: #ccc;
-    margin-bottom: 15px;
-}
 
 .popup_item .img-upload-box:hover {
     border-color: #ff7b57;
