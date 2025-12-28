@@ -59,10 +59,11 @@
         </div>
     </div>
 </div>
+
 <section class="results">
     <c:choose>
     <c:when test="${not empty searchResults}">
-        <h1>Kết quả tìm kiếm cho: "${lastSearch}"</h1>
+        <h1>Kết quả tìm kiếm cho: "${results}"</h1>
         <div class="slider-container">
             <div class="product-grid">
                 <c:forEach var="p" items="${searchResults}">
@@ -92,7 +93,7 @@
             <h2 class="no-results-title">Không tìm thấy sản phẩm nào!</h2>
             <p class="no-results-text">
                 Rất tiếc, chúng tôi không tìm thấy kết quả cho từ khóa:
-                <strong class="highlight-keyword">"${searchNotResults}"</strong>
+                <strong class="highlight-keyword">"${results}"</strong>
             </p>
             <p class="no-results-subtext">Vui lòng kiểm tra lại chính tả hoặc tìm kiếm bằng từ khóa khác.</p>
         </div>

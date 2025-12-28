@@ -39,4 +39,13 @@ public class ProductService {
         }
         return results;
     }
+
+public List<Product> searchInFilter(String query, String category, String sort) {
+    List<Product> list = pDao.searchInFilter(query, category, sort);
+    for (Product p : list) {
+        p.setVariants(pvDao.getVariantsByProductId(p.getPid()));
+        p.setImages(ipDao.getImagesByProductId(p.getPid()));
+    }
+    return list;
+}
 }

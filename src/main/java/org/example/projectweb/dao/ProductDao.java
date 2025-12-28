@@ -44,6 +44,46 @@ public class ProductDao extends BaseDao {
         }
         return result;
     }
+public List<Product> searchInFilter(String query, String category, String sort) {
+    List<Product> result = new ArrayList<>();
+
+    for (Product p : data.values()) {
+        boolean checkQuery = true;
+        boolean checkCategory = true;
+        if (query != null && !query.trim().isEmpty()) {
+            if (!p.getName().toLowerCase().contains(query.toLowerCase().trim())) {
+                checkQuery = false;
+            }
+        }
+        if (category != null && !category.isEmpty()) {
+            if (!p.getType().equalsIgnoreCase(category)) {
+                checkCategory = false;
+            }
+        }
+        if (checkQuery && checkCategory) {
+            result.add(p);
+        }
+    }
+    if (sort != null && !sort.isEmpty()) {
+        result.sort((p1, p2) -> {
+            switch (sort) {
+                case "nameA-Z":
+                    return p1.getName().compareToIgnoreCase(p2.getName());
+                case "nameZ-A":
+                    return p2.getName().compareToIgnoreCase(p1.getName());
+                case "priceLow-High":
+                    return Double.compare(p1.getVariants().get(0).getPrice(),
+                            p2.getVariants().get(0).getPrice());
+                case "priceHigh-Low":
+                    return Double.compare(p2.getVariants().get(0).getPrice(),
+                            p1.getVariants().get(0).getPrice());
+                default:
+                    return 0;
+            }
+        });
+    }
+    return result;
+}
 
     public List<Product> getProductsForWishlist(int userId) {
         return get().withHandle(h -> h.createQuery("select p.pid, p.name from product p join wishlist wl on p.pid = wl.pid " +
