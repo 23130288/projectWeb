@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,7 +78,7 @@
                     <i class="fa-solid fa-cart-shopping"></i>
                 </button>
 
-                <form action="productPage" method="post">
+                <form action="productPage" method="post" class="form-wishlist">
                     <input type="hidden" name="productId" value="${p.pid}">
                     <button type="submit" class="wishlistBtn ${inWishlist ? 'active' : ''}" id="wishlistBtn">
                         <i class="fa-solid fa-heart"></i>
@@ -116,13 +116,13 @@
                         </div>
                     </div>
 
-<!--                    <div class="container-voucher" id="container-voucher">-->
-<!--                        <label for="voucher">Voucher:</label>-->
-<!--                        <div class="voucher-input">-->
-<!--                            <input type="text" id="voucher" placeholder="Nhập mã giảm giá">-->
-<!--                            <button id="apply-voucher">Áp dụng</button>-->
-<!--                        </div>-->
-<!--                    </div>-->
+                    <!--                    <div class="container-voucher" id="container-voucher">-->
+                    <!--                        <label for="voucher">Voucher:</label>-->
+                    <!--                        <div class="voucher-input">-->
+                    <!--                            <input type="text" id="voucher" placeholder="Nhập mã giảm giá">-->
+                    <!--                            <button id="apply-voucher">Áp dụng</button>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
 
                     <div class="container-voucher" id="container-voucher">
                         <label>Voucher:</label>
@@ -175,30 +175,78 @@
     <!--This is a comment section-->
     <div class="section-review">
         <div class="container-review">
-            <!-- Rating -->
-            <form class="container-rating">
-                <h3>Đánh giá</h3>
-                <div class="stars">
-                    <input type="radio" id="star1" name="rating" value="1">
-                    <label for="star1">★</label>
-                    <input type="radio" id="star2" name="rating" value="2">
-                    <label for="star2">★</label>
-                    <input type="radio" id="star3" name="rating" value="3">
-                    <label for="star3">★</label>
-                    <input type="radio" id="star4" name="rating" value="4">
-                    <label for="star4">★</label>
-                    <input type="radio" id="star5" name="rating" value="5">
-                    <label for="star5">★</label>
-                </div>
-            </form>
+            <c:choose>
+                <c:when test="${canReview}">
+                    <c:choose>
+                        <c:when test="${userReview == null}">
+                            <form method="post" action="add-review" class="form-review">
+                                <!-- Rating -->
+                                <div class="container-rating">
+                                    <input type="hidden" name="productId" value="${p.pid}">
+                                    <h3>Đánh giá</h3>
+                                    <div class="stars">
+                                        <input type="radio" id="star1" name="rating" value="1">
+                                        <label for="star1">★</label>
+                                        <input type="radio" id="star2" name="rating" value="2">
+                                        <label for="star2">★</label>
+                                        <input type="radio" id="star3" name="rating" value="3">
+                                        <label for="star3">★</label>
+                                        <input type="radio" id="star4" name="rating" value="4">
+                                        <label for="star4">★</label>
+                                        <input type="radio" id="star5" name="rating" value="5">
+                                        <label for="star5">★</label>
+                                    </div>
+                                </div>
 
-            <!-- Comment -->
-            <form class="comment-form">
-                <label>
-                    <textarea rows="4" placeholder="Viết bình luận của bạn về sản phẩm" required></textarea>
-                </label>
-                <button type="submit">Đăng bình luận</button>
-            </form>
+                                <!-- Comment -->
+                                <div class="comment-form">
+                                    <label>
+                                        <textarea rows="4" placeholder="Viết bình luận của bạn về sản phẩm" name="comment" required></textarea>
+                                    </label>
+                                    <button type="submit">Đăng đánh giá</button>
+                                </div>
+                            </form>
+                        </c:when>
+                        <c:otherwise>
+                            <form method="post" action="update-review" class="form-review">
+                                <!-- Rating -->
+                                <div class="container-rating">
+                                    <input type="hidden" name="productId" value="${p.pid}">
+                                    <h3>Đánh giá</h3>
+                                    <div class="stars">
+                                        <input type="radio" id="star5" name="rating" value="5"
+                                               <c:if test="${userReview.rating == 5}">checked</c:if>>
+                                        <label for="star5">★</label>
+                                        <input type="radio" id="star4" name="rating" value="4"
+                                               <c:if test="${userReview.rating == 4}">checked</c:if>>
+                                        <label for="star4">★</label>
+                                        <input type="radio" id="star3" name="rating" value="3"
+                                               <c:if test="${userReview.rating == 3}">checked</c:if>>
+                                        <label for="star3">★</label>
+                                        <input type="radio" id="star2" name="rating" value="2"
+                                               <c:if test="${userReview.rating == 2}">checked</c:if>>
+                                        <label for="star2">★</label>
+                                        <input type="radio" id="star1" name="rating" value="1"
+                                               <c:if test="${userReview.rating == 1}">checked</c:if>>
+                                        <label for="star1">★</label>
+                                    </div>
+                                </div>
+
+                                <!-- Comment -->
+                                <div class="comment-form">
+                                    <label>
+                                        <textarea rows="4" placeholder="Viết bình luận của bạn về sản phẩm" name="comment" required>${userReview.comment}</textarea>
+                                    </label>
+                                    <button type="submit">Chỉnh sửa đánh giá</button>
+                                </div>
+                            </form>
+                        </c:otherwise>
+                    </c:choose>
+                </c:when>
+                <c:otherwise>
+                    <p class="review-warning">Bạn cần mua sản phẩm này để có thể đánh giá.</p>
+                </c:otherwise>
+            </c:choose>
         </div>
 
         <div class="comment-list">
@@ -219,7 +267,6 @@
                             </c:forEach>
                         </span>
                     </div>
-
                     <p>${r.comment}</p>
                     <span>${r.createdDate}</span>
                 </div>

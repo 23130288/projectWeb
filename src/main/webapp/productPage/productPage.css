@@ -515,7 +515,7 @@ main .section-review .comment-form textarea {
     box-sizing: border-box;
 }
 
-/* Container comments */
+/* Container comments - comment lists */
 main .section-review .comment-list {
     margin: 20px 0 40px;
     display: flex;

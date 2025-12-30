@@ -6,6 +6,7 @@ public class ReviewView {
     private int rating;
     private String createdDate;
 
+    public ReviewView() {}
     public ReviewView(String userName, String comment, int rating, String createdDate) {
         this.userName = userName;
         this.comment = comment;
@@ -27,6 +28,22 @@ public class ReviewView {
 
     public String getCreatedDate() {
         return createdDate;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public void setCreatedDate(String createdDate) {
+        this.createdDate = createdDate;
     }
 }
 

@@ -4,10 +4,8 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import org.example.projectweb.model.Product;
-import org.example.projectweb.service.ProductService;
-import org.example.projectweb.service.ReviewService;
-import org.example.projectweb.service.UserService;
-import org.example.projectweb.service.WishlistService;
+import org.example.projectweb.model.Review;
+import org.example.projectweb.service.*;
 
 import java.io.IOException;
 
@@ -19,15 +17,23 @@ public class ProductPageController extends HttpServlet {
         ReviewService rs = new ReviewService();
         WishlistService ws = new WishlistService();
         UserService us = new UserService();
+        OrderService os = new OrderService();
 
-        Product p = ps.getProductDetail(2);
+        int userId = 1;
+        int productId = 2;
+        Product p = ps.getProductDetail(productId);
+        Review userReview = rs.getReviewByUidAndPid(userId, productId);
 
         request.setAttribute("p", p);
-        request.setAttribute("mainImg", ps.getMainImg(2));
-        request.setAttribute("reviews", rs.getReviewsForProduct(2));
-        request.setAttribute("avgRating", rs.getAvgRating(2));
-        request.setAttribute("inWishlist", ws.inWishlist(1, 2));
-        request.setAttribute("user", us.getUserById(1));
+        request.setAttribute("mainImg", ps.getMainImg(productId));
+        request.setAttribute("avgRating", rs.getAvgRating(productId));
+        request.setAttribute("inWishlist", ws.inWishlist(userId, productId));
+        request.setAttribute("user", us.getUserById(userId));
+
+
+        request.setAttribute("canReview", os.hasPurchased(userId, productId));
+        request.setAttribute("userReview", userReview);
+        request.setAttribute("reviews", rs.getReviewsForProduct(productId));
 
         request.getRequestDispatcher("productPage/productPage.jsp").forward(request, response);
     }
