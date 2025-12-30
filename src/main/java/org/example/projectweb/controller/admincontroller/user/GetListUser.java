@@ -1,7 +1,6 @@
 package org.example.projectweb.controller.admincontroller.user;
 
 import com.google.gson.Gson;
-import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,7 +14,7 @@ import java.util.List;
 @WebServlet(name = "GetListUser", value = "/admin/users")
 public class GetListUser extends HttpServlet {
 
-    private AdminGetUserService userService = new AdminGetUserService();
+    final AdminGetUserService userService = new AdminGetUserService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -30,7 +29,7 @@ public class GetListUser extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 
     }
 }

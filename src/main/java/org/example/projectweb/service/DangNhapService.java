@@ -5,7 +5,7 @@ import org.example.projectweb.model.User;
 
 public class DangNhapService {
 
-    private userDao userDao = new userDao();
+    final userDao userDao = new userDao();
 
     public User login(String email, String password) {
         User user = userDao.findByEmail(email);

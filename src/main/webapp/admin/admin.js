@@ -16,17 +16,7 @@
             
             <div class="table-wrapper">
                 <table class="table_data" id="productTable">
-                    <tr>
-                        <th>ID</th>
-                        <th>Tên</th>
-                        <th>Loại</th>
-                        <th>Kiểu dáng</th>
-                        <th>Chất liệu</th>
-                        <th>Còn lại</th>
-                        <th>NCC</th>
-                        <th>Trạng thái</th>
-                        <th>Thao tác</th>
-                    </tr>
+<!--                  load nội dung bằng hàm riêng-->
                 </table>
             </div>         
         `,
@@ -119,16 +109,16 @@
 
         "Quản lý người dùng": `
             <h2>Quản lý người dùng</h2>
+            <div class="Menu-bar">                
+                <div class="search-bar">
+                    <input type="text" name="query" placeholder="Tên người dung..."/>
+                    <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </div>
+            
             <div class="table-wrapper">
                 <table class="table_data" id="userTable">
-                    <tr>
-                        <th>ID</th>
-                        <th>Tên</th>
-                        <th>Email</th>
-                        <th>Vai trò</th>
-                        <th>Trạng thái</th>
-                        <th>Thao tác</th>
-                    </tr>
+<!--                  load nội dung bằng hàm riêng-->
                 </table>
             </div>
         `,
@@ -958,6 +948,17 @@ function loadUserList() {
         .then(users => {
             const table = document.getElementById("userTable");
 
+            // XÓA DỮ LIỆU CŨ
+            table.innerHTML = `
+            <tr>
+                <th>ID</th>
+                <th>Tên</th>
+                <th>Email</th>
+                <th>Vai trò</th>
+                <th>Trạng thái</th>
+                <th>Thao tác</th>
+            </tr>
+            `;
             users.forEach(u => {
                 const row = document.createElement("tr");
                 row.innerHTML = `
@@ -967,7 +968,7 @@ function loadUserList() {
                     <td>${u.role}</td>
                     <td>${u.status ? "Hoạt động" : "Bị khóa"}</td>
                     <td>
-                        <button onclick="toggleUserStatus(${u.id})">
+                        <button onclick="toggleUserStatus(${u.uid})">
                             ${u.status ? "Khóa" : "Mở"}
                         </button>
                     </td>
@@ -977,12 +978,45 @@ function loadUserList() {
         });
 }
 
+function toggleUserStatus(uid) {
+    if (!confirm("Bạn có chắc muốn thay đổi trạng thái user này?")) {
+        return;
+    }
+
+    fetch(`/projectWeb_war/admin/user/toggle_user_status?uid=${uid}`, {
+        method: "POST"
+    })
+        .then(res => res.json())
+        .then(data => {
+            alert(data.message);
+            loadUserList(); // load lại bảng
+        })
+        .catch(err => {
+            console.error(err);
+            alert("Có lỗi xảy ra");
+        });
+}
+
 //load product
 function loadProductList() {
     fetch('/projectWeb_war/admin/product_load')
         .then(res => res.json())
         .then(products => {
             const table = document.getElementById("productTable");
+            // XÓA DỮ LIỆU CŨ
+            table.innerHTML = `
+            <tr>
+                <th>ID</th>
+                <th>Tên</th>
+                <th>Loại</th>
+                <th>Kiểu dáng</th>
+                <th>Chất liệu</th>
+                <th>Còn lại</th>
+                <th>NCC</th>
+                <th>Trạng thái</th>
+                <th>Thao tác</th>
+            </tr>
+            `;
 
             products.forEach(p => {
                 const row = document.createElement("tr");

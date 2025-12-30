@@ -29,4 +29,13 @@ public class userDao extends BaseDao {
         return get().withHandle(h -> h.createQuery("select uid, name, email, phone, password, address, bdate, avatar, role, status from user")
                 .mapToBean(User.class).list());
     }
+    public void updateStatus(int uid) {
+        get().useHandle(h ->
+                h.createUpdate(
+                                "UPDATE user SET status = IF(status = 1, 0, 1) WHERE uid = :uid"
+                        )
+                        .bind("uid", uid)
+                        .execute()
+        );
+    }
 }
