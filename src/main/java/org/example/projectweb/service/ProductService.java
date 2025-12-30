@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductService {
-    ProductDao pDao = new ProductDao();
-    ProductVariantDao pvDao = new ProductVariantDao();
-    ImageProductDao ipDao = new ImageProductDao();
+    private ProductDao pDao = new ProductDao();
+    private ProductVariantDao pvDao = new ProductVariantDao();
+    private ImageProductDao ipDao = new ImageProductDao();
 
     public List<Product> getAllProducts() {
         return pDao.getListProduct();

@@ -1,30 +1,42 @@
 package org.example.projectweb.dao;
 
 import org.example.projectweb.model.Review;
+import org.example.projectweb.model.ReviewView;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-public class ReviewDao {
-    static List<Review> reviewData = new ArrayList<>();
-    static {
-        reviewData.add(new Review(1, 1, "Tốt", 3, "03/12/2005"));
-        reviewData.add(new Review(1, 2, "Tốt", 3, "03/12/2005"));
-        reviewData.add(new Review(2, 2, "Rất đáng tiền", 5, "03/12/2005"));
-        reviewData.add(new Review(3, 2,"Tạm ổn", 3, "03/12/2005"));
+public class ReviewDao extends BaseDao {
+    public Review getReviewByUidAndPid(int uid, int pid) {
+        return get().withHandle(h -> h.createQuery("select rating, comment, created_date from review where uid = :uid and pid = :pid")
+                .bind("uid", uid).bind("pid", pid)
+                .mapToBean(Review.class).findOne().orElse(null));
     }
 
-    public List<Review> getReviewsByProductId(int productId) {
-        List<Review> result = new ArrayList<>();
+    public List<ReviewView> getReviewsForProduct(int productId) {
+        return get().withHandle(h -> h.createQuery("select u.name as username, r.comment, r.rating, r.created_date " +
+                        "from review r join user u on r.uid = u.uid " +
+                        "where r.pid = :pid")
+                .bind("pid", productId).mapToBean(ReviewView.class).list());
+    }
 
-        for (Review r : reviewData) {
-            if (r.getPid() == productId) {
-                result.add(r);
-            }
-        }
+    public double getAvgRating(int productId) {
+        return get().withHandle(h -> h.createQuery("select ifnull(round(avg(rating), 2), 0) from review where pid = :pid")
+                .bind("pid", productId).mapTo(Double.class).first());
+    }
 
-        return result;
+    public void addReview(int userId, int productId, int rating, String comment) {
+        get().useHandle(h -> h.createUpdate("insert into review (uid, pid, comment, rating, created_date) " +
+                "values (:uid, :pid, :comment, :rating, NOW())")
+                .bind("uid", userId).bind("pid", productId).bind("comment", comment).bind("rating", rating)
+                .execute());
+
+    }
+
+    public void updateReview(int userId, int productId, int rating, String comment) {
+        get().useHandle(h -> {
+            h.createUpdate("update review set rating = :rating, comment = :comment, created_date = NOW() where uid = :uid and pid = :pid")
+                    .bind("uid", userId).bind("pid", productId).bind("comment", comment).bind("rating", rating)
+                    .execute();
+        });
     }
 }

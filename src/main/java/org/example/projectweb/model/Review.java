@@ -9,6 +9,7 @@ public class Review implements Serializable {
     private int rating;
     private String createdDate;
 
+    public Review() {}
     public Review(int uid, int pid, String comment, int rating, String created_date) {
         this.uid = uid;
         this.pid = pid;
@@ -35,5 +36,25 @@ public class Review implements Serializable {
 
     public int getRating() {
         return rating;
+    }
+
+    public void setUid(int uid) {
+        this.uid = uid;
+    }
+
+    public void setPid(int pid) {
+        this.pid = pid;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public void setCreatedDate(String createdDate) {
+        this.createdDate = createdDate;
     }
 }
