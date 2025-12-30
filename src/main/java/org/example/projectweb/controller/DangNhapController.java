@@ -31,6 +31,11 @@ public class DangNhapController extends HttpServlet {
             // đăng nhập thành công
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
+            //check status
+            if (!user.isStatus()) {
+                request.setAttribute("err", "Tài khoản của bạn bị khóa");
+                request.getRequestDispatcher("dang_nhap/dang_nhap.jsp").forward(request, response);
+            }
             //check role
             if ("admin".equalsIgnoreCase(user.getRole()))
                 response.sendRedirect("admin");
