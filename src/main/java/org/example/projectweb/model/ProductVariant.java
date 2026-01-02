@@ -20,6 +20,10 @@ public class ProductVariant implements Serializable {
         this.quantity = quantity;
     }
 
+    public int getPvid() {
+        return pvid;
+    }
+
     public int getPid() {
         return this.pid;
     }
