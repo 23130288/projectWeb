@@ -122,18 +122,6 @@ public class Product implements Serializable {
         this.images = images;
     }
 
-    /**
-     * Special getters
-     * @return
-     */
-    public int getTotalQuantity() {
-        int sum = 0;
-        for (ProductVariant pv : variants) {
-            sum += pv.getQuantity();
-        }
-        return sum;
-    }
-
     @Override
     public String toString() {
         return "Product{" +

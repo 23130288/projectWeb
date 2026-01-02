@@ -14,7 +14,7 @@
         <div class="container-images">
             <img src="${mainImg.image}" class="main-image" alt="${p.name}">
             <div class="images-list">
-                <c:forEach var="img" items="${p.images}" varStatus="st">
+                <c:forEach var="img" items="${imgs}" varStatus="st">
                     <img class="sub-image ${st.index == 0 ? 'active' : ''}"
                          src="${img.image}" alt="">
                 </c:forEach>
@@ -53,16 +53,16 @@
                 <div class="option">
                     <label>Chọn màu: </label>
                     <div class="color-options">
-                        <c:forEach var="v" items="${p.variants}">
-                            <button class="color-btn ${v.color}"></button>
+                        <c:forEach var="v" items="${pvs}">
+                            <button class="color-btn ${v.color}" data-color="${v.color}"></button>
                         </c:forEach>
                     </div>
                 </div>
                 <div class="option">
                     <label>Chọn kích cỡ: </label>
                     <div class="size-options">
-                        <c:forEach var="v" items="${p.variants}">
-                            <button class="size-btn">${v.size}</button>
+                        <c:forEach var="v" items="${pvs}">
+                            <button class="size-btn disabled" data-size="${v.size}">${v.size}</button>
                         </c:forEach>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
                 </button>
 
                 <button type="button" id="addToCartBtn">
-                    <i class="fa-solid fa-cart-shopping"></i>
+                    <a id="addCartLink"><i class="fa-solid fa-cart-shopping"></i></a>
                 </button>
 
                 <form action="productPage" method="post" class="form-wishlist">
@@ -277,5 +277,16 @@
 <script src="productPage/productPageJS/changeImage.js"></script>
 <script src="productPage/productPageJS/buttonHandler.js"></script>
 <script src="cartPage/cartPageJS/editInfo.js"></script>
+<script>
+    const variants = [
+        <c:forEach var="v" items="${pvs}" varStatus="s">
+        {
+            pvid: ${v.pvid},
+            color: "${v.color}",
+            size: "${v.size}"
+        }<c:if test="${!s.last}">,</c:if>
+        </c:forEach>
+    ];
+</script>
 </body>
 </html>

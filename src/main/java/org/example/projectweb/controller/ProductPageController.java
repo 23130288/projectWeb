@@ -21,15 +21,16 @@ public class ProductPageController extends HttpServlet {
 
         int userId = 1;
         int productId = 2;
-        Product p = ps.getProductDetail(productId);
+        Product p = ps.getProductById(productId);
         Review userReview = rs.getReviewByUidAndPid(userId, productId);
 
         request.setAttribute("p", p);
+        request.setAttribute("pvs", ps.getVariantsByPid(productId));
+        request.setAttribute("imgs", ps.getImgsByPid(productId));
         request.setAttribute("mainImg", ps.getMainImg(productId));
         request.setAttribute("avgRating", rs.getAvgRating(productId));
         request.setAttribute("inWishlist", ws.inWishlist(userId, productId));
         request.setAttribute("user", us.getUserById(userId));
-
 
         request.setAttribute("canReview", os.hasPurchased(userId, productId));
         request.setAttribute("userReview", userReview);

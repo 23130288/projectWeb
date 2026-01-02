@@ -149,7 +149,11 @@ you choosing size, colors for your product
     transition: 0.3s;
 
 }
-
+.section-product .product-details .container-options .size-options button.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
 .section-product .product-details .container-options .size-options button:hover {
     background: white;
     border-color: #F2B035;
