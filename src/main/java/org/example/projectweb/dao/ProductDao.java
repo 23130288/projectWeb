@@ -1,5 +1,6 @@
 package org.example.projectweb.dao;
 
+import org.eclipse.tags.shaded.org.apache.xpath.objects.XString;
 import org.example.projectweb.model.Product;
 import org.jdbi.v3.core.statement.PreparedBatch;
 
@@ -26,7 +27,7 @@ public class ProductDao extends BaseDao {
     }
 
     public Product getProductById(int productId) {
-        return get().withHandle(h -> h.createQuery("select pid, name, producer, type, material, style, description from product where pid = :pid")
+        return get().withHandle(h -> h.createQuery("select pid, name, producer, type, material, style, description, status from product where pid = :pid")
                 .bind("pid", productId)
                 .mapToBean(Product.class).first());
     }
@@ -44,51 +45,63 @@ public class ProductDao extends BaseDao {
         }
         return result;
     }
-public List<Product> searchInFilter(String query, String category, String sort) {
-    List<Product> result = new ArrayList<>();
 
-    for (Product p : data.values()) {
-        boolean checkQuery = true;
-        boolean checkCategory = true;
-        if (query != null && !query.trim().isEmpty()) {
-            if (!p.getName().toLowerCase().contains(query.toLowerCase().trim())) {
-                checkQuery = false;
+    public List<Product> searchInFilter(String query, String category, String sort) {
+        List<Product> result = new ArrayList<>();
+
+        for (Product p : data.values()) {
+            boolean checkQuery = true;
+            boolean checkCategory = true;
+            if (query != null && !query.trim().isEmpty()) {
+                if (!p.getName().toLowerCase().contains(query.toLowerCase().trim())) {
+                    checkQuery = false;
+                }
+            }
+            if (category != null && !category.isEmpty()) {
+                if (!p.getType().equalsIgnoreCase(category)) {
+                    checkCategory = false;
+                }
+            }
+            if (checkQuery && checkCategory) {
+                result.add(p);
             }
         }
-        if (category != null && !category.isEmpty()) {
-            if (!p.getType().equalsIgnoreCase(category)) {
-                checkCategory = false;
-            }
+        if (sort != null && !sort.isEmpty()) {
+            result.sort((p1, p2) -> {
+                switch (sort) {
+                    case "nameA-Z":
+                        return p1.getName().compareToIgnoreCase(p2.getName());
+                    case "nameZ-A":
+                        return p2.getName().compareToIgnoreCase(p1.getName());
+                    case "priceLow-High":
+                        return Double.compare(p1.getVariants().get(0).getPrice(),
+                                p2.getVariants().get(0).getPrice());
+                    case "priceHigh-Low":
+                        return Double.compare(p2.getVariants().get(0).getPrice(),
+                                p1.getVariants().get(0).getPrice());
+                    default:
+                        return 0;
+                }
+            });
         }
-        if (checkQuery && checkCategory) {
-            result.add(p);
-        }
+        return result;
     }
-    if (sort != null && !sort.isEmpty()) {
-        result.sort((p1, p2) -> {
-            switch (sort) {
-                case "nameA-Z":
-                    return p1.getName().compareToIgnoreCase(p2.getName());
-                case "nameZ-A":
-                    return p2.getName().compareToIgnoreCase(p1.getName());
-                case "priceLow-High":
-                    return Double.compare(p1.getVariants().get(0).getPrice(),
-                            p2.getVariants().get(0).getPrice());
-                case "priceHigh-Low":
-                    return Double.compare(p2.getVariants().get(0).getPrice(),
-                            p1.getVariants().get(0).getPrice());
-                default:
-                    return 0;
-            }
-        });
-    }
-    return result;
-}
 
     public List<Product> getProductsForWishlist(int userId) {
         return get().withHandle(h -> h.createQuery("select p.pid, p.name from product p join wishlist wl on p.pid = wl.pid " +
                         "where wl.uid = :uid")
                 .bind("uid", userId)
                 .mapToBean(Product.class).list());
+    }
+
+    public void updateStatus(int pid, String sta) {
+        get().useHandle(h ->
+                h.createUpdate(
+                                "UPDATE product SET status = :sta WHERE pid = :pid"
+                        )
+                        .bind("pid", pid)
+                        .bind("sta", sta)
+                        .execute()
+        );
     }
 }
