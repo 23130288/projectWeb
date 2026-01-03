@@ -34,7 +34,7 @@
                             </a>
                             <div class="product-item-info">
                                 <label>${item.product.name}</label>
-                                <p>item.product.description</p>
+                                <p>${item.product.description}</p>
                                 <div class="product-item-variant">
                                     <p>Màu sắc:
                                         <button class="variant-color"></button>
@@ -67,31 +67,31 @@
 
         <%-- ====================================== Price ====================================== --%>
         <div class="container-product-price">
-            <div class="container-price" id="container-voucher">
-                <label>Voucher:</label>
-                <div class="vouchers">
-                    <label>
-                        <input type="checkbox" name="voucher" value="5%">
-                        <span class="voucher-name">Giảm giá 5%</span>
-                        <span class="voucher-condition">Áp dụng cho đơn từ 200k</span>
-                    </label>
+<%--            <div class="container-price" id="container-voucher">--%>
+<%--                <label>Voucher:</label>--%>
+<%--                <div class="vouchers">--%>
+<%--                    <label>--%>
+<%--                        <input type="checkbox" name="voucher" value="5%">--%>
+<%--                        <span class="voucher-name">Giảm giá 5%</span>--%>
+<%--                        <span class="voucher-condition">Áp dụng cho đơn từ 200k</span>--%>
+<%--                    </label>--%>
 
-                    <label>
-                        <input type="checkbox" name="voucher" value="free_ship">
-                        <span class="voucher-name">Miễn phí vận chuyển</span>
-                        <span class="voucher-condition">Áp dụng cho đơn từ 0đ</span>
-                    </label>
+<%--                    <label>--%>
+<%--                        <input type="checkbox" name="voucher" value="free_ship">--%>
+<%--                        <span class="voucher-name">Miễn phí vận chuyển</span>--%>
+<%--                        <span class="voucher-condition">Áp dụng cho đơn từ 0đ</span>--%>
+<%--                    </label>--%>
 
-                    <label>
-                        <input type="checkbox" name="voucher" value="10%">
-                        <span class="voucher-name">Giảm 10%</span>
-                        <span class="voucher-condition">Áp dụng cho đơn từ 500k</span>
-                    </label>
-                </div>
-            </div>
+<%--                    <label>--%>
+<%--                        <input type="checkbox" name="voucher" value="10%">--%>
+<%--                        <span class="voucher-name">Giảm 10%</span>--%>
+<%--                        <span class="voucher-condition">Áp dụng cho đơn từ 500k</span>--%>
+<%--                    </label>--%>
+<%--                </div>--%>
+<%--            </div>--%>
             <div class="container-price">
                 <label>Tổng tiền:</label>
-                <p>690.000 đ</p>
+                <p>${cart.totalPrice} đ</p>
             </div>
             <div class="container-price">
                 <label>Giảm giá:</label>
@@ -99,7 +99,7 @@
             </div>
             <div class="container-price" id="final-price">
                 <label class="title">Tổng thanh toán:</label>
-                <p class="price">690.000 đ</p>
+                <p class="price">${cart.totalPrice} đ</p>
             </div>
         </div>
 
@@ -158,10 +158,6 @@
         </div>
     </div>
 </main>
-<footer>
-    <div id="footer-placeholder"></div>
-    <script src="../shareStuff/footer/footerGetter.js"></script>
-</footer>
 <script src="cartPageJS/quantity.js"></script>
 <script src="cartPageJS/editInfo.js"></script>
 </body>

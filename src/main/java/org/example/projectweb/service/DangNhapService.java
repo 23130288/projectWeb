@@ -13,8 +13,8 @@ public class DangNhapService {
         if (user == null) return null;
 
         //sai mật khẩu
-        if (!user.getPassword().equals(password)) return null;
-
+        HashService hs = new HashService();
+        if (!user.getPassword().equals(hs.hashMd5(password))) return null;
         return user;
     }
 }

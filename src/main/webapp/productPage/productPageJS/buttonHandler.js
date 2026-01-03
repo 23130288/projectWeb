@@ -9,7 +9,8 @@ function showMessage(msg, color = 'green') {
 
 // size and color buttons
 const colorButtons = document.querySelectorAll('.color-btn'); // get color buttons
-const sizeButtons = document.querySelectorAll('.size-options button'); // get size buttons
+const sizeButtons = document.querySelectorAll('.size-btn'); // get size buttons
+const price = document.getElementById("price");
 let selectedColor = null;
 let selectedSize = null;
 colorButtons.forEach(btn => {
@@ -41,6 +42,14 @@ sizeButtons.forEach(btn => {
 
         btn.classList.add('active');
         selectedSize = btn.dataset.size;
+
+        if (!selectedColor || !selectedSize) return;
+        const variant = variants.find(v =>
+            v.color === selectedColor && v.size === selectedSize
+        );
+        if (variant) {
+            price.innerText = variant.price + " Đ";
+        }
     });
 });
 
@@ -58,9 +67,7 @@ addToCartBtn.addEventListener('click', () => {
         v.color === selectedColor && v.size === selectedSize
     );
     showMessage('Thêm vào giỏ hàng thành công!', 'green');
-    const link = document.getElementById("addCartLink");
-    link.href = `add-cart?pid=${p.pid}&pvid=${variant.pvid}&mainImg=${mainImg.image}&q=1`;
-    link.dispatchEvent(new MouseEvent('click'));
+    window.location = `add-cart?pid=${p.pid}&pvid=${variant.pvid}&mainImg=${mainImg.image}&q=1`;
 });
 
 /* ======= buy button ======= */

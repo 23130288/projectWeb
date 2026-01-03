@@ -19,6 +19,7 @@ public class AddCart extends HttpServlet {
         String mainImg = request.getParameter("mainImg");
         int q = Integer.parseInt(request.getParameter("q"));
 
+        System.out.println("fuck you");
         ProductService ps = new ProductService();
 
         Product product = ps.getProductById(pid);
@@ -32,6 +33,8 @@ public class AddCart extends HttpServlet {
             c = new Cart();
         c.addProduct(product, productVariant, mainImg, q);
         session.setAttribute("cart", c);
+
+        response.sendRedirect("cart");
     }
 
     @Override

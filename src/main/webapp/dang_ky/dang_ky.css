@@ -52,9 +52,13 @@ body {
     font-size: 14px;
 }
 
-.section_1 .container:hover,
+.section_1 .container:hover label,
 .section_1 .password-wrapper button:hover {
     color: #EDB310;
+}
+.section_1 .error {
+    color: red;
+    font-size: 14px;
 }
 
 .section_1 input {
@@ -65,6 +69,7 @@ body {
     border: none;
     color: white;
     text-indent: 10px;
+    outline: none;
 }
 
 .section_1 .password-wrapper {

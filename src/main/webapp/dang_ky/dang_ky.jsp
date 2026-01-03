@@ -2,8 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <%--<link rel="stylesheet" href="dang_ky/dang_ky.css">--%>
-<link rel="stylesheet" href="dang_nhap/dang_nhap.css">
-
+<link rel="stylesheet" href="dang_ky/dang_ky.css">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -54,6 +53,7 @@
                 <input type="password" id="password" name="password" value="<%=password%>">
                 <button type="button" id="togglePassword">👁</button>
             </div>
+            <p id="passwordError" class="error"></p>
         </div>
 
         <div class="container" id="container_confirm">
@@ -62,6 +62,7 @@
                 <input type="password" id="confirm_password" name="confirm_password" value="<%=confirm_password%>">
                 <button type="button" id="toggleConfirmPassword">👁</button>
             </div>
+            <p id="confirmError" class="error"></p>
         </div>
 
         <div class="container" id="container_log">
@@ -70,8 +71,7 @@
     </form>
     <footer class="footer" id="container_more">
     </footer>
-    <script src="dang_ky.js"></script>
+    <script src="dang_ky/dang_ky.js"></script>
 </div>
 </body>
-
 </html>
