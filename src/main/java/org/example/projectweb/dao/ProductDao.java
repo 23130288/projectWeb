@@ -1,5 +1,6 @@
 package org.example.projectweb.dao;
 
+import org.eclipse.tags.shaded.org.apache.xpath.objects.XString;
 import org.example.projectweb.model.Product;
 
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ public class ProductDao extends BaseDao {
     }
 
     public Product getProductById(int productId) {
-        return get().withHandle(h -> h.createQuery("select pid, name, producer, type, material, style, description from product where pid = :pid")
+        return get().withHandle(h -> h.createQuery("select pid, name, producer, type, material, style, description, status from product where pid = :pid")
                 .bind("pid", productId)
                 .mapToBean(Product.class).first());
     }
@@ -97,5 +98,16 @@ public class ProductDao extends BaseDao {
                         "where wl.uid = :uid")
                 .bind("uid", userId)
                 .mapToBean(Product.class).list());
+    }
+
+    public void updateStatus(int pid, String sta) {
+        get().useHandle(h ->
+                h.createUpdate(
+                                "UPDATE product SET status = :sta WHERE pid = :pid"
+                        )
+                        .bind("pid", pid)
+                        .bind("sta", sta)
+                        .execute()
+        );
     }
 }

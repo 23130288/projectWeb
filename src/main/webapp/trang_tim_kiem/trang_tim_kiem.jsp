@@ -33,8 +33,13 @@
             <div class="filter-group">
                 <label>Danh mục:</label>
                 <div class="filter-tags">
-                    <span class="tag">Balo</span>
-                    <span class="tag">Vali</span>
+<%--                    <span class="tag">Balo</span>--%>
+<%--                    <span class="tag">Vali</span>--%>
+                    <a href="search?query=${results}&category=balo&sort=${currentSort}"
+                        class="tag ${currentCategory == 'Balo' ? 'selected' : ''}"> Balo </a>
+
+                    <a href="search?query=${results}&category=vali&sort=${currentSort}"
+                        class="tag ${currentCategory == 'Vali' ? 'selected' : ''}"> Vali </a>
                 </div>
             </div>
 
@@ -50,10 +55,21 @@
             <div class="filter-group">
                 <label>Sắp xếp:</label>
                 <div class="filter-tags">
-                    <span class="tag">Tên A → Z</span>
-                    <span class="tag">Tên Z → A</span>
-                    <span class="tag">Giá thấp → cao</span>
-                    <span class="tag">Giá cao → thấp</span>
+<%--                    <span class="tag">Tên A → Z</span>--%>
+<%--                    <span class="tag">Tên Z → A</span>--%>
+<%--                    <span class="tag">Giá thấp → cao</span>--%>
+<%--                    <span class="tag">Giá cao → thấp</span>--%>
+                <a href="search?query=${results}&category=${currentCategory}&sort=nameA-Z"
+                    class="tag ${currentSort == 'nameA-Z' ? 'selected' : ''}"> Tên A → Z </a>
+
+                <a href="search?query=${results}&category=${currentCategory}&sort=nameZ-A"
+                    class="tag ${currentSort == 'nameZ-A' ? 'selected' : ''}"> Tên Z → A </a>
+
+                <a href="search?query=${results}&category=${currentCategory}&sort=priceLow-High"
+                    class="tag ${currentSort == 'priceLow-High' ? 'selected' : ''}"> Giá thấp → cao </a>
+
+                <a href="search?query=${results}&category=${currentCategory}&sort=priceHigh-Low"
+                    class="tag ${currentSort == 'priceHigh-Low' ? 'selected' : ''}"> Giá cao → thấp </a>
                 </div>
             </div>
         </div>

@@ -1,21 +1,18 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Giỏ hàng</title>
-    <link rel="stylesheet" href="cartPage.css">
+    <link rel="stylesheet" href="cartPage/cartPage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <link rel="stylesheet" href="../shareStuff/header/header.css">
-    <link rel="stylesheet" href="../shareStuff/footer/footer.css">
 </head>
 <body>
-<header>
-    <div id="header-placeholder"></div>
-    <script src="../shareStuff/header/headerGetter.js"></script>
-</header>
 <main>
     <h1>Giỏ hàng</h1>
     <div class="container">
+        <%-- ====================================== products ====================================== --%>
         <div class="product-info">
             <div class="product-info-header">
                 <div class="product-info-header-content" id="product-info-header-title">Sản phẩm</div>
@@ -26,77 +23,49 @@
             </div>
 
             <div class="container-product-items">
-                <div class="product-item">
-                    <div class="product-item-title">
-                        <a href="../productPage/productPage.html">
-                            <img src="../images/balos/apollo/apollo1.webp" class="img_Show" alt="">
-                        </a>
-                        <div class="product-item-info">
-                            <label>Balo Apollo đựng laptop</label>
-                            <p>1. Thông tin chi tiết
-                                - Chất liệu: Da tráng PU chống thấm. Vải lót trượt nước.
-                                Balo của MDR được sử dụng chất liệu vải bố tráng PU chống thấm, độ bền cao,...</p>
-                            <div class="product-item-variant">
-                                <p>Màu sắc: <button class="variant-color"></button></p>
-                                <p>Kích cỡ: <span class="variant-size">XL</span></p>
+                <c:if test="${empty cartItems}">
+                    <p>Giỏ hàng trống</p>
+                </c:if>
+                <c:forEach var="item" items="${cartItems}">
+                    <div class="product-item">
+                        <div class="product-item-title">
+                            <a href="../productPage/productPage.html">
+                                <img src="${item.mainImg}" class="img_Show" alt="">
+                            </a>
+                            <div class="product-item-info">
+                                <label>${item.product.name}</label>
+                                <p>item.product.description</p>
+                                <div class="product-item-variant">
+                                    <p>Màu sắc:
+                                        <button class="variant-color"></button>
+                                    </p>
+                                    <p>Kích cỡ: <span class="variant-size">XL</span></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="product-item-more">
-                        <p class="price">345.000 đ</p>
-                    </div>
-                    <div class="product-item-quantity">
-                        <button class="minus-quantity-button">-</button>
-                        <p class="quantity">1</p>
-                        <button class="plus-quantity-button">+</button>
-                    </div>
-                    <div class="product-item-more">
-                        <p class="total">345.000 đ</p>
-                    </div>
-                    <div class="product-item-more">
-                        <label class="action-select-product">
-                            <input type="checkbox" name="select-checkbox">
-                        </label>
-                        <button class="action-delete-product">Xóa</button>
-                    </div>
-                </div>
-
-                <div class="product-item">
-                    <div class="product-item-title">
-                        <a href="../productPage/productPage.html">
-                            <img src="../images/valies/ValiJOYWAYxMELALINIA/vali1.webp" class="img_Show" alt="">
-                        </a>
-                        <div class="product-item-info">
-                            <label>Vali Nhựa Đẹp Bền ABS Cao Cấp JOYWAY x MELALINIA SIZE 20/24/28 Khóa số TSA BẢO HÀNH TRỌN
-                                ĐỜI</label>
-                            <p>Bộ hành lý: Có // Kích thước: 20 - 25 inches // Loại bánh xe: Bánh xe quay...</p>
-                            <div class="product-item-variant">
-                                <p>Màu sắc: <button class="variant-color"></button></p>
-                                <p>Kích cỡ: <span class="variant-size">L</span></p>
-                            </div>
+                        <div class="product-item-more">
+                            <p class="price">${item.price} đ</p>
+                        </div>
+                        <div class="product-item-quantity">
+                            <button class="minus-quantity-button">-</button>
+                            <p class="quantity">${item.quantity}</p>
+                            <button class="plus-quantity-button">+</button>
+                        </div>
+                        <div class="product-item-more">
+                            <p class="total">${item.price * item.quantity} đ</p>
+                        </div>
+                        <div class="product-item-more">
+                            <label class="action-select-product">
+                                <input type="checkbox" name="select-checkbox">
+                            </label>
+                            <button class="action-delete-product">Xóa</button>
                         </div>
                     </div>
-                    <div class="product-item-more">
-                        <p class="price">299.000 đ</p>
-                    </div>
-                    <div class="product-item-quantity">
-                        <button class="minus-quantity-button">-</button>
-                        <p class="quantity">1</p>
-                        <button class="plus-quantity-button">+</button>
-                    </div>
-                    <div class="product-item-more">
-                        <p class="total">299.000 đ</p>
-                    </div>
-                    <div class="product-item-more">
-                        <label class="action-select-product">
-                            <input type="checkbox" name="select-checkbox">
-                        </label>
-                        <button class="action-delete-product">Xóa</button>
-                    </div>
-                </div>
+                </c:forEach>
             </div>
         </div>
 
+        <%-- ====================================== Price ====================================== --%>
         <div class="container-product-price">
             <div class="container-price" id="container-voucher">
                 <label>Voucher:</label>
@@ -134,6 +103,7 @@
             </div>
         </div>
 
+        <%-- ====================================== user info ====================================== --%>
         <div class="user-info">
             <form id="form-input-info" action="../ct_Order/ct_Order.html">
                 <div class="container-user-title">

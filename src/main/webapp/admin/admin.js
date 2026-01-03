@@ -1058,10 +1058,9 @@ function loadProductList() {
                     <td>${p.producer}</td>
                     <td>${p.status}</td>
                     <td>
-                        <button onclick="">Thêm</button>
+                        <button onclick="">Thêm_pt</button>
                         <button onclick="">Sửa</button>
-                        <button onclick="">Dừng
-                        </button>
+                        <button onclick="toggleProductStatus(${p.pid})">${p.status}</button>
                     </td>
                 `;
                 table.appendChild(row);
@@ -1069,3 +1068,21 @@ function loadProductList() {
         });
 }
 
+function toggleProductStatus(pid) {
+    if (!confirm("Bạn có chắc muốn thay đổi trạng thái product này?")) {
+        return;
+    }
+
+    fetch(`/projectWeb_war/admin/product/toggle_product_status?pid=${pid}`, {
+        method: "POST"
+    })
+        .then(res => res.json())
+        .then(data => {
+            alert(data.message);
+            loadProductList(); // load lại bảng
+        })
+        .catch(err => {
+            console.error(err);
+            alert("Có lỗi xảy ra");
+        });
+}
