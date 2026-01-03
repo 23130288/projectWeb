@@ -38,7 +38,7 @@
                 </c:forEach>
                 <span class="rating-number">(${avgRating})</span>
             </div>
-            <p class="price">${p.variants[0].price} Đ</p>
+            <p class="price" id="price">${pvs[0].price} Đ</p>
 
             <label>Nhà sản xuất:</label>
             <p class="desc">${p.producer}</p>
@@ -283,7 +283,8 @@
         {
             pvid: ${v.pvid},
             color: "${v.color}",
-            size: "${v.size}"
+            size: "${v.size}",
+            price: "${v.price}"
         }<c:if test="${!s.last}">,</c:if>
         </c:forEach>
     ];

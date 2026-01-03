@@ -1,7 +1,6 @@
 package org.example.projectweb.service;
 
 import org.example.projectweb.dao.userDao;
-import org.example.projectweb.model.User;
 
 public class DangKyService {
 
@@ -14,7 +13,8 @@ public class DangKyService {
         }
 
         // Tạo user mới
-        userDao.addUser(email, password, name);
+        HashService hs = new HashService();
+        userDao.addUser(email, hs.hashMd5(password), name);
         return true;
     }
 }
