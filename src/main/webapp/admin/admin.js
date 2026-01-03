@@ -543,7 +543,8 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
     }
 
     // Hiển thị mặc định
-    infoBox.innerHTML = contents["Đăng xuất"];
+    infoBox.innerHTML = contents["Quản lý sản phẩm"];
+    loadProductList();
     attachEvents();
 
     // Xử lý menu click
@@ -562,110 +563,10 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
 
             if (text === "Quản lý sản phẩm") {
                 loadProductList()
+
                 const btnThem = document.getElementById("btn_them_sp");
-
-
                 if (btnThem) btnThem.addEventListener("click", () => {
-                    openAdminPopup(
-                        "Thêm sản phẩm mới",
-                        `
-                <div class="popup_item">
-                    <label>Tên sản phẩm:</label>
-                    <input type="text" name="p_name" placeholder="Nhập tên sản phẩm">
-                </div>
-                
-                <div class="popup_item">
-                    <label>Loại:</label>
-                    <select name="p_type">
-                        <option value="Balo">Balo</option>
-                        <option value="Vali">Vali</option>
-                    </select>            
-                </div>
-                
-                <div class="popup_item">
-                    <label>Kiểu dáng:</label>
-                    <select name="p_style">
-                        <option value="túi đeo chéo">túi đeo chéo</option>
-                        <option value="túi đeo bụng">túi đeo bụng</option>
-                        <option value="túi sách">túi sách</option>
-                    </select> 
-                </div>
-          
-                <div class="popup_item">
-                    <label>Chất liệu:</label>
-                    <select name="p_material">
-                        <option value="Balo">hợp kim</option>
-                        <option value="Vali">coston</option>
-                    </select>            
-                </div>
-                
-                <div class="popup_item">
-                    <label>Tên nhà cung cấp:</label>
-                    <input type="text" name="p_producer" placeholder="Nhập nhà cung cấp">
-                </div>
-                
-                <div class="popup_item">
-                    <label>Trạng thái:</label>
-                    <select name="p_status">
-                        <option value="đang bán">Đang bán</option>
-                        <option value="bán chạy">Bán chạy</option>
-                        <option value="dừng bán">Dừng bán</option>
-                    </select>
-                </div>
-            
-                <div class="popup_item">
-                    <label>Mô tả:</label>
-                    <textarea name="p_description"></textarea>
-                </div>
-            
-                <div class="popup_item">
-                    <label>Ảnh sản phẩm:</label>
-                
-                    <!-- Khu vực kéo/thả -->
-                    <div class="img-upload-box" id="drop-zone">
-                        <span>+</span>
-                        <p>Kéo hoặc click để thêm ảnh</p>
-<!--                        <input type="file" id="sp-img" accept="image/*" multiple>-->
-                    </div>
-                
-                    <!-- Khu vực preview nhiều ảnh -->
-                    <div class="preview-list" id="preview-list">
-                        <div class="preview-item">
-                            <img src="image/balo1.jpg" alt="Balo 1">
-                        </div>
-                        <div class="preview-item">
-                            <img src="image/balo2.jpg" alt="Balo 2">
-                        </div>
-                    </div>
-                </div>
-            `,
-                        () => {
-                            const formData = new FormData();
-                            formData.append("name", document.querySelector("[name='p_name']").value);
-                            formData.append("type", document.querySelector("[name='p_type']").value);
-                            formData.append("style", document.querySelector("[name='p_style']").value);
-                            formData.append("material", document.querySelector("[name='p_material']").value);
-                            formData.append("producer", document.querySelector("[name='p_producer']").value);
-                            formData.append("status", document.querySelector("[name='p_status']").value);
-                            formData.append("description", document.querySelector("[name='p_description']").value);
-                            fetch('/admin/product_add', {
-                                method: "POST",
-                                body: formData
-                            }).then(res => res.json())
-                                .then(data => {
-                                    if (data.success) {
-                                        alert("Thêm sản phẩm thành công");
-                                        loadProductList();
-                                    } else {
-                                        alert(data.message || "Thêm sản phẩm thất bại");
-                                    }
-                                })
-                                .catch(err => {
-                                    console.error(err);
-                                    alert("Không kết nối được server");
-                                });
-                        }
-                    );
+                    addProduct()
                 });
             }
 
@@ -1024,6 +925,119 @@ function toggleUserStatus(uid) {
 }
 
 //load product
+function addProduct() {
+    openAdminPopup(
+        "Thêm sản phẩm mới",
+        `
+                <div class="popup_item">
+                    <label>Tên sản phẩm:</label>
+                    <input type="text" id="p_name" placeholder="Nhập tên sản phẩm">
+                </div>
+                
+                <div class="popup_item">
+                    <label>Loại:</label>
+                    <select id="p_type">
+                        <option value="Balo">Balo</option>
+                        <option value="Vali">Vali</option>
+                    </select>            
+                </div>
+                
+                <div class="popup_item">
+                    <label>Kiểu dáng:</label>
+                    <select id="p_style">
+                        <option value="túi đeo chéo">túi đeo chéo</option>
+                        <option value="túi đeo bụng">túi đeo bụng</option>
+                        <option value="túi sách">túi sách</option>
+                    </select> 
+                </div>
+          
+                <div class="popup_item">
+                    <label>Chất liệu:</label>
+                    <select id="p_material">
+                        <option value="Balo">hợp kim</option>
+                        <option value="Vali">coston</option>
+                    </select>            
+                </div>
+                
+                <div class="popup_item">
+                    <label>Tên nhà cung cấp:</label>
+                    <input type="text" id="p_producer" placeholder="Nhập nhà cung cấp">
+                </div>
+                
+                <div class="popup_item">
+                    <label>Trạng thái:</label>
+                    <select id="p_status">
+                        <option value="đang bán">Đang bán</option>
+                        <option value="bán chạy">Bán chạy</option>
+                        <option value="dừng bán">Dừng bán</option>
+                    </select>
+                </div>
+            
+                <div class="popup_item">
+                    <label>Mô tả:</label>
+                    <textarea id="p_description"></textarea>
+                </div>
+            
+                <div class="popup_item">
+                    <label>Ảnh sản phẩm:</label>
+                
+<!--                    &lt;!&ndash; Khu vực kéo/thả &ndash;&gt;-->
+<!--                    <div class="img-upload-box" id="drop-zone">-->
+<!--                        <span>+</span>-->
+<!--                        <p>Kéo hoặc click để thêm ảnh</p>-->
+<!--&lt;!&ndash;                        <input type="file" id="sp-img" accept="image/*" multiple>&ndash;&gt;-->
+<!--                    </div>-->
+<!--                -->
+<!--                    &lt;!&ndash; Khu vực preview nhiều ảnh &ndash;&gt;-->
+<!--                    <div class="preview-list" id="preview-list">-->
+<!--                        <div class="preview-item">-->
+<!--                            <img src="image/balo1.jpg" alt="Balo 1">-->
+<!--                        </div>-->
+<!--                        <div class="preview-item">-->
+<!--                            <img src="image/balo2.jpg" alt="Balo 2">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+            `, function (closePopup) {
+            // 1. LẤY DỮ LIỆU NGƯỜI DÙNG
+            const name = document.getElementById("p_name").value;
+            const type = document.getElementById("p_type").value;
+            const style = document.getElementById("p_style").value;
+            const material = document.getElementById("p_material").value;
+            const producer = document.getElementById("p_producer").value;
+            const status = document.getElementById("p_status").value;
+            const description = document.getElementById("p_description").value;
+
+            // 2. GỬI AJAX POST
+            fetch("/projectWeb_war/admin/product_add", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+                },
+                body:
+                    "name=" + encodeURIComponent(name) +
+                    "&type=" + encodeURIComponent(type) +
+                    "&style=" + encodeURIComponent(style) +
+                    "&material=" + encodeURIComponent(material) +
+                    "&producer=" + encodeURIComponent(producer) +
+                    "&status=" + encodeURIComponent(status) +
+                    "&description=" + encodeURIComponent(description)
+            }).then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Thêm sản phẩm thành công");
+                        loadProductList();
+                    } else {
+                        alert(data.message || "Thêm sản phẩm thất bại");
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    alert("Không kết nối được server");
+                });
+        });
+}
+
 function loadProductList() {
     fetch('/projectWeb_war/admin/product_load')
         .then(res => res.json())

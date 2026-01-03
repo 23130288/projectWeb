@@ -20,10 +20,23 @@ public class ProductDao extends BaseDao {
         data.put(5, new Product(5, "Balo2", "Producer3", "balo", "Vai", "Xach tay", "des", "status"));
     }
 
-    public void addProduct(String name, String type, String style, String material, String producer, String status, String description) {
+    public void addProduct(String name, String type, String style,
+                           String material, String producer,
+                           String status, String description) {
+
         get().useHandle(h ->
-                h.createUpdate("INSERT INTO product (name, type, style, material, producer, status, description) VALUES (:name, :type, :style, :role, :material, :producer, :status, :description)")
-                        .bind("name", name).bind("email", type).bind("style", style).bind("material", material).bind("producer", producer).bind("status", status).bind("description", description).execute()
+                h.createUpdate(
+                                "INSERT INTO product (name, type, style, material, producer, status, description) " +
+                                        "VALUES (:name, :type, :style, :material, :producer, :status, :description)"
+                        )
+                        .bind("name", name)
+                        .bind("type", type)
+                        .bind("style", style)
+                        .bind("material", material)
+                        .bind("producer", producer)
+                        .bind("status", status)
+                        .bind("description", description)
+                        .execute()
         );
     }
 
@@ -36,6 +49,13 @@ public class ProductDao extends BaseDao {
         return get().withHandle(h -> h.createQuery("select pid, name, producer, type, material, style, description, status from product where pid = :pid")
                 .bind("pid", productId)
                 .mapToBean(Product.class).first());
+    }
+
+    public Product getProductByName(String name) {
+        return get().withHandle(h -> h.createQuery("select pid, name, producer, type, material, style, description, status from product where name = :name")
+                .bind("name", name)
+                .mapToBean(Product.class).findFirst().orElse(null)
+        );
     }
 
     public List<Product> searchByName(String keyword) {

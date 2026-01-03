@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.example.projectweb.model.User;
-import org.example.projectweb.service.admin.user.AdminGetUserService;
+import org.example.projectweb.service.UserService;
 
 import java.io.IOException;
 import java.util.List;
@@ -14,7 +14,7 @@ import java.util.List;
 @WebServlet(name = "GetListUser", value = "/admin/users")
 public class GetListUser extends HttpServlet {
 
-    final AdminGetUserService userService = new AdminGetUserService();
+    final UserService userService = new UserService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

@@ -17,7 +17,7 @@ public class ProductService {
 
     public boolean addProduct(String name, String type, String style, String material, String producer, String status, String description) {
         // Check Product đã tồn tại
-        if (!pDao.searchByName(name).isEmpty()) {
+        if (pDao.getProductByName(name) != null) {
             return false;
         }
 
@@ -33,15 +33,19 @@ public class ProductService {
     public Product getProductById(int productId) {
         return pDao.getProductById(productId);
     }
+
     public ProductVariant getVariantByPvid(int pvid) {
         return pvDao.getVariantByPvid(pvid);
     }
+
     public List<ProductVariant> getVariantsByPid(int productId) {
         return pvDao.getVariantsByProductId(productId);
     }
+
     public List<ImageProduct> getImgsByPid(int productId) {
         return ipDao.getImagesByProductId(productId);
     }
+
     public ImageProduct getMainImg(int productId) {
         return ipDao.getMainImageByProductId(productId);
     }

@@ -14,15 +14,13 @@ public class AddProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
-        response.setContentType("text/plain");
-        response.getWriter().write("Servlet AddProduct hoạt động!");
+
     }
 
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         ProductService ps = new ProductService();
 
         String name = request.getParameter("name");
@@ -33,9 +31,7 @@ public class AddProduct extends HttpServlet {
         String status = request.getParameter("status");
         String description = request.getParameter("description");
 
-        boolean ok = ps.addProduct(
-                name, type, style, material, producer, status, description
-        );
+        boolean ok = ps.addProduct( name, type, style, material, producer, status, description);
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
@@ -45,7 +41,5 @@ public class AddProduct extends HttpServlet {
         } else {
             response.getWriter().write("{\"success\":false,\"message\":\"Product đã tồn tại\"}");
         }
-        System.out.println("ADD PRODUCT: " + name);
-
     }
 }
