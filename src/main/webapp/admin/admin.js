@@ -6,7 +6,7 @@
         "Quản lý sản phẩm": `
             <h2>Quản lý sản phẩm</h2>
             <div class="Menu-bar">
-                <button class="bt_menu" id="btn-them-sp">+ Thêm sản phẩm</button>
+                <button class="bt_menu" id="btn_them_sp">+ Thêm sản phẩm</button>
                 
                 <div class="search-bar">
                     <input type="text" name="query" placeholder="Tên sản phẩm..."/>
@@ -255,7 +255,7 @@
         "Đăng xuất": `
             <h2>Đăng xuất</h2>
             <p>Bạn có chắc muốn đăng xuất khỏi trang quản trị?</p>
-            <button class="bt_xac_nhan" id="btn-dang-xuat">Đăng xuất</button>
+            <button class="bt_xac_nhan" id="btn_dang_xuat">Đăng xuất</button>
      `
     };
 
@@ -543,7 +543,7 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
     }
 
     // Hiển thị mặc định
-    infoBox.innerHTML = contents["Quản lý sản phẩm"];
+    infoBox.innerHTML = contents["Đăng xuất"];
     attachEvents();
 
     // Xử lý menu click
@@ -553,7 +553,7 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
             infoBox.innerHTML = contents[text] || "<p>Chưa có nội dung</p>";
 
             if (text === "Đăng xuất") {
-                document.getElementById("btn-dang-xuat").addEventListener("click", () => {
+                document.getElementById("btn_dang_xuat").addEventListener("click", () => {
                     localStorage.removeItem("user");
                     alert("Đăng xuất thành công!");
                     window.location.href = "../dang_nhap/dang_nhap.jsp";
@@ -562,19 +562,21 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
 
             if (text === "Quản lý sản phẩm") {
                 loadProductList()
-                const btnThem = document.getElementById("btn-them-sp");
+                const btnThem = document.getElementById("btn_them_sp");
+
+
                 if (btnThem) btnThem.addEventListener("click", () => {
                     openAdminPopup(
                         "Thêm sản phẩm mới",
                         `
                 <div class="popup_item">
                     <label>Tên sản phẩm:</label>
-                    <input type="text" id="sp-name" placeholder="Nhập tên sản phẩm">
+                    <input type="text" name="p_name" placeholder="Nhập tên sản phẩm">
                 </div>
                 
                 <div class="popup_item">
                     <label>Loại:</label>
-                    <select id="sp-Tyoe">
+                    <select name="p_type">
                         <option value="Balo">Balo</option>
                         <option value="Vali">Vali</option>
                     </select>            
@@ -582,7 +584,7 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
                 
                 <div class="popup_item">
                     <label>Kiểu dáng:</label>
-                    <select id="sp-size">
+                    <select name="p_style">
                         <option value="túi đeo chéo">túi đeo chéo</option>
                         <option value="túi đeo bụng">túi đeo bụng</option>
                         <option value="túi sách">túi sách</option>
@@ -591,7 +593,7 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
           
                 <div class="popup_item">
                     <label>Chất liệu:</label>
-                    <select id="sp-Tyoe">
+                    <select name="p_material">
                         <option value="Balo">hợp kim</option>
                         <option value="Vali">coston</option>
                     </select>            
@@ -599,12 +601,12 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
                 
                 <div class="popup_item">
                     <label>Tên nhà cung cấp:</label>
-                    <input type="text" id="sp-name" placeholder="Nhập nhà cung cấp">
+                    <input type="text" name="p_producer" placeholder="Nhập nhà cung cấp">
                 </div>
                 
                 <div class="popup_item">
                     <label>Trạng thái:</label>
-                    <select id="sp-Status">
+                    <select name="p_status">
                         <option value="đang bán">Đang bán</option>
                         <option value="bán chạy">Bán chạy</option>
                         <option value="dừng bán">Dừng bán</option>
@@ -613,7 +615,7 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
             
                 <div class="popup_item">
                     <label>Mô tả:</label>
-                    <textarea id="tb-content"></textarea>
+                    <textarea name="p_description"></textarea>
                 </div>
             
                 <div class="popup_item">
@@ -638,8 +640,30 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
                 </div>
             `,
                         () => {
-                            // callback sau khi nhấn xác nhận
-                            alert("Thêm sản phẩm: aaaaa");
+                            const formData = new FormData();
+                            formData.append("name", document.querySelector("[name='p_name']").value);
+                            formData.append("type", document.querySelector("[name='p_type']").value);
+                            formData.append("style", document.querySelector("[name='p_style']").value);
+                            formData.append("material", document.querySelector("[name='p_material']").value);
+                            formData.append("producer", document.querySelector("[name='p_producer']").value);
+                            formData.append("status", document.querySelector("[name='p_status']").value);
+                            formData.append("description", document.querySelector("[name='p_description']").value);
+                            fetch('/admin/product_add', {
+                                method: "POST",
+                                body: formData
+                            }).then(res => res.json())
+                                .then(data => {
+                                    if (data.success) {
+                                        alert("Thêm sản phẩm thành công");
+                                        loadProductList();
+                                    } else {
+                                        alert(data.message || "Thêm sản phẩm thất bại");
+                                    }
+                                })
+                                .catch(err => {
+                                    console.error(err);
+                                    alert("Không kết nối được server");
+                                });
                         }
                     );
                 });
@@ -861,9 +885,11 @@ function openAdminPopup(title, bodyHTML, onConfirm) {
 
     btnCancel.onclick = () => popup.style.display = "none";
     btnConfirm.onclick = () => {
-        popup.style.display = "none";
-        if (onConfirm) onConfirm();
+        if (onConfirm) onConfirm(() => {
+            popup.style.display = "none";
+        });
     };
+
 
     // ======= XỬ LÝ VOUCHER =========
     const targetSelect = document.getElementById("tb-target-type");
@@ -940,7 +966,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-//hàm hỗ trợ ajax
+//hàm hỗ trợ ajax-json
 //load user
 function loadUserList() {
     fetch('/projectWeb_war/admin/users')
@@ -1003,6 +1029,7 @@ function loadProductList() {
         .then(res => res.json())
         .then(products => {
             const table = document.getElementById("productTable");
+
             // XÓA DỮ LIỆU CŨ
             table.innerHTML = `
             <tr>
@@ -1020,6 +1047,7 @@ function loadProductList() {
 
             products.forEach(p => {
                 const row = document.createElement("tr");
+                // language=HTML
                 row.innerHTML = `
                     <td>${p.pid}</td>
                     <td>${p.name}</td>
@@ -1030,8 +1058,9 @@ function loadProductList() {
                     <td>${p.producer}</td>
                     <td>${p.status}</td>
                     <td>
-                        <button onclick="toggleProductStatus(${p.id})">
-                            ${p.status}
+                        <button onclick="">Thêm</button>
+                        <button onclick="">Sửa</button>
+                        <button onclick="">Dừng
                         </button>
                     </td>
                 `;

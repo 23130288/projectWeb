@@ -1,7 +1,6 @@
 package org.example.projectweb.dao;
 
 import org.example.projectweb.model.Product;
-import org.jdbi.v3.core.statement.PreparedBatch;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,6 +17,13 @@ public class ProductDao extends BaseDao {
         data.put(3, new Product(3, "Balo1", "Producer2", "balo", "Vai", "Deo lung", "des", "status"));
         data.put(4, new Product(4, "Vali2", "Producer3", "vali", "Nhom", "Keo", "des", "status"));
         data.put(5, new Product(5, "Balo2", "Producer3", "balo", "Vai", "Xach tay", "des", "status"));
+    }
+
+    public void addProduct(String name, String type, String style, String material, String producer, String status, String description) {
+        get().useHandle(h ->
+                h.createUpdate("INSERT INTO product (name, type, style, material, producer, status, description) VALUES (:name, :type, :style, :role, :material, :producer, :status, :description)")
+                        .bind("name", name).bind("email", type).bind("style", style).bind("material", material).bind("producer", producer).bind("status", status).bind("description", description).execute()
+        );
     }
 
     public List<Product> getListProduct() {
@@ -44,46 +50,47 @@ public class ProductDao extends BaseDao {
         }
         return result;
     }
-public List<Product> searchInFilter(String query, String category, String sort) {
-    List<Product> result = new ArrayList<>();
 
-    for (Product p : data.values()) {
-        boolean checkQuery = true;
-        boolean checkCategory = true;
-        if (query != null && !query.trim().isEmpty()) {
-            if (!p.getName().toLowerCase().contains(query.toLowerCase().trim())) {
-                checkQuery = false;
+    public List<Product> searchInFilter(String query, String category, String sort) {
+        List<Product> result = new ArrayList<>();
+
+        for (Product p : data.values()) {
+            boolean checkQuery = true;
+            boolean checkCategory = true;
+            if (query != null && !query.trim().isEmpty()) {
+                if (!p.getName().toLowerCase().contains(query.toLowerCase().trim())) {
+                    checkQuery = false;
+                }
+            }
+            if (category != null && !category.isEmpty()) {
+                if (!p.getType().equalsIgnoreCase(category)) {
+                    checkCategory = false;
+                }
+            }
+            if (checkQuery && checkCategory) {
+                result.add(p);
             }
         }
-        if (category != null && !category.isEmpty()) {
-            if (!p.getType().equalsIgnoreCase(category)) {
-                checkCategory = false;
-            }
+        if (sort != null && !sort.isEmpty()) {
+            result.sort((p1, p2) -> {
+                switch (sort) {
+                    case "nameA-Z":
+                        return p1.getName().compareToIgnoreCase(p2.getName());
+                    case "nameZ-A":
+                        return p2.getName().compareToIgnoreCase(p1.getName());
+                    case "priceLow-High":
+                        return Double.compare(p1.getVariants().get(0).getPrice(),
+                                p2.getVariants().get(0).getPrice());
+                    case "priceHigh-Low":
+                        return Double.compare(p2.getVariants().get(0).getPrice(),
+                                p1.getVariants().get(0).getPrice());
+                    default:
+                        return 0;
+                }
+            });
         }
-        if (checkQuery && checkCategory) {
-            result.add(p);
-        }
+        return result;
     }
-    if (sort != null && !sort.isEmpty()) {
-        result.sort((p1, p2) -> {
-            switch (sort) {
-                case "nameA-Z":
-                    return p1.getName().compareToIgnoreCase(p2.getName());
-                case "nameZ-A":
-                    return p2.getName().compareToIgnoreCase(p1.getName());
-                case "priceLow-High":
-                    return Double.compare(p1.getVariants().get(0).getPrice(),
-                            p2.getVariants().get(0).getPrice());
-                case "priceHigh-Low":
-                    return Double.compare(p2.getVariants().get(0).getPrice(),
-                            p1.getVariants().get(0).getPrice());
-                default:
-                    return 0;
-            }
-        });
-    }
-    return result;
-}
 
     public List<Product> getProductsForWishlist(int userId) {
         return get().withHandle(h -> h.createQuery("select p.pid, p.name from product p join wishlist wl on p.pid = wl.pid " +

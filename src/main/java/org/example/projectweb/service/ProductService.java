@@ -5,9 +5,7 @@ import org.example.projectweb.dao.ProductDao;
 import org.example.projectweb.dao.ProductVariantDao;
 import org.example.projectweb.model.ImageProduct;
 import org.example.projectweb.model.Product;
-import org.example.projectweb.model.User;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProductService {
@@ -15,10 +13,21 @@ public class ProductService {
     private ProductVariantDao pvDao = new ProductVariantDao();
     private ImageProductDao ipDao = new ImageProductDao();
 
+    public boolean addProduct(String name, String type, String style, String material, String producer, String status, String description) {
+        // Check Product đã tồn tại
+        if (!pDao.searchByName(name).isEmpty()) {
+            return false;
+        }
+
+        // Tạo Product mới
+        pDao.addProduct(name, type, style, material, producer, status, description);
+        return true;
+    }
+
     public List<Product> getAllProducts() {
         return pDao.getListProduct();
     }
-  
+
     public Product getProductDetail(int productId) {
         Product p = pDao.getProductById(productId);
         if (p == null) return null;
@@ -40,12 +49,12 @@ public class ProductService {
         return results;
     }
 
-public List<Product> searchInFilter(String query, String category, String sort) {
-    List<Product> list = pDao.searchInFilter(query, category, sort);
-    for (Product p : list) {
-        p.setVariants(pvDao.getVariantsByProductId(p.getPid()));
-        p.setImages(ipDao.getImagesByProductId(p.getPid()));
+    public List<Product> searchInFilter(String query, String category, String sort) {
+        List<Product> list = pDao.searchInFilter(query, category, sort);
+        for (Product p : list) {
+            p.setVariants(pvDao.getVariantsByProductId(p.getPid()));
+            p.setImages(ipDao.getImagesByProductId(p.getPid()));
+        }
+        return list;
     }
-    return list;
-}
 }
