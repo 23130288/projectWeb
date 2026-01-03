@@ -2,7 +2,6 @@ package org.example.projectweb.dao;
 
 import org.eclipse.tags.shaded.org.apache.xpath.objects.XString;
 import org.example.projectweb.model.Product;
-import org.jdbi.v3.core.statement.PreparedBatch;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,6 +20,26 @@ public class ProductDao extends BaseDao {
         data.put(5, new Product(5, "Balo2", "Producer3", "balo", "Vai", "Xach tay", "des", "status"));
     }
 
+    public void addProduct(String name, String type, String style,
+                           String material, String producer,
+                           String status, String description) {
+
+        get().useHandle(h ->
+                h.createUpdate(
+                                "INSERT INTO product (name, type, style, material, producer, status, description) " +
+                                        "VALUES (:name, :type, :style, :material, :producer, :status, :description)"
+                        )
+                        .bind("name", name)
+                        .bind("type", type)
+                        .bind("style", style)
+                        .bind("material", material)
+                        .bind("producer", producer)
+                        .bind("status", status)
+                        .bind("description", description)
+                        .execute()
+        );
+    }
+
     public List<Product> getListProduct() {
         return get().withHandle(h -> h.createQuery("select pid, name, producer, type, material, style, status from product")
                 .mapToBean(Product.class).list());
@@ -30,6 +49,13 @@ public class ProductDao extends BaseDao {
         return get().withHandle(h -> h.createQuery("select pid, name, producer, type, material, style, description, status from product where pid = :pid")
                 .bind("pid", productId)
                 .mapToBean(Product.class).first());
+    }
+
+    public Product getProductByName(String name) {
+        return get().withHandle(h -> h.createQuery("select pid, name, producer, type, material, style, description, status from product where name = :name")
+                .bind("name", name)
+                .mapToBean(Product.class).findFirst().orElse(null)
+        );
     }
 
     public List<Product> searchByName(String keyword) {
