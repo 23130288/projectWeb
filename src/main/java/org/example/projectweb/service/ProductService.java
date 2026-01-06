@@ -58,21 +58,13 @@ public class ProductService {
         return p;
     }
 
-    public List<Product> searchProducts(String keyword) {
-        List<Product> results = pDao.searchByName(keyword);
-        for (Product p : results) {
-            p.setVariants(pvDao.getVariantsByProductId(p.getPid()));
-            p.setImages(ipDao.getImagesByProductId(p.getPid()));
-        }
-        return results;
-    }
-
-    public List<Product> searchInFilter(String query, String category, String sort) {
-        List<Product> list = pDao.searchInFilter(query, category, sort);
-        for (Product p : list) {
-            p.setVariants(pvDao.getVariantsByProductId(p.getPid()));
-            p.setImages(ipDao.getImagesByProductId(p.getPid()));
-        }
-        return list;
+    public List<Product> searchInFilter(
+            String query,
+            String category,
+            String minPrice,
+            String maxPrice,
+            String sort
+    ) {
+        return pDao.search(query, category, minPrice, maxPrice, sort);
     }
 }

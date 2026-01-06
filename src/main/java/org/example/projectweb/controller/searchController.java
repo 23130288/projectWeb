@@ -1,36 +1,39 @@
 package org.example.projectweb.controller;
 
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
-import org.example.projectweb.dao.ProductDao;
-import org.example.projectweb.service.ProductService;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.example.projectweb.model.Product;
+import org.example.projectweb.service.ProductService;
+
 import java.io.IOException;
 import java.util.List;
 
 @WebServlet(name = "searchController", value = "/search")
 public class searchController extends HttpServlet {
+
     private final ProductService productService = new ProductService();
-    private final ProductDao productDao = new ProductDao();
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
         String query = request.getParameter("query");
         String category = request.getParameter("category");
+        String minPrice = request.getParameter("minPrice");
+        String maxPrice = request.getParameter("maxPrice");
         String sort = request.getParameter("sort");
 
-        List<Product> results = productService.searchProducts(query);
-        List<Product> resultFilter = productDao.searchInFilter(query, category, sort);
+        List<Product> searchResults = productService.searchInFilter(query, category, minPrice, maxPrice, sort);
 
-        for (Product p : resultFilter) {
-            productService.getProductDetail(p.getPid());
-        }
-        request.setAttribute("searchResults", results);
-        request.setAttribute("searchResults", resultFilter);
-        request.setAttribute("results", query);
+        request.setAttribute("searchResults", searchResults);
+        request.setAttribute("currentQuery", query);
         request.setAttribute("currentCategory", category);
         request.setAttribute("currentSort", sort);
+        request.setAttribute("minPrice", minPrice);
+        request.setAttribute("maxPrice", maxPrice);
 
         request.getRequestDispatcher("trang_tim_kiem/trang_tim_kiem.jsp").forward(request, response);
     }
