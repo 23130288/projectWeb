@@ -28,6 +28,17 @@ public class ProductService {
         return true;
     }
 
+    public boolean addProductVariant(int pid, String size, String color, double price, int quantity) {
+        // Check ProductVariant đã tồn tại
+        if (pvDao.findVariant(pid, size, color) != null) {
+            return false;
+        }
+
+        // Tạo ProductVariant mới
+        pvDao.addProductVariant(pid, size, color, price, quantity);
+        return true;
+    }
+
     public List<Product> getAllProducts() {
         return pDao.getListProduct();
     }

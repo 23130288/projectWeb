@@ -24,7 +24,7 @@
         "Quản lý biến thể sản phẩm": `
             <h2>Quản lý biến thể sản phẩm</h2>
             <div class="Menu-bar">
-<!--                <button class="bt_menu" id="btn-them-sp">+ Thêm biến thể</button>-->
+<!--                <button class="bt_menu" id="btn_them_pt_sp">+ Thêm biến thể</button>-->
                 
                 <div class="search-bar">
                     <input type="text" name="query" placeholder="Tên sản phẩm..."/>
@@ -504,78 +504,6 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
 
             if (text === "Quản lý biến thể sản phẩm") {
                 loadProductVariantList()
-//                 const btnThem = document.getElementById("btn-them-sp");
-//                 if (btnThem) btnThem.addEventListener("click", () => {
-//                     openAdminPopup(
-//                         "Thêm sản phẩm mới",
-//                         `
-//                 <div class="popup_item">
-//                     <label>Tên sản phẩm:</label>
-//                     <input type="text" id="sp-name" placeholder="Nhập tên sản phẩm">
-//                 </div>
-//                 <div class="popup_item">
-//                     <label>Màu:</label>
-//                     <select id="sp-color">
-//                         <option value="red">đỏ</option>
-//                         <option value="yellow">vàng</option>
-//                     </select>
-//                 </div>
-//
-//                 <div class="popup_item">
-//                     <label>Size:</label>
-//                     <select id="sp-size">
-//                         <option value="M">M</option>
-//                         <option value="L">L</option>
-//                         <option value="XL">XL</option>
-//                     </select>
-//                 </div>
-//
-//                 <div class="popup_item">
-//                     <label>Giá:</label>
-//                     <input type="number" id="sp-price" placeholder="Nhập giá sản phẩm">
-//                 </div>
-//
-//                 <div class="popup_item">
-//                     <label>Số lượng:</label>
-//                     <input type="number" id="sp-quantity" placeholder="Nhập số lượng sản phẩm">
-//                 </div>
-//
-//                 <div class="popup_item">
-//                     <label>Trạng thái:</label>
-//                     <select id="sp-Status">
-//                         <option value="đang bán">Đang bán</option>
-//                         <option value="bán chạy">Bán chạy</option>
-//                         <option value="dừng bán">Dừng bán</option>
-//                     </select>
-//                 </div>
-//
-//                 <div class="popup_item">
-//                     <label>Ảnh sản phẩm:</label>
-//
-//                     <!-- Khu vực kéo/thả -->
-//                     <div class="img-upload-box" id="drop-zone">
-//                         <span>+</span>
-//                         <p>Kéo hoặc click để thêm ảnh</p>
-// <!--                        <input type="file" id="sp-img" accept="image/*" multiple>-->
-//                     </div>
-//
-//                     <!-- Khu vực preview nhiều ảnh -->
-//                     <div class="preview-list" id="preview-list">
-//                         <div class="preview-item">
-//                             <img src="image/balo1.jpg" alt="Balo 1">
-//                         </div>
-//                         <div class="preview-item">
-//                             <img src="image/balo2.jpg" alt="Balo 2">
-//                         </div>
-//                     </div>
-//                 </div>
-//             `,
-//                         () => {
-//                             // callback sau khi nhấn xác nhận
-//                             alert("Thêm biến thể cho sản phẩm: aaaaa");
-//                         }
-//                     );
-//                 });
             }
 
             if (text === "Quản lý người dùng") {
@@ -971,6 +899,106 @@ function addProduct() {
         });
 }
 
+function addProductVariant(pid, name, type) {
+    openAdminPopup(
+        "Thêm biến thể cho " + name,
+        `
+                <div class="popup_item">
+                    <label>Mã sản phẩm:</label>
+                    <input type="text" id="p_pid" value="${pid}" readonly>
+                </div>
+                
+                <div class="popup_item">
+                    <label>Tên sản phẩm:</label>
+                    <input type="text" id="p_name" value="${name}" readonly>
+                </div>
+                
+                 <div class="popup_item">
+                    <label>Kích thước:</label>
+                    <select id="p_size"></select>
+                </div>
+                
+                <div class="popup_item">
+                    <label>Màu sắc:</label>
+                    <select id="p_color">
+                        <option value="black">Đen</option>
+                        <option value="white">Trắng</option>
+                        <option value="gray">Xám</option>
+                        <option value="navy">Xanh navy</option>
+                        <option value="blue">Xanh dương</option>
+                        <option value="green">Xanh lá</option>
+                        <option value="brown">Nâu</option>
+                        <option value="beige">Be</option>
+                        <option value="red">Đỏ</option>
+                        <option value="yellow">Vàng</option>
+                    </select> 
+                </div>
+          
+                <div class="popup_item">
+                    <label>Giá:</label>
+                    <input type="number" id="p_price" placeholder="VD: 850000" min="0" step="1000">
+                </div>
+                
+                <div class="popup_item">
+                    <label>Số lượng:</label>
+                    <input type="number" id="p_quantity" placeholder="VD: 10" min="0" step="1">
+                </div>
+                                
+            `, function (closePopup) {
+            // 1. LẤY DỮ LIỆU NGƯỜI DÙNG
+            const pid = document.getElementById("p_pid").value;
+            const size = document.getElementById("p_size").value;
+            const color = document.getElementById("p_color").value;
+            const price = document.getElementById("p_price").value;
+            const quantity = document.getElementById("p_quantity").value;
+
+            // 2. GỬI AJAX POST
+            fetch("/projectWeb_war/admin/productVariant_add", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+                },
+                body:
+                    "pid=" + encodeURIComponent(pid) +
+                    "&size=" + encodeURIComponent(size) +
+                    "&color=" + encodeURIComponent(color) +
+                    "&price=" + encodeURIComponent(price) +
+                    "&quantity=" + encodeURIComponent(quantity)
+            }).then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Thêm biến thể thành công");
+                        loadProductList();
+                    } else {
+                        alert(data.message || "Thêm biến thể thất bại");
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    alert("Lỗi đã sảy ra.");
+                });
+        });
+    loadSizeByType(type);
+}
+
+function loadSizeByType(type) {
+    const sizeSelect = document.getElementById("p_size");
+
+    if (type === "balo") {
+        sizeSelect.innerHTML = `
+            <option value="S">S (Nhỏ)</option>
+            <option value="M">M (Trung)</option>
+            <option value="L">L (Lớn)</option>
+        `;
+    } else if (type === "vali") {
+        sizeSelect.innerHTML = `
+            <option value="20">20 inch (Xách tay)</option>
+            <option value="24">24 inch (Trung)</option>
+            <option value="28">28 inch (Lớn)</option>
+        `;
+    }
+}
+
 function loadProductList() {
     fetch('/projectWeb_war/admin/product_load')
         .then(res => res.json())
@@ -1005,7 +1033,7 @@ function loadProductList() {
                     <td>${p.producer}</td>
                     <td>${p.status}</td>
                     <td>
-                        <button onclick="">Thêm_pt</button>
+                        <button onclick="addProductVariant(${p.pid}, '${p.name}', '${p.type}')">Thêm_pt</button>
                         <button onclick="">Sửa</button>
                         <button onclick="toggleProductStatus(${p.pid})">${p.status}</button>
                     </td>
