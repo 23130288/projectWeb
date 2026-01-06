@@ -1,12 +1,12 @@
 package org.example.projectweb.dao;
 
+import org.eclipse.tags.shaded.org.apache.xpath.objects.XString;
 import org.example.projectweb.model.Product;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class ProductDao extends BaseDao {
 
@@ -20,30 +20,29 @@ public class ProductDao extends BaseDao {
         data.put(5, new Product(5, "Balo2", "Producer3", "balo", "Vai", "Xach tay", "des", "status"));
     }
 
-    public void addProduct(String name, String type, String style, String material, String producer, String status, String description) {
-        get().useHandle(h -> h.createUpdate("INSERT INTO product (name, type, style, material, producer, status, description) VALUES (:name, :type, :style, :material, :producer, :status, :description)")
-                .bind("name", name).bind("type", type).bind("style", style).bind("material", material).bind("producer", producer).bind("status", status).bind("description", description).execute()
+    public void addProduct(String name, String type, String style,
+                           String material, String producer,
+                           String status, String description) {
+
+        get().useHandle(h ->
+                h.createUpdate(
+                                "INSERT INTO product (name, type, style, material, producer, status, description) " +
+                                        "VALUES (:name, :type, :style, :material, :producer, :status, :description)"
+                        )
+                        .bind("name", name)
+                        .bind("type", type)
+                        .bind("style", style)
+                        .bind("material", material)
+                        .bind("producer", producer)
+                        .bind("status", status)
+                        .bind("description", description)
+                        .execute()
         );
     }
 
     public List<Product> getListProduct() {
         return get().withHandle(h -> h.createQuery("select pid, name, producer, type, material, style, status from product")
                 .mapToBean(Product.class).list());
-    }
-
-    public List<Integer> getListProductID() {
-        return get().withHandle(h ->
-                h.createQuery("select pid from product")
-                        .mapTo(Integer.class).list()
-        );
-    }
-
-    public Map<Integer, String> getProductNameMap() {
-        return get().withHandle(h ->
-                h.createQuery("SELECT pid, name FROM product")
-                        .map((rs, ctx) -> Map.entry(rs.getInt("pid"), rs.getString("name")))
-                        .list().stream() .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue))
-        );
     }
 
     public Product getProductById(int productId) {
@@ -122,8 +121,13 @@ public class ProductDao extends BaseDao {
     }
 
     public void updateStatus(int pid, String sta) {
-        get().useHandle(h -> h.createUpdate("UPDATE product SET status = :sta WHERE pid = :pid")
-                .bind("pid", pid).bind("sta", sta).execute()
+        get().useHandle(h ->
+                h.createUpdate(
+                                "UPDATE product SET status = :sta WHERE pid = :pid"
+                        )
+                        .bind("pid", pid)
+                        .bind("sta", sta)
+                        .execute()
         );
     }
 }

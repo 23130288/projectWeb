@@ -33,8 +33,76 @@
             </div>
             
             <div class="table-wrapper">
-                <table class="table_data" id="productVariantsTable">
-<!--                  load nội dung bằng hàm riêng-->
+                <table class="table_data">
+                    <tr><th>Mã SP</th><th>Tên sản phẩm</th><th>Còn lại</th><th>Màu</th><th>Size</th><th>Giá</th><th>Trạng thái</th><th>Thao tác</th></tr>
+                    <tr>
+                        <td>SP001</td><td>Balo du lịch</td><td>5</td><td>dỏ</td><td>M</td><td>500.000₫</td><td>đang bán</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP002</td><td>Vali cao cấp</td><td>12</td><td>vàng</td><td>XL</td><td>1.200.000₫</td><td>bán chạy</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP003</td><td>Balo leo núi</td><td>5</td><td>đen</td><td>M</td><td>1500.000₫</td><td>dừng bán</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr>
+                     <tr>
+                        <td>SP001</td><td>Balo du lịch</td><td>5</td><td>dỏ</td><td>M</td><td>500.000₫</td><td>đang bán</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP002</td><td>Vali cao cấp</td><td>12</td><td>vàng</td><td>XL</td><td>1.200.000₫</td><td>bán chạy</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP003</td><td>Balo leo núi</td><td>5</td><td>đen</td><td>M</td><td>1500.000₫</td><td>dừng bán</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr> <tr>
+                        <td>SP001</td><td>Balo du lịch</td><td>5</td><td>dỏ</td><td>M</td><td>500.000₫</td><td>đang bán</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP002</td><td>Vali cao cấp</td><td>12</td><td>vàng</td><td>XL</td><td>1.200.000₫</td><td>bán chạy</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP003</td><td>Balo leo núi</td><td>5</td><td>đen</td><td>M</td><td>1500.000₫</td><td>dừng bán</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr> <tr>
+                        <td>SP001</td><td>Balo du lịch</td><td>5</td><td>dỏ</td><td>M</td><td>500.000₫</td><td>đang bán</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP002</td><td>Vali cao cấp</td><td>12</td><td>vàng</td><td>XL</td><td>1.200.000₫</td><td>bán chạy</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP003</td><td>Balo leo núi</td><td>5</td><td>đen</td><td>M</td><td>1500.000₫</td><td>dừng bán</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr> <tr>
+                        <td>SP001</td><td>Balo du lịch</td><td>5</td><td>dỏ</td><td>M</td><td>500.000₫</td><td>đang bán</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP002</td><td>Vali cao cấp</td><td>12</td><td>vàng</td><td>XL</td><td>1.200.000₫</td><td>bán chạy</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP003</td><td>Balo leo núi</td><td>5</td><td>đen</td><td>M</td><td>1500.000₫</td><td>dừng bán</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr> <tr>
+                        <td>SP001</td><td>Balo du lịch</td><td>5</td><td>dỏ</td><td>M</td><td>500.000₫</td><td>đang bán</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP002</td><td>Vali cao cấp</td><td>12</td><td>vàng</td><td>XL</td><td>1.200.000₫</td><td>bán chạy</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP003</td><td>Balo leo núi</td><td>5</td><td>đen</td><td>M</td><td>1500.000₫</td><td>dừng bán</td>
+                        <td><button class="btn-sua" id="sua_bt">Sửa</button><button class="btn-xoa">Xóa</button></td>
+                    </tr> 
                 </table>
             </div>
         `,
@@ -502,8 +570,7 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
                 });
             }
 
-            if (text === "Quản lý biến thể sản phẩm") {
-                loadProductVariantList()
+//             if (text === "Quản lý biến thể sản phẩm") {
 //                 const btnThem = document.getElementById("btn-them-sp");
 //                 if (btnThem) btnThem.addEventListener("click", () => {
 //                     openAdminPopup(
@@ -576,7 +643,7 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
 //                         }
 //                     );
 //                 });
-            }
+//             }
 
             if (text === "Quản lý người dùng") {
                 loadUserList();
@@ -857,7 +924,7 @@ function toggleUserStatus(uid) {
         });
 }
 
-//================================= các phương thước phần product =================================
+//load product
 function addProduct() {
     openAdminPopup(
         "Thêm sản phẩm mới",
@@ -1008,46 +1075,6 @@ function loadProductList() {
                         <button onclick="">Thêm_pt</button>
                         <button onclick="">Sửa</button>
                         <button onclick="toggleProductStatus(${p.pid})">${p.status}</button>
-                    </td>
-                `;
-                table.appendChild(row);
-            });
-        });
-}
-
-function loadProductVariantList() {
-    fetch('/projectWeb_war/admin/Product_Variant_load')
-        .then(res => res.json())
-        .then(productVariants => {
-            const table = document.getElementById("productVariantsTable");
-
-            // XÓA DỮ LIỆU CŨ
-            table.innerHTML = `
-            <tr>
-                <th>PVID</th>
-                <th>PID</th>
-                <th>Tên</th>
-                <th>Kích thước</th>
-                <th>Màu sắc</th>
-                <th>Giá</th>
-                <th>Còn lại</th>
-                <th>Thao tác</th>
-            </tr>
-            `;
-
-            productVariants.forEach(pv => {
-                const row = document.createElement("tr");
-                // language=HTML
-                row.innerHTML = `
-                    <td>${pv.pvid}</td>
-                    <td>${pv.pid}</td>
-                    <td>${pv.productName}</td>
-                    <td>${pv.size}</td>
-                    <td>${pv.color}</td>
-                    <td>${pv.price}</td>
-                    <td>${pv.quantity}</td>
-                    <td>
-                        <button onclick="">Sửa</button>
                     </td>
                 `;
                 table.appendChild(row);
