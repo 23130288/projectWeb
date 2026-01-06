@@ -6,9 +6,11 @@ import org.example.projectweb.dao.ProductVariantDao;
 import org.example.projectweb.model.ImageProduct;
 import org.example.projectweb.model.Product;
 import org.example.projectweb.model.ProductVariant;
-import org.example.projectweb.model.User;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class ProductService {
     private ProductDao pDao = new ProductDao();
@@ -30,6 +32,21 @@ public class ProductService {
         return pDao.getListProduct();
     }
 
+    public List<ProductVariant> getAllProductsVariants() {
+        List<Integer> lsPID = pDao.getListProductID();
+
+        List<ProductVariant> re = new ArrayList<>();
+        for (Integer pid : lsPID) {
+            List<ProductVariant> tmp = getVariantsByPid(pid);
+            if (tmp != null) re.addAll(tmp);
+        }
+        return re;
+    }
+
+    public Map<Integer, String> getProductNameMap() {
+        return pDao.getProductNameMap();
+    }
+
     public Product getProductById(int productId) {
         return pDao.getProductById(productId);
     }
@@ -39,7 +56,7 @@ public class ProductService {
     }
 
     public List<ProductVariant> getVariantsByPid(int productId) {
-        return pvDao.getVariantsByProductId(productId);
+        return pvDao.getVariantsForAdmin(productId);
     }
 
     public List<ImageProduct> getImgsByPid(int productId) {
