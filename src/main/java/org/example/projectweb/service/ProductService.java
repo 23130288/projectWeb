@@ -61,10 +61,12 @@ public class ProductService {
     public List<Product> searchInFilter(
             String query,
             String category,
+            String color,
+            String size,
             String minPrice,
             String maxPrice,
             String sort
     ) {
-        return pDao.search(query, category, minPrice, maxPrice, sort);
+        return pDao.search(query, category,color,size, minPrice, maxPrice, sort);
     }
 }

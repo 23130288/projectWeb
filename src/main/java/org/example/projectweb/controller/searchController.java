@@ -22,15 +22,20 @@ public class searchController extends HttpServlet {
 
         String query = request.getParameter("query");
         String category = request.getParameter("category");
+        String color = request.getParameter("color");
+        String size = request.getParameter("size");
         String minPrice = request.getParameter("minPrice");
         String maxPrice = request.getParameter("maxPrice");
         String sort = request.getParameter("sort");
 
-        List<Product> searchResults = productService.searchInFilter(query, category, minPrice, maxPrice, sort);
+        List<Product> searchResults = productService.searchInFilter(query, category,color,
+                size, minPrice, maxPrice, sort);
 
         request.setAttribute("searchResults", searchResults);
         request.setAttribute("currentQuery", query);
         request.setAttribute("currentCategory", category);
+        request.setAttribute("currentColor", color);
+        request.setAttribute("currentSize", size);
         request.setAttribute("currentSort", sort);
         request.setAttribute("minPrice", minPrice);
         request.setAttribute("maxPrice", maxPrice);
