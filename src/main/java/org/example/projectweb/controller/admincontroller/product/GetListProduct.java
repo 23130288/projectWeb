@@ -15,7 +15,7 @@ import java.util.List;
 @WebServlet(name = "GetListProduct", value = "/admin/product_load")
 public class GetListProduct extends HttpServlet {
 
-    private ProductService productService = new ProductService();
+    final ProductService productService = new ProductService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
