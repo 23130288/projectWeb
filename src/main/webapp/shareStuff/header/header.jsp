@@ -1,17 +1,18 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>HEADER</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="shareStuff/header/header.css">
 </head>
 <body>
 <header>
     <div class="top-banner">
         <div class="brand-name">
-            <a href="../trang_chu/trang_chu.html">
-                <img src="../shareStuff/header/image/logo.png" alt="Travel Logo">
+            <a href="trang_chu/trang_chu.jsp">
+                <img src="shareStuff/header/image/logo.png" alt="Travel Logo">
             </a>
         </div>
         <div class="header-search">
@@ -35,21 +36,21 @@
                 </div>
                 <input type="text" name="query" placeholder="Nhập từ khóa..."/>
                 <div class="divider"></div>
-                <a href="../trang_tim_kiem/trang_tim_kiem.html" class="search-button">TÌM KIẾM</a>
+                <a href="trang_tim_kiem/trang_tim_kiem.jsp" class="search-button">TÌM KIẾM</a>
             </form>
         </div>
         <div class="container-icons">
 
             <div class="avatar-icon-shopping-cart">
                 <div class="inner-circle">
-                    <a href="../cartPage/cartPage.html">
+                    <a href="cartPage/cartPage.jsp">
                         <i class="fa fa-shopping-cart"></i>
                     </a>
                 </div>
             </div>
             <div class="avatar-icon-user">
                 <div class="inner-circle">
-                    <a href="../dang_nhap/dang_nhap.html">
+                    <a href="dang_nhap/dang_nhap.jsp">
                         <i class="fa fa-user"></i>
                     </a>
                 </div>
@@ -72,11 +73,11 @@
                         <li><a href="#">BALO</a></li>
                     </ul>
                 </li>
-                <li><a href="../wishList/wishListPage.html">WISHLIST</a></li>
-                <li><a href="../helpPage/helpPage.html">LIÊN HỆ</a></li>
-                <li><a href="../thong_tin/thong_tin.html">ABOUT US</a></li>
-                <li><a href="../chinh_sach/chinh_sach.html">CHÍNH SÁCH</a></li>
-                <li><a href="../dich_vu/dich_vu.html">DỊCH VỤ</a></li>
+                <li><a href="wishlist">WISHLIST</a></li>
+                <li><a href="helpPage/helpPage.jsp">LIÊN HỆ</a></li>
+                <li><a href="thong_tin/thong_tin.jsp">ABOUT US</a></li>
+                <li><a href="chinh_sach/chinh_sach.jsp">CHÍNH SÁCH</a></li>
+                <li><a href="dich_vu/dich_vu.jsp">DỊCH VỤ</a></li>
             </ul>
         </div>
     </nav>

@@ -20,6 +20,7 @@ public class WishlistController extends HttpServlet {
         List<Product> list = ws.getProductsForWishlist(1);
 
         request.setAttribute("list", list);
+
         request.setAttribute("listMainImgs", ws.getMainImgsForWishlist(1));
         request.setAttribute("avgs", rs.getAvgRatingsForProducts(list));
         request.getRequestDispatcher("wishList/wishListPage.jsp").forward(request, response);

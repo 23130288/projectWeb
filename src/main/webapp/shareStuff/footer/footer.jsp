@@ -1,9 +1,10 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Footer</title>
-    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="shareStuff/footer/footer.css">
 </head>
 <body>
 <footer>
@@ -11,25 +12,25 @@
         <div class="footer1-container">
             <div class="footer1-column">
                 <h4>Cửa hàng Travel</h4>
-                <a href="../trang_chu/trang_chu.html">Balo & Vali Lịch</a>
+                <a href="trang_chu/trang_chu.jsp">Balo & Vali Lịch</a>
             </div>
 
             <div class="footer1-column">
                 <h4>Dịch vụ khách hàng</h4>
-                <a href="../dich_vu/dich_vu.html">Dịch vụ giao hàng</a>
-                <a href="../dich_vu/dich_vu.html">Dịch vụ đổi trả</a>
+                <a href="dich_vu/dich_vu.jsp">Dịch vụ giao hàng</a>
+                <a href="dich_vu/dich_vu.jsp">Dịch vụ đổi trả</a>
             </div>
 
             <div class="footer1-column">
                 <h4>Liên hệ admin</h4>
-                <a href="../helpPage/helpPage.html">Liên hệ</a>
+                <a href="helpPage/helpPage.jsp">Liên hệ</a>
             </div>
 
             <div class="footer1-column">
                 <h4>Điều khoản pháp lý</h4>
-                <a href="../chinh_sach/chinh_sach.html"Chính sách bảo mật</a>
-                <a href="../chinh_sach/chinh_sach.html">Chính sách bảo hành</a>
-                <a href="../chinh_sach/chinh_sach.html">Điều khoản sử dụng</a>
+                <a href="chinh_sach/chinh_sach.jsp">Chính sách bảo mật</a>
+                <a href="chinh_sach/chinh_sach.jsp">Chính sách bảo hành</a>
+                <a href="chinh_sach/chinh_sach.jsp">Điều khoản sử dụng</a>
             </div>
         </div>
     </div>
@@ -43,7 +44,7 @@
         </div>
 
         <div class="brand">
-            <img src="../shareStuff/footer/image/logo_white.png">
+            <img src="shareStuff/footer/image/logo_white.png">
             <p>© 2025 Công ty Balo & Vali Du lịch Travel</p>
         </div>
     </div>
