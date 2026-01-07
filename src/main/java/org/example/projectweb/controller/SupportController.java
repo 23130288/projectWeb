@@ -1,0 +1,31 @@
+package org.example.projectweb.controller;
+
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
+import jakarta.servlet.annotation.*;
+import org.example.projectweb.service.SupportService;
+
+import java.io.IOException;
+
+@WebServlet(name = "SupportController", value = "/support")
+public class SupportController extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("helpPage/helpPage.jsp").forward(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        SupportService ss = new SupportService();
+
+        int userId = 1;
+        String topic = request.getParameter("topic");
+        String title = request.getParameter("title");
+        String message = request.getParameter("message");
+
+        ss.createSupport(userId, topic, title, message);
+
+        response.sendRedirect("support");
+    }
+}
+

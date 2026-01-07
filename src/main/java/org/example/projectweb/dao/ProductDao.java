@@ -12,14 +12,6 @@ public class ProductDao extends BaseDao {
 
     static Map<Integer, Product> data = new HashMap<>();
 
-    static {
-        data.put(1, new Product(1, "Balo Apollo đựng laptop", "Producer1", "balo", "Vai", "Deo lung", "des", "status"));
-        data.put(2, new Product(2, "Vali1", "Producer1", "vali", "Nhom", "Keo", "des", "status"));
-        data.put(3, new Product(3, "Balo1", "Producer2", "balo", "Vai", "Deo lung", "des", "status"));
-        data.put(4, new Product(4, "Vali2", "Producer3", "vali", "Nhom", "Keo", "des", "status"));
-        data.put(5, new Product(5, "Balo2", "Producer3", "balo", "Vai", "Xach tay", "des", "status"));
-    }
-
     public void addProduct(String name, String type, String style, String material, String producer, String status, String description) {
         get().useHandle(h -> h.createUpdate("INSERT INTO product (name, type, style, material, producer, status, description) VALUES (:name, :type, :style, :material, :producer, :status, :description)")
                 .bind("name", name).bind("type", type).bind("style", style).bind("material", material).bind("producer", producer).bind("status", status).bind("description", description).execute()
@@ -125,5 +117,9 @@ public class ProductDao extends BaseDao {
         get().useHandle(h -> h.createUpdate("UPDATE product SET status = :sta WHERE pid = :pid")
                 .bind("pid", pid).bind("sta", sta).execute()
         );
+    }
+
+    public List<Product> search(String query, String category, String color, String size, String minPrice, String maxPrice, String sort) {
+        return null;
     }
 }
