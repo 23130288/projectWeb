@@ -2,7 +2,6 @@ package org.example.projectweb.dao;
 
 import org.example.projectweb.model.Product;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,59 +50,113 @@ public class ProductDao extends BaseDao {
         );
     }
 
-    public List<Product> searchByName(String keyword) {
-        List<Product> result = new ArrayList<>();
-        if (keyword == null || keyword.trim().isEmpty()) {
-            return result;
-        }
-        String lowerKeyword = keyword.toLowerCase().trim();
-        for (Product p : data.values()) {
-            if (p.getName().toLowerCase().contains(lowerKeyword)) {
-                result.add(p);
-            }
-        }
-        return result;
+    public List<Product> getAllProducts() {
+        return get().withHandle(h -> h.createQuery(" select pid, name, producer, type, material, style, description, status from product ")
+                        .mapToBean(Product.class)
+                        .list()
+        );
+    }
+    public List<Product> getProductByProducer(List<Product> list, String producer) {
+        return get().withHandle(h -> h.createQuery(" select pid, name, producer, type, material, style, description, status from product where producer = :producer ")
+                        .bind("producer", producer)
+                        .mapToBean(Product.class)
+                        .list()
+        );
+    }
+    public List<Product> getProductByCategory(List<Product> list, String category) {
+        return get().withHandle(h -> h.createQuery(" select pid, name, producer, type, material, style, description, status from product where type = :category ")
+                        .bind("category", category)
+                        .mapToBean(Product.class)
+                        .list()
+        );
+    }
+    public List<Product> getProductByColor(List<Product> list, String color) {
+        return get().withHandle(h -> h.createQuery(" select distinct p.pid, p.name, p.producer, p.type, p.material, p.style, p.description, p.status from product p join product_variant v on p.pid = v.pid WHERE v.color = :color ")
+                        .bind("color", color)
+                        .mapToBean(Product.class)
+                        .list()
+        );
+    }
+    public List<Product> getProductBySize(List<Product> list, String size) {
+        return get().withHandle(h -> h.createQuery(" select distinct p.pid, p.name, p.producer, p.type, p.material, p.style, p.description, p.status from product p join product_variant v on p.pid = v.pid where v.size = :size ")
+                        .bind("size", size)
+                        .mapToBean(Product.class)
+                        .list()
+        );
+    }
+    public List<Product> getProductByPrice(double min, double max) {
+            return get().withHandle(h -> h.createQuery(" select distinct p.pid, p.name, p.producer, p.type, p.material, p.style, p.description, p.status from product p join product_variant v on p.pid = v.pid where v.price >= :min and v.price <= :max ")
+                            .bind("min", min)
+                            .bind("max", max)
+                            .mapToBean(Product.class)
+                            .list()
+            );
+
+    }
+    public List<Product> sortByPrice(boolean asc) {
+        String order = asc ? "ASC" : "DESC";
+        return get().withHandle(h -> h.createQuery(" select distinct p.pid, p.name, p.producer, p.type, p.material, p.style, p.description, p.status from product p join product_variant v on p.pid = v.pid order by v.price " + order)
+                        .mapToBean(Product.class)
+                        .list()
+        );
+    }
+    public List<Product> sortByName(boolean asc) {
+        String order = asc ? "ASC" : "DESC";
+        return get().withHandle(h -> h.createQuery(" select pid, name, producer, type, material, style, description, status from product order by name " + order)
+                        .mapToBean(Product.class)
+                        .list()
+        );
+    }
+    public List<Product> sortByBestSeller() {
+        return get().withHandle(h -> h.createQuery(" select p.pid, p.name, p.producer, p.type, p.material, p.style, p.description, p.status, sum(od.quantity) as totalSold from product p join order_detail od on p.pid = od.pid group by p.pid order by totalSold desc ")
+                        .mapToBean(Product.class)
+                        .list()
+        );
+    }
+    public List<Product> sortByRating() {
+        return get().withHandle(h -> h.createQuery(" select p.pid, p.name, p.producer, p.type, p.material, p.style, p.description, p.status, avg(r.rating) as avgRating from product p join review r on p.pid = r.pid group by p.pid order by avgRating desc ")
+                        .mapToBean(Product.class)
+                        .list()
+        );
+    }
+    public List<Product> sortByHot() {
+        return get().withHandle(h -> h.createQuery(" select pid, name, producer, type, material, style, description, status from product where status = 'HOT' order by pid desc ")
+                        .mapToBean(Product.class)
+                        .list()
+        );
     }
 
-    public List<Product> searchInFilter(String query, String category, String sort) {
-        List<Product> result = new ArrayList<>();
+    public List<Product> getProductBySort(List<Product> products, String sort) {
 
-        for (Product p : data.values()) {
-            boolean checkQuery = true;
-            boolean checkCategory = true;
-            if (query != null && !query.trim().isEmpty()) {
-                if (!p.getName().toLowerCase().contains(query.toLowerCase().trim())) {
-                    checkQuery = false;
-                }
-            }
-            if (category != null && !category.isEmpty()) {
-                if (!p.getType().equalsIgnoreCase(category)) {
-                    checkCategory = false;
-                }
-            }
-            if (checkQuery && checkCategory) {
-                result.add(p);
-            }
+        if (sort == null || sort.isEmpty()) {
+            return getAllProducts();
         }
-        if (sort != null && !sort.isEmpty()) {
-            result.sort((p1, p2) -> {
-                switch (sort) {
-                    case "nameA-Z":
-                        return p1.getName().compareToIgnoreCase(p2.getName());
-                    case "nameZ-A":
-                        return p2.getName().compareToIgnoreCase(p1.getName());
-                    case "priceLow-High":
-                        return Double.compare(p1.getVariants().get(0).getPrice(),
-                                p2.getVariants().get(0).getPrice());
-                    case "priceHigh-Low":
-                        return Double.compare(p2.getVariants().get(0).getPrice(),
-                                p1.getVariants().get(0).getPrice());
-                    default:
-                        return 0;
-                }
-            });
+
+        switch (sort) {
+            case "price_Asc":
+                return sortByPrice(true);
+
+            case "price_Desc":
+                return sortByPrice(false);
+
+            case "nameA-Z":
+                return sortByName(true);
+
+            case "nameZ-A":
+                return sortByName(false);
+
+            case "bestSeller":
+                return sortByBestSeller();
+
+            case "rating":
+                return sortByRating();
+
+            case "hot":
+                return sortByHot();
+
+            default:
+                return getAllProducts();
         }
-        return result;
     }
 
     public List<Product> getProductsForWishlist(int userId) {
