@@ -1,4 +1,5 @@
 package org.example.projectweb.service;
+
 import org.example.projectweb.dao.ImageProductDao;
 import org.example.projectweb.dao.ProductDao;
 import org.example.projectweb.dao.ProductVariantDao;
@@ -42,6 +43,10 @@ public class ProductService {
         return pDao.getListProduct();
     }
 
+    public List<Product> getAllProductsNameLike(String name) {
+        return pDao.getAllProductNameLike(name);
+    }
+
     public List<ProductVariant> getAllProductsVariants() {
         List<Integer> lsPID = pDao.getListProductID();
 
@@ -55,6 +60,10 @@ public class ProductService {
 
     public Map<Integer, String> getProductNameMap() {
         return pDao.getProductNameMap();
+    }
+
+    public List<Product> getAllSreachProduct(String name) {
+        return pDao.getAllProductNameLike(name);
     }
 
     public Product getProductById(int productId) {

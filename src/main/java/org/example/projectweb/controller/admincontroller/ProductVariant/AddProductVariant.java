@@ -1,4 +1,4 @@
-package org.example.projectweb.controller.admincontroller.product;
+package org.example.projectweb.controller.admincontroller.ProductVariant;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
