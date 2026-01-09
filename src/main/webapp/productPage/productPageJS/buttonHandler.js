@@ -63,11 +63,23 @@ addToCartBtn.addEventListener('click', () => {
         showMessage('Vui lòng chọn cả màu và kích cỡ trước khi thêm vào giỏ hàng!', 'red');
         return;
     }
+    const pid = addToCartBtn.dataset.pid;
+    const mainImg = addToCartBtn.dataset.mainImg;
     const variant = variants.find(v =>
         v.color === selectedColor && v.size === selectedSize
     );
     showMessage('Thêm vào giỏ hàng thành công!', 'green');
-    window.location = `add-cart?pid=${p.pid}&pvid=${variant.pvid}&mainImg=${mainImg.image}&q=1`;
+    let url = `add-cart?pid=${pid}&pvid=${variant.pvid}&mainImg=${mainImg}&q=1`;
+    fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                showMessage('Thêm vào giỏ hàng thành công!', 'green');
+            }
+        })
+        .catch(() => {
+            showMessage('Lỗi hệ thống!', 'red');
+        });
 });
 
 /* ======= buy button ======= */

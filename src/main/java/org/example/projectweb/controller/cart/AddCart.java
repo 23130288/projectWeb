@@ -14,12 +14,14 @@ import java.io.IOException;
 public class AddCart extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+
         int pid = Integer.parseInt(request.getParameter("pid"));
         int pvid = Integer.parseInt(request.getParameter("pvid"));
         String mainImg = request.getParameter("mainImg");
         int q = Integer.parseInt(request.getParameter("q"));
 
-        System.out.println("fuck you");
         ProductService ps = new ProductService();
 
         Product product = ps.getProductById(pid);
@@ -34,7 +36,7 @@ public class AddCart extends HttpServlet {
         c.addProduct(product, productVariant, mainImg, q);
         session.setAttribute("cart", c);
 
-        response.sendRedirect("cart");
+        response.getWriter().write("{\"success\": true}");
     }
 
     @Override

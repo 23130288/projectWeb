@@ -34,7 +34,7 @@
                                 <c:forEach begin="1" end="5" var="i">
                                     <span class="star">
                                         <c:choose>
-                                            <c:when test="${i <= avgs[st.index]}">
+                                            <c:when test="${i <= listAvgs[st.index]}">
                                                 <i class="fa-solid fa-star"></i>
                                             </c:when>
                                             <c:otherwise>
@@ -43,16 +43,16 @@
                                         </c:choose>
                                     </span>
                                 </c:forEach>
-                                <span class="rating-number">(${avgs[st.index]})</span>
+                                <span class="rating-number">(${listAvgs[st.index]})</span>
                             </div>
                         </div>
                     </div>
                     <div class="wishlist-item-price">${p.variants[0].price} Đ</div>
-                    <div class="wishlist-item-status ${p.totalQuantity > 0 ? 'hasProduct' : 'outOfProduct'}">
+                    <div class="wishlist-item-status ${listQuantities[st.index] > 0 ? 'hasProduct' : 'outOfProduct'}">
                         <c:choose>
-                            <c:when test="${p.totalQuantity > 0}">
+                            <c:when test="${listQuantities[st.index] > 0}">
                                 <i class="fa-solid fa-circle-check"></i>
-                                Còn hàng (${p.totalQuantity})
+                                Còn hàng (${listQuantities[st.index]})
                             </c:when>
                             <c:otherwise>
                                 <i class="fa-solid fa-circle-xmark"></i>

@@ -74,8 +74,11 @@
                     <i class="fa-solid fa-money-check-dollar"></i> Mua
                 </button>
 
-                <button type="button" id="addToCartBtn">
-                    <a id="addCartLink"><i class="fa-solid fa-cart-shopping"></i></a>
+                <button type="button" id="addToCartBtn"
+                        data-pid="${p.pid}"
+                        data-pvid=""
+                        data-main-img="${mainImg.image}">
+                    <i class="fa-solid fa-cart-shopping"></i>
                 </button>
 
                 <form action="productPage" method="post" class="form-wishlist">
