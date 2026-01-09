@@ -9,8 +9,8 @@
                 <button class="bt_menu" id="btn_them_sp">+ Thêm sản phẩm</button>
                 
                 <div class="search-bar">
-                    <input type="text" name="query" placeholder="Tên sản phẩm..."/>
-                    <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <input type="text" name="query" id="searchInput" placeholder="Tên sản phẩm..."/>
+                    <button class="btn-search" onclick="handleSearch()"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
             </div>
             
@@ -476,7 +476,7 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
 
     // Hiển thị mặc định
     infoBox.innerHTML = contents["Quản lý sản phẩm"];
-    loadProductList();
+    handleSearch();
     attachEvents();
 
     // Xử lý menu click
@@ -494,7 +494,7 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
             }
 
             if (text === "Quản lý sản phẩm") {
-                loadProductList()
+                handleSearch();
 
                 const btnThem = document.getElementById("btn_them_sp");
                 if (btnThem) btnThem.addEventListener("click", () => {
@@ -887,7 +887,7 @@ function addProduct() {
                 .then(data => {
                     if (data.success) {
                         alert("Thêm sản phẩm thành công");
-                        loadProductList();
+                        handleSearch();
                     } else {
                         alert(data.message || "Thêm sản phẩm thất bại");
                     }
@@ -999,48 +999,61 @@ function loadSizeByType(type) {
     }
 }
 
-function loadProductList() {
-    fetch('/projectWeb_war/admin/product_load')
+function handleSearch() {
+    const keyword = document.getElementById("searchInput").value.trim();
+    loadProducts(keyword);
+}
+
+function loadProducts(keyword = "") {
+    let url = '/projectWeb_war/admin/product_load';
+
+    if (keyword !== "") {
+        url = `/projectWeb_war/admin/product_Sreach?keyword=${encodeURIComponent(keyword)}`;
+    }
+
+    fetch(url)
         .then(res => res.json())
-        .then(products => {
-            const table = document.getElementById("productTable");
+        .then(products => printProductTable(products))
+        .catch(err => console.error(err));
+}
 
-            // XÓA DỮ LIỆU CŨ
-            table.innerHTML = `
-            <tr>
-                <th>ID</th>
-                <th>Tên</th>
-                <th>Loại</th>
-                <th>Kiểu dáng</th>
-                <th>Chất liệu</th>
-                <th>Còn lại</th>
-                <th>NCC</th>
-                <th>Trạng thái</th>
-                <th>Thao tác</th>
-            </tr>
-            `;
+function printProductTable(products) {
+    const table = document.getElementById("productTable");
 
-            products.forEach(p => {
-                const row = document.createElement("tr");
-                // language=HTML
-                row.innerHTML = `
-                    <td>${p.pid}</td>
-                    <td>${p.name}</td>
-                    <td>${p.type}</td>
-                    <td>${p.style}</td>
-                    <td>${p.material}</td>
-                    <td>${0}</td>
-                    <td>${p.producer}</td>
-                    <td>${p.status}</td>
-                    <td>
-                        <button onclick="addProductVariant(${p.pid}, '${p.name}', '${p.type}')">Thêm_pt</button>
-                        <button onclick="">Sửa</button>
-                        <button onclick="toggleProductStatus(${p.pid})">${p.status}</button>
-                    </td>
-                `;
-                table.appendChild(row);
-            });
-        });
+    //xóa bảng cũ
+    table.innerHTML = `
+        <tr>
+            <th>ID</th>
+            <th>Tên</th>
+            <th>Loại</th>
+            <th>Kiểu dáng</th>
+            <th>Chất liệu</th>
+            <th>Còn lại</th>
+            <th>NCC</th>
+            <th>Trạng thái</th>
+            <th>Thao tác</th>
+        </tr>
+    `;
+
+    products.forEach(p => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${p.pid}</td>
+            <td>${p.name}</td>
+            <td>${p.type}</td>
+            <td>${p.style}</td>
+            <td>${p.material}</td>
+            <td>0</td>
+            <td>${p.producer}</td>
+            <td>${p.status}</td>
+            <td>
+                <button onclick="addProductVariant(${p.pid}, '${p.name}', '${p.type}')">Thêm_pt</button>
+                <button>Sửa</button>
+                <button onclick="toggleProductStatus(${p.pid})">${p.status}</button>
+            </td>
+        `;
+        table.appendChild(row);
+    });
 }
 
 function loadProductVariantList() {
@@ -1094,7 +1107,7 @@ function toggleProductStatus(pid) {
         .then(res => res.json())
         .then(data => {
             alert(data.message);
-            loadProductList(); // load lại bảng
+            handleSearch();
         })
         .catch(err => {
             console.error(err);

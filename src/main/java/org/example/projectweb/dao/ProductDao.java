@@ -50,6 +50,14 @@ public class ProductDao extends BaseDao {
         );
     }
 
+    public List<Product> getAllProductNameLike(String name) {
+        return get().withHandle(h -> h.createQuery(" select pid, name, producer, type, material, style, description, status from product WHERE LOWER(name) LIKE LOWER(:name)")
+                .bind("name", "%" + name + "%")
+                .mapToBean(Product.class)
+                .list()
+        );
+    }
+
     public List<Product> getAllProducts() {
         return get().withHandle(h -> h.createQuery(" select pid, name, producer, type, material, style, description, status from product ")
                         .mapToBean(Product.class)

@@ -1,4 +1,4 @@
-package org.example.projectweb.controller.admincontroller.product;
+package org.example.projectweb.controller.admincontroller.ProductVariant;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
