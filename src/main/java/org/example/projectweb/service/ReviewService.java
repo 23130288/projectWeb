@@ -23,21 +23,15 @@ public class ReviewService {
         return rDao.getAvgRating(productId);
     }
 
-    public List<Double> getAvgRatingsForProducts(List<Product> products) {
-        List<Double> res = new ArrayList<>();
-
-        for (Product p : products) {
-            res.add(getAvgRating(p.getPid()));
-        }
-
-        return res;
-    }
-
     public void addReview(int userId, int productId, int rating, String comment) {
         rDao.addReview(userId, productId, rating, comment);
     }
 
     public void updateReview(int userId, int productId, int rating, String comment) {
         rDao.updateReview(userId, productId, rating, comment);
+    }
+
+    public List<Double> getAvgRatingsForWishlist(int userId) {
+        return rDao.getAvgRatingsForWishlist(userId);
     }
 }

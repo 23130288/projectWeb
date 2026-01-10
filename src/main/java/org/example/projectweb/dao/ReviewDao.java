@@ -33,10 +33,21 @@ public class ReviewDao extends BaseDao {
     }
 
     public void updateReview(int userId, int productId, int rating, String comment) {
-        get().useHandle(h -> {
-            h.createUpdate("update review set rating = :rating, comment = :comment, created_date = NOW() where uid = :uid and pid = :pid")
-                    .bind("uid", userId).bind("pid", productId).bind("comment", comment).bind("rating", rating)
-                    .execute();
-        });
+        get().useHandle(h -> h.createUpdate("update review set rating = :rating, comment = :comment, created_date = NOW() where uid = :uid and pid = :pid")
+                .bind("uid", userId).bind("pid", productId).bind("comment", comment).bind("rating", rating)
+                .execute());
+    }
+
+    /**
+     * Wishlist
+     */
+    public List<Double> getAvgRatingsForWishlist(int userId) {
+        return get().withHandle(h -> h.createQuery("""
+                select AVG(rating)
+                from wishlist wl join review r on wl.pid = r.pid
+                where wl.uid = :uid
+                group by r.pid
+                """)
+                .bind("uid", userId).mapTo(Double.class).list());
     }
 }

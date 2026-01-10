@@ -18,6 +18,9 @@ public class ImageProductDao extends BaseDao {
                     .mapToBean(ImageProduct.class).first());
     }
 
+    /**
+     * Wishlist
+     */
     public List<ImageProduct> getMainImgsForWishlist(int userId) {
         return get().withHandle(h -> h.createQuery("select ip.image from wishlist wl join product p on wl.pid = p.pid " +
                 "join image_product ip on ip.pid = p.pid where wl.uid = :uid and is_main = 1")
