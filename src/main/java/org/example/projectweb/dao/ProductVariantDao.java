@@ -13,8 +13,8 @@ public class ProductVariantDao extends BaseDao {
 
     public ProductVariant findVariant(int pid, String size, String color) {
         return get().withHandle(h -> h.createQuery("SELECT pvid FROM product_variant WHERE pid = :pid AND size = :size AND color = :color")
-                        .bind("pid", pid).bind("size", size).bind("color", color)
-                        .mapToBean(ProductVariant.class).findOne().orElse(null)
+                .bind("pid", pid).bind("size", size).bind("color", color)
+                .mapToBean(ProductVariant.class).findOne().orElse(null)
         );
     }
 
@@ -28,6 +28,14 @@ public class ProductVariantDao extends BaseDao {
         return get().withHandle(h -> h.createQuery("select pvid, pid, size, color, price, quantity from product_variant where pid = :pid")
                 .bind("pid", productId)
                 .mapToBean(ProductVariant.class).list());
+    }
+
+    public List<ProductVariant> searchVariantsByProductName(String name) {
+        return get().withHandle(h -> h.createQuery("SELECT pv.pvid, pv.pid, pv.size, pv.color, pv.price, pv.quantity FROM product_variant pv JOIN product p ON pv.pid = p.pid WHERE LOWER(p.name) LIKE LOWER(:name)")
+                .bind("name", "%" + name + "%")
+                .mapToBean(ProductVariant.class)
+                .list()
+        );
     }
 
     public ProductVariant getVariantByPvid(int pvid) {

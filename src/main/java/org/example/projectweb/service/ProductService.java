@@ -47,6 +47,10 @@ public class ProductService {
         return pDao.getAllProductNameLike(name);
     }
 
+    public List<ProductVariant> searchVariantsByProductName(String name) {
+        return pvDao.searchVariantsByProductName(name);
+    }
+
     public List<ProductVariant> getAllProductsVariants() {
         List<Integer> lsPID = pDao.getListProductID();
 
