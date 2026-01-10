@@ -58,7 +58,8 @@
                             <label class="action-select-product">
                                 <input type="checkbox" name="select-checkbox">
                             </label>
-                            <button class="action-delete-product">Xóa</button>
+                            <a class="action-delete-product" href="remove-cart?pid=${item.product.pid}">Xóa</a>
+<%--                            <button class="action-delete-product" data-pid="${item.product.pid}">Xóa</button>--%>
                         </div>
                     </div>
                 </c:forEach>

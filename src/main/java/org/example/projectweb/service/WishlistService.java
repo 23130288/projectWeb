@@ -6,6 +6,7 @@ import org.example.projectweb.dao.ProductVariantDao;
 import org.example.projectweb.dao.WishlistDao;
 import org.example.projectweb.model.ImageProduct;
 import org.example.projectweb.model.Product;
+import org.example.projectweb.model.ProductVariant;
 
 import java.util.List;
 
@@ -38,5 +39,10 @@ public class WishlistService {
     public void addToWishlist(int userId, int productId) {
         wDao.addToWishlist(userId, productId);
     }
+
+    public List<Integer> getQuantitiesForWishlist(int userId) {
+        return pDao.getQuantitesForWishlist(userId);
+    }
+
 
 }
