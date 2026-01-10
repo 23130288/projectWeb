@@ -25,6 +25,7 @@ public class AddCart extends HttpServlet {
         ProductService ps = new ProductService();
 
         Product product = ps.getProductById(pid);
+        product.setVariants(ps.getVariantsByPid(product.getPid()));
         ProductVariant productVariant = ps.getVariantByPvid(pvid);
         if (product == null) {
             return;

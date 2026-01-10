@@ -68,7 +68,6 @@ addToCartBtn.addEventListener('click', () => {
     const variant = variants.find(v =>
         v.color === selectedColor && v.size === selectedSize
     );
-    showMessage('Thêm vào giỏ hàng thành công!', 'green');
     let url = `add-cart?pid=${pid}&pvid=${variant.pvid}&mainImg=${mainImg}&q=1`;
     fetch(url)
         .then(res => res.json())

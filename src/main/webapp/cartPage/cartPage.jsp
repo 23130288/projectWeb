@@ -24,12 +24,12 @@
 
             <div class="container-product-items">
                 <c:if test="${empty cartItems}">
-                    <p>Giỏ hàng trống</p>
+                    <p id="emptyCart">Giỏ hàng trống</p>
                 </c:if>
                 <c:forEach var="item" items="${cartItems}">
                     <div class="product-item">
                         <div class="product-item-title">
-                            <a href="../productPage/productPage.html">
+                            <a href="productPage?pid=${item.product.pid}">
                                 <img src="${item.mainImg}" class="img_Show" alt="">
                             </a>
                             <div class="product-item-info">
@@ -37,16 +37,16 @@
                                 <p>${item.product.description}</p>
                                 <div class="product-item-variant">
                                     <p>Màu sắc:
-                                        <button class="variant-color"></button>
+                                        <button class="variant-color ${item.productVariant.color}"></button>
                                     </p>
-                                    <p>Kích cỡ: <span class="variant-size">XL</span></p>
+                                    <p>Kích cỡ: <span class="variant-size">${item.productVariant.size}</span></p>
                                 </div>
                             </div>
                         </div>
                         <div class="product-item-more">
                             <p class="price">${item.price} đ</p>
                         </div>
-                        <div class="product-item-quantity">
+                        <div class="product-item-quantity" data-pid="${item.product.pid}">
                             <button class="minus-quantity-button">-</button>
                             <p class="quantity">${item.quantity}</p>
                             <button class="plus-quantity-button">+</button>
@@ -58,8 +58,7 @@
                             <label class="action-select-product">
                                 <input type="checkbox" name="select-checkbox">
                             </label>
-                            <a class="action-delete-product" href="remove-cart?pid=${item.product.pid}">Xóa</a>
-<%--                            <button class="action-delete-product" data-pid="${item.product.pid}">Xóa</button>--%>
+                            <a class="action-delete-product" href="remove-cart?pid=${item.product.pid}"><i class="fa-solid fa-x"></i></a>
                         </div>
                     </div>
                 </c:forEach>
@@ -142,10 +141,10 @@
                         <label>Phương thức thanh toán</label>
                         <div class="radio-container">
                             <label><input type="radio" name="payment" required>Vietcombank
-                                <img src="../images/bankImages/vietcombank.jpg" alt="Chuyển ngân hàng">
+                                <img src="images/bankImages/vietcombank.jpg" alt="Chuyển ngân hàng">
                             </label>
                             <label><input type="radio" name="payment">Visa
-                                <img src="../images/bankImages/visa.jpeg" alt="Chuyển ngân hàng">
+                                <img src="images/bankImages/visa.jpeg" alt="Chuyển ngân hàng">
                             </label>
                             <label><input type="radio" name="payment">Tiền mặt</label>
                         </div>
@@ -159,7 +158,39 @@
         </div>
     </div>
 </main>
-<script src="cartPageJS/quantity.js"></script>
-<script src="cartPageJS/editInfo.js"></script>
+<script>
+    function updateQuantity(pid, delta, qtyEl) {
+        if (!pid) {
+            console.error("PID is undefined");
+            return;
+        }
+
+        const req = new XMLHttpRequest();
+        req.open('POST', 'update-quantity-cart', true);
+        req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        req.onreadystatechange = function () {
+            if (req.readyState === 4) {
+                if (req.status === 200) {
+                    console.log("Server response:", req.responseText);
+                    const data = JSON.parse(req.responseText);
+                    if (data.success) {
+                        qtyEl.textContent = data.quantity;
+                    }
+                } else {
+                    console.error("HTTP error:", req.status);
+                }
+            }
+        };
+        req.send(`pid=${pid}&delta=${delta}`);
+    }
+    document.querySelectorAll('.product-item-quantity').forEach(control => {
+        const pid = control.dataset.pid;
+        const qtyEl = control.querySelector('.quantity');
+
+        control.querySelector('.plus-quantity-button').addEventListener('click', () => updateQuantity(pid, 1, qtyEl));
+        control.querySelector('.minus-quantity-button').addEventListener('click', () => updateQuantity(pid, -1, qtyEl));
+    });
+</script>
+<script src="cartPage/cartPageJS/editInfo.js"></script>
 </body>
 </html>

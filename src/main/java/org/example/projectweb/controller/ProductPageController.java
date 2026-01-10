@@ -20,7 +20,7 @@ public class ProductPageController extends HttpServlet {
         OrderService os = new OrderService();
 
         int userId = 1;
-        int productId = 2;
+        int productId = Integer.parseInt(request.getParameter("pid"));
         Product p = ps.getProductById(productId);
         Review userReview = rs.getReviewByUidAndPid(userId, productId);
 
@@ -52,7 +52,7 @@ public class ProductPageController extends HttpServlet {
             ws.addToWishlist(userId, productId);
         }
 
-        response.sendRedirect("productPage");
+        response.sendRedirect("productPage?pid=" + productId);
     }
 }
 
