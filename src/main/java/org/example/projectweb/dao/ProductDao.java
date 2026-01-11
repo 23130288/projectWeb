@@ -37,6 +37,15 @@ public class ProductDao extends BaseDao {
         );
     }
 
+    public Map<Integer, String> getProductNameMapLike(String name) {
+        return get().withHandle(h ->
+                h.createQuery("SELECT pid, name FROM product where LOWER(name) LIKE LOWER(:name)")
+                        .bind("name", "%" + name + "%")
+                        .map((rs, ctx) -> Map.entry(rs.getInt("pid"), rs.getString("name")))
+                        .list().stream().collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue))
+        );
+    }
+
     public Product getProductById(int productId) {
         return get().withHandle(h -> h.createQuery("select pid, name, producer, type, material, style, description, status from product where pid = :pid")
                 .bind("pid", productId)

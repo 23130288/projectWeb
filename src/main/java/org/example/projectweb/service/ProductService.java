@@ -1,5 +1,6 @@
 package org.example.projectweb.service;
 
+import org.eclipse.tags.shaded.org.apache.xpath.objects.XString;
 import org.example.projectweb.dao.ImageProductDao;
 import org.example.projectweb.dao.ProductDao;
 import org.example.projectweb.dao.ProductVariantDao;
@@ -64,6 +65,10 @@ public class ProductService {
 
     public Map<Integer, String> getProductNameMap() {
         return pDao.getProductNameMap();
+    }
+
+    public Map<Integer, String> getProductNameMaplike(String name) {
+        return pDao.getProductNameMapLike(name);
     }
 
     public List<Product> getAllSreachProduct(String name) {

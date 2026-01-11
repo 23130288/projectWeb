@@ -1,6 +1,9 @@
 package org.example.projectweb.controller.admincontroller.ProductVariant;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -11,6 +14,7 @@ import org.example.projectweb.service.ProductService;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "SreachProductVariant", value = "/admin/Product_Variant_Sreach")
 public class SreachProductVariant extends HttpServlet {
@@ -22,10 +26,18 @@ public class SreachProductVariant extends HttpServlet {
 
         String name = request.getParameter("keyword");
         ProductService productService = new ProductService();
-        List<ProductVariant> productVariants = productService.searchVariantsByProductName(name);
+        List<ProductVariant> ProductVariants = productService.searchVariantsByProductName(name);
+        Map<Integer, String> productNameMap = productService.getProductNameMaplike(name);
 
-        String json = new Gson().toJson(productVariants);
-        response.getWriter().write(json);
+        JsonArray jsonArray = new JsonArray();
+
+        for (ProductVariant pv : ProductVariants) {
+            JsonObject obj = (JsonObject) JsonParser.parseString(new Gson().toJson(pv));
+            obj.addProperty("productName", productNameMap.get(pv.getPid()));
+            jsonArray.add(obj);
+        }
+
+        response.getWriter().write(jsonArray.toString());
     }
 
     @Override
