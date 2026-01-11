@@ -9,8 +9,8 @@
                 <button class="bt_menu" id="btn_them_sp">+ Thêm sản phẩm</button>
                 
                 <div class="search-bar">
-                    <input type="text" name="query" id="searchInput" placeholder="Tên sản phẩm..."/>
-                    <button class="btn-search" onclick="handleSearch()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <input type="text" name="query" id="searchProductInput" placeholder="Tên sản phẩm..."/>
+                    <button class="btn-search" onclick="handleProductSearch()"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
             </div>
             
@@ -27,8 +27,8 @@
 <!--                <button class="bt_menu" id="btn_them_pt_sp">+ Thêm biến thể</button>-->
                 
                 <div class="search-bar">
-                    <input type="text" name="query" placeholder="Tên sản phẩm..."/>
-                    <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                     <input type="text" name="query" id="searchProductVariantInput" placeholder="Tên sản phẩm..."/>
+                    <button class="btn-search" onclick="handleProductVariantSearch()"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
             </div>
             
@@ -476,7 +476,7 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
 
     // Hiển thị mặc định
     infoBox.innerHTML = contents["Quản lý sản phẩm"];
-    handleSearch();
+    handleProductSearch();
     attachEvents();
 
     // Xử lý menu click
@@ -494,7 +494,7 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
             }
 
             if (text === "Quản lý sản phẩm") {
-                handleSearch();
+                handleProductSearch();
 
                 const btnThem = document.getElementById("btn_them_sp");
                 if (btnThem) btnThem.addEventListener("click", () => {
@@ -503,7 +503,7 @@ Vali cao cấp x1 - 1.200.000₫</textarea>
             }
 
             if (text === "Quản lý biến thể sản phẩm") {
-                loadProductVariantList()
+                handleProductVariantSearch()
             }
 
             if (text === "Quản lý người dùng") {
@@ -859,7 +859,7 @@ function addProduct() {
 <!--                        </div>-->
 <!--                    </div>-->
 <!--                </div>-->
-            `, function (closePopup) {
+            `, function () {
             // 1. LẤY DỮ LIỆU NGƯỜI DÙNG
             const name = document.getElementById("p_name").value;
             const type = document.getElementById("p_type").value;
@@ -887,7 +887,7 @@ function addProduct() {
                 .then(data => {
                     if (data.success) {
                         alert("Thêm sản phẩm thành công");
-                        handleSearch();
+                        handleProductSearch();
                     } else {
                         alert(data.message || "Thêm sản phẩm thất bại");
                     }
@@ -944,7 +944,7 @@ function addProductVariant(pid, name, type) {
                     <input type="number" id="p_quantity" placeholder="VD: 10" min="0" step="1">
                 </div>
                                 
-            `, function (closePopup) {
+            `, function () {
             // 1. LẤY DỮ LIỆU NGƯỜI DÙNG
             const pid = document.getElementById("p_pid").value;
             const size = document.getElementById("p_size").value;
@@ -968,7 +968,7 @@ function addProductVariant(pid, name, type) {
                 .then(data => {
                     if (data.success) {
                         alert("Thêm biến thể thành công");
-                        loadProductList();
+                        handleProductVariantSearch();
                     } else {
                         alert(data.message || "Thêm biến thể thất bại");
                     }
@@ -999,9 +999,14 @@ function loadSizeByType(type) {
     }
 }
 
-function handleSearch() {
-    const keyword = document.getElementById("searchInput").value.trim();
+function handleProductSearch() {
+    const keyword = document.getElementById("searchProductInput").value.trim();
     loadProducts(keyword);
+}
+
+function handleProductVariantSearch() {
+    const keyword = document.getElementById("searchProductVariantInput").value.trim();
+    loadProductsVariant(keyword);
 }
 
 function loadProducts(keyword = "") {
@@ -1013,7 +1018,36 @@ function loadProducts(keyword = "") {
 
     fetch(url)
         .then(res => res.json())
-        .then(products => printProductTable(products))
+        .then(products => {
+            //check rỗng
+            if (!products || products.length === 0) {
+                alert("Không tìm sản phẩm nào.");
+                loadProducts("");
+                return;
+            }
+            printProductTable(products);
+        })
+        .catch(err => console.error(err));
+}
+
+function loadProductsVariant(keyword = "") {
+    let url = '/projectWeb_war/admin/Product_Variant_load';
+
+    if (keyword !== "") {
+        url = `/projectWeb_war/admin/Product_Variant_Sreach?keyword=${encodeURIComponent(keyword)}`;
+    }
+
+    fetch(url)
+        .then(res => res.json())
+        .then(productVariants => {
+            //check rỗng
+            if (!productVariants || productVariants.length === 0) {
+                alert("Không tìm thấy biến thể nào.");
+                loadProductsVariant("");
+                return;
+            }
+            printproductVariantsTable(productVariants);
+        })
         .catch(err => console.error(err));
 }
 
@@ -1056,14 +1090,11 @@ function printProductTable(products) {
     });
 }
 
-function loadProductVariantList() {
-    fetch('/projectWeb_war/admin/Product_Variant_load')
-        .then(res => res.json())
-        .then(productVariants => {
-            const table = document.getElementById("productVariantsTable");
+function printproductVariantsTable(productVariants) {
+    const table = document.getElementById("productVariantsTable");
 
-            // XÓA DỮ LIỆU CŨ
-            table.innerHTML = `
+    // XÓA DỮ LIỆU CŨ
+    table.innerHTML = `
             <tr>
                 <th>PVID</th>
                 <th>PID</th>
@@ -1076,24 +1107,23 @@ function loadProductVariantList() {
             </tr>
             `;
 
-            productVariants.forEach(pv => {
-                const row = document.createElement("tr");
-                // language=HTML
-                row.innerHTML = `
-                    <td>${pv.pvid}</td>
-                    <td>${pv.pid}</td>
-                    <td>${pv.productName}</td>
-                    <td>${pv.size}</td>
-                    <td>${pv.color}</td>
-                    <td>${pv.price}</td>
-                    <td>${pv.quantity}</td>
-                    <td>
-                        <button onclick="">Sửa</button>
-                    </td>
-                `;
-                table.appendChild(row);
-            });
-        });
+    productVariants.forEach(pv => {
+        const row = document.createElement("tr");
+        // language=HTML
+        row.innerHTML = `
+            <td>${pv.pvid}</td>
+            <td>${pv.pid}</td>
+            <td>${pv.productName}</td>
+            <td>${pv.size}</td>
+            <td>${pv.color}</td>
+            <td>${pv.price}</td>
+            <td>${pv.quantity}</td>
+            <td>
+                <button onclick="">Sửa</button>
+            </td>
+        `;
+        table.appendChild(row);
+    });
 }
 
 function toggleProductStatus(pid) {
@@ -1107,7 +1137,7 @@ function toggleProductStatus(pid) {
         .then(res => res.json())
         .then(data => {
             alert(data.message);
-            handleSearch();
+            handleProductSearch();
         })
         .catch(err => {
             console.error(err);

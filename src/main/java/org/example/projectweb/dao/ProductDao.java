@@ -37,6 +37,15 @@ public class ProductDao extends BaseDao {
         );
     }
 
+    public Map<Integer, String> getProductNameMapLike(String name) {
+        return get().withHandle(h ->
+                h.createQuery("SELECT pid, name FROM product where LOWER(name) LIKE LOWER(:name)")
+                        .bind("name", "%" + name + "%")
+                        .map((rs, ctx) -> Map.entry(rs.getInt("pid"), rs.getString("name")))
+                        .list().stream().collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue))
+        );
+    }
+
     public Product getProductById(int productId) {
         return get().withHandle(h -> h.createQuery("select pid, name, producer, type, material, style, description, status from product where pid = :pid")
                 .bind("pid", productId)
@@ -50,6 +59,7 @@ public class ProductDao extends BaseDao {
         );
     }
 
+    //lấy tất cả sản phẩm có chứa cụm String được nhâp
     public List<Product> getAllProductNameLike(String name) {
         return get().withHandle(h -> h.createQuery(" select pid, name, producer, type, material, style, description, status from product WHERE LOWER(name) LIKE LOWER(:name)")
                 .bind("name", "%" + name + "%")
@@ -58,79 +68,97 @@ public class ProductDao extends BaseDao {
         );
     }
 
+    //để kiếm biến thể
+    public List<Integer> getAllPidNameLike(String name) {
+        return get().withHandle(h -> h.createQuery(" select pid from product WHERE LOWER(name) LIKE LOWER(:name)")
+                .bind("name", "%" + name + "%")
+                .mapTo(Integer.class).list()
+        );
+    }
+
     public List<Product> getAllProducts() {
         return get().withHandle(h -> h.createQuery(" select pid, name, producer, type, material, style, description, status from product ")
-                        .mapToBean(Product.class)
-                        .list()
+                .mapToBean(Product.class)
+                .list()
         );
     }
+
     public List<Product> getProductByProducer(List<Product> list, String producer) {
         return get().withHandle(h -> h.createQuery(" select pid, name, producer, type, material, style, description, status from product where producer = :producer ")
-                        .bind("producer", producer)
-                        .mapToBean(Product.class)
-                        .list()
+                .bind("producer", producer)
+                .mapToBean(Product.class)
+                .list()
         );
     }
+
     public List<Product> getProductByCategory(List<Product> list, String category) {
         return get().withHandle(h -> h.createQuery(" select pid, name, producer, type, material, style, description, status from product where type = :category ")
-                        .bind("category", category)
-                        .mapToBean(Product.class)
-                        .list()
+                .bind("category", category)
+                .mapToBean(Product.class)
+                .list()
         );
     }
+
     public List<Product> getProductByColor(List<Product> list, String color) {
         return get().withHandle(h -> h.createQuery(" select distinct p.pid, p.name, p.producer, p.type, p.material, p.style, p.description, p.status from product p join product_variant v on p.pid = v.pid WHERE v.color = :color ")
-                        .bind("color", color)
-                        .mapToBean(Product.class)
-                        .list()
+                .bind("color", color)
+                .mapToBean(Product.class)
+                .list()
         );
     }
+
     public List<Product> getProductBySize(List<Product> list, String size) {
         return get().withHandle(h -> h.createQuery(" select distinct p.pid, p.name, p.producer, p.type, p.material, p.style, p.description, p.status from product p join product_variant v on p.pid = v.pid where v.size = :size ")
-                        .bind("size", size)
-                        .mapToBean(Product.class)
-                        .list()
+                .bind("size", size)
+                .mapToBean(Product.class)
+                .list()
         );
     }
+
     public List<Product> getProductByPrice(double min, double max) {
-            return get().withHandle(h -> h.createQuery(" select distinct p.pid, p.name, p.producer, p.type, p.material, p.style, p.description, p.status from product p join product_variant v on p.pid = v.pid where v.price >= :min and v.price <= :max ")
-                            .bind("min", min)
-                            .bind("max", max)
-                            .mapToBean(Product.class)
-                            .list()
-            );
+        return get().withHandle(h -> h.createQuery(" select distinct p.pid, p.name, p.producer, p.type, p.material, p.style, p.description, p.status from product p join product_variant v on p.pid = v.pid where v.price >= :min and v.price <= :max ")
+                .bind("min", min)
+                .bind("max", max)
+                .mapToBean(Product.class)
+                .list()
+        );
 
     }
+
     public List<Product> sortByPrice(boolean asc) {
         String order = asc ? "ASC" : "DESC";
         return get().withHandle(h -> h.createQuery(" select distinct p.pid, p.name, p.producer, p.type, p.material, p.style, p.description, p.status from product p join product_variant v on p.pid = v.pid order by v.price " + order)
-                        .mapToBean(Product.class)
-                        .list()
+                .mapToBean(Product.class)
+                .list()
         );
     }
+
     public List<Product> sortByName(boolean asc) {
         String order = asc ? "ASC" : "DESC";
         return get().withHandle(h -> h.createQuery(" select pid, name, producer, type, material, style, description, status from product order by name " + order)
-                        .mapToBean(Product.class)
-                        .list()
+                .mapToBean(Product.class)
+                .list()
         );
     }
+
     public List<Product> sortByBestSeller() {
         return get().withHandle(h -> h.createQuery(" select p.pid, p.name, p.producer, p.type, p.material, p.style, p.description, p.status, sum(od.quantity) as totalSold from product p join order_detail od on p.pid = od.pid group by p.pid order by totalSold desc ")
-                        .mapToBean(Product.class)
-                        .list()
+                .mapToBean(Product.class)
+                .list()
         );
     }
+
     public List<Product> sortByRating() {
         return get().withHandle(h -> h.createQuery(" select p.pid, p.name, p.producer, p.type, p.material, p.style, p.description, p.status, avg(r.rating) as avgRating from product p join review r on p.pid = r.pid group by p.pid order by avgRating desc ")
-                        .mapToBean(Product.class)
-                        .list()
+                .mapToBean(Product.class)
+                .list()
         );
     }
+
     public List<Product> sortByHot() {
         return get().withHandle(h -> h.createQuery(" select pid, name, producer, type, material, style, description, status from product where status = 'HOT' order by pid desc ")
-                        .mapToBean(Product.class)
-                        .list()
+                .mapToBean(Product.class)
+                .list()
         );
     }
 
