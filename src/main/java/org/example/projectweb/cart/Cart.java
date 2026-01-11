@@ -18,8 +18,11 @@ public class Cart implements Serializable {
     public void addProduct(Product p, ProductVariant pv, String mainImg, int quantity) {
         if (data.containsKey(p.getPid()))
             data.get(p.getPid()).upQuantity(quantity);
-        else
-            data.put(p.getPid(), new CartItem(p, pv, pv.getPrice(), mainImg, quantity));
+        else {
+            CartItem item = new CartItem(p, pv, pv.getPrice(), mainImg, quantity);
+            item.setPid(p.getPid());
+            data.put(p.getPid(), item);
+        }
     }
 
     public CartItem deleteProduct(int pid) {
@@ -49,11 +52,19 @@ public class Cart implements Serializable {
         return total.get();
     }
 
-    public boolean update(int pid, ProductVariant pv) {
+    public boolean updateVariant(int pid, ProductVariant pv) {
         if (data.containsKey(pid)) {
             data.get(pid).setProductVariant(pv);
             return true;
         }
         return false;
     }
+
+    public int updateQuantity(int pid, int delta) {
+        CartItem item = data.get(pid);
+        if (item == null) return 0;
+        System.out.println("sadlkasjdklasjdlksajl");
+        return item.updateQuantity(delta);
+    }
+
 }

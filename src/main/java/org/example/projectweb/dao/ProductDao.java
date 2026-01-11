@@ -195,13 +195,6 @@ public class ProductDao extends BaseDao {
         }
     }
 
-    public List<Product> getProductsForWishlist(int userId) {
-        return get().withHandle(h -> h.createQuery("select p.pid, p.name from product p join wishlist wl on p.pid = wl.pid " +
-                        "where wl.uid = :uid")
-                .bind("uid", userId)
-                .mapToBean(Product.class).list());
-    }
-
     public void updateStatus(int pid, String sta) {
         get().useHandle(h -> h.createUpdate("UPDATE product SET status = :sta WHERE pid = :pid")
                 .bind("pid", pid).bind("sta", sta).execute()
@@ -210,5 +203,24 @@ public class ProductDao extends BaseDao {
 
     public List<Product> search(String query, String category, String color, String size, String minPrice, String maxPrice, String sort) {
         return null;
+    }
+
+    /**
+     * WISHLIST
+     */
+    public List<Product> getProductsForWishlist(int userId) {
+        return get().withHandle(h -> h.createQuery("select p.pid, p.name from product p join wishlist wl on p.pid = wl.pid " +
+                        "where wl.uid = :uid")
+                .bind("uid", userId)
+                .mapToBean(Product.class).list());
+    }
+    public List<Integer> getQuantitesForWishlist(int userId) {
+        return get().withHandle(h -> h.createQuery("""
+                        select SUM(pv.quantity)
+                        from wishlist wl join product_variant pv on wl.pid = wl.pid
+                        where uid = :uid
+                        group by wl.pid
+                        """)
+                .bind("uid", userId).mapTo(Integer.class).list());
     }
 }

@@ -4,6 +4,7 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import org.example.projectweb.model.Product;
+import org.example.projectweb.service.ProductService;
 import org.example.projectweb.service.ReviewService;
 import org.example.projectweb.service.WishlistService;
 
@@ -17,12 +18,13 @@ public class WishlistController extends HttpServlet {
         WishlistService ws = new WishlistService();
         ReviewService rs = new ReviewService();
 
-        List<Product> list = ws.getProductsForWishlist(1);
+        int userId = 1;
+        List<Product> list = ws.getProductsForWishlist(userId);
 
         request.setAttribute("list", list);
-
-        request.setAttribute("listMainImgs", ws.getMainImgsForWishlist(1));
-        request.setAttribute("avgs", rs.getAvgRatingsForProducts(list));
+        request.setAttribute("listMainImgs", ws.getMainImgsForWishlist(userId));
+        request.setAttribute("listAvgs", rs.getAvgRatingsForWishlist(userId));
+        request.setAttribute("listQuantities", ws.getQuantitiesForWishlist(userId));
         request.getRequestDispatcher("wishList/wishListPage.jsp").forward(request, response);
     }
 

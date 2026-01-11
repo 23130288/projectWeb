@@ -57,4 +57,11 @@ public class CartItem implements Serializable {
     public void setProductVariant(ProductVariant productVariant) {
         this.productVariant = productVariant;
     }
+
+    public int updateQuantity(int delta) {
+        this.quantity += delta;
+        if (this.quantity <= 0)
+            this.quantity = 1;
+        return this.quantity;
+    }
 }
