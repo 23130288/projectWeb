@@ -140,4 +140,15 @@ public class ProductService {
         return products;
     }
 
+    public void insertBatch(List<Product> products) {
+        for (Product p : products) {
+            // check tồn tại
+            if (pDao.getProductByName(p.getName()) != null) {
+                System.out.println("Bỏ qua dòng sản phẩm " + p.getName() + " do đã tồn tại.");
+                continue;
+            }
+
+            pDao.addProduct(p.getName(), p.getType(), p.getStyle(), p.getMaterial(), p.getProducer(), p.getStatus(), p.getDescription());
+        }
+    }
 }

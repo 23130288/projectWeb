@@ -791,112 +791,232 @@ function addProduct() {
         "Thêm sản phẩm mới",
         `
                 <div class="popup_item">
-                    <label>Tên sản phẩm:</label>
-                    <input type="text" id="p_name" placeholder="Nhập tên sản phẩm">
+                    <label>Chế độ nhập:</label>
+                    <div style="display:flex; gap:20px;">
+                        <label>
+                            <input type="radio" name="import_mode" value="manual" checked>
+                            Nhập thủ công
+                        </label>
+                        <label>
+                            <input type="radio" name="import_mode" value="excel">
+                            Nhập từ Excel
+                        </label>
+                    </div>
                 </div>
                 
-                <div class="popup_item">
-                    <label>Loại:</label>
-                    <select id="p_type">
-                        <option value="Balo">Balo</option>
-                        <option value="Vali">Vali</option>
-                    </select>            
+                <div id="manual_mode">
+                    <div class="popup_item">
+                        <label>Tên sản phẩm:</label>
+                        <input type="text" id="p_name" placeholder="Nhập tên sản phẩm">
+                    </div>
+                    
+                    <div class="popup_item">
+                        <label>Loại:</label>
+                        <select id="p_type">
+                            <option value="Balo">Balo</option>
+                            <option value="Vali">Vali</option>
+                        </select>            
+                    </div>
+                    
+                    <div class="popup_item">
+                        <label>Kiểu dáng:</label>
+                        <select id="p_style">
+                            <option value="túi đeo chéo">túi đeo chéo</option>
+                            <option value="túi đeo bụng">túi đeo bụng</option>
+                            <option value="túi sách">túi sách</option>
+                        </select> 
+                    </div>
+              
+                    <div class="popup_item">
+                        <label>Chất liệu:</label>
+                        <select id="p_material">
+                            <option value="Balo">hợp kim</option>
+                            <option value="Vali">coston</option>
+                        </select>            
+                    </div>
+                    
+                    <div class="popup_item">
+                        <label>Tên nhà cung cấp:</label>
+                        <input type="text" id="p_producer" placeholder="Nhập nhà cung cấp">
+                    </div>
+                    
+                    <div class="popup_item">
+                        <label>Trạng thái:</label>
+                        <select id="p_status">
+                            <option value="đang bán">Đang bán</option>
+                            <option value="bán chạy">Bán chạy</option>
+                            <option value="dừng bán">Dừng bán</option>
+                        </select>
+                    </div>
+                
+                    <div class="popup_item">
+                        <label>Mô tả:</label>
+                        <textarea id="p_description"></textarea>
+                    </div>
+                
+                    <div class="popup_item">
+                        <label>Ảnh sản phẩm:</label>
+                    
+                        <!-- Khu vực kéo/thả -->
+                        <div class="img-upload-box" id="drop-zone">
+                            <span>+</span>
+                            <p>Kéo hoặc click để thêm ảnh</p>
+                            <input type="file" id="sp-img" accept="image/*" multiple>
+                        </div>
+                    
+                        <!-- Khu vực preview nhiều ảnh -->
+                        <div class="preview-list" id="preview-list">
+                            <div class="preview-item">
+                                <img src="image/balo1.jpg" alt="Balo 1">
+                            </div>
+                            <div class="preview-item">
+                                <img src="image/balo2.jpg" alt="Balo 2">
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="popup_item">
-                    <label>Kiểu dáng:</label>
-                    <select id="p_style">
-                        <option value="túi đeo chéo">túi đeo chéo</option>
-                        <option value="túi đeo bụng">túi đeo bụng</option>
-                        <option value="túi sách">túi sách</option>
-                    </select> 
+                <div id="excel_mode" style="display:none;">
+                    <div class="popup_item">
+                        <label>Nhập sản phẩm từ Excel:</label>
+                        <div class="img-upload-box" id="excel-drop-zone">
+                            <span>+</span>
+                            <p>Kéo hoặc click để tải file Excel (.xlsx)</p>
+                            <input type="file" id="excel_file" accept=".xlsx,.xls" multiple>
+                        </div>
+                        <p style="font-size:13px; color:#666;">
+                            File Excel phải có các cột: name, type, style, material, producer, status, description
+                        </p>
+                        
+                        <!-- Khu vực preview -->
+                        <div class="excel-preview" id="excel-preview-list">
+                            <!-- file excel sẽ hiện ở đây -->
+                        </div>
+                    </div>
                 </div>
-          
-                <div class="popup_item">
-                    <label>Chất liệu:</label>
-                    <select id="p_material">
-                        <option value="Balo">hợp kim</option>
-                        <option value="Vali">coston</option>
-                    </select>            
-                </div>
-                
-                <div class="popup_item">
-                    <label>Tên nhà cung cấp:</label>
-                    <input type="text" id="p_producer" placeholder="Nhập nhà cung cấp">
-                </div>
-                
-                <div class="popup_item">
-                    <label>Trạng thái:</label>
-                    <select id="p_status">
-                        <option value="đang bán">Đang bán</option>
-                        <option value="bán chạy">Bán chạy</option>
-                        <option value="dừng bán">Dừng bán</option>
-                    </select>
-                </div>
-            
-                <div class="popup_item">
-                    <label>Mô tả:</label>
-                    <textarea id="p_description"></textarea>
-                </div>
-            
-                <div class="popup_item">
-                    <label>Ảnh sản phẩm:</label>
-                
-<!--                    &lt;!&ndash; Khu vực kéo/thả &ndash;&gt;-->
-<!--                    <div class="img-upload-box" id="drop-zone">-->
-<!--                        <span>+</span>-->
-<!--                        <p>Kéo hoặc click để thêm ảnh</p>-->
-<!--&lt;!&ndash;                        <input type="file" id="sp-img" accept="image/*" multiple>&ndash;&gt;-->
-<!--                    </div>-->
-<!--                -->
-<!--                    &lt;!&ndash; Khu vực preview nhiều ảnh &ndash;&gt;-->
-<!--                    <div class="preview-list" id="preview-list">-->
-<!--                        <div class="preview-item">-->
-<!--                            <img src="image/balo1.jpg" alt="Balo 1">-->
-<!--                        </div>-->
-<!--                        <div class="preview-item">-->
-<!--                            <img src="image/balo2.jpg" alt="Balo 2">-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-            `, function () {
-            // 1. LẤY DỮ LIỆU NGƯỜI DÙNG
-            const name = document.getElementById("p_name").value;
-            const type = document.getElementById("p_type").value;
-            const style = document.getElementById("p_style").value;
-            const material = document.getElementById("p_material").value;
-            const producer = document.getElementById("p_producer").value;
-            const status = document.getElementById("p_status").value;
-            const description = document.getElementById("p_description").value;
 
-            // 2. GỬI AJAX POST
-            fetch("/projectWeb_war/admin/product_add", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
-                },
-                body:
-                    "name=" + encodeURIComponent(name) +
-                    "&type=" + encodeURIComponent(type) +
-                    "&style=" + encodeURIComponent(style) +
-                    "&material=" + encodeURIComponent(material) +
-                    "&producer=" + encodeURIComponent(producer) +
-                    "&status=" + encodeURIComponent(status) +
-                    "&description=" + encodeURIComponent(description)
-            }).then(res => res.json())
-                .then(data => {
-                    if (data.success) {
-                        alert("Thêm sản phẩm thành công");
-                        handleProductSearch();
-                    } else {
-                        alert(data.message || "Thêm sản phẩm thất bại");
-                    }
+            `, function () {
+            const mode = document.querySelector("input[name='import_mode']:checked").value;
+
+            if (mode === "manual") {
+                // ===== MODE NHẬP TAY =====
+                const name = document.getElementById("p_name").value;
+                const type = document.getElementById("p_type").value;
+                const style = document.getElementById("p_style").value;
+                const material = document.getElementById("p_material").value;
+                const producer = document.getElementById("p_producer").value;
+                const status = document.getElementById("p_status").value;
+                const description = document.getElementById("p_description").value;
+                //check dữ liệu nhập
+                if ("" === name) {
+                    alert("Vui lòng nhập tên Sản phẩm.");
+                    return;
+                }
+                if ("" === producer) {
+                    alert("Vui lòng nhập tên nhà cung cấp.");
+                    return;
+                }
+                //gọi ajax
+                fetch("/projectWeb_war/admin/product_add", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+                    },
+                    body:
+                        "name=" + encodeURIComponent(name) +
+                        "&type=" + encodeURIComponent(type) +
+                        "&style=" + encodeURIComponent(style) +
+                        "&material=" + encodeURIComponent(material) +
+                        "&producer=" + encodeURIComponent(producer) +
+                        "&status=" + encodeURIComponent(status) +
+                        "&description=" + encodeURIComponent(description)
                 })
-                .catch(err => {
-                    console.error(err);
-                    alert("Không kết nối được server");
-                });
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert("Thêm sản phẩm thành công");
+                            handleProductSearch();
+                        } else {
+                            alert(data.message || "Thêm sản phẩm thất bại");
+                        }
+                    })
+                    .catch(err => {
+                        console.error(err);
+                        alert("Không kết nối được server");
+                    });
+
+            } else {
+                // ===== MODE EXCEL =====
+                const fileInput = document.getElementById("excel_file");
+                const file = fileInput.files[0];
+
+                if (!file) {
+                    alert("Vui lòng chọn file Excel");
+                    return;
+                }
+
+                const formData = new FormData();
+                formData.append("excelFile", file);
+
+                fetch("/projectWeb_war/admin/product_excel_add", {
+                    method: "POST",
+                    body: formData
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert("Nhập sản phẩm từ Excel thành công");
+                            handleProductSearch();
+                        } else {
+                            alert(data.message || "Nhập Excel thất bại");
+                        }
+                    })
+                    .catch(err => {
+                        console.error(err);
+                        alert("Không kết nối được server");
+                    });
+            }
         });
+    setTimeout(() => {
+        const radios = document.querySelectorAll("input[name='import_mode']");
+        const manualBox = document.getElementById("manual_mode");
+        const excelBox = document.getElementById("excel_mode");
+
+        radios.forEach(radio => {
+            radio.addEventListener("change", () => {
+                if (radio.value === "manual") {
+                    manualBox.style.display = "block";
+                    excelBox.style.display = "none";
+                } else {
+                    manualBox.style.display = "none";
+                    excelBox.style.display = "block";
+                }
+            });
+        });
+    }, 0);
+    setTimeout(() => {
+        const excelInput = document.getElementById("excel_file");
+        const previewBox = document.getElementById("excel-preview-list");
+
+        if (!excelInput || !previewBox) return;
+
+        excelInput.addEventListener("change", () => {
+            previewBox.innerHTML = "";
+
+            Array.from(excelInput.files).forEach(file => {
+                const div = document.createElement("div");
+                div.className = "preview-item excel-preview";
+
+                div.innerHTML = `
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <span>${file.name}</span>
+                </div>
+            `;
+
+                previewBox.appendChild(div);
+            });
+        });
+    }, 0);
 }
 
 function addProductVariant(pid, name, type) {
