@@ -428,3 +428,10 @@ body {
     object-fit: cover;
     border: 3px solid #EDB310;
 }
+.excel-preview {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #f9f9f9;
+    font-size: 14px;
+}
