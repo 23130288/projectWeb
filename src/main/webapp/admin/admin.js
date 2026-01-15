@@ -866,12 +866,7 @@ function addProduct() {
                     
                         <!-- Khu vực preview nhiều ảnh -->
                         <div class="preview-list" id="preview-list">
-                            <div class="preview-item">
-                                <img src="image/balo1.jpg" alt="Balo 1">
-                            </div>
-                            <div class="preview-item">
-                                <img src="image/balo2.jpg" alt="Balo 2">
-                            </div>
+                            <!-- ảnh được nhập sẽ hiện ở đây -->
                         </div>
                     </div>
                 </div>
@@ -1008,12 +1003,35 @@ function addProduct() {
                 div.className = "preview-item excel-preview";
 
                 div.innerHTML = `
-                <div style="display:flex; align-items:center; gap:8px;">
-                    <span>${file.name}</span>
-                </div>
+                <span style="font-weight:600;">XLS</span>
+                <span class="file-name">${file.name}</span>
             `;
 
                 previewBox.appendChild(div);
+            });
+        });
+    }, 0);
+
+    setTimeout(() => {
+        const imgInput = document.getElementById("sp-img");
+        const previewImgBox = document.getElementById("preview-list");
+
+        if (!imgInput || !previewImgBox) return;
+
+        imgInput.addEventListener("change", () => {
+            previewImgBox.innerHTML = "";
+
+            Array.from(imgInput.files).forEach(file => {
+                if (!file.type.startsWith("image/")) return;
+
+                const div = document.createElement("div");
+                div.className = "preview-item";
+
+                div.innerHTML = `
+                <img src="${URL.createObjectURL(file)}">
+            `;
+
+                previewImgBox.appendChild(div);
             });
         });
     }, 0);

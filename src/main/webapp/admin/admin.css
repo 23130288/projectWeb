@@ -390,21 +390,28 @@ body {
 }
 
 /* danh sách preview */
-.popup_item .preview-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
 .popup_item .preview-list .preview-item {
     width: 90px;
     height: 90px;
-    border: 1px solid #555;
+    border: 1px solid #EDB310;
     border-radius: 8px;
     overflow: hidden;
+    box-sizing: border-box;
+    background: #f8f8f8;
+}
+
+.popup_item .preview-list {
+    display: grid;
+    gap: 12px;
+    padding: 10px 15px;
+    border: 1px solid #EDB310;
+    border-radius: 8px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
 }
 
 .popup_item .preview-list .preview-item img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -428,10 +435,27 @@ body {
     object-fit: cover;
     border: 3px solid #EDB310;
 }
-.excel-preview {
-    padding: 8px 12px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    background: #f9f9f9;
-    font-size: 14px;
+
+/* danh sách preview file Excel */
+#excel-preview-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
+
+.excel-preview {
+    display: flex;
+    gap: 12px;
+    padding: 10px 15px;
+    border: 1px solid #EDB310;
+    border-radius: 8px;
+    color: black;
+}
+
+.excel-preview .file-name {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
