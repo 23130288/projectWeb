@@ -201,10 +201,6 @@ public class ProductDao extends BaseDao {
         );
     }
 
-    public List<Product> search(String query, String category, String color, String size, String minPrice, String maxPrice, String sort) {
-        return null;
-    }
-
     /**
      * WISHLIST
      */
