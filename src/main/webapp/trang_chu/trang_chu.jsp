@@ -58,83 +58,134 @@
     <c:if test="${not empty hotProducts}">
         <h2>SẢN PHẨM HOT</h2>
         <div class="slider-container">
+
             <div class="arrow left"><i class="fa fa-angle-left"></i></div>
+
             <div class="product-grid">
                 <c:forEach var="p" items="${hotProducts}">
                     <a href="productDetail?pid=${p.pid}" class="product-link">
                         <div class="product-card">
-                            <img src="${p.mainImage.image}" alt="${p.name}">
+
+                            <c:choose>
+                                <c:when test="${not empty p.mainImage}">
+                                    <img src="${p.mainImage.image}" alt="${p.name}">
+                                </c:when>
+                                <c:otherwise>
+                                    <img src="image/no-image.png" alt="No image">
+                                </c:otherwise>
+                            </c:choose>
+
                             <h3>${p.name}</h3>
-                            <p class="price">
-                                <span class="new-price">
-                                    <fmt:formatNumber value="${p.variants[0].price}" pattern="#,###"/>đ
-                                </span>
-                            </p>
+
+                            <c:if test="${not empty p.variants}">
+                                <p class="price">
+                                    <span class="new-price">
+                                        <fmt:formatNumber value="${p.variants[0].price}" pattern="#,###"/>đ
+                                    </span>
+                                </p>
+                            </c:if>
+
                             <div class="product-actions">
                                 <button class="buy-btn">Mua Ngay</button>
                                 <div class="inner-circle1">
                                     <i class="fa fa-shopping-cart"></i>
                                 </div>
                             </div>
+
                         </div>
                     </a>
                 </c:forEach>
             </div>
+
             <div class="arrow right"><i class="fa fa-angle-right"></i></div>
         </div>
     </c:if>
 
     <h2>VALI DU LỊCH</h2>
     <div class="slider-container">
+
         <div class="arrow left"><i class="fa fa-angle-left"></i></div>
+
         <div class="product-grid">
             <c:forEach var="p" items="${valiProducts}">
                 <a href="productDetail?pid=${p.pid}" class="product-link">
                     <div class="product-card">
-                        <img src="${p.mainImage.image}" alt="${p.name}">
+
+                        <c:choose>
+                            <c:when test="${not empty p.mainImage}">
+                                <img src="${p.mainImage.image}" alt="${p.name}">
+                            </c:when>
+                            <c:otherwise>
+                                <img src="image/no-image.png" alt="No image">
+                            </c:otherwise>
+                        </c:choose>
+
                         <h3>${p.name}</h3>
-                        <p class="price">
-                            <span class="new-price">
-                                <fmt:formatNumber value="${p.variants[0].price}" pattern="#,###"/>đ
-                            </span>
-                        </p>
+
+                        <c:if test="${not empty p.variants}">
+                            <p class="price">
+                                <span class="new-price">
+                                    <fmt:formatNumber value="${p.variants[0].price}" pattern="#,###"/>đ
+                                </span>
+                            </p>
+                        </c:if>
+
                         <div class="product-actions">
                             <button class="buy-btn">Mua Ngay</button>
                             <div class="inner-circle1">
                                 <i class="fa fa-shopping-cart"></i>
                             </div>
                         </div>
+
                     </div>
                 </a>
             </c:forEach>
         </div>
+
         <div class="arrow right"><i class="fa fa-angle-right"></i></div>
     </div>
 
     <h2>BALO DU LỊCH</h2>
     <div class="slider-container">
+
         <div class="arrow left"><i class="fa fa-angle-left"></i></div>
+
         <div class="product-grid">
             <c:forEach var="p" items="${baloProducts}">
                 <a href="productDetail?pid=${p.pid}" class="product-link">
                     <div class="product-card">
-                        <img src="${p.mainImage.image}" alt="${p.name}">
+
+                        <c:choose>
+                            <c:when test="${not empty p.mainImage}">
+                                <img src="${p.mainImage.image}" alt="${p.name}">
+                            </c:when>
+                            <c:otherwise>
+                                <img src="image/no-image.png" alt="No image">
+                            </c:otherwise>
+                        </c:choose>
+
                         <h3>${p.name}</h3>
-                        <p class="price">
-                            <span class="new-price">
-                                <fmt:formatNumber value="${p.variants[0].price}" pattern="#,###"/>đ
-                            </span>
-                        </p>
+
+                        <c:if test="${not empty p.variants}">
+                            <p class="price">
+                                <span class="new-price">
+                                    <fmt:formatNumber value="${p.variants[0].price}" pattern="#,###"/>đ
+                                </span>
+                            </p>
+                        </c:if>
+
                         <div class="product-actions">
                             <button class="buy-btn">Mua Ngay</button>
                             <div class="inner-circle1">
                                 <i class="fa fa-shopping-cart"></i>
                             </div>
                         </div>
+
                     </div>
                 </a>
             </c:forEach>
         </div>
+
         <div class="arrow right"><i class="fa fa-angle-right"></i></div>
     </div>
 

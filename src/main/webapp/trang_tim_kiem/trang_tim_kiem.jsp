@@ -29,6 +29,13 @@
             <i class="fa-solid fa-plus"></i>
         </button>
         <!-- FILTER DROPDOWN -->
+        <div class="filter-group">
+            <label>Hãng sản xuất:</label>
+            <input type="text" name="producer"
+                   placeholder="Nhập hãng..."
+                   value="${producer}">
+        </div>
+
         <div class="filter-panel" id="filterPanel">
             <div class="filter-group">
                 <label>Loại:</label>

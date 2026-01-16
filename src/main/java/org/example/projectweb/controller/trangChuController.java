@@ -20,39 +20,25 @@ public class trangChuController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Product> allProducts = productDao.getListProduct();
-
-        for (Product p : allProducts) {
-            p.setImages(imageProductDao.getImagesByProductId(p.getPid()));
-            p.setVariants(productVariantDao.getVariantsByProductId(p.getPid()));
-        }
-
-        List<Product> hotProducts = new ArrayList<>();
-        List<Product> valiProducts = new ArrayList<>();
-        List<Product> baloProducts = new ArrayList<>();
-
-        for (Product p : allProducts) {
-            String style = p.getStyle();
-            String status = p.getStatus();
-
-            if (status != null && status.equalsIgnoreCase("Hot")) {
-                hotProducts.add(p);
-            }
-
-            if (style != null && style.equalsIgnoreCase("Du Lịch")) {
-                valiProducts.add(p);
-            }
-
-            if (style != null && style.equalsIgnoreCase("Du Lịch")) {
-                baloProducts.add(p);
-            }
-
-        }
-
-        request.setAttribute("hotProducts", hotProducts);
-        request.setAttribute("valiProducts", valiProducts);
-        request.setAttribute("baloProducts", baloProducts);
+//        List<Product> hotProducts = productDao.getHotProducts();
+//        List<Product> valiProducts = productDao.getValiProducts();
+//        List<Product> baloProducts = productDao.getBaloProducts();
+//
+//        loadExtraData(hotProducts);
+//        loadExtraData(valiProducts);
+//        loadExtraData(baloProducts);
+//
+//        request.setAttribute("hotProducts", hotProducts);
+//        request.setAttribute("valiProducts", valiProducts);
+//        request.setAttribute("baloProducts", baloProducts);
 
         request.getRequestDispatcher("trang_chu/trang_chu.jsp").forward(request, response);
     }
+
+//    private void loadExtraData(List<Product> products) {
+//        for (Product p : products) {
+//            p.setImages(imageProductDao.getImagesByProductId(p.getPid()));
+//            p.setVariants(productVariantDao.getVariantsByProductId(p.getPid()));
+//        }
+//    }
 }
