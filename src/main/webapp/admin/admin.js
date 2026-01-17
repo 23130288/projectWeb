@@ -866,12 +866,7 @@ function addProduct() {
                     
                         <!-- Khu vực preview nhiều ảnh -->
                         <div class="preview-list" id="preview-list">
-                            <div class="preview-item">
-                                <img src="image/balo1.jpg" alt="Balo 1">
-                            </div>
-                            <div class="preview-item">
-                                <img src="image/balo2.jpg" alt="Balo 2">
-                            </div>
+                            <!-- ảnh được nhập sẽ hiện ở đây -->
                         </div>
                     </div>
                 </div>
@@ -907,6 +902,8 @@ function addProduct() {
                 const producer = document.getElementById("p_producer").value;
                 const status = document.getElementById("p_status").value;
                 const description = document.getElementById("p_description").value;
+                const imgInput = document.getElementById("sp-img");
+                const files = imgInput.files;
                 //check dữ liệu nhập
                 if ("" === name) {
                     alert("Vui lòng nhập tên Sản phẩm.");
@@ -916,20 +913,30 @@ function addProduct() {
                     alert("Vui lòng nhập tên nhà cung cấp.");
                     return;
                 }
+                if (!files || files.length === 0) {
+                    alert("Vui lòng chọn ít nhất 1 ảnh");
+                    return;
+                }
+                const formData = new FormData();
+
+                // dữ liệu sản phẩm
+                formData.append("name", name);
+                formData.append("type", type);
+                formData.append("style", style);
+                formData.append("material", material);
+                formData.append("producer", producer);
+                formData.append("status", status);
+                formData.append("description", description);
+
+                // ảnh
+                Array.from(files).forEach(file => {
+                    formData.append("images", file);
+                });
+
                 //gọi ajax
                 fetch("/projectWeb_war/admin/product_add", {
                     method: "POST",
-                    headers: {
-                        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
-                    },
-                    body:
-                        "name=" + encodeURIComponent(name) +
-                        "&type=" + encodeURIComponent(type) +
-                        "&style=" + encodeURIComponent(style) +
-                        "&material=" + encodeURIComponent(material) +
-                        "&producer=" + encodeURIComponent(producer) +
-                        "&status=" + encodeURIComponent(status) +
-                        "&description=" + encodeURIComponent(description)
+                    body: formData
                 })
                     .then(res => res.json())
                     .then(data => {
@@ -1008,12 +1015,35 @@ function addProduct() {
                 div.className = "preview-item excel-preview";
 
                 div.innerHTML = `
-                <div style="display:flex; align-items:center; gap:8px;">
-                    <span>${file.name}</span>
-                </div>
+                <span style="font-weight:600;">XLS</span>
+                <span class="file-name">${file.name}</span>
             `;
 
                 previewBox.appendChild(div);
+            });
+        });
+    }, 0);
+
+    setTimeout(() => {
+        const imgInput = document.getElementById("sp-img");
+        const previewImgBox = document.getElementById("preview-list");
+
+        if (!imgInput || !previewImgBox) return;
+
+        imgInput.addEventListener("change", () => {
+            previewImgBox.innerHTML = "";
+
+            Array.from(imgInput.files).forEach(file => {
+                if (!file.type.startsWith("image/")) return;
+
+                const div = document.createElement("div");
+                div.className = "preview-item";
+
+                div.innerHTML = `
+                <img src="${URL.createObjectURL(file)}">
+            `;
+
+                previewImgBox.appendChild(div);
             });
         });
     }, 0);

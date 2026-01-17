@@ -1,15 +1,20 @@
 package org.example.projectweb.controller.admincontroller.product;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
 import org.example.projectweb.service.ProductService;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(name = "AddProduct", value = "/admin/product_add")
+@MultipartConfig
 public class AddProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -17,12 +22,12 @@ public class AddProduct extends HttpServlet {
 
     }
 
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ProductService ps = new ProductService();
 
+        // 1. Lấy dữ liệu text
         String name = request.getParameter("name");
         String type = request.getParameter("type");
         String style = request.getParameter("style");
@@ -31,8 +36,18 @@ public class AddProduct extends HttpServlet {
         String status = request.getParameter("status");
         String description = request.getParameter("description");
 
-        boolean ok = ps.addProduct( name, type, style, material, producer, status, description);
+        // 2. Lấy danh sách ảnh
+        List<Part> imageParts = new ArrayList<>();
+        for (Part part : request.getParts()) {
+            if ("images".equals(part.getName()) && part.getSize() > 0) {
+                imageParts.add(part);
+            }
+        }
 
+        // 3. Gọi Service (ném tất cả cho Service xử lý)
+        boolean ok = ps.addProduct(name, type, style, material, producer, status, description, imageParts);
+
+        // 4. Trả JSON
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
