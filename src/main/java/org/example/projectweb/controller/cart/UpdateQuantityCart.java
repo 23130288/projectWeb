@@ -4,7 +4,6 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import org.example.projectweb.cart.Cart;
-import org.example.projectweb.cart.CartItem;
 
 import java.io.IOException;
 
@@ -17,23 +16,24 @@ public class UpdateQuantityCart extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println(">>> UpdateQuantityCart doPost CALLED");
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
         int pid = Integer.parseInt(request.getParameter("pid"));
-        System.out.println("pid = " + request.getParameter("pid"));
-
         int delta = Integer.parseInt(request.getParameter("delta"));
-        System.out.println("delta = " + request.getParameter("delta"));
+
         HttpSession session = request.getSession();
         Cart c = (Cart) session.getAttribute("cart");
         if (c == null)
             c = new Cart();
         int quantity = c.updateQuantity(pid, delta);
-
         session.setAttribute("cart", c);
-        response.getWriter().print("{\"success\":true,\"quantity\":" + quantity + "}");
+        response.getWriter().print("{" +
+                "\"success\":true," +
+                "\"quantity\":" + quantity + "," +
+                "\"itemTotalPrice\":" + c.getItemTotalPrice(pid) + "," +
+                "\"cartTotalPrice\":" + c.getTotalPrice() +
+                "}");
     }
 }
 

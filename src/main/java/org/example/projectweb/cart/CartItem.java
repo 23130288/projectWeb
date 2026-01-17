@@ -23,7 +23,6 @@ public class CartItem implements Serializable {
 
     /**
      * Getters
-     * @param quantity
      */
     public void upQuantity(int quantity) {
         if (quantity <= 0) quantity = 1;
@@ -52,7 +51,6 @@ public class CartItem implements Serializable {
 
     /**
      * Setters
-     * @param productVariant
      */
     public void setProductVariant(ProductVariant productVariant) {
         this.productVariant = productVariant;
