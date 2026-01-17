@@ -6,6 +6,19 @@ import java.util.List;
 
 public class ImageProductDao extends BaseDao {
 
+    public void insertProductImage(int pid, String imagePath, boolean isMain) {
+        get().useHandle(h ->
+                h.createUpdate("""
+                INSERT INTO image_product (pid, image, is_main)
+                VALUES (:pid, :image, :isMain)
+            """)
+                        .bind("pid", pid)
+                        .bind("image", imagePath)
+                        .bind("isMain", isMain)
+                        .execute()
+        );
+    }
+
     public List<ImageProduct> getImagesByProductId(int productId) {
         return get().withHandle(h -> h.createQuery("select image from image_product where pid = :pid")
                     .bind("pid", productId)

@@ -902,6 +902,8 @@ function addProduct() {
                 const producer = document.getElementById("p_producer").value;
                 const status = document.getElementById("p_status").value;
                 const description = document.getElementById("p_description").value;
+                const imgInput = document.getElementById("sp-img");
+                const files = imgInput.files;
                 //check dữ liệu nhập
                 if ("" === name) {
                     alert("Vui lòng nhập tên Sản phẩm.");
@@ -911,20 +913,30 @@ function addProduct() {
                     alert("Vui lòng nhập tên nhà cung cấp.");
                     return;
                 }
+                if (!files || files.length === 0) {
+                    alert("Vui lòng chọn ít nhất 1 ảnh");
+                    return;
+                }
+                const formData = new FormData();
+
+                // dữ liệu sản phẩm
+                formData.append("name", name);
+                formData.append("type", type);
+                formData.append("style", style);
+                formData.append("material", material);
+                formData.append("producer", producer);
+                formData.append("status", status);
+                formData.append("description", description);
+
+                // ảnh
+                Array.from(files).forEach(file => {
+                    formData.append("images", file);
+                });
+
                 //gọi ajax
                 fetch("/projectWeb_war/admin/product_add", {
                     method: "POST",
-                    headers: {
-                        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
-                    },
-                    body:
-                        "name=" + encodeURIComponent(name) +
-                        "&type=" + encodeURIComponent(type) +
-                        "&style=" + encodeURIComponent(style) +
-                        "&material=" + encodeURIComponent(material) +
-                        "&producer=" + encodeURIComponent(producer) +
-                        "&status=" + encodeURIComponent(status) +
-                        "&description=" + encodeURIComponent(description)
+                    body: formData
                 })
                     .then(res => res.json())
                     .then(data => {
