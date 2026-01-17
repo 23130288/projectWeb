@@ -37,7 +37,8 @@
                                 <p>${item.product.description}</p>
                                 <div class="product-item-variant">
                                     <p>Màu sắc:
-                                        <button class="variant-color ${item.productVariant.color}"></button>
+                                        <button type="button"
+                                                class="variant-color ${item.productVariant.color}"></button>
                                     </p>
                                     <p>Kích cỡ: <span class="variant-size">${item.productVariant.size}</span></p>
                                 </div>
@@ -47,18 +48,19 @@
                             <p class="price">${item.price} đ</p>
                         </div>
                         <div class="product-item-quantity" data-pid="${item.product.pid}">
-                            <button class="minus-quantity-button">-</button>
+                            <button type="button" class="minus-quantity-button">-</button>
                             <p class="quantity">${item.quantity}</p>
-                            <button class="plus-quantity-button">+</button>
+                            <button type="button" class="plus-quantity-button">+</button>
                         </div>
                         <div class="product-item-more">
-                            <p class="total">${item.price * item.quantity} đ</p>
+                            <p class="total" data-price="${item.price}">${item.price * item.quantity} đ</p>
                         </div>
                         <div class="product-item-more">
                             <label class="action-select-product">
                                 <input type="checkbox" name="select-checkbox">
                             </label>
-                            <a class="action-delete-product" href="remove-cart?pid=${item.product.pid}"><i class="fa-solid fa-x"></i></a>
+                            <a class="action-delete-product" href="remove-cart?pid=${item.product.pid}"><i
+                                    class="fa-solid fa-x"></i></a>
                         </div>
                     </div>
                 </c:forEach>
@@ -67,31 +69,36 @@
 
         <%-- ====================================== Price ====================================== --%>
         <div class="container-product-price">
-<%--            <div class="container-price" id="container-voucher">--%>
-<%--                <label>Voucher:</label>--%>
-<%--                <div class="vouchers">--%>
-<%--                    <label>--%>
-<%--                        <input type="checkbox" name="voucher" value="5%">--%>
-<%--                        <span class="voucher-name">Giảm giá 5%</span>--%>
-<%--                        <span class="voucher-condition">Áp dụng cho đơn từ 200k</span>--%>
-<%--                    </label>--%>
+            <div class="container-price voucher-box" id="container-voucher">
+                <div class="voucher-header" id="voucher-toggle">
+                    <label>Voucher</label>
+                    <span class="voucher-selected" id="voucher-selected">Chưa chọn</span>
+                    <span class="arrow">▼</span>
+                </div>
 
-<%--                    <label>--%>
-<%--                        <input type="checkbox" name="voucher" value="free_ship">--%>
-<%--                        <span class="voucher-name">Miễn phí vận chuyển</span>--%>
-<%--                        <span class="voucher-condition">Áp dụng cho đơn từ 0đ</span>--%>
-<%--                    </label>--%>
+                <div class="vouchers" id="voucher-list">
+                    <label>
+                        <input type="radio" name="voucher">
+                        <span class="voucher-name">Giảm giá 5%</span>
+                        <span class="voucher-condition">Áp dụng cho đơn từ 200k</span>
+                    </label>
 
-<%--                    <label>--%>
-<%--                        <input type="checkbox" name="voucher" value="10%">--%>
-<%--                        <span class="voucher-name">Giảm 10%</span>--%>
-<%--                        <span class="voucher-condition">Áp dụng cho đơn từ 500k</span>--%>
-<%--                    </label>--%>
-<%--                </div>--%>
-<%--            </div>--%>
+                    <label>
+                        <input type="radio" name="voucher">
+                        <span class="voucher-name">Miễn phí vận chuyển</span>
+                        <span class="voucher-condition">Áp dụng cho đơn từ 0đ</span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="voucher">
+                        <span class="voucher-name">Giảm 10%</span>
+                        <span class="voucher-condition">Áp dụng cho đơn từ 500k</span>
+                    </label>
+                </div>
+            </div>
             <div class="container-price">
                 <label>Tổng tiền:</label>
-                <p>${cart.totalPrice} đ</p>
+                <p id="cart-total-price">${cart.totalPrice} đ</p>
             </div>
             <div class="container-price">
                 <label>Giảm giá:</label>
@@ -99,7 +106,7 @@
             </div>
             <div class="container-price" id="final-price">
                 <label class="title">Tổng thanh toán:</label>
-                <p class="price">${cart.totalPrice} đ</p>
+                <p class="price" id="cart-final-price">${cart.totalPrice} đ</p>
             </div>
         </div>
 
@@ -159,38 +166,27 @@
     </div>
 </main>
 <script>
-    function updateQuantity(pid, delta, qtyEl) {
-        if (!pid) {
-            console.error("PID is undefined");
-            return;
-        }
-
-        const req = new XMLHttpRequest();
-        req.open('POST', 'update-quantity-cart', true);
-        req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        req.onreadystatechange = function () {
-            if (req.readyState === 4) {
-                if (req.status === 200) {
-                    console.log("Server response:", req.responseText);
-                    const data = JSON.parse(req.responseText);
-                    if (data.success) {
-                        qtyEl.textContent = data.quantity;
-                    }
-                } else {
-                    console.error("HTTP error:", req.status);
-                }
-            }
-        };
-        req.send(`pid=${pid}&delta=${delta}`);
-    }
-    document.querySelectorAll('.product-item-quantity').forEach(control => {
-        const pid = control.dataset.pid;
-        const qtyEl = control.querySelector('.quantity');
-
-        control.querySelector('.plus-quantity-button').addEventListener('click', () => updateQuantity(pid, 1, qtyEl));
-        control.querySelector('.minus-quantity-button').addEventListener('click', () => updateQuantity(pid, -1, qtyEl));
-    });
 </script>
 <script src="cartPage/cartPageJS/editInfo.js"></script>
+<script src="cartPage/cartPageJS/quantity.js"></script>
+<script>
+    const voucherBox = document.querySelector('.voucher-box');
+    const toggle = document.getElementById('voucher-toggle');
+    const selectedText = document.getElementById('voucher-selected');
+
+    toggle.addEventListener('click', () => {
+        voucherBox.classList.toggle('open');
+    });
+
+    // khi chọn voucher
+    document.querySelectorAll('input[name="voucher"]').forEach(radio => {
+        radio.addEventListener('change', () => {
+            const label = radio.closest('label').querySelector('.voucher-name').textContent;
+
+            selectedText.textContent = label;
+            voucherBox.classList.remove('open');
+        });
+    });
+</script>
 </body>
 </html>

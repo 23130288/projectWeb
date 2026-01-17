@@ -20,7 +20,6 @@ public class Cart implements Serializable {
             data.get(p.getPid()).upQuantity(quantity);
         else {
             CartItem item = new CartItem(p, pv, pv.getPrice(), mainImg, quantity);
-            item.setPid(p.getPid());
             data.put(p.getPid(), item);
         }
     }
@@ -42,8 +41,14 @@ public class Cart implements Serializable {
     public int getTotalQuantity() {
         AtomicInteger total = new AtomicInteger();
         data.values().stream().forEach(p -> {
-            total.addAndGet(p.getQuantity());});
+            total.addAndGet(p.getQuantity());
+        });
         return total.get();
+    }
+
+    public double getItemTotalPrice(int pid) {
+        CartItem item = data.get(pid);
+        return item.getPrice() * item.getQuantity();
     }
 
     public double getTotalPrice() {
@@ -63,8 +68,6 @@ public class Cart implements Serializable {
     public int updateQuantity(int pid, int delta) {
         CartItem item = data.get(pid);
         if (item == null) return 0;
-        System.out.println("sadlkasjdklasjdlksajl");
         return item.updateQuantity(delta);
     }
-
 }
